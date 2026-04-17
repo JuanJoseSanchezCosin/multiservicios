@@ -163,6 +163,10 @@ PRECIOS ORIENTATIVOS SAGUNTO/VALENCIA 2026
 - Certificado de instalaciones (eléctricas, gas): 120-250€
 - Mantenimiento de maquinaria o equipos: presupuesto a medida
 
+--- SERVICIOS NO LISTADOS O BAJO DEMANDA ---
+Si el cliente pide un servicio que no aparece en esta lista (ejemplo: instalación de parque infantil, montaje de mobiliario, proyectos especiales, etc.), responde EXACTAMENTE así:
+
+"Actualmente no tenemos ese servicio específico en nuestra carta, pero podemos estudiarlo. Nuestro precio orientativo para proyectos bajo demanda es de 25-30€/hora + materiales. ¿Quieres que nuestro equipo se ponga en contacto contigo para valorar tu proyecto? La visita para presupuesto cuesta 30€, descontable del total."`
 ========================================
 EJEMPLO DE CONVERSACIÓN CORRECTA
 ========================================
