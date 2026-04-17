@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcula tu presupuesto | Camp de Morvedre Servicios Integrales</title>
+    <meta name="description" content="Calcula el precio estimado de tu reforma, pintura, fontanería, página web o chatbot de IA. Introduce los datos y obtén un presupuesto aproximado al instante.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .calculator-section {
+            background: var(--gray-light);
+            padding: 60px 0;
+        }
+        .calculator-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        .calculator-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .calculator-header h1 {
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+        .calculator-body {
+            padding: 30px;
+        }
+        .form-group-calc {
+            margin-bottom: 25px;
+        }
+        .form-group-calc label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+        .form-group-calc select,
+        .form-group-calc input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--gray);
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        .price-display {
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .price-display .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 10px 0 0;
+        }
+        .price-display .price small {
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+        .price-display .note {
+            font-size: 0.8rem;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+        .lead-form {
+            background: var(--gray-light);
+            padding: 20px;
+            border-radius: 16px;
+            margin-top: 20px;
+        }
+        .lead-form h4 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        .lead-form input {
+            width: 100%;
+            padding: 10px 14px;
+            margin-bottom: 10px;
+            border: 1px solid var(--gray);
+            border-radius: 8px;
+        }
+        .btn-calc {
+            background: var(--accent);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+        }
+        .info-text {
+            font-size: 0.8rem;
+            color: var(--gray-dark);
+            text-align: center;
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            .calculator-body { padding: 20px; }
+            .price-display .price { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="contact-info">
+                    <a href="tel:665327929"><i class="fas fa-phone-alt"></i> 665 327 929</a>
+                    <a href="mailto:info@campdemorvedreserviciosintegrales.es"><i class="fas fa-envelope"></i> info@campdemorvedreserviciosintegrales.es</a>
+                </div>
+                <div class="hours-info">
+                    <i class="fas fa-clock"></i> L-V: 9:00-20:00 | S: 9:00-14:00
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Camp de Morvedre<br><span>Servicios Integrales</span></h1>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav class="nav-menu" id="navMenu">
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="empresas.html">Para Empresas</a></li>
+                        <li><a href="nosotros.html">Sobre nosotros</a></li>
+                        <li><a href="calculadora.html" class="active">💰 Calcula tu presupuesto</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="calculator-section">
+        <div class="container">
+            <div class="calculator-container">
+                <div class="calculator-header">
+                    <h1>💰 Calcula tu presupuesto estimado</h1>
+                    <p>Selecciona el servicio y los detalles. Obtén un precio orientativo al instante.</p>
+                </div>
+                <div class="calculator-body">
+                    <div class="form-group-calc">
+                        <label><i class="fas fa-tools"></i> Tipo de servicio</label>
+                        <select id="servicio">
+                            <option value="pintura">🎨 Pintura de paredes</option>
+                            <option value="fontaneria">🚰 Fontanería / avería</option>
+                            <option value="electricidad">⚡ Electricidad / instalación</option>
+                            <option value="limpieza">🧹 Limpieza profesional</option>
+                            <option value="jardineria">🌿 Jardinería / poda</option>
+                            <option value="reforma">🏗️ Pequeña reforma / obra</option>
+                            <option value="web">💻 Creación de página web</option>
+                            <option value="ia">🤖 Automatización con IA / Chatbot</option>
+                        </select>
+                    </div>
+
+                    <div id="camposDinamicos"></div>
+
+                    <div class="price-display">
+                        <strong>💰 Presupuesto estimado</strong>
+                        <div class="price" id="precioEstimado">--- €</div>
+                        <div class="note">*Precio orientativo + IVA. Incluye materiales y mano de obra básica.</div>
+                    </div>
+
+                    <div class="lead-form" id="leadForm" style="display: none;">
+                        <h4>📋 ¿Te interesa? Déjanos tus datos</h4>
+                        <input type="text" id="leadNombre" placeholder="Tu nombre">
+                        <input type="tel" id="leadTelefono" placeholder="Tu teléfono">
+                        <input type="email" id="leadEmail" placeholder="Tu email">
+                        <button class="btn-calc" id="enviarLead">Enviar solicitud</button>
+                    </div>
+
+                    <div class="info-text">
+                        <i class="fas fa-info-circle"></i> Este es un cálculo automático. El presupuesto final puede variar según el estado real. Te llamaremos para concretar.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <h3>Camp de Morvedre<br><span>Servicios Integrales</span></h3>
+                    </div>
+                    <p>Tu multiservicios de confianza en el Camp de Morvedre.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="tel:665327929"><i class="fas fa-phone-alt"></i> 665 327 929</a></li>
+                        <li><a href="mailto:info@campdemorvedreserviciosintegrales.es"><i class="fas fa-envelope"></i> info@campdemorvedreserviciosintegrales.es</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Camp de Morvedre Servicios Integrales. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/34665327929" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="js/main.js"></script>
+    <script>
+        const servicioSelect = document.getElementById('servicio');
+        const camposDinamicos = document.getElementById('camposDinamicos');
+        const precioElemento = document.getElementById('precioEstimado');
+        const leadForm = document.getElementById('leadForm');
+        
+        function renderizarCampos() {
+            const servicio = servicioSelect.value;
+            
+            if (servicio === 'pintura') {
+                camposDinamicos.innerHTML = `
+                    <div class="form-group-calc"><label>📏 Metros cuadrados</label><input type="number" id="metros" value="80" min="10" max="500"></div>
+                    <div class="form-group-calc"><label>🎨 Tipo de pared</label><select id="tipoPared"><option value="liso">Liso</option><option value="textura">Con textura</option><option value="reparar">Requiere reparación</option></select></div>
+                    <div class="form-group-calc"><label>🖌️ Cambio de color</label><select id="cambioColor"><option value="mismo">Mismo color</option><option value="claro">Claro sobre oscuro</option><option value="oscuro">Oscuro sobre claro</option></select></div>
+                `;
+            } else if (servicio === 'fontaneria') {
+                camposDinamicos.innerHTML = `
+                    <div class="form-group-calc"><label>🚰 Tipo de avería</label><select id="tipoFontaneria"><option value="pequena">Pequeña (fuga, grifo)</option><option value="media">Media (cisterna, tubería)</option><option value="grande">Grande (tubería empotrada)</option></select></div>
+                    <div class="form-group-calc"><label>⏱️ Urgencia</label><select id="urgencia"><option value="normal">Normal (48-72h)</option><option value="urgente">Urgente (24h)</option><option value="inmediato">Inmediato (2-4h)</option></select></div>
+                `;
+            } else if (servicio === 'electricidad') {
+                camposDinamicos.innerHTML = `<div class="form-group-calc"><label>⚡ Tipo de trabajo</label><select id="tipoElectricidad"><option value="pequeno">Pequeño (enchufe, luz)</option><option value="medio">Medio (instalar punto de luz)</option><option value="grande">Grande (instalación completa)</option></select></div>`;
+            } else if (servicio === 'limpieza') {
+                camposDinamicos.innerHTML = `
+                    <div class="form-group-calc"><label>🏢 Tipo de espacio</label><select id="tipoLimpieza"><option value="piso">Piso / casa</option><option value="oficina">Oficina / local</option><option value="comunidad">Comunidad (zonas comunes)</option></select></div>
+                    <div class="form-group-calc"><label>📅 Frecuencia</label><select id="frecuencia"><option value="puntual">Puntual</option><option value="semanal">Semanal</option><option value="quincenal">Quincenal</option></select></div>
+                `;
+            } else if (servicio === 'jardineria') {
+                camposDinamicos.innerHTML = `
+                    <div class="form-group-calc"><label>🌿 Tipo de trabajo</label><select id="tipoJardin"><option value="corte">Corte de césped / seto</option><option value="poda">Poda de árboles</option><option value="limpieza">Limpieza de parcela</option></select></div>
+                    <div class="form-group-calc"><label>📏 Metros cuadrados</label><input type="number" id="metrosJardin" value="50"></div>
+                `;
+            } else if (servicio === 'reforma') {
+                camposDinamicos.innerHTML = `
+                    <div class="form-group-calc"><label>🏗️ Tipo de reforma</label><select id="tipoReforma"><option value="pequena">Pequeña (cambiar suelo)</option><option value="media">Media (baño, cocina)</option><option value="integral">Integral (vivienda)</option></select></div>
+                    <div class="form-group-calc"><label>📏 Metros cuadrados</label><input type="number" id="metrosReforma" value="80"></div>
+                `;
+            } else if (servicio === 'web') {
+                camposDinamicos.innerHTML = `
+                    <div class="form-group-calc"><label>💻 Tipo de web</label><select id="tipoWeb"><option value="landing">Landing page (1 página)</option><option value="corporativa">Web corporativa (5-10 páginas)</option><option value="tienda">Tienda online (e-commerce)</option><option value="personalizada">Web a medida + panel gestión</option></select></div>
+                    <div class="form-group-calc"><label>🎨 Diseño</label><select id="disenoWeb"><option value="plantilla">Plantilla profesional</option><option value="personalizado">Diseño personalizado (+300€)</option></select></div>
+                    <div class="form-group-calc"><label>🚀 Extras</label><select id="extrasWeb"><option value="ninguno">Solo web</option><option value="seo">Optimización SEO (+200€)</option><option value="blog">Blog integrado (+150€)</option><option value="todo">SEO + Blog (+400€)</option></select></div>
+                `;
+            } else if (servicio === 'ia') {
+                camposDinamicos.innerHTML = `
+                    <div class="form-group-calc"><label>🤖 Tipo de automatización</label><select id="tipoIA"><option value="chatbot">Chatbot básico (preguntas frecuentes)</option><option value="chatbot_avanzado">Chatbot avanzado (captura leads)</option><option value="asistente">Asistente virtual personalizado</option><option value="proceso">Automatización de procesos internos</option></select></div>
+                    <div class="form-group-calc"><label>🔌 Integraciones</label><select id="integracionesIA"><option value="web">Web / WhatsApp</option><option value="web_crm">Web + CRM / email (+200€)</option><option value="completa">Solución completa + entrenamiento IA (+500€)</option></select></div>
+                    <div class="form-group-calc"><label>📈 Mantenimiento mensual</label><select id="mantenimientoIA"><option value="ninguno">Sin mantenimiento</option><option value="basico">Básico (actualizaciones) +50€/mes</option><option value="completo">Completo + mejoras +100€/mes</option></select></div>
+                `;
+            }
+            
+            document.querySelectorAll('#camposDinamicos input, #camposDinamicos select').forEach(el => {
+                el.addEventListener('change', calcularPrecio);
+                el.addEventListener('input', calcularPrecio);
+            });
+            calcularPrecio();
+        }
+        
+        function calcularPrecio() {
+            const servicio = servicioSelect.value;
+            let precio = 0;
+            
+            if (servicio === 'pintura') {
+                const metros = parseInt(document.getElementById('metros')?.value) || 80;
+                const tipoPared = document.getElementById('tipoPared')?.value || 'liso';
+                const cambioColor = document.getElementById('cambioColor')?.value || 'mismo';
+                let precioPorM2 = 8;
+                if (tipoPared === 'textura') precioPorM2 = 12;
+                if (tipoPared === 'reparar') precioPorM2 = 15;
+                if (cambioColor === 'claro') precioPorM2 += 3;
+                if (cambioColor === 'oscuro') precioPorM2 += 5;
+                precio = metros * precioPorM2;
+            } else if (servicio === 'fontaneria') {
+                const tipo = document.getElementById('tipoFontaneria')?.value || 'pequena';
+                const urgencia = document.getElementById('urgencia')?.value || 'normal';
+                const precios = { pequena: 80, media: 150, grande: 300 };
+                precio = precios[tipo];
+                if (urgencia === 'urgente') precio += 50;
+                if (urgencia === 'inmediato') precio += 100;
+            } else if (servicio === 'electricidad') {
+                const tipo = document.getElementById('tipoElectricidad')?.value || 'pequeno';
+                const precios = { pequeno: 70, medio: 180, grande: 400 };
+                precio = precios[tipo];
+            } else if (servicio === 'limpieza') {
+                const tipo = document.getElementById('tipoLimpieza')?.value || 'piso';
+                const frecuencia = document.getElementById('frecuencia')?.value || 'puntual';
+                const precios = { piso: 120, oficina: 100, comunidad: 200 };
+                precio = precios[tipo];
+                if (frecuencia === 'semanal') precio = Math.round(precio * 0.7);
+                if (frecuencia === 'quincenal') precio = Math.round(precio * 0.85);
+            } else if (servicio === 'jardineria') {
+                const tipo = document.getElementById('tipoJardin')?.value || 'corte';
+                const metros = parseInt(document.getElementById('metrosJardin')?.value) || 50;
+                const precios = { corte: 1.5, poda: 3, limpieza: 2 };
+                precio = metros * precios[tipo];
+            } else if (servicio === 'reforma') {
+                const tipo = document.getElementById('tipoReforma')?.value || 'pequena';
+                const metros = parseInt(document.getElementById('metrosReforma')?.value) || 80;
+                const precios = { pequena: 60, media: 120, integral: 250 };
+                precio = metros * precios[tipo];
+            } else if (servicio === 'web') {
+                const tipoWeb = document.getElementById('tipoWeb')?.value || 'landing';
+                const disenoWeb = document.getElementById('disenoWeb')?.value || 'plantilla';
+                const extrasWeb = document.getElementById('extrasWeb')?.value || 'ninguno';
+                const preciosWeb = { landing: 500, corporativa: 1200, tienda: 1800, personalizada: 3000 };
+                precio = preciosWeb[tipoWeb];
+                if (disenoWeb === 'personalizado') precio += 300;
+                const extrasPrecio = { ninguno: 0, seo: 200, blog: 150, todo: 400 };
+                precio += extrasPrecio[extrasWeb];
+            } else if (servicio === 'ia') {
+                const tipoIA = document.getElementById('tipoIA')?.value || 'chatbot';
+                const integracionesIA = document.getElementById('integracionesIA')?.value || 'web';
+                const mantenimientoIA = document.getElementById('mantenimientoIA')?.value || 'ninguno';
+                const preciosIA = { chatbot: 400, chatbot_avanzado: 800, asistente: 1500, proceso: 2500 };
+                precio = preciosIA[tipoIA];
+                const integracionPrecio = { web: 0, web_crm: 200, completa: 500 };
+                precio += integracionPrecio[integracionesIA];
+                if (mantenimientoIA === 'basico') precio += 50;
+                if (mantenimientoIA === 'completo') precio += 100;
+            }
+            
+            precioElemento.innerHTML = `${Math.round(precio)} € <small>+ IVA</small>`;
+            leadForm.style.display = precio > 50 ? 'block' : 'none';
+        }
+        
+        document.getElementById('enviarLead')?.addEventListener('click', () => {
+            const nombre = document.getElementById('leadNombre')?.value;
+            const telefono = document.getElementById('leadTelefono')?.value;
+            if (!nombre || !telefono) return alert('Completa nombre y teléfono.');
+            const leads = JSON.parse(localStorage.getItem('presupuestos_leads') || '[]');
+            leads.push({ nombre, telefono, email: document.getElementById('leadEmail')?.value, servicio: servicioSelect.options[servicioSelect.selectedIndex]?.text, precio: precioElemento.innerText, fecha: new Date().toISOString() });
+            localStorage.setItem('presupuestos_leads', JSON.stringify(leads));
+            alert(`✅ Gracias ${nombre}. Te llamaremos en breve.`);
+            document.getElementById('leadNombre').value = '';
+            document.getElementById('leadTelefono').value = '';
+            document.getElementById('leadEmail').value = '';
+            leadForm.style.display = 'none';
+        });
+        
+        servicioSelect.addEventListener('change', renderizarCampos);
+        renderizarCampos();
+    </script>
+</body>
+</html>
