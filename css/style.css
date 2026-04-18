@@ -79,16 +79,34 @@ h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 0.75rem; }
     padding: 15px 0;
 }
 
-.logo h1 {
-    font-size: 1.4rem;
-    color: var(--primary);
+/* === ESTILOS DEL LOGO CON IMAGEN === */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.logo span {
-    font-size: 0.9rem;
+.logo-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 30%;
+}
+
+.logo-text h1 {
+    margin-bottom: 0;
+    font-size: 1.3rem;
+    line-height: 1.2;
+}
+
+.logo-text span {
+    font-size: 0.75rem;
     font-weight: 400;
     color: var(--secondary);
 }
+
+/* === FIN ESTILOS LOGO === */
 
 .nav-menu ul {
     display: flex;
@@ -130,7 +148,9 @@ h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 0.75rem; }
     gap: 40px;
 }
 
-.hero-text { flex: 1; }
+.hero-text { 
+    flex: 1; 
+}
 
 .hero-badge {
     background: rgba(255,255,255,0.2);
@@ -141,7 +161,9 @@ h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 0.75rem; }
     margin-bottom: 1rem;
 }
 
-.hero h1 { font-size: 2.8rem; }
+.hero h1 { 
+    font-size: 2.8rem; 
+}
 
 .hero-buttons {
     display: flex;
@@ -181,17 +203,52 @@ h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 0.75rem; }
 .hero-stats {
     background: rgba(255,255,255,0.1);
     backdrop-filter: blur(10px);
-    padding: 24px;
-    border-radius: 20px;
-    display: flex;
-    gap: 30px;
+    padding: 15px 25px;
+    border-radius: 50px;
+    display: inline-flex;
+    gap: 40px;
+    margin-top: 30px;
 }
 
 .stat-number {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     display: block;
 }
+
+.stat-label {
+    font-size: 0.8rem;
+}
+
+/* === ESTILOS DE LA IMAGEN DEL HERO (CORREGIDOS) === */
+.hero-image {
+    flex: 1;
+    text-align: center;
+    max-width: 400px;
+}
+
+.hero-img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    object-fit: cover;
+    object-position: center 20%;
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+    .hero-image {
+        max-width: 250px;
+        margin: 0 auto;
+    }
+    
+    .hero-img {
+        max-width: 200px;
+    }
+}
+/* === FIN ESTILOS HERO === */
 
 section { padding: 60px 0; }
 
@@ -618,14 +675,12 @@ section { padding: 60px 0; }
     .top-bar-content { flex-direction: column; text-align: center; }
     .hero h1 { font-size: 1.8rem; }
     .hero-stats { flex-direction: column; gap: 15px; text-align: center; }
-    
 }
 
 /* ============================================ */
 /* PÁGINA SOBRE NOSOTROS - ESTILOS EXCLUSIVOS  */
 /* ============================================ */
 
-/* Cabecera de página */
 .page-header {
     background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     padding: 60px 0;
@@ -643,7 +698,6 @@ section { padding: 60px 0; }
     opacity: 0.9;
 }
 
-/* Sección principal Sobre Nosotros */
 .about-main {
     padding: 80px 0;
     background: var(--gray-light);
@@ -669,7 +723,6 @@ section { padding: 60px 0; }
     margin-bottom: 20px;
 }
 
-/* Estadísticas */
 .about-stats {
     display: flex;
     gap: 30px;
@@ -695,7 +748,6 @@ section { padding: 60px 0; }
     color: var(--gray-dark);
 }
 
-/* Imagen lateral */
 .about-main-image {
     background: var(--gray);
     border-radius: 20px;
@@ -713,7 +765,6 @@ section { padding: 60px 0; }
     object-fit: cover;
 }
 
-/* Sección de valores */
 .values {
     padding: 60px 0;
     background: white;
@@ -756,7 +807,6 @@ section { padding: 60px 0; }
     color: #666;
 }
 
-/* Cita de compromiso */
 .team-commitment {
     padding: 60px 0;
     background: var(--gray-light);
@@ -789,7 +839,6 @@ section { padding: 60px 0; }
     opacity: 0.8;
 }
 
-/* Ajustes responsive para Sobre Nosotros */
 @media (max-width: 992px) {
     .about-main-content {
         grid-template-columns: 1fr;
@@ -885,4 +934,156 @@ section { padding: 60px 0; }
         padding: 10px 0;
         display: block;
     }
+    /* ============================================ */
+/* PÁGINAS LEGALES (Aviso Legal, Privacidad, Cookies) */
+/* ============================================ */
+
+.page-header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    padding: 60px 0;
+    text-align: center;
+    color: white;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.legal-content {
+    padding: 60px 0;
+    background: var(--gray-light);
+}
+
+.legal-box {
+    background: white;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.legal-box h2 {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent);
+    padding-left: 15px;
+}
+
+.legal-box h2:first-of-type {
+    margin-top: 0;
+}
+
+.legal-box h3 {
+    color: var(--primary-dark);
+    font-size: 1.2rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.legal-box p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+.legal-box ul {
+    margin-bottom: 20px;
+    padding-left: 30px;
+}
+
+.legal-box li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.legal-box a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.legal-box a:hover {
+    text-decoration: underline;
+}
+
+.legal-date {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--gray);
+    font-size: 0.85rem;
+    color: var(--gray-dark);
+    text-align: right;
+}
+
+@media (max-width: 768px) {
+    .legal-box {
+        padding: 25px;
+    }
+    
+    .legal-box h2 {
+        font-size: 1.3rem;
+    }
+    
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .page-header p {
+        font-size: 1rem;
+    }
+}
+
+.legal-links {
+    margin-top: 15px;
+}
+
+.legal-links a {
+    color: var(--gray-light);
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+.legal-links a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+/* ============================================ */
+/* REDES SOCIALES EN BARRA SUPERIOR */
+/* ============================================ */
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1rem;
+    transition: opacity 0.3s;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    opacity: 0.8;
+}
+
+/* Ajuste responsive */
+@media (max-width: 768px) {
+    .top-bar-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+}
 }
