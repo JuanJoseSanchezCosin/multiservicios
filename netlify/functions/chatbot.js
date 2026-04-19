@@ -203,7 +203,7 @@ Tú: "Ah, perfecto. Para una reforma completa de baño, el PRESUPUESTO ORIENTATI
   } catch (error) {
     console.error('Error:', error);
     return new Response(JSON.stringify({ 
-      reply: '⚠️ Lo siento, tengo problemas técnicos. ¿Puedes escribirnos al WhatsApp 665 327 929? Te atenderemos enseguida.'
+      reply: '⚠️ Lo siento, tengo problemas técnicos. ¿Puedes escribirnos al WhatsApp 603 018 190? Te atenderemos enseguida.'
     }), { status: 500 });
   }
 };
