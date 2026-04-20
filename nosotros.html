@@ -3,32 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multiservicios Sagunto | Sobre nosotros | Tu equipo de confianza</title>
+    <title>Multiservicios Sagunto | Sobre nosotros</title>
     <meta name="description" content="Conoce al equipo de Multiservicios Sagunto. Más de 10 años de experiencia en mantenimiento, reparaciones y servicios integrales en Sagunto y comarca.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para el slider */
+        .about-main-image {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .slider-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slides img {
+            width: 100%;
+            flex-shrink: 0;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+        }
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px 15px;
+            font-size: 18px;
+            border-radius: 50%;
+            z-index: 10;
+        }
+        .slider-btn:hover { background: #e67e22; }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+        .slider-dots { text-align: center; margin-top: 15px; }
+        .dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            background: #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .dot.active { background: #e67e22; }
+    </style>
 </head>
 <body>
 
     <div class="top-bar">
         <div class="container">
             <div class="top-bar-content">
-    <div class="contact-info">
-        <a href="tel:603018190"><i class="fas fa-phone-alt"></i> 603 018 190</a>
-        <a href="mailto:info@multiserviciossagunto.es"><i class="fas fa-envelope"></i> info@multiserviciossagunto.es</a>
-    </div>
-    <div class="social-links">
-        <a href="#" target="_blank" id="fb-link"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" target="_blank" id="ig-link"><i class="fab fa-instagram"></i></a>
-        <a href="#" target="_blank" id="x-link"><i class="fab fa-twitter"></i></a>
-        <a href="#" target="_blank" id="linkedin-link"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#" target="_blank" id="tiktok-link"><i class="fab fa-tiktok"></i></a>
-    </div>
-    <div class="hours-info">
-        <i class="fas fa-clock"></i> L-V: 9:00-20:00 | S: 9:00-14:00
-    </div>
-</div>
+                <div class="contact-info">
+                    <a href="tel:603018190"><i class="fas fa-phone-alt"></i> 603 018 190</a>
+                    <a href="mailto:info@multiserviciossagunto.es"><i class="fas fa-envelope"></i> info@multiserviciossagunto.es</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/multiservisagunto/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/multiserviciosagunto/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@multiserviciossagunto" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://x.com/multisersagunto" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/multiserviciossagunto/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div class="hours-info">
+                    <i class="fas fa-clock"></i> L-V: 8:00-21:00 | S: 10:00-20:00 | D: 10:00-14:00
+                </div>
+            </div>
         </div>
     </div>
 
@@ -46,10 +98,10 @@
                 </button>
                 <nav class="nav-menu" id="navMenu">
                     <ul>
-                        <li><a href="index.html" class="active">Inicio</a></li>
+                        <li><a href="index.html">Inicio</a></li>
                         <li><a href="servicios.html">Servicios</a></li>
                         <li><a href="empresas.html">Para Empresas</a></li>
-                        <li><a href="nosotros.html">Sobre nosotros</a></li>
+                        <li><a href="nosotros.html" class="active">Sobre nosotros</a></li>
                         <li><a href="calculadora.html">💰 Calcula tu presupuesto</a></li>
                         <li><a href="contacto.html">Contacto</a></li>
                     </ul>
@@ -58,7 +110,6 @@
         </div>
     </header>
 
-    <!-- Página Sobre Nosotros -->
     <section class="page-header">
         <div class="container">
             <h1>Sobre <span class="highlight">nosotros</span></h1>
@@ -75,27 +126,58 @@
                     <p>En <strong>Multiservicios Sagunto</strong> no somos una gran empresa anónima. Somos un equipo de profesionales de la comarca que entendemos las necesidades reales de nuestros vecinos, comunidades y empresas.</p>
                     <p>Llevamos más de una década trabajando en mantenimiento de edificios públicos, comunidades de vecinos y empresas de la zona. Conocemos cada calle, cada tipo de avería y, sobre todo, sabemos lo que significa la palabra <strong>"urgencia"</strong>.</p>
                     <p>No te vamos a vender lo que no necesitas. Te damos un presupuesto cerrado, sin sorpresas, y si algo no sale como esperamos, lo repetimos sin coste.</p>
-                    
                     <div class="about-stats">
-                        <div class="stat">
-                            <span class="number">+10</span>
-                            <span class="label">años de experiencia</span>
-                        </div>
-                        <div class="stat">
-                            <span class="number">+30</span>
-                            <span class="label">servicios profesionales</span>
-                        </div>
-                        <div class="stat">
-                            <span class="number">24/7</span>
-                            <span class="label">respuesta en urgencias</span>
-                        </div>
+                        <div class="stat"><span class="number">+10</span><span class="label">años de experiencia</span></div>
+                        <div class="stat"><span class="number">+30</span><span class="label">servicios profesionales</span></div>
+                        <div class="stat"><span class="number">24/7</span><span class="label">respuesta en urgencias</span></div>
                     </div>
                 </div>
-                <div class="about-main-image">
-                    <img src="img/equipo.jpg" alt="Equipo de Multiservicios Sagunto trabajando">
-                </div>
-            </div>
-        </div>
+               <div style="position: relative; width: 100%; max-width: 1000px; margin: 0 auto; overflow: hidden; border-radius: 20px;">
+    <div style="display: flex; transition: transform 0.5s ease;" id="slides">
+        <img src="img/trabajo0.jpeg" alt="Logo imagen" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo1.jpeg" alt="Piscina sin pintar" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo2.jpeg" alt="Piscina pintada" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo3.jpeg" alt="Pintura de piso" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo4.jpeg" alt="Pintura de piso" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo5.jpeg" alt="Pintura de piso" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo6.jpeg" alt="Pintura de piso" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo7.jpeg" alt="Pintura de piso" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo8.jpeg" alt="Pintura de piso" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo9.jpeg" alt="Cambio parquet" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo10.jpeg" alt="Cambio parquet2" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo11.jpeg" alt="Cambio parquet3" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo12.jpeg" alt="Piscina chapado viejo" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo13.jpeg" alt="Piscina poniendo gresite" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo14.jpeg" alt="Piscina gresite puesto" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo15.jpeg" alt="Piscina gresite terminada" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo16.jpeg" alt="Terraza David vieja" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo17.jpeg" alt="Terraza David vieja2" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo18.jpeg" alt="Terraza David a medias" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo19.jpeg" alt="Terraza David a medias2" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo20.jpeg" alt="Terraza David a terminada" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo21.jpeg" alt="Terraza David a terminada2" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo22.jpeg" alt="Terraza David a terminada3" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo23.jpeg" alt="Plato ducha David a viejo" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo24.jpeg" alt="Plato ducha David a nuevo" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo25.jpeg" alt="Salon David a viejo" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo26.jpeg" alt="Salon David a viejo2" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo27.jpeg" alt="Salon David a viejo3" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo28.jpeg" alt="Salon David a nuevo" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo29.jpeg" alt="Salon David a nuevo2" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo30.jpeg" alt="Salon David a nuevo3" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo31.jpeg" alt="Desbroce huerto" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo32.jpeg" alt="Desbroce huerto2" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo33.jpeg" alt="Desbroce huerto3" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo34.jpeg" alt="Desbroce huerto4" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo35.jpeg" alt="Desbroce huerto5" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo36.jpeg" alt="Aire acondicionado" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo37.jpeg" alt="Aire acondicionado2" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo38.jpeg" alt="Osmodis" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+        <img src="img/trabajo39.jpeg" alt="Osmosis2" style="width: 100%; flex-shrink: 0; height: 500px; object-fit: cover;">
+    </div>
+    <button style="position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.6); color: white; border: none; width: 45px; height: 45px; font-size: 22px; cursor: pointer; border-radius: 50%; left: 15px; z-index: 10;" id="prevBtn">❮</button>
+    <button style="position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.6); color: white; border: none; width: 45px; height: 45px; font-size: 22px; cursor: pointer; border-radius: 50%; right: 15px; z-index: 10;" id="nextBtn">❯</button>
+</div>
     </section>
 
     <section class="values">
@@ -106,26 +188,10 @@
                 <p>No solo hacemos reparaciones. Construimos relaciones de confianza.</p>
             </div>
             <div class="values-grid">
-                <div class="value-card">
-                    <i class="fas fa-clock"></i>
-                    <h3>Respuesta rápida</h3>
-                    <p>Estamos en tu zona. Llegamos en menos de 2 horas para urgencias. Sin desplazamiento si no hay trabajo.</p>
-                </div>
-                <div class="value-card">
-                    <i class="fas fa-hand-holding-usd"></i>
-                    <h3>Presupuesto sin sorpresas</h3>
-                    <p>Te damos el precio antes de empezar. Si hay imprevistos, te avisamos y tú decides. Sin letra pequeña.</p>
-                </div>
-                <div class="value-card">
-                    <i class="fas fa-id-card"></i>
-                    <h3>Profesionales cualificados</h3>
-                    <p>Todos nuestros técnicos están formados y certificados. Contamos con seguro de responsabilidad civil.</p>
-                </div>
-                <div class="value-card">
-                    <i class="fas fa-handshake"></i>
-                    <h3>Compromiso local</h3>
-                    <p>Vivimos y trabajamos en Sagunto. Nos importa nuestra reputación. Cada trabajo es un orgullo o una vergüenza.</p>
-                </div>
+                <div class="value-card"><i class="fas fa-clock"></i><h3>Respuesta rápida</h3><p>Llegamos en menos de 2 horas para urgencias.</p></div>
+                <div class="value-card"><i class="fas fa-hand-holding-usd"></i><h3>Presupuesto sin sorpresas</h3><p>Te damos el precio antes de empezar.</p></div>
+                <div class="value-card"><i class="fas fa-id-card"></i><h3>Profesionales cualificados</h3><p>Formados y certificados. Con seguro de responsabilidad civil.</p></div>
+                <div class="value-card"><i class="fas fa-handshake"></i><h3>Compromiso local</h3><p>Vivimos y trabajamos en Sagunto.</p></div>
             </div>
         </div>
     </section>
@@ -134,7 +200,7 @@
         <div class="container">
             <div class="commitment-card">
                 <i class="fas fa-quote-left"></i>
-                <p>No damos un servicio si no estamos seguros de que lo vamos a hacer bien. Preferimos decir "no sabemos hacerlo" a hacerlo mal. Tu confianza es lo único que no podemos permitirnos perder.</p>
+                <p>No damos un servicio si no estamos seguros de que lo vamos a hacer bien. Tu confianza es lo único que no podemos permitirnos perder.</p>
                 <span>- Multiservicios Sagunto</span>
             </div>
         </div>
@@ -144,7 +210,7 @@
         <div class="container">
             <div class="cta-final-content">
                 <h2>¿Hablamos?</h2>
-                <p>Solicita tu presupuesto sin compromiso y descubre por qué somos la empresa de confianza en Sagunto</p>
+                <p>Solicita tu presupuesto sin compromiso</p>
                 <div class="cta-buttons">
                     <a href="contacto.html" class="btn-primary">Solicitar presupuesto</a>
                     <a href="https://wa.me/34603018190" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
@@ -170,34 +236,55 @@
                 </div>
                 <div class="footer-column">
                     <h4>Contacto</h4>
-                    <ul><li><a href="tel:603018190"><i class="fas fa-phone-alt"></i> 603 018 190</a></li><li><i class="fas fa-envelope"></i> <a href="mailto:info@multiserviciossagunto.es">info@multiserviciossagunto.es</a></li><li><i class="fas fa-clock"></i> L-V: 9:00-20:00 | S: 9:00-14:00</li></ul>
+                    <ul><li><a href="tel:603018190"><i class="fas fa-phone-alt"></i> 603 018 190</a></li><li><i class="fas fa-envelope"></i> info@multiserviciossagunto.es</li><li><i class="fas fa-map-marker-alt"></i> Calle Rubau 2, Faura</li><li><i class="fas fa-clock"></i> L-V: 9:00-20:00 | S: 9:00-14:00</li></ul>
                 </div>
             </div>
             <div class="footer-bottom">
-    <p>&copy; 2026 Multiservicios Sagunto. Todos los derechos reservados.</p>
-    <p class="legal-links">
-        <a href="aviso-legal.html">Aviso Legal</a> | 
-        <a href="privacidad.html">Política de Privacidad</a> | 
-        <a href="cookies.html">Política de Cookies</a>
-    </p>
-</div>
+                <p>&copy; 2026 Multiservicios Sagunto. Todos los derechos reservados.</p>
+                <p class="legal-links"><a href="aviso-legal.html">Aviso Legal</a> | <a href="privacidad.html">Política de Privacidad</a> | <a href="cookies.html">Política de Cookies</a></p>
+            </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/34603018190" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <a href="https://wa.me/34603018190" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script src="js/main.js"></script>
     <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-            });
-        }
-    </script>
+    const slides = document.getElementById('slides');
+    const total = document.querySelectorAll('#slides img').length;
+    let index = 0;
+    let auto;
+
+    function update() {
+        slides.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function next() {
+        index = (index + 1) % total;
+        update();
+    }
+
+    function prev() {
+        index = (index - 1 + total) % total;
+        update();
+    }
+
+    function startAuto() {
+        auto = setInterval(next, 2000);
+    }
+
+    function stopAuto() {
+        clearInterval(auto);
+    }
+
+    document.getElementById('prevBtn').onclick = () => { prev(); stopAuto(); startAuto(); };
+    document.getElementById('nextBtn').onclick = () => { next(); stopAuto(); startAuto(); };
+    
+    const container = document.querySelector('#slides').parentElement;
+    container.onmouseenter = stopAuto;
+    container.onmouseleave = startAuto;
+
+    startAuto();
+</script>
 </body>
 </html>
