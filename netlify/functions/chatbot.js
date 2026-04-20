@@ -1,14 +1,17 @@
-import OpenAI from 'openai';
+const OpenAI = require('openai');
 
 const openai = new OpenAI();
 
-export default async (req) => {
-  if (req.method !== 'POST') {
-    return new Response('Method not allowed', { status: 405 });
+exports.handler = async (event) => {
+  if (event.httpMethod !== 'POST') {
+    return {
+      statusCode: 405,
+      body: JSON.stringify({ error: 'Method not allowed' }),
+    };
   }
 
   try {
-    const { message, conversationHistory, userData } = await req.json();
+    const { message, conversationHistory, userData } = JSON.parse(event.body);
 
     const systemPrompt = `Eres el asistente virtual de MULTISERVICIOS SAGUNTO, una empresa de confianza en Sagunto, Puerto de Sagunto y toda la comarca.
 
@@ -195,15 +198,18 @@ Tú: "Ah, perfecto. Para una reforma completa de baño, el PRESUPUESTO ORIENTATI
 
     const reply = completion.choices[0].message.content;
 
-    return new Response(JSON.stringify({ reply }), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' }
-    });
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ reply }),
+    };
 
   } catch (error) {
     console.error('Error:', error);
-    return new Response(JSON.stringify({ 
-      reply: '⚠️ Lo siento, tengo problemas técnicos. ¿Puedes escribirnos al WhatsApp 603 018 190? Te atenderemos enseguida.'
-    }), { status: 500 });
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ 
+        reply: '⚠️ Lo siento, tengo problemas técnicos. ¿Puedes escribirnos al WhatsApp 603 018? Te atenderemos enseguida.'
+      }),
+    };
   }
 };
