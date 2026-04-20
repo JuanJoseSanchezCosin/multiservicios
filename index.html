@@ -238,7 +238,7 @@
         </div>
     </footer>
 
-    <!-- Chatbot -->
+            <!-- Chatbot -->
     <div class="chatbot-button" id="chatbotButton">
         <i class="fas fa-comment-dots"></i>
     </div>
@@ -265,6 +265,10 @@
     (function() {
         emailjs.init('gcidZqK4tE_i-PfBW');
     })();
+    
+    // ============================================
+    // CHATBOT CON OPENAI (NETLIFY FUNCTIONS)
+    // ============================================
     
     const chatState = { 
         step: 'asking_name', 
@@ -356,7 +360,7 @@
         doc.text('MULTISERVICIOS SAGUNTO', 105, 20, { align: 'center' });
         doc.setFontSize(10);
         doc.text('Tu solución integral en Sagunto y comarca', 105, 32, { align: 'center' });
-        doc.text('Tel: 665 327 929 · info@multiserviciossagunto.es', 105, 40, { align: 'center' });
+        doc.text('Tel: 603 018 190 · info@multiserviciossagunto.es', 105, 40, { align: 'center' });
         
         doc.setTextColor(colorPrimario);
         doc.setFontSize(22);
@@ -571,21 +575,30 @@
             if (e.key === 'Enter') processMessage(chatbotInput.value);
         };
     }
+    </script>
     
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const navMenu = document.getElementById('navMenu');
-    if (mobileMenuBtn && navMenu) {
-        mobileMenuBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            navMenu.classList.toggle('active');
-        });
-        
-        document.querySelectorAll('.nav-menu a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                navMenu.classList.remove('active');
+    <!-- Menú móvil (hamburguesa) -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        if (mobileMenuBtn && navMenu) {
+            mobileMenuBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navMenu.classList.toggle('active');
             });
-        });
-    }
+            
+            document.querySelectorAll('.nav-menu a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                });
+            });
+            
+            document.addEventListener('click', function(event) {
+                if (!navMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                    navMenu.classList.remove('active');
+                }
+            });
+        }
     </script>
 </body>
 </html>
