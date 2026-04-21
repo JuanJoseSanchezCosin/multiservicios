@@ -1146,4 +1146,51 @@ section { padding: 60px 0; }
         font-size: 18px;
     }
 }
+/* ============================================ */
+/* CHATBOT - TAMAÑO AMPLIADO (SOLO CAMBIA TAMAÑO) */
+/* ============================================ */
+
+/* ============================================ */
+/* CHATBOT - FORZAR TAMAÑO MÁS ANCHO */
+/* ============================================ */
+
+.chatbot-window {
+    width: 360px !important;
+    height: auto !important;
+    max-height: 550px !important;
+}
+.chatbot-window.active {
+    display: flex !important;
+}
+
+.chatbot-messages {
+    padding: 15px !important;
+}
+
+.message-bubble {
+    max-width: 90% !important;
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+    .chatbot-window {
+        width: calc(100% - 40px) !important;
+        min-width: auto !important;
+        max-width: none !important;
+        right: 20px !important;
+        bottom: 80px !important;
+        height: 550px !important;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .chatbot-window {
+        width: calc(100% - 40px) !important;
+        height: 550px !important;
+        right: 20px !important;
+        bottom: 150px !important;
+    }
+}
+
 }
