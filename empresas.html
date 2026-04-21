@@ -151,7 +151,7 @@
         </div>
     </footer>
 
-        <!-- Chatbot -->
+        <!-- Chatbot flotante -->
     <div class="chatbot-button" id="chatbotButton">
         <i class="fas fa-comment-dots"></i>
     </div>
@@ -173,34 +173,29 @@
 
     <script src="js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script>
+    // Inicializar EmailJS
     (function() {
         emailjs.init('gcidZqK4tE_i-PfBW');
     })();
-    
+
     // ============================================
-    // CHATBOT CON OPENAI (NETLIFY FUNCTIONS)
+    // CHATBOT SENCILLO Y FUNCIONAL (SIN OPENAI)
     // ============================================
-    
+
     const chatState = { 
-        step: 'asking_name', 
-        userData: { nombre: '', telefono: '', email: '' }, 
-        messages: [],
-        welcomeSent: false,
-        esperandoRespuestaPresupuesto: false,
-        ultimoServicio: '',
-        ultimosDetalles: '',
-        ultimoPresupuesto: ''
+        step: 'inicio',
+        userData: { nombre: '', email: '', telefono: '' },
+        ultimoMensaje: ''
     };
-    
+
     const chatbotButton = document.getElementById('chatbotButton');
     const chatbotWindow = document.getElementById('chatbotWindow');
     const chatbotClose = document.getElementById('chatbotClose');
     const chatbotMessages = document.getElementById('chatbotMessages');
     const chatbotInput = document.getElementById('chatbotInput');
     const chatbotSend = document.getElementById('chatbotSend');
-    
+
     function addMessage(text, isUser = false) {
         const messageDiv = document.createElement('div');
         messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
@@ -211,7 +206,7 @@
         chatbotMessages.appendChild(messageDiv);
         chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
     }
-    
+
     function showTyping() {
         const typingDiv = document.createElement('div');
         typingDiv.className = 'message bot';
@@ -221,30 +216,49 @@
         chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
         return typingDiv;
     }
-    
+
     function hideTyping(typingDiv) {
         if (typingDiv && typingDiv.remove) typingDiv.remove();
     }
-    
-    async function sendToAI(message) {
+
+    async function sendToBackend(message) {
         try {
             const response = await fetch('/.netlify/functions/chatbot', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ 
                     message: message, 
-                    conversationHistory: chatState.messages, 
                     userData: chatState.userData 
                 })
             });
             const data = await response.json();
-            return data.reply;
+            return data;
         } catch (error) {
-            console.error('Error:', error);
-            return "⚠️ Lo siento, tengo problemas técnicos. ¿Puedes escribirnos al WhatsApp 603 018 190? Te atenderemos enseguida.";
+            return { 
+                reply: '⚠️ Error de conexión. Escríbenos al WhatsApp 603 018 190.'
+            };
         }
     }
-    
+
+    function enviarPresupuestoEmail(nombre, email, servicio, precio) {
+        const templateParams = {
+            nombre: nombre,
+            email: email,
+            servicio: servicio,
+            presupuesto: precio,
+            fecha: new Date().toLocaleString()
+        };
+        
+        emailjs.send('presupuestos_ms', 'template_f6k59wp', templateParams)
+            .then(() => {
+                addMessage("✅ ¡Presupuesto enviado! Revisa tu email. Te llamaremos en breve.", false);
+            })
+            .catch((error) => {
+                console.error('Error email:', error);
+                addMessage("❌ No pude enviar el email. Escríbenos al WhatsApp 603 018 190.", false);
+            });
+    }
+
     function saveLead() {
         const leads = JSON.parse(localStorage.getItem('ms_leads') || '[]');
         leads.push({
@@ -252,266 +266,90 @@
             fecha: new Date().toISOString()
         });
         localStorage.setItem('ms_leads', JSON.stringify(leads));
-        console.log('Lead guardado. Total:', leads.length);
     }
-    
-    function generarPresupuestoPDF(cliente, servicio, detalles, presupuesto) {
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
-        
-        const fecha = new Date().toLocaleDateString('es-ES');
-        const numeroPresupuesto = 'PRE-' + Date.now().toString().slice(-8);
-        
-        const colorPrimario = '#1e3a5f';
-        const colorSecundario = '#2d6a4f';
-        
-        doc.setFillColor(colorPrimario);
-        doc.rect(0, 0, 210, 45, 'F');
-        doc.setTextColor(255, 255, 255);
-        doc.setFontSize(20);
-        doc.setFont('helvetica', 'bold');
-        doc.text('MULTISERVICIOS SAGUNTO', 105, 20, { align: 'center' });
-        doc.setFontSize(10);
-        doc.text('Tu solución integral en Sagunto y comarca', 105, 32, { align: 'center' });
-        doc.text('Tel: 603 018 190 · info@multiserviciossagunto.es', 105, 40, { align: 'center' });
-        
-        doc.setTextColor(colorPrimario);
-        doc.setFontSize(22);
-        doc.text('PRESUPUESTO', 105, 65, { align: 'center' });
-        
-        doc.setFontSize(9);
-        doc.setTextColor(100, 100, 100);
-        doc.text(`Nº: ${numeroPresupuesto}`, 20, 80);
-        doc.text(`Fecha: ${fecha}`, 150, 80);
-        doc.line(20, 85, 190, 85);
-        
-        doc.setFontSize(11);
-        doc.setFont('helvetica', 'bold');
-        doc.setTextColor(colorPrimario);
-        doc.text('DATOS DEL CLIENTE', 20, 100);
-        doc.setFontSize(9);
-        doc.setFont('helvetica', 'normal');
-        doc.setTextColor(60, 60, 60);
-        doc.text(`Nombre: ${cliente.nombre || 'Cliente'}`, 20, 112);
-        doc.text(`Teléfono: ${cliente.telefono || 'No especificado'}`, 20, 122);
-        doc.text(`Email: ${cliente.email || 'No especificado'}`, 20, 132);
-        
-        doc.setFontSize(11);
-        doc.setFont('helvetica', 'bold');
-        doc.setTextColor(colorPrimario);
-        doc.text('DATOS DE LA EMPRESA', 20, 152);
-        doc.setFontSize(9);
-        doc.setTextColor(60, 60, 60);
-        doc.text('Multiservicios Sagunto', 20, 164);
-        doc.text('Calle Rubau 2, 46512 Faura (Valencia)', 20, 174);
-        doc.text('Tel: 603 018 190 · Email: info@multiserviciossagunto.es', 20, 184);
-        doc.line(20, 192, 190, 192);
-        
-        doc.setFontSize(11);
-        doc.setFont('helvetica', 'bold');
-        doc.setTextColor(colorPrimario);
-        doc.text('DESGLOSE DEL PRESUPUESTO', 20, 208);
-        doc.setFontSize(9);
-        doc.setTextColor(60, 60, 60);
-        doc.text(`Servicio: ${servicio}`, 20, 220);
-        doc.text(`Detalles: ${detalles}`, 20, 230);
-        
-        doc.setFillColor(colorSecundario);
-        doc.rect(20, 250, 170, 18, 'F');
-        doc.setTextColor(255, 255, 255);
-        doc.setFontSize(14);
-        doc.text(`TOTAL PRESUPUESTADO: ${presupuesto} €`, 105, 263, { align: 'center' });
-        
-        doc.setTextColor(100, 100, 100);
-        doc.setFontSize(7);
-        doc.text('* Presupuesto válido por 30 días. Incluye materiales y mano de obra.', 20, 285);
-        doc.text('* La visita para presupuesto tiene un coste de 30€, descontable del total.', 20, 293);
-        
-        return doc.output('blob');
-    }
-    
-    async function enviarPresupuestoEmail(cliente, servicio, detalles, presupuesto) {
-        const pdfBlob = generarPresupuestoPDF(cliente, servicio, detalles, presupuesto);
-        
-        const reader = new FileReader();
-        reader.readAsDataURL(pdfBlob);
-        
-        reader.onloadend = async function() {
-            const base64PDF = reader.result.split(',')[1];
-            
-            const templateParams = {
-                nombre: cliente.nombre,
-                email: cliente.email,
-                telefono: cliente.telefono,
-                servicio: servicio,
-                presupuesto: presupuesto,
-                detalles: detalles,
-                fecha: new Date().toLocaleString(),
-                pdf_adjunto: base64PDF
-            };
-            
-            try {
-                await emailjs.send('presupuestos_ms', 'template_f6k59wp', templateParams);
-                addMessage("✅ ¡Presupuesto enviado! Revisa tu email. Te hemos adjuntado el PDF con todos los detalles.", false);
-            } catch (error) {
-                console.error('Error al enviar email:', error);
-                addMessage("❌ Hubo un problema al enviar el email. ¿Puedes intentarlo de nuevo o contactarnos por WhatsApp?", false);
-            }
-        };
-    }
-    
-    function enviarPresupuestoWhatsApp(cliente, servicio, detalles, presupuesto) {
-        const mensaje = `*MULTISERVICIOS SAGUNTO*
-        
-*PRESUPUESTO PARA ${cliente.nombre.toUpperCase()}*
 
-📋 *Servicio:* ${servicio}
-📝 *Detalles:* ${detalles}
-💰 *Presupuesto orientativo:* ${presupuesto} €
-
-📅 *Válido hasta:* ${new Date(Date.now() + 30*24*60*60*1000).toLocaleDateString()}
-
-*Condiciones:*
-• Visita para presupuesto: 30€ (descontable del total)
-• Incluye materiales y mano de obra
-• Presupuesto válido por 30 días
-
-📞 *Contacto:* 603 018 190
-📧 *Email:* info@multiserviciossagunto.es
-🌐 *Web:* multiserviciossagunto.es
-
-*¿Qué necesitas? ¿Quieres que pasemos a verte?*`;
-
-        const telefonoLimpio = cliente.telefono.replace(/[^0-9]/g, '');
-        const url = `https://wa.me/${telefonoLimpio}?text=${encodeURIComponent(mensaje)}`;
-        window.open(url, '_blank');
-        addMessage("✅ Mensaje de WhatsApp preparado. Solo tienes que enviarlo.", false);
-    }
-    
     async function processMessage(message) {
         if (!message.trim()) return;
         
         addMessage(message, true);
         chatbotInput.value = '';
         
-        if (chatState.step === 'asking_name') {
+        if (chatState.step === 'inicio') {
+            chatState.ultimoMensaje = message;
+            chatState.step = 'pedir_nombre';
+            addMessage("👋 ¡Hola! Soy el asistente de Multiservicios Sagunto.\n\n📝 Para enviarte el presupuesto, ¿cómo te llamas?", false);
+            return;
+        }
+        
+        if (chatState.step === 'pedir_nombre') {
             chatState.userData.nombre = message.trim();
-            chatState.step = 'asking_phone';
-            addMessage("📱 Gracias. ¿Cuál es tu número de teléfono?");
+            chatState.step = 'pedir_email';
+            addMessage("📧 Gracias. ¿Cuál es tu correo electrónico? Así te envío el presupuesto.", false);
             return;
         }
         
-        if (chatState.step === 'asking_phone') {
-            chatState.userData.telefono = message.trim();
-            chatState.step = 'asking_email';
-            addMessage("📧 Perfecto. ¿Y tu correo electrónico?");
-            return;
-        }
-        
-        if (chatState.step === 'asking_email') {
+        if (chatState.step === 'pedir_email') {
             chatState.userData.email = message.trim();
-            chatState.step = 'chatting';
+            
+            const typing = showTyping();
+            const respuesta = await sendToBackend(chatState.ultimoMensaje);
+            hideTyping(typing);
+            
+            addMessage(respuesta.reply, false);
+            
+            enviarPresupuestoEmail(
+                chatState.userData.nombre, 
+                chatState.userData.email, 
+                respuesta.servicio || "Consulta", 
+                respuesta.precio || "a convenir"
+            );
+            
             saveLead();
-            addMessage(`✅ ¡Gracias ${chatState.userData.nombre}! Ya tengo tus datos.\n\n🔧 Ahora cuéntame, ¿qué necesitas reparar, limpiar o mejorar?\n\nPor ejemplo:\n• "se me ha roto el grifo de la cocina"\n• "quiero pintar mi piso de 80 metros"\n• "necesito limpieza en mi oficina"`);
+            chatState.step = 'fin';
             return;
         }
         
-        if (chatState.esperandoRespuestaPresupuesto) {
-            const msgLower = message.toLowerCase();
-            if (msgLower.includes('email') || msgLower.includes('correo')) {
-                await enviarPresupuestoEmail(chatState.userData, chatState.ultimoServicio, chatState.ultimosDetalles, chatState.ultimoPresupuesto);
-                chatState.esperandoRespuestaPresupuesto = false;
-            } else if (msgLower.includes('whatsapp') || msgLower.includes('wasap') || msgLower.includes('wa')) {
-                enviarPresupuestoWhatsApp(chatState.userData, chatState.ultimoServicio, chatState.ultimosDetalles, chatState.ultimoPresupuesto);
-                chatState.esperandoRespuestaPresupuesto = false;
-            } else if (msgLower.includes('si') || msgLower.includes('sí')) {
-                addMessage("📬 ¿Cómo prefieres recibir el presupuesto? Responde 'email' o 'whatsapp'", false);
-            } else {
-                addMessage("Por favor, responde 'email' o 'whatsapp' para recibir tu presupuesto.", false);
-            }
+        if (chatState.step === 'fin') {
+            addMessage("📞 Gracias. Te llamaremos pronto. ¿Necesitas algo más?", false);
             return;
-        }
-        
-        const typing = showTyping();
-        chatState.messages.push({ role: 'user', content: message });
-        const aiReply = await sendToAI(message);
-        hideTyping(typing);
-        addMessage(aiReply, false);
-        chatState.messages.push({ role: 'assistant', content: aiReply });
-        
-        if (aiReply.toLowerCase().includes('presupuesto formal') || 
-            aiReply.toLowerCase().includes('enviar por') ||
-            aiReply.toLowerCase().includes('whatsapp o email')) {
-            
-            chatState.esperandoRespuestaPresupuesto = true;
-            chatState.ultimoServicio = "Consulta profesional";
-            chatState.ultimosDetalles = "Presupuesto solicitado por el cliente";
-            
-            const precioMatch = aiReply.match(/(\d+[\.,]?\d*)\s*€/);
-            if (precioMatch) {
-                chatState.ultimoPresupuesto = precioMatch[1];
-            } else {
-                chatState.ultimoPresupuesto = "a convenir";
-            }
-        }
-        
-        if (chatState.messages.length > 20) {
-            chatState.messages = chatState.messages.slice(-20);
         }
     }
-    
+
     if (chatbotButton) {
         chatbotButton.onclick = () => {
             chatbotWindow.classList.toggle('active');
-            if (!chatState.welcomeSent && chatbotWindow.classList.contains('active')) {
-                chatState.welcomeSent = true;
-                setTimeout(() => {
-                    addMessage("👋 ¡Hola! Soy el asistente de **Multiservicios Sagunto**.", false);
-                    setTimeout(() => {
-                        addMessage("📝 Para poder ayudarte mejor, ¿cómo te llamas?", false);
-                    }, 800);
-                }, 300);
-            }
         };
     }
-    
+
     if (chatbotClose) {
         chatbotClose.onclick = () => chatbotWindow.classList.remove('active');
     }
-    
+
     if (chatbotSend) {
         chatbotSend.onclick = () => processMessage(chatbotInput.value);
     }
-    
+
     if (chatbotInput) {
         chatbotInput.onkeypress = (e) => {
             if (e.key === 'Enter') processMessage(chatbotInput.value);
         };
     }
-    </script>
-    
-    <!-- Menú móvil (hamburguesa) -->
-    <script>
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-        if (mobileMenuBtn && navMenu) {
-            mobileMenuBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                navMenu.classList.toggle('active');
+
+    // Menú móvil
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    if (mobileMenuBtn && navMenu) {
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navMenu.classList.toggle('active');
+        });
+        
+        document.querySelectorAll('.nav-menu a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
             });
-            
-            document.querySelectorAll('.nav-menu a').forEach(function(link) {
-                link.addEventListener('click', function() {
-                    navMenu.classList.remove('active');
-                });
-            });
-            
-            document.addEventListener('click', function(event) {
-                if (!navMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
-                    navMenu.classList.remove('active');
-                }
-            });
-        }
+        });
+    }
     </script>
 </body>
 </html>

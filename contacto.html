@@ -145,22 +145,18 @@
         </div>
     </footer>
 
-    <!-- Chatbot -->
+    <!-- Chatbot flotante -->
     <div class="chatbot-button" id="chatbotButton">
         <i class="fas fa-comment-dots"></i>
     </div>
     <div class="chatbot-window" id="chatbotWindow">
         <div class="chatbot-header">
-            <h3>🤖 Asistente Camp de Morvedre</h3>
+            <h3>🤖 Asistente Multiservicios Sagunto</h3>
             <button class="chatbot-close" id="chatbotClose">✕</button>
         </div>
-        <div class="chatbot-messages" id="chatbotMessages">
-            <div class="message bot">
-                <div class="message-bubble">👋 ¡Hola! ¿En qué puedo ayudarte?</div>
-            </div>
-        </div>
+        <div class="chatbot-messages" id="chatbotMessages"></div>
         <div class="chatbot-input">
-            <input type="text" id="chatbotInput" placeholder="Escribe tu mensaje...">
+            <input type="text" id="chatbotInput" placeholder="Escribe tu mensaje aquí...">
             <button id="chatbotSend">➤</button>
         </div>
     </div>
@@ -170,47 +166,184 @@
     </a>
 
     <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
-        // Chatbot (mismo script)
-        document.addEventListener('DOMContentLoaded', function() {
-            const chatbotButton = document.getElementById('chatbotButton');
-            const chatbotWindow = document.getElementById('chatbotWindow');
-            const chatbotClose = document.getElementById('chatbotClose');
-            const chatbotMessages = document.getElementById('chatbotMessages');
-            const chatbotInput = document.getElementById('chatbotInput');
-            const chatbotSend = document.getElementById('chatbotSend');
-            
-            function addMessage(text, isUser = false) {
-                const messageDiv = document.createElement('div');
-                messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
-                const bubble = document.createElement('div');
-                bubble.className = 'message-bubble';
-                bubble.innerHTML = text.replace(/\n/g, '<br>');
-                messageDiv.appendChild(bubble);
-                chatbotMessages.appendChild(messageDiv);
-                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-            }
-            
-            function getResponse(message) {
-                const msg = message.toLowerCase();
-                if (msg.includes('hola')) return '¡Hola! ¿En qué puedo ayudarte?';
-                if (msg.includes('presupuesto')) return 'Puedes solicitar presupuesto llamando al 603 018 190 o rellenando el formulario de esta misma página.';
-                return 'No he entendido bien. ¿Puedes reformular? También puedes llamarnos al 603 018 190.';
-            }
-            
-            async function processMessage(message) {
-                if (!message.trim()) return;
-                addMessage(message, true);
-                chatbotInput.value = '';
-                await new Promise(resolve => setTimeout(resolve, 500));
-                addMessage(getResponse(message));
-            }
-            
-            if (chatbotButton) chatbotButton.onclick = () => chatbotWindow.classList.toggle('active');
-            if (chatbotClose) chatbotClose.onclick = () => chatbotWindow.classList.remove('active');
-            if (chatbotSend) chatbotSend.onclick = () => processMessage(chatbotInput.value);
-            if (chatbotInput) chatbotInput.onkeypress = (e) => { if (e.key === 'Enter') processMessage(chatbotInput.value); };
+    // Inicializar EmailJS
+    (function() {
+        emailjs.init('gcidZqK4tE_i-PfBW');
+    })();
+
+    // ============================================
+    // CHATBOT SENCILLO Y FUNCIONAL (SIN OPENAI)
+    // ============================================
+
+    const chatState = { 
+        step: 'inicio',
+        userData: { nombre: '', email: '', telefono: '' },
+        ultimoMensaje: ''
+    };
+
+    const chatbotButton = document.getElementById('chatbotButton');
+    const chatbotWindow = document.getElementById('chatbotWindow');
+    const chatbotClose = document.getElementById('chatbotClose');
+    const chatbotMessages = document.getElementById('chatbotMessages');
+    const chatbotInput = document.getElementById('chatbotInput');
+    const chatbotSend = document.getElementById('chatbotSend');
+
+    function addMessage(text, isUser = false) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+        const bubble = document.createElement('div');
+        bubble.className = 'message-bubble';
+        bubble.innerHTML = text.replace(/\n/g, '<br>');
+        messageDiv.appendChild(bubble);
+        chatbotMessages.appendChild(messageDiv);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+
+    function showTyping() {
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'message bot';
+        typingDiv.id = 'typing-indicator';
+        typingDiv.innerHTML = '<div class="message-bubble">✍️ Escribiendo...</div>';
+        chatbotMessages.appendChild(typingDiv);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        return typingDiv;
+    }
+
+    function hideTyping(typingDiv) {
+        if (typingDiv && typingDiv.remove) typingDiv.remove();
+    }
+
+    async function sendToBackend(message) {
+        try {
+            const response = await fetch('/.netlify/functions/chatbot', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    message: message, 
+                    userData: chatState.userData 
+                })
+            });
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            return { 
+                reply: '⚠️ Error de conexión. Escríbenos al WhatsApp 603 018 190.'
+            };
+        }
+    }
+
+    function enviarPresupuestoEmail(nombre, email, servicio, precio) {
+        const templateParams = {
+            nombre: nombre,
+            email: email,
+            servicio: servicio,
+            presupuesto: precio,
+            fecha: new Date().toLocaleString()
+        };
+        
+        emailjs.send('presupuestos_ms', 'template_f6k59wp', templateParams)
+            .then(() => {
+                addMessage("✅ ¡Presupuesto enviado! Revisa tu email. Te llamaremos en breve.", false);
+            })
+            .catch((error) => {
+                console.error('Error email:', error);
+                addMessage("❌ No pude enviar el email. Escríbenos al WhatsApp 603 018 190.", false);
+            });
+    }
+
+    function saveLead() {
+        const leads = JSON.parse(localStorage.getItem('ms_leads') || '[]');
+        leads.push({
+            ...chatState.userData,
+            fecha: new Date().toISOString()
         });
+        localStorage.setItem('ms_leads', JSON.stringify(leads));
+    }
+
+    async function processMessage(message) {
+        if (!message.trim()) return;
+        
+        addMessage(message, true);
+        chatbotInput.value = '';
+        
+        if (chatState.step === 'inicio') {
+            chatState.ultimoMensaje = message;
+            chatState.step = 'pedir_nombre';
+            addMessage("👋 ¡Hola! Soy el asistente de Multiservicios Sagunto.\n\n📝 Para enviarte el presupuesto, ¿cómo te llamas?", false);
+            return;
+        }
+        
+        if (chatState.step === 'pedir_nombre') {
+            chatState.userData.nombre = message.trim();
+            chatState.step = 'pedir_email';
+            addMessage("📧 Gracias. ¿Cuál es tu correo electrónico? Así te envío el presupuesto.", false);
+            return;
+        }
+        
+        if (chatState.step === 'pedir_email') {
+            chatState.userData.email = message.trim();
+            
+            const typing = showTyping();
+            const respuesta = await sendToBackend(chatState.ultimoMensaje);
+            hideTyping(typing);
+            
+            addMessage(respuesta.reply, false);
+            
+            enviarPresupuestoEmail(
+                chatState.userData.nombre, 
+                chatState.userData.email, 
+                respuesta.servicio || "Consulta", 
+                respuesta.precio || "a convenir"
+            );
+            
+            saveLead();
+            chatState.step = 'fin';
+            return;
+        }
+        
+        if (chatState.step === 'fin') {
+            addMessage("📞 Gracias. Te llamaremos pronto. ¿Necesitas algo más?", false);
+            return;
+        }
+    }
+
+    if (chatbotButton) {
+        chatbotButton.onclick = () => {
+            chatbotWindow.classList.toggle('active');
+        };
+    }
+
+    if (chatbotClose) {
+        chatbotClose.onclick = () => chatbotWindow.classList.remove('active');
+    }
+
+    if (chatbotSend) {
+        chatbotSend.onclick = () => processMessage(chatbotInput.value);
+    }
+
+    if (chatbotInput) {
+        chatbotInput.onkeypress = (e) => {
+            if (e.key === 'Enter') processMessage(chatbotInput.value);
+        };
+    }
+
+    // Menú móvil
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    if (mobileMenuBtn && navMenu) {
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navMenu.classList.toggle('active');
+        });
+        
+        document.querySelectorAll('.nav-menu a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+            });
+        });
+    }
     </script>
 </body>
 </html>

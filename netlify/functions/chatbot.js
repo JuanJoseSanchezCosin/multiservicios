@@ -1,215 +1,551 @@
-const OpenAI = require('openai');
-
-const openai = new OpenAI();
-
 exports.handler = async (event) => {
+  // Solo aceptar peticiones POST
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
-      body: JSON.stringify({ error: 'Method not allowed' }),
+      body: JSON.stringify({ error: 'Method not allowed' })
     };
   }
 
   try {
-    const { message, conversationHistory, userData } = JSON.parse(event.body);
+    // Obtener el mensaje del cuerpo de la petición
+    const { message } = JSON.parse(event.body);
+    const msg = message.toLowerCase();
 
-    const systemPrompt = `Eres el asistente virtual de MULTISERVICIOS SAGUNTO, una empresa de confianza en Sagunto, Puerto de Sagunto y toda la comarca.
+    // Variables para almacenar la respuesta
+    let servicio = "Consulta general";
+    let precio = "a convenir";
+    let reply = "";
 
-DATOS DEL CLIENTE (YA LOS TIENES, NUNCA LOS PIDAS):
-- Nombre: ${userData?.nombre || 'cliente'}
-- Teléfono: ${userData?.telefono || 'no facilitado'}
-- Email: ${userData?.email || 'no facilitado'}
+    // ============================================
+    // FONTANERÍA (15 tareas)
+    // ============================================
+    if (msg.includes('grifo') || msg.includes('gotea') || msg.includes('goteo')) {
+      servicio = "Fontanería - Reparar grifo que gotea";
+      precio = "50-80€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('cambiar grifo') || (msg.includes('grifo') && msg.includes('cambiar'))) {
+      servicio = "Fontanería - Cambiar grifo completo";
+      precio = "60-100€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('desatascar') || msg.includes('tuberia') || msg.includes('tapado') || msg.includes('fregadero')) {
+      servicio = "Fontanería - Desatasco de tuberías";
+      precio = "60-120€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('cisterna') || (msg.includes('wc') && msg.includes('para')) || (msg.includes('inodoro') && msg.includes('correr'))) {
+      servicio = "Fontanería - Reparar cisterna que no para";
+      precio = "60-100€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('cambiar cisterna') || (msg.includes('cisterna') && msg.includes('cambiar'))) {
+      servicio = "Fontanería - Cambiar cisterna completa";
+      precio = "150-250€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('fuga') || msg.includes('perdida') || msg.includes('agua')) {
+      servicio = "Fontanería - Reparar fuga de agua";
+      precio = "80-150€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('latiguillo')) {
+      servicio = "Fontanería - Cambiar latiguillos";
+      precio = "50-80€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('valvula') || msg.includes('llave de paso')) {
+      servicio = "Fontanería - Cambiar válvula de paso";
+      precio = "70-120€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('lavavajillas') || msg.includes('lavadora')) {
+      servicio = "Fontanería - Instalar lavavajillas o lavadora";
+      precio = "80-150€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('caldera')) {
+      servicio = "Fontanería - Reparar caldera";
+      precio = "100-250€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('termo') || msg.includes('termo eléctrico')) {
+      servicio = "Fontanería - Reparar termo eléctrico";
+      precio = "80-180€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('averia compleja') || (msg.includes('tuberia') && msg.includes('rota'))) {
+      servicio = "Fontanería - Avería compleja";
+      precio = "250-600€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('fontaneria baño') || (msg.includes('baño') && msg.includes('fontaneria'))) {
+      servicio = "Fontanería - Instalación baño completo";
+      precio = "400-800€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('fontaneria cocina') || (msg.includes('cocina') && msg.includes('fontaneria'))) {
+      servicio = "Fontanería - Instalación cocina completa";
+      precio = "300-600€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
 
-========================================
-INSTRUCCIONES OBLIGATORIAS
-========================================
+    // ============================================
+    // ELECTRICIDAD (14 tareas)
+    // ============================================
+    else if (msg.includes('cambiar enchufe') || (msg.includes('enchufe') && msg.includes('cambiar'))) {
+      servicio = "Electricidad - Cambiar enchufe o interruptor";
+      precio = "40-70€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('cambiar bombilla') || msg.includes('plafon')) {
+      servicio = "Electricidad - Cambiar bombilla o plafón";
+      precio = "30-60€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('cuadro electrico') || msg.includes('plomos') || msg.includes('diferencial')) {
+      servicio = "Electricidad - Reparar avería en cuadro eléctrico";
+      precio = "60-120€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('punto de luz') || (msg.includes('luz') && msg.includes('instalar'))) {
+      servicio = "Electricidad - Instalar punto de luz nuevo";
+      precio = "80-150€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('ventilador') || msg.includes('techo')) {
+      servicio = "Electricidad - Instalar ventilador de techo";
+      precio = "80-140€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('averia general') || msg.includes('saltan plomos')) {
+      servicio = "Electricidad - Avería general";
+      precio = "60-180€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('toma de tierra')) {
+      servicio = "Electricidad - Instalar toma de tierra";
+      precio = "150-300€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('electricidad baño') || (msg.includes('baño') && msg.includes('electricidad'))) {
+      servicio = "Electricidad - Instalación eléctrica baño";
+      precio = "200-400€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('electricidad cocina') || (msg.includes('cocina') && msg.includes('electricidad'))) {
+      servicio = "Electricidad - Instalación eléctrica cocina";
+      precio = "250-500€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('cuadro nuevo') || (msg.includes('cuadro') && msg.includes('nuevo'))) {
+      servicio = "Electricidad - Cuadro eléctrico nuevo";
+      precio = "600-1000€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('coche electrico') || msg.includes('recarga coche')) {
+      servicio = "Electricidad - Punto recarga coche eléctrico";
+      precio = "300-700€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('boletin electrico') || msg.includes('revision electrica')) {
+      servicio = "Electricidad - Revisión y boletín eléctrico";
+      precio = "120-200€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('cambio cableado') || msg.includes('cable')) {
+      servicio = "Electricidad - Cambio de cableado";
+      precio = "15-30€/m";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
 
-1. SÉ EDUCADO Y CERCANO: Trata al cliente de "tú", saluda, despídete, da las gracias.
-2. NUNCA DES UN PRESUPUESTO SIN SABER EXACTAMENTE QUÉ HAY QUE HACER.
-3. PRIMERO PREGUNTA: qué elemento, qué avería, qué materiales, qué medidas.
-4. SOLO CUANDO EL CLIENTE ESPECIFIQUE, entonces das el presupuesto orientativo.
-5. APLICA SIEMPRE el 20% EXTRA para imprevistos.
-6. INFORMA: "La visita para presupuesto cuesta 30€, que te descontamos del total si contratas."
-7. AL FINAL, pregunta: "¿Quieres que te prepare el presupuesto formal y te lo envíe por WhatsApp o email?"
+    // ============================================
+    // PINTURA (12 tareas)
+    // ============================================
+    else if ((msg.includes('pintar') || msg.includes('pintura')) && (msg.includes('pared') || msg.includes('paredes'))) {
+      servicio = "Pintura - Pintar paredes lisas";
+      precio = "12-18€/m²";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if ((msg.includes('pintar') || msg.includes('pintura')) && msg.includes('techo')) {
+      servicio = "Pintura - Pintar techo";
+      precio = "15-22€/m²";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if ((msg.includes('pintar') || msg.includes('pintura')) && (msg.includes('piso') || msg.includes('casa')) && (msg.includes('80') || msg.includes('completo'))) {
+      servicio = "Pintura - Pintar piso completo 80m²";
+      precio = "1200-1800€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if ((msg.includes('pintar') || msg.includes('pintura')) && (msg.includes('piso') || msg.includes('casa')) && (msg.includes('100'))) {
+      servicio = "Pintura - Pintar piso completo 100m²";
+      precio = "1500-2200€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('gotelé') || msg.includes('alisar paredes')) {
+      servicio = "Pintura - Alisar paredes (eliminar gotelé)";
+      precio = "20-30€/m²";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('grietas') || msg.includes('masillado')) {
+      servicio = "Pintura - Reparar grietas y masillado";
+      precio = "+200-500€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('imprimacion') || msg.includes('selladora')) {
+      servicio = "Pintura - Imprimación selladora";
+      precio = "+5-8€/m²";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('habitacion') && msg.includes('pintar')) {
+      servicio = "Pintura - Pintar una habitación (20m²)";
+      precio = "250-400€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('fachada') || msg.includes('exterior')) {
+      servicio = "Pintura - Pintar fachada o exterior";
+      precio = "18-30€/m²";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('puerta') || msg.includes('ventana')) {
+      servicio = "Pintura - Pintar puertas o ventanas";
+      precio = "30-60€/unidad";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('pintar') && (msg.includes('casa') || msg.includes('piso') || msg.includes('vivienda'))) {
+      servicio = "Pintura - Pintar vivienda (precio general)";
+      precio = "1000-2800€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
 
-========================================
-PRECIOS ORIENTATIVOS SAGUNTO/VALENCIA 2026
-========================================
+    // ============================================
+    // LIMPIEZA PROFESIONAL (9 tareas)
+    // ============================================
+    else if (msg.includes('limpieza hogar') || (msg.includes('limpiar') && msg.includes('casa'))) {
+      servicio = "Limpieza - Limpieza de hogar";
+      precio = "60-120€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('limpieza oficina') || (msg.includes('oficina') && msg.includes('limpiar'))) {
+      servicio = "Limpieza - Limpieza de oficina";
+      precio = "80-150€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('comunidades') || (msg.includes('portal') && msg.includes('limpiar'))) {
+      servicio = "Limpieza - Limpieza de comunidades";
+      precio = "100-300€/mes";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('cristales') || msg.includes('ventanas')) {
+      servicio = "Limpieza - Limpieza de cristales";
+      precio = "50-120€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('alfombras') || msg.includes('tapiceria')) {
+      servicio = "Limpieza - Limpieza de alfombras y tapicerías";
+      precio = "50-150€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('post-obra') || (msg.includes('obra') && msg.includes('limpiar'))) {
+      servicio = "Limpieza - Limpieza post-obra";
+      precio = "200-400€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('nave industrial') || msg.includes('almacen')) {
+      servicio = "Limpieza - Limpieza de nave industrial";
+      precio = "a medida";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('terraza') || msg.includes('balcon')) {
+      servicio = "Limpieza - Limpieza de terrazas o balcones";
+      precio = "40-80€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
 
---- FONTANERÍA (reparaciones puntuales) ---
-- Reparar grifo que gotea: 50-80€
-- Cambiar grifo completo (cocina o baño): 60-100€
-- Cambiar cartucho de grifo monomando: 50-70€
-- Desatascar fregadero, lavabo o inodoro: 60-120€
-- Reparar cisterna que no para de correr: 60-100€
-- Cambiar cisterna completa: 150-250€
-- Reparar fuga de agua localizada: 80-150€
-- Cambiar latiguillos (lavabo, inodoro, lavadora): 50-80€
-- Cambiar válvula de paso: 70-120€
-- Instalar lavavajillas o lavadora: 80-150€
-- Reparar caldera (avería básica): 100-250€
-- Reparar termo eléctrico: 80-180€
-- Avería compleja (rotura tubería empotrada): 250-600€
-- Instalación fontanería baño completo: 400-800€
-- Instalación fontanería cocina completa: 300-600€
+    // ============================================
+    // JARDINERÍA Y PODA (10 tareas)
+    // ============================================
+    else if (msg.includes('cortar cesped') || msg.includes('césped')) {
+      servicio = "Jardinería - Cortar césped";
+      precio = "30-120€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('poda arbustos') || msg.includes('setos')) {
+      servicio = "Jardinería - Poda de arbustos y setos";
+      precio = "25-50€/hora";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('poda arboles pequeños') || (msg.includes('arbol') && msg.includes('pequeño'))) {
+      servicio = "Jardinería - Poda de árboles pequeños";
+      precio = "50-150€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('poda arboles grandes') || (msg.includes('arbol') && msg.includes('grande'))) {
+      servicio = "Jardinería - Poda de árboles grandes";
+      precio = "150-400€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('limpieza jardin') || msg.includes('jardin sucio')) {
+      servicio = "Jardinería - Limpieza de jardín";
+      precio = "40-80€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('mantenimiento jardin') || (msg.includes('jardin') && msg.includes('mensual'))) {
+      servicio = "Jardinería - Mantenimiento de jardín mensual";
+      precio = "60-150€/mes";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('desbroce') || msg.includes('terreno')) {
+      servicio = "Jardinería - Desbroce de terreno";
+      precio = "3-6€/m²";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('plantacion') || msg.includes('flores') || msg.includes('arbustos')) {
+      servicio = "Jardinería - Plantación de flores o arbustos";
+      precio = "20-50€/hora + materiales";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('riego automatico')) {
+      servicio = "Jardinería - Instalación de riego automático";
+      precio = "a medida";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('plagas') || msg.includes('tratamiento jardin')) {
+      servicio = "Jardinería - Tratamiento de plagas";
+      precio = "50-150€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
 
---- ELECTRICIDAD (reparaciones puntuales) ---
-- Cambiar enchufe o interruptor: 40-70€
-- Cambiar bombilla o plafón: 30-60€
-- Reparar avería en cuadro eléctrico (plomos): 60-120€
-- Instalar punto de luz nuevo: 80-150€
-- Instalar ventilador de techo: 80-140€
-- Cambiar mecanismos completos: 40-80€/unidad
-- Reparar avería general (saltan plomos): 60-180€
-- Instalar toma de tierra: 150-300€
-- Instalación eléctrica baño completo: 200-400€
-- Instalación eléctrica cocina completa: 250-500€
-- Cuadro eléctrico nuevo (vivienda 80-100m²): 600-1000€
-- Instalar punto recarga coche eléctrico: 300-700€
-- Revisión y boletín eléctrico (vivienda): 120-200€
-- Cambio de cableado (por metro): 15-30€/m
+    // ============================================
+    // REFORMAS (20 tareas)
+    // ============================================
+    else if ((msg.includes('baño') || msg.includes('bano')) && msg.includes('basico')) {
+      servicio = "Reforma - Baño básico";
+      precio = "2000-4000€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if ((msg.includes('baño') || msg.includes('bano')) && (msg.includes('gama media') || msg.includes('completo'))) {
+      servicio = "Reforma - Baño completo gama media";
+      precio = "4000-8000€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if ((msg.includes('baño') || msg.includes('bano')) && msg.includes('gama alta')) {
+      servicio = "Reforma - Baño completo gama alta";
+      precio = "8000-15000€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if ((msg.includes('cambiar bañera') || msg.includes('plato ducha')) && !msg.includes('reforma')) {
+      servicio = "Reforma - Cambio de bañera por plato de ducha";
+      precio = "700-1300€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if ((msg.includes('cocina') || msg.includes('cosina')) && msg.includes('basica')) {
+      servicio = "Reforma - Cocina básica";
+      precio = "4000-8000€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if ((msg.includes('cocina') || msg.includes('cosina')) && (msg.includes('gama media') || msg.includes('completa'))) {
+      servicio = "Reforma - Cocina completa gama media";
+      precio = "8000-15000€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if ((msg.includes('cocina') || msg.includes('cosina')) && msg.includes('premium')) {
+      servicio = "Reforma - Cocina premium";
+      precio = "15000-25000€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('reforma integral') && (msg.includes('80') || msg.includes('100'))) {
+      servicio = "Reforma - Reforma integral piso 80-100m²";
+      precio = "25000-60000€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('reforma por m2') || (msg.includes('precio por metro') && msg.includes('reforma'))) {
+      servicio = "Reforma - Precio por m² reforma integral";
+      precio = "500-1250€/m²";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('demolicion') || msg.includes('escombros')) {
+      servicio = "Reforma - Demolición y escombros";
+      precio = "300-600€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('albañileria') || msg.includes('tabique')) {
+      servicio = "Reforma - Albañilería";
+      precio = "60-100€/m²";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('solados') || msg.includes('suelo') || msg.includes('porcelanico')) {
+      servicio = "Reforma - Solados";
+      precio = "40-80€/m² + materiales";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('alicatado') || msg.includes('azulejos')) {
+      servicio = "Reforma - Alicatado de paredes";
+      precio = "35-65€/m²";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('escayola') || msg.includes('falso techo')) {
+      servicio = "Reforma - Escayola y falsos techos";
+      precio = "25-45€/m²";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('instalacion electrica completa')) {
+      servicio = "Reforma - Instalación eléctrica completa";
+      precio = "3200-3800€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('fontaneria completa vivienda')) {
+      servicio = "Reforma - Fontanería completa vivienda";
+      precio = "1500-3000€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('carpinteria interior') || msg.includes('puertas')) {
+      servicio = "Reforma - Carpintería interior";
+      precio = "200-400€/unidad";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
 
---- PINTURA ---
-- Pintar paredes lisas (mano de obra + material básico): 12-18€/m²
-- Pintar techo: 15-22€/m²
-- Pintar piso completo 80m² útiles: 1200-1800€
-- Pintar piso completo 100m² útiles: 1500-2200€
-- Alisar paredes (eliminar gotelé o textura): 20-30€/m²
-- Reparar grietas y masillado: +200-500€
-- Imprimación selladora (cambio de color radical): +5-8€/m²
-- Pintar una habitación (20m²): 250-400€
-- Pintar fachada o exterior: 18-30€/m²
-- Pintar puertas o ventanas (por unidad): 30-60€
-- Calidad estándar (pintura plástica blanca, 100m²): 1000-1200€
-- Calidad media (pintura lavable + pequeñas reparaciones): 1200-1600€
-- Calidad alta (colores, acabados especiales): 1600-2800€
+    // ============================================
+    // CREACIÓN WEB Y APPS (8 tareas)
+    // ============================================
+    else if ((msg.includes('web') || msg.includes('pagina web')) && (msg.includes('corporativa') || msg.includes('5 paginas'))) {
+      servicio = "Web - Web corporativa (5 páginas)";
+      precio = "500-1200€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if ((msg.includes('tienda online') || msg.includes('ecommerce'))) {
+      servicio = "Web - Tienda online";
+      precio = "800-2000€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('landing page') || msg.includes('one page')) {
+      servicio = "Web - Landing page";
+      precio = "300-600€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('app movil') || msg.includes('aplicacion movil')) {
+      servicio = "Web - App móvil básica";
+      precio = "2000-5000€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('app avanzada') || (msg.includes('app') && msg.includes('compleja'))) {
+      servicio = "Web - App móvil avanzada";
+      precio = "5000-12000€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('mantenimiento web') || msg.includes('actualizar web')) {
+      servicio = "Web - Mantenimiento web mensual";
+      precio = "30-80€/mes";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('seo') || msg.includes('posicionamiento')) {
+      servicio = "Web - SEO básico";
+      precio = "200-500€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
 
---- LIMPIEZA PROFESIONAL ---
-- Limpieza de hogar (3-4 horas): 60-120€
-- Limpieza de oficina (50m²): 80-150€
-- Limpieza de comunidades (portal, escaleras, ascensor) mensual: 100-300€
-- Limpieza de colegios o centros deportivos: presupuesto a medida
-- Limpieza de cristales (interiores o exteriores): 50-120€
-- Limpieza de alfombras y tapicerías: 50-150€
-- Limpieza post-obra (100m²): 200-400€
-- Limpieza de nave industrial: presupuesto a medida
-- Limpieza de terrazas o balcones: 40-80€
+    // ============================================
+    // AUTOMATIZACIÓN CON IA (6 tareas)
+    // ============================================
+    else if (msg.includes('chatbot basico') || (msg.includes('chatbot') && msg.includes('simple'))) {
+      servicio = "IA - Chatbot básico";
+      precio = "300-600€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('chatbot avanzado') || (msg.includes('chatbot') && msg.includes('ia'))) {
+      servicio = "IA - Chatbot avanzado con IA";
+      precio = "600-1500€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('asistente virtual')) {
+      servicio = "IA - Asistente virtual";
+      precio = "500-2000€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('automatizacion marketing')) {
+      servicio = "IA - Automatización de marketing";
+      precio = "300-800€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('consultoria ia')) {
+      servicio = "IA - Consultoría en IA";
+      precio = "80-150€/hora";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
 
---- JARDINERÍA Y PODA ---
-- Cortar césped (50-100m²): 30-60€
-- Cortar césped (100-300m²): 60-120€
-- Poda de arbustos y setos: 25-50€/hora
-- Poda de árboles pequeños (hasta 5m): 50-150€
-- Poda de árboles grandes (más de 5m): 150-400€
-- Limpieza de jardín (recogida hojas, maleza): 40-80€
-- Mantenimiento de jardín (mensual): 60-150€/mes
-- Desbroce de terreno: 3-6€/m²
-- Plantación de flores o arbustos: 20-50€/hora + materiales
-- Instalación de riego automático: presupuesto a medida
-- Tratamiento de plagas en jardín: 50-150€
+    // ============================================
+    // SERVICIOS PARA COMUNIDADES (6 tareas)
+    // ============================================
+    else if (msg.includes('mantenimiento integral comunidad') || (msg.includes('comunidad') && msg.includes('mantenimiento'))) {
+      servicio = "Comunidades - Mantenimiento integral comunidad";
+      precio = "200-600€/mes";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('limpieza portal') || (msg.includes('comunidad') && msg.includes('limpieza'))) {
+      servicio = "Comunidades - Limpieza portal y zonas comunes";
+      precio = "150-400€/mes";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('jardineria comunidad') || (msg.includes('comunidad') && msg.includes('jardin'))) {
+      servicio = "Comunidades - Jardinería zonas comunes";
+      precio = "100-300€/mes";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('piscina comunitaria')) {
+      servicio = "Comunidades - Mantenimiento piscina comunitaria";
+      precio = "150-400€/mes";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('pintura fachada comunidad')) {
+      servicio = "Comunidades - Pintura de fachada";
+      precio = "18-30€/m²";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
 
---- REFORMAS (PRECIOS REALES 2026) ---
-- BAÑO básico (cambiar sanitarios, grifería, pintura): 2000-4000€
-- BAÑO completo gama media (alicatado, fontanería, plato ducha, mueble): 4000-8000€
-- BAÑO completo gama alta: 8000-15000€
-- Cambio de bañera por plato de ducha: 700-1300€
-- COCINA básica (muebles, encimera, electrodomésticos básicos): 4000-8000€
-- COCINA completa gama media: 8000-15000€
-- COCINA premium: 15000-25000€
-- REFORMA INTEGRAL piso 80-100m² (estándar): 25000-40000€
-- REFORMA INTEGRAL piso 80-100m² (calidad alta): 40000-60000€
-- Reforma de un solo baño (mano de obra): 3000-6000€
-- Reforma de una sola cocina (mano de obra): 4000-8000€
-- Precio por m² reforma integral estándar: 500-800€/m²
-- Precio por m² reforma integral alta calidad: 800-1250€/m²
-- Demolición y escombros: 300-600€
-- Albañilería (tabiquería nueva): 60-100€/m²
-- Solados (porcelánico o cerámico): 40-80€/m² + materiales
-- Alicatado de paredes (baño/cocina): 35-65€/m²
-- Escayola y falsos techos: 25-45€/m²
-- Instalación eléctrica completa (100m²): 3200-3800€
-- Fontanería completa vivienda: 1500-3000€
-- Carpintería interior (puertas): 200-400€/unidad
+    // ============================================
+    // MANTENIMIENTO PARA EMPRESAS (5 tareas)
+    // ============================================
+    else if (msg.includes('mantenimiento local comercial') || (msg.includes('local') && msg.includes('mantenimiento'))) {
+      servicio = "Empresas - Mantenimiento integral local comercial";
+      precio = "150-500€/mes";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('reparaciones urgentes empresa')) {
+      servicio = "Empresas - Reparaciones urgentes";
+      precio = "60-150€ + materiales";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('climatizacion') || msg.includes('aire acondicionado')) {
+      servicio = "Empresas - Mantenimiento de climatización";
+      precio = "80-150€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
+    else if (msg.includes('certificado instalaciones')) {
+      servicio = "Empresas - Certificado de instalaciones";
+      precio = "120-250€";
+      reply = `👋 ¡Hola! He detectado tu solicitud: *${servicio}*\n💰 Presupuesto orientativo: ${precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
 
---- CREACIÓN WEB Y APPS ---
-- Web corporativa (5 páginas, responsive): 500-1200€
-- Tienda online (hasta 50 productos): 800-2000€
-- Landing page o One page: 300-600€
-- App móvil básica (iOS y Android): 2000-5000€
-- App móvil avanzada: 5000-12000€
-- Mantenimiento web mensual: 30-80€/mes
-- SEO básico (optimización on-page): 200-500€
-- Posicionamiento SEO avanzado: 500-1500€/mes
+    // ============================================
+    // SERVICIOS NO LISTADOS
+    // ============================================
+    else {
+      reply = `👋 ¡Hola! Por favor, dime qué necesitas reparar o mejorar. Por ejemplo:\n- Se me ha roto el grifo\n- Quiero pintar mi piso\n- Necesito reformar el baño\n\n📱 ¿Cuál es tu número de WhatsApp?`;
+    }
 
---- AUTOMATIZACIÓN CON IA ---
-- Chatbot básico (web o WhatsApp): 300-600€
-- Chatbot avanzado con IA (como este): 600-1500€
-- Asistente virtual para procesos internos: 500-2000€
-- Automatización de marketing (email, WhatsApp): 300-800€
-- Automatización de procesos empresariales: 1000-3000€
-- Consultoría en IA para empresas: 80-150€/hora
-
---- SERVICIOS PARA COMUNIDADES ---
-- Mantenimiento integral comunidad (mensual): 200-600€/mes
-- Limpieza portal y zonas comunes (mensual): 150-400€/mes
-- Jardinería zonas comunes (mensual): 100-300€/mes
-- Pequeñas reparaciones (bombillas, cerraduras, etc.): 40-80€/visita
-- Mantenimiento piscina comunitaria (temporada, mensual): 150-400€/mes
-- Pintura de fachada: 18-30€/m²
-- Reforma de portal o zonas comunes: presupuesto a medida
-
---- MANTENIMIENTO PARA EMPRESAS ---
-- Mantenimiento integral local comercial (mensual): 150-500€/mes
-- Reparaciones urgentes: 60-150€ + materiales
-- Mantenimiento de climatización (revisión): 80-150€
-- Pequeñas reformas y adaptaciones: presupuesto a medida
-- Certificado de instalaciones (eléctricas, gas): 120-250€
-- Mantenimiento de maquinaria o equipos: presupuesto a medida
-
---- SERVICIOS NO LISTADOS O BAJO DEMANDA ---
-Si el cliente pide un servicio que no aparece en esta lista (ejemplo: instalación de parque infantil, montaje de mobiliario, proyectos especiales, etc.), responde EXACTAMENTE así:
-
-"Actualmente no tenemos ese servicio específico en nuestra carta, pero podemos estudiarlo. Nuestro precio orientativo para proyectos bajo demanda es de 25-30€/hora + materiales. ¿Quieres que nuestro equipo se ponga en contacto contigo para valorar tu proyecto? La visita para presupuesto cuesta 30€, descontable del total."`
-========================================
-EJEMPLO DE CONVERSACIÓN CORRECTA
-========================================
-
-Cliente: "necesito arreglar el baño"
-Tú: "Buenas tardes. Para poder ayudarte, ¿qué elemento del baño necesitas reparar? Por ejemplo: la cisterna, el grifo, la ducha, el desagüe, o algo más concreto?"
-
-Cliente: "la cisterna no para de correr"
-Tú: "Gracias por concretar. Para reparar la cisterna que no para de correr, el PRESUPUESTO ORIENTATIVO es de 60-100€ (incluye un 20% para imprevistos). La visita para presupuesto cuesta 30€, que te descontamos del total si contratas con nosotros. ¿Te parece bien que te prepare el presupuesto formal y te lo envíe por WhatsApp o email?"
-
-Cliente: "en realidad quiero reformar todo el baño"
-Tú: "Ah, perfecto. Para una reforma completa de baño, el PRESUPUESTO ORIENTATIVO depende de los materiales y las medidas. Para una gama media, estaríamos hablando de 4.000€ a 8.000€ (incluye 20% para imprevistos). La visita para presupuesto cuesta 30€, descontable del total. ¿Podrías decirme las medidas del baño y qué tipo de materiales te gustarían? ¿Quieres que te prepare el presupuesto formal?"`;
-
-    const messages = [
-      { role: 'system', content: systemPrompt },
-      ...(conversationHistory || []),
-      { role: 'user', content: message }
-    ];
-
-    const completion = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',
-      messages: messages,
-      temperature: 0.7,
-      max_tokens: 1000
-    });
-
-    const reply = completion.choices[0].message.content;
-
+    // Devolver la respuesta
     return {
       statusCode: 200,
-      body: JSON.stringify({ reply }),
+      body: JSON.stringify({ reply, servicio, precio })
     };
-
   } catch (error) {
-    console.error('Error:', error);
+    console.error("Error en la función:", error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ 
-        reply: '⚠️ Lo siento, tengo problemas técnicos. ¿Puedes escribirnos al WhatsApp 603 018? Te atenderemos enseguida.'
-      }),
+      body: JSON.stringify({
+        reply: '⚠️ Error técnico. Escríbenos directamente al WhatsApp 603 018 190 y te atenderemos enseguida.'
+      })
     };
   }
 };

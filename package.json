@@ -1,13 +1,13 @@
 {
   "name": "multiservicios",
   "version": "1.0.0",
-  "description": "",
+  "description": "Chatbot para Multiservicios Sagunto",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Juanjo",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {

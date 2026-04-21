@@ -16,6 +16,25 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Multiservicios Sagunto",
+  "image": "https://multiserviciossagunto.es/img/logo_multiservicios_sagunto.png",
+  "telephone": "+34603018190",
+  "email": "info@multiserviciossagunto.es",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Calle Rubau 2",
+    "addressLocality": "Faura",
+    "addressRegion": "Valencia",
+    "postalCode": "46512",
+    "addressCountry": "ES"
+  }
+}
+</script>
 </head>
 <body>
 
@@ -46,8 +65,8 @@
                 <div class="logo">
                     <img src="img/logo_multiservicios_sagunto.png" alt="Multiservicios Sagunto" class="logo-avatar">
                     <div class="logo-text">
-                        <h1>Multiservicios<br><span>Sagunto</span></h1>
-                    </div>
+    <div class="logo-title">Multiservicios<br><span>Sagunto</span></div>
+</div>
                 </div>
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <i class="fas fa-bars"></i>
@@ -71,8 +90,8 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <span class="hero-badge">Más de 30 servicios profesionales</span>
-                    <h1>¿Algo que reparar, <span class="highlight">construir o mejorar</span>? Nosotros lo hacemos por ti</h1>
-                    <p>En Sagunto y toda la comarca. Respuesta rápida, profesionales cualificados y presupuesto sin compromiso.</p>
+                    <h1>Reparaciones y servicios en menos de <span class="highlight">24 horas</span></h1>
+                    <p>En Sagunto y toda la comarca. Fontanería, electricidad, limpieza y más. Presupuesto rápido y sin compromiso.</p>
                     <div class="hero-buttons">
                         <a href="contacto.html" class="btn-primary">Solicitar presupuesto <i class="fas fa-arrow-right"></i></a>
                         <a href="https://wa.me/34603018190" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
@@ -194,10 +213,12 @@
         </div>
     </section>
 
+    
+
     <section class="cta-final">
         <div class="container">
             <div class="cta-final-content">
-                <h2>¿Hablamos?</h2>
+                <h2>Solicita tu presupuesto en menos de 2 minutos</h2>
                 <p>Solicita tu presupuesto sin compromiso y descubre por qué somos la empresa de confianza en Sagunto</p>
                 <div class="cta-buttons">
                     <a href="contacto.html" class="btn-primary">Solicitar presupuesto</a>
@@ -238,7 +259,7 @@
         </div>
     </footer>
 
-            <!-- Chatbot -->
+            <!-- Chatbot flotante -->
     <div class="chatbot-button" id="chatbotButton">
         <i class="fas fa-comment-dots"></i>
     </div>
@@ -260,34 +281,156 @@
 
     <script src="js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script>
+<script>
     (function() {
         emailjs.init('gcidZqK4tE_i-PfBW');
     })();
-    
-    // ============================================
-    // CHATBOT CON OPENAI (NETLIFY FUNCTIONS)
-    // ============================================
-    
+
+    // BASE DE DATOS COMPLETA DE SERVICIOS (CORREGIDA)
+    const servicios = [
+        // FONTANERÍA (15)
+        { keywords: ["grifo gotea", "grifo que gotea", "gotea grifo", "grifo", "gotea"], nombre: "Reparación de grifo que gotea", precio: "50-80€" },
+        { keywords: ["cambiar grifo", "grifo nuevo", "sustituir grifo"], nombre: "Cambio de grifo completo", precio: "60-100€" },
+        { keywords: ["cartucho grifo", "cambiar cartucho"], nombre: "Cambio de cartucho de grifo monomando", precio: "50-70€" },
+        { keywords: ["desatasco", "tuberia tapada", "fregadero tapado", "lavabo tapado", "inodoro tapado", "atascar"], nombre: "Desatasco de tuberías", precio: "60-120€" },
+        { keywords: ["cisterna corre", "cisterna no para", "wc corre", "cisterna"], nombre: "Reparación de cisterna que no para de correr", precio: "60-100€" },
+        { keywords: ["cambiar cisterna", "cisterna nueva"], nombre: "Cambio de cisterna completa", precio: "150-250€" },
+        { keywords: ["fuga agua", "perdida agua", "tuberia pierde", "fuga"], nombre: "Reparación de fuga de agua localizada", precio: "80-150€" },
+        { keywords: ["latiguillo", "cambiar latiguillo"], nombre: "Cambio de latiguillos", precio: "50-80€" },
+        { keywords: ["valvula paso", "llave paso"], nombre: "Cambio de válvula de paso", precio: "70-120€" },
+        { keywords: ["instalar lavavajillas", "instalar lavadora"], nombre: "Instalación de lavavajillas o lavadora", precio: "80-150€" },
+        { keywords: ["reparar caldera", "caldera averiada"], nombre: "Reparación de caldera (avería básica)", precio: "100-250€" },
+        { keywords: ["reparar termo", "termo electrico"], nombre: "Reparación de termo eléctrico", precio: "80-180€" },
+        { keywords: ["tuberia rota", "rotura tuberia"], nombre: "Avería compleja (rotura tubería empotrada)", precio: "250-600€" },
+        { keywords: ["fontaneria baño", "instalar fontaneria baño"], nombre: "Instalación fontanería baño completo", precio: "400-800€" },
+        { keywords: ["fontaneria cocina", "instalar fontaneria cocina"], nombre: "Instalación fontanería cocina completa", precio: "300-600€" },
+
+        // ELECTRICIDAD (14)
+        { keywords: ["cambiar enchufe", "cambiar interruptor", "enchufe roto"], nombre: "Cambio de enchufe o interruptor", precio: "40-70€" },
+        { keywords: ["cambiar bombilla", "cambiar plafon", "bombilla fundida"], nombre: "Cambio de bombilla o plafón", precio: "30-60€" },
+        { keywords: ["cuadro electrico", "reparar cuadro", "plomos", "saltan plomos"], nombre: "Reparación de avería en cuadro eléctrico", precio: "60-120€" },
+        { keywords: ["punto luz nuevo", "instalar luz", "luz nueva"], nombre: "Instalación de punto de luz nuevo", precio: "80-150€" },
+        { keywords: ["ventilador techo", "instalar ventilador"], nombre: "Instalación de ventilador de techo", precio: "80-140€" },
+        { keywords: ["cambiar mecanismos", "mecanismos electricos"], nombre: "Cambio de mecanismos completos", precio: "40-80€" },
+        { keywords: ["averia general", "cortocircuito", "luz general"], nombre: "Reparación de avería general (saltan plomos)", precio: "60-180€" },
+        { keywords: ["toma tierra", "instalar toma tierra"], nombre: "Instalación de toma de tierra", precio: "150-300€" },
+        { keywords: ["electricidad baño", "instalacion electrica baño"], nombre: "Instalación eléctrica baño completo", precio: "200-400€" },
+        { keywords: ["electricidad cocina", "instalacion electrica cocina"], nombre: "Instalación eléctrica cocina completa", precio: "250-500€" },
+        { keywords: ["cuadro nuevo", "cambiar cuadro electrico"], nombre: "Cuadro eléctrico nuevo (vivienda 80-100m²)", precio: "600-1000€" },
+        { keywords: ["coche electrico", "recarga coche"], nombre: "Instalación de punto recarga coche eléctrico", precio: "300-700€" },
+        { keywords: ["boletin electrico", "revision electrica"], nombre: "Revisión y boletín eléctrico (vivienda)", precio: "120-200€" },
+        { keywords: ["cambio cableado", "cable nuevo"], nombre: "Cambio de cableado (por metro)", precio: "15-30€/m" },
+
+        // PINTURA (13) - CORREGIDO CON MÁS PALABRAS CLAVE
+        { keywords: ["pintar", "pintura", "pintar casa", "pintar piso", "pintar pared", "pintar habitacion", "pintar vivienda"], nombre: "Pintura de vivienda", precio: "12-18€/m²" },
+        { keywords: ["pintar piso 80", "pintar casa 80", "80 metros", "80m²", "pintar 80"], nombre: "Pintar piso completo 80m²", precio: "1200-1800€" },
+        { keywords: ["pintar piso 100", "pintar casa 100", "100 metros", "100m²", "pintar 100"], nombre: "Pintar piso completo 100m²", precio: "1500-2200€" },
+        { keywords: ["pintar techo"], nombre: "Pintar techo", precio: "15-22€/m²" },
+        { keywords: ["alisar paredes", "eliminar gotele", "gotelé"], nombre: "Alisar paredes (eliminar gotelé)", precio: "20-30€/m²" },
+        { keywords: ["reparar grietas", "masillar"], nombre: "Reparación de grietas y masillado", precio: "+200-500€" },
+        { keywords: ["imprimacion", "selladora"], nombre: "Imprimación selladora", precio: "+5-8€/m²" },
+        { keywords: ["pintar habitacion 20", "pintar una habitacion"], nombre: "Pintar una habitación (20m²)", precio: "250-400€" },
+        { keywords: ["pintar fachada", "pintar exterior"], nombre: "Pintar fachada o exterior", precio: "18-30€/m²" },
+        { keywords: ["pintar puerta", "pintar ventana"], nombre: "Pintar puertas o ventanas", precio: "30-60€" },
+        { keywords: ["calidad estandar pintura"], nombre: "Calidad estándar (pintura plástica blanca, 100m²)", precio: "1000-1200€" },
+        { keywords: ["calidad media pintura"], nombre: "Calidad media (pintura lavable)", precio: "1200-1600€" },
+        { keywords: ["calidad alta pintura"], nombre: "Calidad alta (colores, acabados especiales)", precio: "1600-2800€" },
+
+        // LIMPIEZA (9)
+        { keywords: ["limpiar casa", "limpieza hogar", "limpieza casa"], nombre: "Limpieza de hogar (3-4 horas)", precio: "60-120€" },
+        { keywords: ["limpieza oficina", "limpiar oficina"], nombre: "Limpieza de oficina (50m²)", precio: "80-150€" },
+        { keywords: ["limpieza comunidad", "limpiar portal"], nombre: "Limpieza de comunidades (portal, escaleras) mensual", precio: "100-300€/mes" },
+        { keywords: ["limpieza colegio", "limpieza deportivo"], nombre: "Limpieza de colegios o centros deportivos", precio: "a medida" },
+        { keywords: ["limpiar cristales", "limpieza cristales"], nombre: "Limpieza de cristales", precio: "50-120€" },
+        { keywords: ["limpiar alfombra", "limpieza tapiceria"], nombre: "Limpieza de alfombras y tapicerías", precio: "50-150€" },
+        { keywords: ["limpieza post obra"], nombre: "Limpieza post-obra (100m²)", precio: "200-400€" },
+        { keywords: ["limpieza nave", "limpiar almacen"], nombre: "Limpieza de nave industrial", precio: "a medida" },
+        { keywords: ["limpiar terraza", "limpiar balcon"], nombre: "Limpieza de terrazas o balcones", precio: "40-80€" },
+
+        // JARDINERÍA (11)
+        { keywords: ["cortar cesped", "cortar césped", "cesped"], nombre: "Cortar césped (50-100m²)", precio: "30-60€" },
+        { keywords: ["cortar cesped grande"], nombre: "Cortar césped (100-300m²)", precio: "60-120€" },
+        { keywords: ["podar arbustos", "podar setos"], nombre: "Poda de arbustos y setos", precio: "25-50€/hora" },
+        { keywords: ["podar arbol pequeño"], nombre: "Poda de árboles pequeños (hasta 5m)", precio: "50-150€" },
+        { keywords: ["podar arbol grande"], nombre: "Poda de árboles grandes (más de 5m)", precio: "150-400€" },
+        { keywords: ["limpiar jardin", "jardin sucio"], nombre: "Limpieza de jardín", precio: "40-80€" },
+        { keywords: ["mantenimiento jardin"], nombre: "Mantenimiento de jardín (mensual)", precio: "60-150€/mes" },
+        { keywords: ["desbrozar", "desbroce"], nombre: "Desbroce de terreno", precio: "3-6€/m²" },
+        { keywords: ["plantar flores", "plantar arbustos"], nombre: "Plantación de flores o arbustos", precio: "20-50€/hora + materiales" },
+        { keywords: ["riego automatico"], nombre: "Instalación de riego automático", precio: "a medida" },
+        { keywords: ["plagas jardin", "tratamiento jardin"], nombre: "Tratamiento de plagas en jardín", precio: "50-150€" },
+
+        // REFORMAS (21)
+        { keywords: ["baño basico", "reforma baño basica", "reforma baño pequeña"], nombre: "BAÑO básico", precio: "2000-4000€" },
+        { keywords: ["baño gama media", "reforma baño completa"], nombre: "BAÑO completo gama media", precio: "4000-8000€" },
+        { keywords: ["baño gama alta"], nombre: "BAÑO completo gama alta", precio: "8000-15000€" },
+        { keywords: ["cambiar bañera", "plato ducha"], nombre: "Cambio de bañera por plato de ducha", precio: "700-1300€" },
+        { keywords: ["cocina basica", "reforma cocina basica"], nombre: "COCINA básica", precio: "4000-8000€" },
+        { keywords: ["cocina gama media", "reforma cocina completa"], nombre: "COCINA completa gama media", precio: "8000-15000€" },
+        { keywords: ["cocina premium"], nombre: "COCINA premium", precio: "15000-25000€" },
+        { keywords: ["reforma integral piso", "reforma integral 80"], nombre: "REFORMA INTEGRAL piso 80-100m² (estándar)", precio: "25000-40000€" },
+        { keywords: ["reforma integral calidad alta"], nombre: "REFORMA INTEGRAL piso 80-100m² (calidad alta)", precio: "40000-60000€" },
+        { keywords: ["reforma baño mano obra"], nombre: "Reforma de un solo baño (mano de obra)", precio: "3000-6000€" },
+        { keywords: ["reforma cocina mano obra"], nombre: "Reforma de una sola cocina (mano de obra)", precio: "4000-8000€" },
+        { keywords: ["precio reforma m2"], nombre: "Precio por m² reforma integral estándar", precio: "500-800€/m²" },
+        { keywords: ["precio reforma calidad alta"], nombre: "Precio por m² reforma integral alta calidad", precio: "800-1250€/m²" },
+        { keywords: ["demolicion", "escombros"], nombre: "Demolición y escombros", precio: "300-600€" },
+        { keywords: ["tabiqueria", "albañileria"], nombre: "Albañilería (tabiquería nueva)", precio: "60-100€/m²" },
+        { keywords: ["solados", "colocar suelo"], nombre: "Solados (porcelánico o cerámico)", precio: "40-80€/m²" },
+        { keywords: ["alicatado", "colocar azulejos"], nombre: "Alicatado de paredes", precio: "35-65€/m²" },
+        { keywords: ["escayola", "falso techo"], nombre: "Escayola y falsos techos", precio: "25-45€/m²" },
+        { keywords: ["instalacion electrica completa"], nombre: "Instalación eléctrica completa (100m²)", precio: "3200-3800€" },
+        { keywords: ["fontaneria completa"], nombre: "Fontanería completa vivienda", precio: "1500-3000€" },
+        { keywords: ["puertas interiores", "carpinteria interior"], nombre: "Carpintería interior (puertas)", precio: "200-400€" },
+
+        // WEB Y APPS (8)
+        { keywords: ["web corporativa", "pagina web empresa"], nombre: "Web corporativa (5 páginas, responsive)", precio: "500-1200€" },
+        { keywords: ["tienda online", "ecommerce"], nombre: "Tienda online (hasta 50 productos)", precio: "800-2000€" },
+        { keywords: ["landing page", "one page"], nombre: "Landing page o One page", precio: "300-600€" },
+        { keywords: ["app movil basica", "aplicacion movil"], nombre: "App móvil básica", precio: "2000-5000€" },
+        { keywords: ["app movil avanzada"], nombre: "App móvil avanzada", precio: "5000-12000€" },
+        { keywords: ["mantenimiento web"], nombre: "Mantenimiento web mensual", precio: "30-80€/mes" },
+        { keywords: ["seo basico"], nombre: "SEO básico", precio: "200-500€" },
+        { keywords: ["seo avanzado"], nombre: "Posicionamiento SEO avanzado", precio: "500-1500€/mes" },
+
+        // IA (6)
+        { keywords: ["chatbot basico", "chatbot simple"], nombre: "Chatbot básico", precio: "300-600€" },
+        { keywords: ["chatbot avanzado", "chatbot ia"], nombre: "Chatbot avanzado con IA", precio: "600-1500€" },
+        { keywords: ["asistente virtual"], nombre: "Asistente virtual", precio: "500-2000€" },
+        { keywords: ["automatizacion marketing"], nombre: "Automatización de marketing", precio: "300-800€" },
+        { keywords: ["automatizacion procesos"], nombre: "Automatización de procesos empresariales", precio: "1000-3000€" },
+        { keywords: ["consultoria ia"], nombre: "Consultoría en IA para empresas", precio: "80-150€/hora" },
+
+        // COMUNIDADES (3)
+        { keywords: ["mantenimiento comunidad"], nombre: "Mantenimiento integral comunidad (mensual)", precio: "200-600€/mes" },
+        { keywords: ["limpieza portal comunidad"], nombre: "Limpieza portal y zonas comunes (mensual)", precio: "150-400€/mes" },
+        { keywords: ["jardineria comunidad"], nombre: "Jardinería zonas comunes (mensual)", precio: "100-300€/mes" }
+    ];
+
+    function detectarServicio(mensaje) {
+        const msg = mensaje.toLowerCase();
+        for (let s of servicios) {
+            for (let kw of s.keywords) {
+                if (msg.includes(kw)) {
+                    return { nombre: s.nombre, precio: s.precio };
+                }
+            }
+        }
+        return { nombre: "Consulta general", precio: "a convenir" };
+    }
+
     const chatState = { 
-        step: 'asking_name', 
-        userData: { nombre: '', telefono: '', email: '' }, 
-        messages: [],
-        welcomeSent: false,
-        esperandoRespuestaPresupuesto: false,
-        ultimoServicio: '',
-        ultimosDetalles: '',
-        ultimoPresupuesto: ''
+        step: 'bienvenida',
+        userData: { nombre: '', email: '', telefono: '', servicio: '', precio: '' }
     };
-    
+
     const chatbotButton = document.getElementById('chatbotButton');
     const chatbotWindow = document.getElementById('chatbotWindow');
     const chatbotClose = document.getElementById('chatbotClose');
     const chatbotMessages = document.getElementById('chatbotMessages');
     const chatbotInput = document.getElementById('chatbotInput');
     const chatbotSend = document.getElementById('chatbotSend');
-    
+
     function addMessage(text, isUser = false) {
         const messageDiv = document.createElement('div');
         messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
@@ -298,307 +441,112 @@
         chatbotMessages.appendChild(messageDiv);
         chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
     }
-    
-    function showTyping() {
-        const typingDiv = document.createElement('div');
-        typingDiv.className = 'message bot';
-        typingDiv.id = 'typing-indicator';
-        typingDiv.innerHTML = '<div class="message-bubble">✍️ Escribiendo...</div>';
-        chatbotMessages.appendChild(typingDiv);
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-        return typingDiv;
-    }
-    
-    function hideTyping(typingDiv) {
-        if (typingDiv && typingDiv.remove) typingDiv.remove();
-    }
-    
-    async function sendToAI(message) {
-        try {
-            const response = await fetch('/.netlify/functions/chatbot', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
-                    message: message, 
-                    conversationHistory: chatState.messages, 
-                    userData: chatState.userData 
-                })
-            });
-            const data = await response.json();
-            return data.reply;
-        } catch (error) {
-            console.error('Error:', error);
-            return "⚠️ Lo siento, tengo problemas técnicos. ¿Puedes escribirnos al WhatsApp 603 018 190? Te atenderemos enseguida.";
-        }
-    }
-    
-    function saveLead() {
-        const leads = JSON.parse(localStorage.getItem('ms_leads') || '[]');
-        leads.push({
-            ...chatState.userData,
-            fecha: new Date().toISOString()
-        });
-        localStorage.setItem('ms_leads', JSON.stringify(leads));
-        console.log('Lead guardado. Total:', leads.length);
-    }
-    
-    function generarPresupuestoPDF(cliente, servicio, detalles, presupuesto) {
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
-        
-        const fecha = new Date().toLocaleDateString('es-ES');
-        const numeroPresupuesto = 'PRE-' + Date.now().toString().slice(-8);
-        
-        const colorPrimario = '#1e3a5f';
-        const colorSecundario = '#2d6a4f';
-        
-        doc.setFillColor(colorPrimario);
-        doc.rect(0, 0, 210, 45, 'F');
-        doc.setTextColor(255, 255, 255);
-        doc.setFontSize(20);
-        doc.setFont('helvetica', 'bold');
-        doc.text('MULTISERVICIOS SAGUNTO', 105, 20, { align: 'center' });
-        doc.setFontSize(10);
-        doc.text('Tu solución integral en Sagunto y comarca', 105, 32, { align: 'center' });
-        doc.text('Tel: 603 018 190 · info@multiserviciossagunto.es', 105, 40, { align: 'center' });
-        
-        doc.setTextColor(colorPrimario);
-        doc.setFontSize(22);
-        doc.text('PRESUPUESTO', 105, 65, { align: 'center' });
-        
-        doc.setFontSize(9);
-        doc.setTextColor(100, 100, 100);
-        doc.text(`Nº: ${numeroPresupuesto}`, 20, 80);
-        doc.text(`Fecha: ${fecha}`, 150, 80);
-        doc.line(20, 85, 190, 85);
-        
-        doc.setFontSize(11);
-        doc.setFont('helvetica', 'bold');
-        doc.setTextColor(colorPrimario);
-        doc.text('DATOS DEL CLIENTE', 20, 100);
-        doc.setFontSize(9);
-        doc.setFont('helvetica', 'normal');
-        doc.setTextColor(60, 60, 60);
-        doc.text(`Nombre: ${cliente.nombre || 'Cliente'}`, 20, 112);
-        doc.text(`Teléfono: ${cliente.telefono || 'No especificado'}`, 20, 122);
-        doc.text(`Email: ${cliente.email || 'No especificado'}`, 20, 132);
-        
-        doc.setFontSize(11);
-        doc.setFont('helvetica', 'bold');
-        doc.setTextColor(colorPrimario);
-        doc.text('DATOS DE LA EMPRESA', 20, 152);
-        doc.setFontSize(9);
-        doc.setTextColor(60, 60, 60);
-        doc.text('Multiservicios Sagunto', 20, 164);
-        doc.text('Calle Rubau 2, 46512 Faura (Valencia)', 20, 174);
-        doc.text('Tel: 603 018 190 · Email: info@multiserviciossagunto.es', 20, 184);
-        doc.line(20, 192, 190, 192);
-        
-        doc.setFontSize(11);
-        doc.setFont('helvetica', 'bold');
-        doc.setTextColor(colorPrimario);
-        doc.text('DESGLOSE DEL PRESUPUESTO', 20, 208);
-        doc.setFontSize(9);
-        doc.setTextColor(60, 60, 60);
-        doc.text(`Servicio: ${servicio}`, 20, 220);
-        doc.text(`Detalles: ${detalles}`, 20, 230);
-        
-        doc.setFillColor(colorSecundario);
-        doc.rect(20, 250, 170, 18, 'F');
-        doc.setTextColor(255, 255, 255);
-        doc.setFontSize(14);
-        doc.text(`TOTAL PRESUPUESTADO: ${presupuesto} €`, 105, 263, { align: 'center' });
-        
-        doc.setTextColor(100, 100, 100);
-        doc.setFontSize(7);
-        doc.text('* Presupuesto válido por 30 días. Incluye materiales y mano de obra.', 20, 285);
-        doc.text('* La visita para presupuesto tiene un coste de 30€, descontable del total.', 20, 293);
-        
-        return doc.output('blob');
-    }
-    
-    async function enviarPresupuestoEmail(cliente, servicio, detalles, presupuesto) {
-        const pdfBlob = generarPresupuestoPDF(cliente, servicio, detalles, presupuesto);
-        
-        const reader = new FileReader();
-        reader.readAsDataURL(pdfBlob);
-        
-        reader.onloadend = async function() {
-            const base64PDF = reader.result.split(',')[1];
-            
-            const templateParams = {
-                nombre: cliente.nombre,
-                email: cliente.email,
-                telefono: cliente.telefono,
-                servicio: servicio,
-                presupuesto: presupuesto,
-                detalles: detalles,
-                fecha: new Date().toLocaleString(),
-                pdf_adjunto: base64PDF
-            };
-            
-            try {
-                await emailjs.send('presupuestos_ms', 'template_f6k59wp', templateParams);
-                addMessage("✅ ¡Presupuesto enviado! Revisa tu email. Te hemos adjuntado el PDF con todos los detalles.", false);
-            } catch (error) {
-                console.error('Error al enviar email:', error);
-                addMessage("❌ Hubo un problema al enviar el email. ¿Puedes intentarlo de nuevo o contactarnos por WhatsApp?", false);
-            }
-        };
-    }
-    
-    function enviarPresupuestoWhatsApp(cliente, servicio, detalles, presupuesto) {
-        const mensaje = `*MULTISERVICIOS SAGUNTO*
-        
-*PRESUPUESTO PARA ${cliente.nombre.toUpperCase()}*
 
-📋 *Servicio:* ${servicio}
-📝 *Detalles:* ${detalles}
-💰 *Presupuesto orientativo:* ${presupuesto} €
-
-📅 *Válido hasta:* ${new Date(Date.now() + 30*24*60*60*1000).toLocaleDateString()}
-
-*Condiciones:*
-• Visita para presupuesto: 30€ (descontable del total)
-• Incluye materiales y mano de obra
-• Presupuesto válido por 30 días
-
-📞 *Contacto:* 603 018 190
-📧 *Email:* info@multiserviciossagunto.es
-🌐 *Web:* multiserviciossagunto.es
-
-*¿Qué necesitas? ¿Quieres que pasemos a verte?*`;
-
-        const telefonoLimpio = cliente.telefono.replace(/[^0-9]/g, '');
-        const url = `https://wa.me/${telefonoLimpio}?text=${encodeURIComponent(mensaje)}`;
+    function enviarWhatsApp(telefono, nombre, servicio, precio) {
+        const mensaje = `Hola ${nombre}, soy de Multiservicios Sagunto. Te enviamos el presupuesto que solicitaste:\n\n📋 Servicio: ${servicio}\n💰 Presupuesto orientativo: ${precio}\n🔧 Visita: 30€ (descontable)\n\n¿Qué día te viene bien que pasemos a verte?`;
+        const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
         window.open(url, '_blank');
-        addMessage("✅ Mensaje de WhatsApp preparado. Solo tienes que enviarlo.", false);
     }
-    
+
+    function enviarEmail(nombre, email, servicio, detalles, presupuesto) {
+    emailjs.send('presupuestos_ms', 'template_f6k59wp', {
+        nombre: nombre,
+        email: email,
+        servicio: servicio,
+        detalles: detalles,
+        presupuesto: presupuesto,
+        fecha: new Date().toLocaleString()
+    }).then(() => {
+        addMessage("✅ Presupuesto enviado a tu email. Te llamaremos pronto.", false);
+    }).catch((error) => {
+        console.error('Error EmailJS:', error);
+        addMessage("❌ Error al enviar email. Escríbenos al WhatsApp 603 018 190.", false);
+    });
+}
+
     async function processMessage(message) {
         if (!message.trim()) return;
-        
         addMessage(message, true);
         chatbotInput.value = '';
-        
-        if (chatState.step === 'asking_name') {
-            chatState.userData.nombre = message.trim();
-            chatState.step = 'asking_phone';
-            addMessage("📱 Gracias. ¿Cuál es tu número de teléfono?");
+
+        if (chatState.step === 'bienvenida') {
+            chatState.step = 'preguntar';
+            addMessage("👋 ¡Hola! Soy Cousine el asistente de Multiservicios Sagunto.\n\n🔧 ¿Qué necesitas reparar o mejorar?\n\nPor ejemplo:\n• Se me ha roto el grifo\n• Necesito un servicio de limpieza\n• Quiero pintar mi piso de 80 metros\n• Necesito reformar el baño", false);
             return;
         }
-        
-        if (chatState.step === 'asking_phone') {
+
+        if (chatState.step === 'preguntar') {
+            chatState.ultimoMensaje = message;
+            const servicio = detectarServicio(message);
+            chatState.userData.servicio = servicio.nombre;
+            chatState.userData.precio = servicio.precio;
+            chatState.step = 'pedir_telefono';
+            addMessage(`📋 He detectado tu solicitud:\n\n🔧 *${servicio.nombre}*\n💰 *Presupuesto orientativo:* ${servicio.precio}\n✅ Incluye +20% para imprevistos.\n🔧 Visita para presupuesto: 30€ (descontable).\n\n📱 ¿Cuál es tu número de WhatsApp? (Ej: 603018190)`, false);
+            return;
+        }
+
+        if (chatState.step === 'pedir_telefono') {
             chatState.userData.telefono = message.trim();
-            chatState.step = 'asking_email';
-            addMessage("📧 Perfecto. ¿Y tu correo electrónico?");
+            chatState.step = 'pedir_nombre';
+            addMessage("📝 ¿Cómo te llamas?", false);
             return;
         }
-        
-        if (chatState.step === 'asking_email') {
+
+        if (chatState.step === 'pedir_nombre') {
+            chatState.userData.nombre = message.trim();
+            chatState.step = 'pedir_email';
+            addMessage("📧 ¿Cuál es tu correo electrónico?", false);
+            return;
+        }
+
+        if (chatState.step === 'pedir_email') {
             chatState.userData.email = message.trim();
-            chatState.step = 'chatting';
-            saveLead();
-            addMessage(`✅ ¡Gracias ${chatState.userData.nombre}! Ya tengo tus datos.\n\n🔧 Ahora cuéntame, ¿qué necesitas reparar, limpiar o mejorar?\n\nPor ejemplo:\n• "se me ha roto el grifo de la cocina"\n• "quiero pintar mi piso de 80 metros"\n• "necesito limpieza en mi oficina"`);
+            addMessage("📧 Enviando presupuesto a tu email...", false);
+            enviarEmail(chatState.userData.nombre, chatState.userData.email, chatState.userData.servicio, chatState.ultimoMensaje, chatState.userData.precio);
+            addMessage("📱 Abriendo WhatsApp para enviarte el presupuesto...", false);
+            enviarWhatsApp(chatState.userData.telefono, chatState.userData.nombre, chatState.userData.servicio, chatState.userData.precio);
+            chatState.step = 'fin';
             return;
         }
-        
-        if (chatState.esperandoRespuestaPresupuesto) {
-            const msgLower = message.toLowerCase();
-            if (msgLower.includes('email') || msgLower.includes('correo')) {
-                await enviarPresupuestoEmail(chatState.userData, chatState.ultimoServicio, chatState.ultimosDetalles, chatState.ultimoPresupuesto);
-                chatState.esperandoRespuestaPresupuesto = false;
-            } else if (msgLower.includes('whatsapp') || msgLower.includes('wasap') || msgLower.includes('wa')) {
-                enviarPresupuestoWhatsApp(chatState.userData, chatState.ultimoServicio, chatState.ultimosDetalles, chatState.ultimoPresupuesto);
-                chatState.esperandoRespuestaPresupuesto = false;
-            } else if (msgLower.includes('si') || msgLower.includes('sí')) {
-                addMessage("📬 ¿Cómo prefieres recibir el presupuesto? Responde 'email' o 'whatsapp'", false);
-            } else {
-                addMessage("Por favor, responde 'email' o 'whatsapp' para recibir tu presupuesto.", false);
-            }
-            return;
-        }
-        
-        const typing = showTyping();
-        chatState.messages.push({ role: 'user', content: message });
-        const aiReply = await sendToAI(message);
-        hideTyping(typing);
-        addMessage(aiReply, false);
-        chatState.messages.push({ role: 'assistant', content: aiReply });
-        
-        if (aiReply.toLowerCase().includes('presupuesto formal') || 
-            aiReply.toLowerCase().includes('enviar por') ||
-            aiReply.toLowerCase().includes('whatsapp o email')) {
-            
-            chatState.esperandoRespuestaPresupuesto = true;
-            chatState.ultimoServicio = "Consulta profesional";
-            chatState.ultimosDetalles = "Presupuesto solicitado por el cliente";
-            
-            const precioMatch = aiReply.match(/(\d+[\.,]?\d*)\s*€/);
-            if (precioMatch) {
-                chatState.ultimoPresupuesto = precioMatch[1];
-            } else {
-                chatState.ultimoPresupuesto = "a convenir";
-            }
-        }
-        
-        if (chatState.messages.length > 20) {
-            chatState.messages = chatState.messages.slice(-20);
+
+        if (chatState.step === 'fin') {
+            addMessage("📞 Gracias. Te hemos enviado el presupuesto por WhatsApp y email. Te llamaremos pronto para agendar la visita.", false);
         }
     }
-    
+
     if (chatbotButton) {
         chatbotButton.onclick = () => {
             chatbotWindow.classList.toggle('active');
-            if (!chatState.welcomeSent && chatbotWindow.classList.contains('active')) {
-                chatState.welcomeSent = true;
+            if (chatState.step === 'bienvenida') {
                 setTimeout(() => {
-                    addMessage("👋 ¡Hola! Soy el asistente de **Multiservicios Sagunto**.", false);
-                    setTimeout(() => {
-                        addMessage("📝 Para poder ayudarte mejor, ¿cómo te llamas?", false);
-                    }, 800);
-                }, 300);
+                    addMessage("👋 ¡Hola! Soy Cousine el asistente de Multiservicios Sagunto.\n\n🔧 ¿Qué necesitas reparar o mejorar?", false);
+                }, 500);
             }
         };
     }
-    
     if (chatbotClose) {
         chatbotClose.onclick = () => chatbotWindow.classList.remove('active');
     }
-    
     if (chatbotSend) {
         chatbotSend.onclick = () => processMessage(chatbotInput.value);
     }
-    
     if (chatbotInput) {
         chatbotInput.onkeypress = (e) => {
             if (e.key === 'Enter') processMessage(chatbotInput.value);
         };
     }
-    </script>
-    
-    <!-- Menú móvil (hamburguesa) -->
-    <script>
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-        if (mobileMenuBtn && navMenu) {
-            mobileMenuBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                navMenu.classList.toggle('active');
+
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    if (mobileMenuBtn && navMenu) {
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navMenu.classList.toggle('active');
+        });
+        document.querySelectorAll('.nav-menu a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
             });
-            
-            document.querySelectorAll('.nav-menu a').forEach(function(link) {
-                link.addEventListener('click', function() {
-                    navMenu.classList.remove('active');
-                });
-            });
-            
-            document.addEventListener('click', function(event) {
-                if (!navMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
-                    navMenu.classList.remove('active');
-                }
-            });
-        }
-    </script>
-</body>
-</html>
+        });
+    }
+</script>
