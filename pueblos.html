@@ -3,137 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calcula tu presupuesto | Camp de Morvedre Servicios Integrales</title>
-    <meta name="description" content="Calcula el precio estimado de tu reforma, pintura, fontanería, página web o chatbot de IA. Introduce los datos y obtén un presupuesto aproximado al instante.">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Pueblos donde trabajamos | Multiservicios Sagunto</title>
+    <meta name="description" content="Trabajamos en más de 30 pueblos de Camp de Morvedre, L'Horta Nord y Plana Baixa. Encuentra tu pueblo y descubre todos nuestros servicios.">
+    <link rel="canonical" href="https://multiserviciossagunto.es/pueblos.html">
+    <link rel="stylesheet" href="css/style.css?v=2">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        .calculator-section {
-            background: var(--gray-light);
-            padding: 60px 0;
-        }
-        .calculator-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 24px;
-            box-shadow: var(--shadow);
-            overflow: hidden;
-        }
-        .calculator-header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
-        .calculator-header h1 {
-            margin-bottom: 10px;
-            font-size: 1.8rem;
-        }
-        .calculator-body {
-            padding: 30px;
-        }
-        .form-group-calc {
-            margin-bottom: 25px;
-        }
-        .form-group-calc label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--primary);
-        }
-        .form-group-calc select,
-        .form-group-calc input {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid var(--gray);
-            border-radius: 12px;
-            font-family: inherit;
-            font-size: 1rem;
-        }
-        .price-display {
-            background: var(--primary);
-            color: white;
-            padding: 20px;
-            border-radius: 16px;
-            text-align: center;
-            margin: 20px 0;
-        }
-        .price-display .price {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin: 10px 0 0;
-        }
-        .price-display .price small {
-            font-size: 0.9rem;
-            font-weight: 400;
-        }
-        .price-display .note {
-            font-size: 0.8rem;
-            margin-top: 10px;
-            opacity: 0.8;
-        }
-        .lead-form {
-            background: var(--gray-light);
-            padding: 20px;
-            border-radius: 16px;
-            margin-top: 20px;
-        }
-        .lead-form h4 {
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-        .lead-form input {
-            width: 100%;
-            padding: 10px 14px;
-            margin-bottom: 10px;
-            border: 1px solid var(--gray);
-            border-radius: 8px;
-        }
-        .btn-calc {
-            background: var(--accent);
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 40px;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            font-size: 1rem;
-        }
-        .info-text {
-            font-size: 0.8rem;
-            color: var(--gray-dark);
-            text-align: center;
-            margin-top: 20px;
-        }
-        @media (max-width: 768px) {
-            .calculator-body { padding: 20px; }
-            .price-display .price { font-size: 1.8rem; }
-        }
-    </style>
+.pueblos-botones {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    padding: 25px !important;
+}
+
+.btn-pueblo {
+    background: #e67e22 !important;
+    color: white !important;
+    padding: 10px 18px !important;
+    border-radius: 40px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    text-decoration: none !important;
+    font-size: 14px !important;
+}
+
+.btn-pueblo:hover {
+    background: #c0392b !important;
+}
+</style>
 </head>
 <body>
 
+    <!-- ========== TOP BAR Y HEADER (mismo que index) ========== -->
     <div class="top-bar">
         <div class="container">
             <div class="top-bar-content">
-    <div class="contact-info">
-        <a href="tel:603018190"><i class="fas fa-phone-alt"></i> 603 018 190</a>
-        <a href="mailto:info@multiserviciossagunto.es"><i class="fas fa-envelope"></i> info@multiserviciossagunto.es</a>
-    </div>
-    <div class="social-links">
-    <a href="https://www.facebook.com/multiservisagunto/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com/multiserviciosagunto/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.tiktok.com/@multiserviciossagunto" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
-    <a href="https://x.com/multisersagunto" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-    <a href="https://www.linkedin.com/in/multiserviciossagunto/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-</div>
-    <div class="hours-info">
-        <i class="fas fa-clock"></i> L-V: 8:00-21:00 | S: 10:00-20:00 | D: 10:00-14:00
-    </div>
-</div>
+                <div class="contact-info">
+                    <a href="tel:603018190"><i class="fas fa-phone-alt"></i> 603 018 190</a>
+                    <a href="mailto:info@multiserviciossagunto.es"><i class="fas fa-envelope"></i> info@multiserviciossagunto.es</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/multiservisagunto/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/multiserviciosagunto/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@multiserviciossagunto" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://x.com/multisersagunto" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/multiserviciossagunto/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div class="hours-info">
+                    <i class="fas fa-clock"></i> L-V: 8:00-21:00 | S: 10:00-20:00
+                </div>
+            </div>
         </div>
     </div>
 
@@ -143,7 +64,7 @@
                 <div class="logo">
                     <img src="img/logo_multiservicios_sagunto.png" alt="Multiservicios Sagunto" class="logo-avatar">
                     <div class="logo-text">
-                        <h1>Multiservicios<br><span>Sagunto</span></h1>
+                        <div class="logo-title">Multiservicios<br><span>Sagunto</span></div>
                     </div>
                 </div>
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -151,7 +72,7 @@
                 </button>
                 <nav class="nav-menu" id="navMenu">
                     <ul>
-                        <li><a href="index.html" class="active">Inicio</a></li>
+                        <li><a href="index.html">Inicio</a></li>
                         <li><a href="servicios.html">Servicios</a></li>
                         <li><a href="pueblos.html">Pueblos</a></li>
                         <li><a href="empresas.html">Empresas</a></li>
@@ -164,232 +85,154 @@
         </div>
     </header>
 
-    <section class="calculator-section">
-        <div class="container">
-            <div class="calculator-container">
-                <div class="calculator-header">
-                    <h1>💰 Calcula tu presupuesto estimado</h1>
-                    <p>Selecciona el servicio y los detalles. Obtén un precio orientativo al instante.</p>
+    <!-- ========== HERO ========== -->
+    <!-- ========== HERO ========== -->
+<!-- ========== HERO ========== -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="hero-badge">Cobertura completa</span>
+                <h1>Pueblos donde <span class="highlight">trabajamos</span></h1>
+                <p>Más de 30 pueblos en Camp de Morvedre, L'Horta Nord y Plana Baixa</p>
+                <div class="hero-buttons">
+                    <a href="contacto.html" class="btn-primary">Solicitar presupuesto <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://wa.me/34603018190" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 </div>
-                <div class="calculator-body">
-                    <div class="form-group-calc">
-                        <label><i class="fas fa-tools"></i> Tipo de servicio</label>
-                        <select id="servicio">
-                            <option value="pintura">🎨 Pintura de paredes</option>
-                            <option value="fontaneria">🚰 Fontanería / avería</option>
-                            <option value="electricidad">⚡ Electricidad / instalación</option>
-                            <option value="limpieza">🧹 Limpieza profesional</option>
-                            <option value="jardineria">🌿 Jardinería / poda</option>
-                            <option value="reforma">🏗️ Pequeña reforma / obra</option>
-                            <option value="web">💻 Creación de página web</option>
-                            <option value="ia">🤖 Automatización con IA / Chatbot</option>
-                        </select>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">+30</span>
+                        <span class="stat-label">Pueblos</span>
                     </div>
-
-                    <div id="camposDinamicos"></div>
-
-                    <div class="price-display">
-                        <strong>💰 Presupuesto estimado</strong>
-                        <div class="price" id="precioEstimado">--- €</div>
-                        <div class="note">*Precio orientativo + IVA. Incluye materiales y mano de obra básica.</div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Cobertura</span>
                     </div>
-
-                    <div class="lead-form" id="leadForm" style="display: none;">
-                        <h4>📋 ¿Te interesa? Déjanos tus datos</h4>
-                        <input type="text" id="leadNombre" placeholder="Tu nombre">
-                        <input type="tel" id="leadTelefono" placeholder="Tu teléfono">
-                        <input type="email" id="leadEmail" placeholder="Tu email">
-                        <button class="btn-calc" id="enviarLead">Enviar solicitud</button>
-                    </div>
-
-                    <div class="info-text">
-                        <i class="fas fa-info-circle"></i> Este es un cálculo automático. El presupuesto final puede variar según el estado real. Te llamaremos para concretar.
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Confianza</span>
                     </div>
                 </div>
             </div>
+            <div class="hero-image">
+                <img src="img/logo_multiservicios_sagunto.png" alt="Multiservicios Sagunto" class="hero-img">
+            </div>
         </div>
-    </section>
+    </div>
+</section>
+
+   <!-- ========== COMARCAS CON ACORDEÓN Y BOTONES ========== -->
+<section class="comarcas-section">
+    <div class="container">
+        
+        <!-- COMARCA 1: CAMP DE MORVEDRE -->
+        <div class="comarca-card">
+            <div class="comarca-header" onclick="toggleComarca('campMorvedre')">
+                <h2><i class="fas fa-mountain"></i> Camp de Morvedre</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="comarca-content" id="campMorvedre">
+                <div class="pueblos-botones">
+                    <a href="pueblo-servicios.html?pueblo=sagunto" class="btn-pueblo">🏛️ Sagunto</a>
+                    <a href="pueblo-servicios.html?pueblo=puerto-de-sagunto" class="btn-pueblo">⚓ Puerto de Sagunto</a>
+                    <a href="pueblo-servicios.html?pueblo=canet" class="btn-pueblo">🏖️ Canet d'en Berenguer</a>
+                    <a href="pueblo-servicios.html?pueblo=faura" class="btn-pueblo">🏠 Faura</a>
+                    <a href="pueblo-servicios.html?pueblo=gilet" class="btn-pueblo">🏰 Gilet</a>
+                    <a href="pueblo-servicios.html?pueblo=estivella" class="btn-pueblo">⛲ Estivella</a>
+                    <a href="pueblo-servicios.html?pueblo=albalat" class="btn-pueblo">🍊 Albalat dels Tarongers</a>
+                    <a href="pueblo-servicios.html?pueblo=segart" class="btn-pueblo">🌲 Segart</a>
+                    <a href="pueblo-servicios.html?pueblo=algimia" class="btn-pueblo">🏞️ Algimia de Alfara</a>
+                    <a href="pueblo-servicios.html?pueblo=torres-torres" class="btn-pueblo">🗼 Torres Torres</a>
+                    <a href="pueblo-servicios.html?pueblo=quart-de-les-valls" class="btn-pueblo">🏞️ Quart de les Valls</a>
+                    <a href="pueblo-servicios.html?pueblo=quartell" class="btn-pueblo">🏘️ Quartell</a>
+                    <a href="pueblo-servicios.html?pueblo=benavites" class="btn-pueblo">🏡 Benavites</a>
+                    <a href="pueblo-servicios.html?pueblo=algar" class="btn-pueblo">💧 Algar de Palancia</a>
+                    <a href="pueblo-servicios.html?pueblo=petres" class="btn-pueblo">🏛️ Petrés</a>
+                    <a href="pueblo-servicios.html?pueblo=benifairo" class="btn-pueblo">🏞️ Benifairó de les Valls</a>
+                    <a href="pueblo-servicios.html?pueblo=moncofar" class="btn-pueblo">🏖️ Moncófar</a>
+                    <a href="pueblo-servicios.html?pueblo=almenara" class="btn-pueblo">🏰 Almenara</a>
+                    <a href="pueblo-servicios.html?pueblo=vall-duixo" class="btn-pueblo">🕯️ Vall d'Uixó</a>
+                    <a href="pueblo-servicios.html?pueblo=chilches" class="btn-pueblo">🏖️ Chilches (Xilxes)</a>
+                    <a href="pueblo-servicios.html?pueblo=la-llosa" class="btn-pueblo">🏠 La Llosa</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- COMARCA 2: L'HORTA NORD -->
+        <div class="comarca-card">
+            <div class="comarca-header" onclick="toggleComarca('hortaNord')">
+                <h2><i class="fas fa-city"></i> L'Horta Nord</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="comarca-content" id="hortaNord">
+                <div class="pueblos-botones">
+                    <a href="pueblo-servicios.html?pueblo=pucol" class="btn-pueblo">🏖️ Puçol</a>
+                    <a href="pueblo-servicios.html?pueblo=el-puig" class="btn-pueblo">⛪ El Puig</a>
+                    <a href="pueblo-servicios.html?pueblo=rafelbunyol" class="btn-pueblo">⚡ Rafelbunyol</a>
+                    <a href="pueblo-servicios.html?pueblo=pobla-pueblo" class="btn-pueblo">🏘️ La Pobla de Farnals (pueblo)</a>
+                    <a href="pueblo-servicios.html?pueblo=pobla-playa" class="btn-pueblo">🏖️ La Pobla de Farnals (playa)</a>
+                    <a href="pueblo-servicios.html?pueblo=massamagrell" class="btn-pueblo">🏭 Massamagrell</a>
+                    <a href="pueblo-servicios.html?pueblo=museros" class="btn-pueblo">🏺 Museros</a>
+                    <a href="pueblo-servicios.html?pueblo=moncada" class="btn-pueblo">🏛️ Moncada</a>
+                    <a href="pueblo-servicios.html?pueblo=naquera" class="btn-pueblo">🌲 Nàquera</a>
+                    <a href="pueblo-servicios.html?pueblo=betera" class="btn-pueblo">🏌️ Bétera</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
 
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <div class="footer-logo">
-                        <h3>Camp de Morvedre<br><span>Servicios Integrales</span></h3>
-                    </div>
-                    <p>Tu multiservicios de confianza en el Camp de Morvedre.</p>
+                    <div class="footer-logo"><h3>Multiservicios<br><span>Sagunto</span></h3></div>
+                    <p>Tu multiservicios de confianza en Sagunto y comarca.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="servicios/fontanero.html">Fontanería</a></li>
+                        <li><a href="servicios/electricista.html">Electricidad</a></li>
+                        <li><a href="servicios/cerrajero.html">Cerrajería</a></li>
+                        <li><a href="servicios/albanil.html">Albañilería</a></li>
+                        <li><a href="servicios/pintor.html">Pintura</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Cobertura</h4>
+                    <ul>
+                        <li>Sagunto</li>
+                        <li>Puerto de Sagunto</li>
+                        <li>Canet d'en Berenguer</li>
+                        <li>Faura</li>
+                        <li>Gilet</li>
+                        <li>Estivella</li>
+                    </ul>
                 </div>
                 <div class="footer-column">
                     <h4>Contacto</h4>
                     <ul>
                         <li><a href="tel:603018190"><i class="fas fa-phone-alt"></i> 603 018 190</a></li>
-                        <li><a href="mailto:info@multiserviciossagunto.es"><i class="fas fa-envelope"></i> info@multiserviciossagunto.es</a></li>
+                        <li><i class="fas fa-envelope"></i> info@multiserviciossagunto.es</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Calle Rubau 2, 46512 Faura</li>
+                        <li><i class="fas fa-clock"></i> L-V: 9:00-20:00 | S: 9:00-14:00</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-    <p>&copy; 2026 Multiservicios Sagunto. Todos los derechos reservados.</p>
-    <p class="legal-links">
-        <a href="aviso-legal.html">Aviso Legal</a> | 
-        <a href="privacidad.html">Política de Privacidad</a> | 
-        <a href="cookies.html">Política de Cookies</a>
-    </p>
-</div>
+                <p>&copy; 2026 Multiservicios Sagunto. Todos los derechos reservados.</p>
+                <p class="legal-links"><a href="aviso-legal.html">Aviso Legal</a> | <a href="privacidad.html">Política de Privacidad</a> | <a href="cookies.html">Política de Cookies</a></p>
+            </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/34603018190" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <script src="js/main.js"></script>
-    <script>
-        const servicioSelect = document.getElementById('servicio');
-        const camposDinamicos = document.getElementById('camposDinamicos');
-        const precioElemento = document.getElementById('precioEstimado');
-        const leadForm = document.getElementById('leadForm');
-        
-        function renderizarCampos() {
-            const servicio = servicioSelect.value;
-            
-            if (servicio === 'pintura') {
-                camposDinamicos.innerHTML = `
-                    <div class="form-group-calc"><label>📏 Metros cuadrados</label><input type="number" id="metros" value="80" min="10" max="500"></div>
-                    <div class="form-group-calc"><label>🎨 Tipo de pared</label><select id="tipoPared"><option value="liso">Liso</option><option value="textura">Con textura</option><option value="reparar">Requiere reparación</option></select></div>
-                    <div class="form-group-calc"><label>🖌️ Cambio de color</label><select id="cambioColor"><option value="mismo">Mismo color</option><option value="claro">Claro sobre oscuro</option><option value="oscuro">Oscuro sobre claro</option></select></div>
-                `;
-            } else if (servicio === 'fontaneria') {
-                camposDinamicos.innerHTML = `
-                    <div class="form-group-calc"><label>🚰 Tipo de avería</label><select id="tipoFontaneria"><option value="pequena">Pequeña (fuga, grifo)</option><option value="media">Media (cisterna, tubería)</option><option value="grande">Grande (tubería empotrada)</option></select></div>
-                    <div class="form-group-calc"><label>⏱️ Urgencia</label><select id="urgencia"><option value="normal">Normal (48-72h)</option><option value="urgente">Urgente (24h)</option><option value="inmediato">Inmediato (2-4h)</option></select></div>
-                `;
-            } else if (servicio === 'electricidad') {
-                camposDinamicos.innerHTML = `<div class="form-group-calc"><label>⚡ Tipo de trabajo</label><select id="tipoElectricidad"><option value="pequeno">Pequeño (enchufe, luz)</option><option value="medio">Medio (instalar punto de luz)</option><option value="grande">Grande (instalación completa)</option></select></div>`;
-            } else if (servicio === 'limpieza') {
-                camposDinamicos.innerHTML = `
-                    <div class="form-group-calc"><label>🏢 Tipo de espacio</label><select id="tipoLimpieza"><option value="piso">Piso / casa</option><option value="oficina">Oficina / local</option><option value="comunidad">Comunidad (zonas comunes)</option></select></div>
-                    <div class="form-group-calc"><label>📅 Frecuencia</label><select id="frecuencia"><option value="puntual">Puntual</option><option value="semanal">Semanal</option><option value="quincenal">Quincenal</option></select></div>
-                `;
-            } else if (servicio === 'jardineria') {
-                camposDinamicos.innerHTML = `
-                    <div class="form-group-calc"><label>🌿 Tipo de trabajo</label><select id="tipoJardin"><option value="corte">Corte de césped / seto</option><option value="poda">Poda de árboles</option><option value="limpieza">Limpieza de parcela</option></select></div>
-                    <div class="form-group-calc"><label>📏 Metros cuadrados</label><input type="number" id="metrosJardin" value="50"></div>
-                `;
-            } else if (servicio === 'reforma') {
-                camposDinamicos.innerHTML = `
-                    <div class="form-group-calc"><label>🏗️ Tipo de reforma</label><select id="tipoReforma"><option value="pequena">Pequeña (cambiar suelo)</option><option value="media">Media (baño, cocina)</option><option value="integral">Integral (vivienda)</option></select></div>
-                    <div class="form-group-calc"><label>📏 Metros cuadrados</label><input type="number" id="metrosReforma" value="80"></div>
-                `;
-            } else if (servicio === 'web') {
-                camposDinamicos.innerHTML = `
-                    <div class="form-group-calc"><label>💻 Tipo de web</label><select id="tipoWeb"><option value="landing">Landing page (1 página)</option><option value="corporativa">Web corporativa (5-10 páginas)</option><option value="tienda">Tienda online (e-commerce)</option><option value="personalizada">Web a medida + panel gestión</option></select></div>
-                    <div class="form-group-calc"><label>🎨 Diseño</label><select id="disenoWeb"><option value="plantilla">Plantilla profesional</option><option value="personalizado">Diseño personalizado (+300€)</option></select></div>
-                    <div class="form-group-calc"><label>🚀 Extras</label><select id="extrasWeb"><option value="ninguno">Solo web</option><option value="seo">Optimización SEO (+200€)</option><option value="blog">Blog integrado (+150€)</option><option value="todo">SEO + Blog (+400€)</option></select></div>
-                `;
-            } else if (servicio === 'ia') {
-                camposDinamicos.innerHTML = `
-                    <div class="form-group-calc"><label>🤖 Tipo de automatización</label><select id="tipoIA"><option value="chatbot">Chatbot básico (preguntas frecuentes)</option><option value="chatbot_avanzado">Chatbot avanzado (captura leads)</option><option value="asistente">Asistente virtual personalizado</option><option value="proceso">Automatización de procesos internos</option></select></div>
-                    <div class="form-group-calc"><label>🔌 Integraciones</label><select id="integracionesIA"><option value="web">Web / WhatsApp</option><option value="web_crm">Web + CRM / email (+200€)</option><option value="completa">Solución completa + entrenamiento IA (+500€)</option></select></div>
-                    <div class="form-group-calc"><label>📈 Mantenimiento mensual</label><select id="mantenimientoIA"><option value="ninguno">Sin mantenimiento</option><option value="basico">Básico (actualizaciones) +50€/mes</option><option value="completo">Completo + mejoras +100€/mes</option></select></div>
-                `;
-            }
-            
-            document.querySelectorAll('#camposDinamicos input, #camposDinamicos select').forEach(el => {
-                el.addEventListener('change', calcularPrecio);
-                el.addEventListener('input', calcularPrecio);
-            });
-            calcularPrecio();
-        }
-        
-        function calcularPrecio() {
-            const servicio = servicioSelect.value;
-            let precio = 0;
-            
-            if (servicio === 'pintura') {
-                const metros = parseInt(document.getElementById('metros')?.value) || 80;
-                const tipoPared = document.getElementById('tipoPared')?.value || 'liso';
-                const cambioColor = document.getElementById('cambioColor')?.value || 'mismo';
-                let precioPorM2 = 8;
-                if (tipoPared === 'textura') precioPorM2 = 12;
-                if (tipoPared === 'reparar') precioPorM2 = 15;
-                if (cambioColor === 'claro') precioPorM2 += 3;
-                if (cambioColor === 'oscuro') precioPorM2 += 5;
-                precio = metros * precioPorM2;
-            } else if (servicio === 'fontaneria') {
-                const tipo = document.getElementById('tipoFontaneria')?.value || 'pequena';
-                const urgencia = document.getElementById('urgencia')?.value || 'normal';
-                const precios = { pequena: 80, media: 150, grande: 300 };
-                precio = precios[tipo];
-                if (urgencia === 'urgente') precio += 50;
-                if (urgencia === 'inmediato') precio += 100;
-            } else if (servicio === 'electricidad') {
-                const tipo = document.getElementById('tipoElectricidad')?.value || 'pequeno';
-                const precios = { pequeno: 70, medio: 180, grande: 400 };
-                precio = precios[tipo];
-            } else if (servicio === 'limpieza') {
-                const tipo = document.getElementById('tipoLimpieza')?.value || 'piso';
-                const frecuencia = document.getElementById('frecuencia')?.value || 'puntual';
-                const precios = { piso: 120, oficina: 100, comunidad: 200 };
-                precio = precios[tipo];
-                if (frecuencia === 'semanal') precio = Math.round(precio * 0.7);
-                if (frecuencia === 'quincenal') precio = Math.round(precio * 0.85);
-            } else if (servicio === 'jardineria') {
-                const tipo = document.getElementById('tipoJardin')?.value || 'corte';
-                const metros = parseInt(document.getElementById('metrosJardin')?.value) || 50;
-                const precios = { corte: 1.5, poda: 3, limpieza: 2 };
-                precio = metros * precios[tipo];
-            } else if (servicio === 'reforma') {
-                const tipo = document.getElementById('tipoReforma')?.value || 'pequena';
-                const metros = parseInt(document.getElementById('metrosReforma')?.value) || 80;
-                const precios = { pequena: 60, media: 120, integral: 250 };
-                precio = metros * precios[tipo];
-            } else if (servicio === 'web') {
-                const tipoWeb = document.getElementById('tipoWeb')?.value || 'landing';
-                const disenoWeb = document.getElementById('disenoWeb')?.value || 'plantilla';
-                const extrasWeb = document.getElementById('extrasWeb')?.value || 'ninguno';
-                const preciosWeb = { landing: 500, corporativa: 1200, tienda: 1800, personalizada: 3000 };
-                precio = preciosWeb[tipoWeb];
-                if (disenoWeb === 'personalizado') precio += 300;
-                const extrasPrecio = { ninguno: 0, seo: 200, blog: 150, todo: 400 };
-                precio += extrasPrecio[extrasWeb];
-            } else if (servicio === 'ia') {
-                const tipoIA = document.getElementById('tipoIA')?.value || 'chatbot';
-                const integracionesIA = document.getElementById('integracionesIA')?.value || 'web';
-                const mantenimientoIA = document.getElementById('mantenimientoIA')?.value || 'ninguno';
-                const preciosIA = { chatbot: 400, chatbot_avanzado: 800, asistente: 1500, proceso: 2500 };
-                precio = preciosIA[tipoIA];
-                const integracionPrecio = { web: 0, web_crm: 200, completa: 500 };
-                precio += integracionPrecio[integracionesIA];
-                if (mantenimientoIA === 'basico') precio += 50;
-                if (mantenimientoIA === 'completo') precio += 100;
-            }
-            
-            precioElemento.innerHTML = `${Math.round(precio)} € <small>+ IVA</small>`;
-            leadForm.style.display = precio > 50 ? 'block' : 'none';
-        }
-        
-        document.getElementById('enviarLead')?.addEventListener('click', () => {
-            const nombre = document.getElementById('leadNombre')?.value;
-            const telefono = document.getElementById('leadTelefono')?.value;
-            if (!nombre || !telefono) return alert('Completa nombre y teléfono.');
-            const leads = JSON.parse(localStorage.getItem('presupuestos_leads') || '[]');
-            leads.push({ nombre, telefono, email: document.getElementById('leadEmail')?.value, servicio: servicioSelect.options[servicioSelect.selectedIndex]?.text, precio: precioElemento.innerText, fecha: new Date().toISOString() });
-            localStorage.setItem('presupuestos_leads', JSON.stringify(leads));
-            alert(`✅ Gracias ${nombre}. Te llamaremos en breve.`);
-            document.getElementById('leadNombre').value = '';
-            document.getElementById('leadTelefono').value = '';
-            document.getElementById('leadEmail').value = '';
-            leadForm.style.display = 'none';
-        });
-        
-        servicioSelect.addEventListener('change', renderizarCampos);
-        renderizarCampos();
-    </script>
-      <!-- Chatbot flotante -->
+     <!-- Chatbot flotante -->
     <div class="chatbot-button" id="chatbotButton">
         <i class="fas fa-comment-dots"></i>
     </div>
-    <div class="chatbot-window" id="chatbotWindow">
+    <div class="chatbot-window" id="chatbotWindow" style="width: 480px; height: 550px;">
         <div class="chatbot-header">
             <h3>🤖 Asistente Multiservicios Sagunto</h3>
             <button class="chatbot-close" id="chatbotClose">✕</button>
@@ -405,7 +248,7 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-
+    <script src="js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
     emailjs.init('gcidZqK4tE_i-PfBW');
