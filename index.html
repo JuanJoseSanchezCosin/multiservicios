@@ -43,7 +43,8 @@
 
     <!-- CSS y fuentes -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- JSON-LD (Schema.org) -->
@@ -104,11 +105,11 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-    <img src="img/logo_multiservicios_sagunto.png" alt="Multiservicios Sagunto" class="logo-avatar" width="45" height="45">
-    <div class="logo-text">
-        <div class="logo-title">Multiservicios<br><span>Sagunto</span></div>
-    </div>
+                    <img src="img/logo_multiservicios_sagunto.png" alt="Multiservicios Sagunto" class="logo-avatar">
+                    <div class="logo-text">
+    <div class="logo-title">Multiservicios<br><span>Sagunto</span></div>
 </div>
+                </div>
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -155,7 +156,7 @@
                 </div>
                 <div class="hero-image">
                 <img src="img/logo_multiservicios_sagunto.png" alt="Juanjo - Multiservicios Sagunto" class="hero-img" width="400" height="400">
-                </div>
+</div>
             </div>
         </div>
     </section>
@@ -288,7 +289,6 @@
                 <div class="footer-column">
                     <h4>Contacto</h4>
                     <ul><li><a href="tel:603018190"><i class="fas fa-phone-alt"></i> 603 018 190</a></li><li><i class="fas fa-envelope"></i> <a href="mailto:info@multiserviciossagunto.es">info@multiserviciossagunto.es</a></li><li><i class="fas fa-map-marker-alt"></i> Calle Rubau 2, 46512 Faura (Valencia)</li>
-                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">

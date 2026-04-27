@@ -5,67 +5,65 @@
                 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
     <!-- PÁGINAS PRINCIPALES -->
-    <url><loc>https://multiserviciossagunto.es/</loc><lastmod>2026-04-23</lastmod><priority>1.00</priority></url>
-    <url><loc>https://multiserviciossagunto.es/servicios.html</loc><lastmod>2026-04-23</lastmod><priority>0.90</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos.html</loc><lastmod>2026-04-23</lastmod><priority>0.90</priority></url>
-    <url><loc>https://multiserviciossagunto.es/empresas.html</loc><lastmod>2026-04-23</lastmod><priority>0.80</priority></url>
-    <url><loc>https://multiserviciossagunto.es/nosotros.html</loc><lastmod>2026-04-23</lastmod><priority>0.80</priority></url>
-    <url><loc>https://multiserviciossagunto.es/calculadora.html</loc><lastmod>2026-04-23</lastmod><priority>0.80</priority></url>
-    <url><loc>https://multiserviciossagunto.es/contacto.html</loc><lastmod>2026-04-23</lastmod><priority>0.80</priority></url>
+    <url><loc>https://multiserviciossagunto.es/</loc><lastmod>2026-04-23</lastmod><changefreq>weekly</changefreq><priority>1.00</priority></url>
+    <url><loc>https://multiserviciossagunto.es/servicios</loc><lastmod>2026-04-23</lastmod><changefreq>weekly</changefreq><priority>0.90</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos</loc><lastmod>2026-04-23</lastmod><changefreq>weekly</changefreq><priority>0.90</priority></url>
+    <url><loc>https://multiserviciossagunto.es/empresas</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+    <url><loc>https://multiserviciossagunto.es/nosotros</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+    <url><loc>https://multiserviciossagunto.es/calculadora</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+    <url><loc>https://multiserviciossagunto.es/contacto</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
 
     <!-- PÁGINAS LEGALES -->
-    <url><loc>https://multiserviciossagunto.es/aviso-legal.html</loc><lastmod>2026-04-23</lastmod><priority>0.50</priority></url>
-    <url><loc>https://multiserviciossagunto.es/privacidad.html</loc><lastmod>2026-04-23</lastmod><priority>0.50</priority></url>
-    <url><loc>https://multiserviciossagunto.es/cookies.html</loc><lastmod>2026-04-23</lastmod><priority>0.50</priority></url>
+    <url><loc>https://multiserviciossagunto.es/aviso-legal</loc><lastmod>2026-04-23</lastmod><changefreq>yearly</changefreq><priority>0.50</priority></url>
+    <url><loc>https://multiserviciossagunto.es/privacidad</loc><lastmod>2026-04-23</lastmod><changefreq>yearly</changefreq><priority>0.50</priority></url>
+    <url><loc>https://multiserviciossagunto.es/cookies</loc><lastmod>2026-04-23</lastmod><changefreq>yearly</changefreq><priority>0.50</priority></url>
 
-    <!-- SERVICIOS COMPLETOS -->
-    <url><loc>https://multiserviciossagunto.es/servicios/fontanero.html</loc><lastmod>2026-04-23</lastmod><priority>0.70</priority></url>
-    <url><loc>https://multiserviciossagunto.es/servicios/electricista.html</loc><lastmod>2026-04-23</lastmod><priority>0.70</priority></url>
-    <url><loc>https://multiserviciossagunto.es/servicios/cerrajero.html</loc><lastmod>2026-04-23</lastmod><priority>0.70</priority></url>
-    <url><loc>https://multiserviciossagunto.es/servicios/albanil.html</loc><lastmod>2026-04-23</lastmod><priority>0.70</priority></url>
-    <url><loc>https://multiserviciossagunto.es/servicios/pintor.html</loc><lastmod>2026-04-23</lastmod><priority>0.70</priority></url>
-    <url><loc>https://multiserviciossagunto.es/servicios/jardinero.html</loc><lastmod>2026-04-23</lastmod><priority>0.70</priority></url>
-    <url><loc>https://multiserviciossagunto.es/servicios/limpieza.html</loc><lastmod>2026-04-23</lastmod><priority>0.70</priority></url>
-    <url><loc>https://multiserviciossagunto.es/servicios/reformas.html</loc><lastmod>2026-04-23</lastmod><priority>0.70</priority></url>
-    <url><loc>https://multiserviciossagunto.es/servicios/comunidades.html</loc><lastmod>2026-04-23</lastmod><priority>0.70</priority></url>
-    <url><loc>https://multiserviciossagunto.es/servicios/empresas.html</loc><lastmod>2026-04-23</lastmod><priority>0.70</priority></url>
-    <url><loc>https://multiserviciossagunto.es/servicios/ia.html</loc><lastmod>2026-04-23</lastmod><priority>0.70</priority></url>
-    <url><loc>https://multiserviciossagunto.es/servicios/web.html</loc><lastmod>2026-04-23</lastmod><priority>0.70</priority></url>
-    <url><loc>https://multiserviciossagunto.es/servicios/mantenimiento.html</loc><lastmod>2026-04-23</lastmod><priority>0.70</priority></url>
+    <!-- SERVICIOS -->
+    <url><loc>https://multiserviciossagunto.es/servicios/fontanero</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
+    <url><loc>https://multiserviciossagunto.es/servicios/electricista</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
+    <url><loc>https://multiserviciossagunto.es/servicios/cerrajero</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+    <url><loc>https://multiserviciossagunto.es/servicios/albanil</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+    <url><loc>https://multiserviciossagunto.es/servicios/pintor</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+    <url><loc>https://multiserviciossagunto.es/servicios/jardinero</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+    <url><loc>https://multiserviciossagunto.es/servicios/limpieza</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+    <url><loc>https://multiserviciossagunto.es/servicios/reformas</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+    <url><loc>https://multiserviciossagunto.es/servicios/comunidades</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+    <url><loc>https://multiserviciossagunto.es/servicios/empresas</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+    <url><loc>https://multiserviciossagunto.es/servicios/ia</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.70</priority></url>
+    <url><loc>https://multiserviciossagunto.es/servicios/web</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.70</priority></url>
+    <url><loc>https://multiserviciossagunto.es/servicios/mantenimiento</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
 
     <!-- PUEBLOS -->
-    <url><loc>https://multiserviciossagunto.es/pueblos/estivella.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/faura.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/gilet.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/la-llosa.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/massamagrell.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/moncofar.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/moncada.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/museros.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/naquera.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/petres.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/pobla-de-farnals-playa.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/pobla-de-farnals-pueblo.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/puzol.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/puerto-de-sagunto.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/quart-de-les-valls.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/quartell.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/rafelbunyol.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/sagunto.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/segart.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/torres-torres.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/vall-duixo.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-
-    <!-- NUEVOS PUEBLOS -->
-    <url><loc>https://multiserviciossagunto.es/pueblos/albalat-dels-tarongers.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/algar-de-palancia.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/algimia-de-alfara.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/almenara.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/benavites.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/benifairo-de-les-valls.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/betera.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/canet-d'en-berenguer.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/chilches.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
-    <url><loc>https://multiserviciossagunto.es/pueblos/el-puig.html</loc><lastmod>2026-04-23</lastmod><priority>0.60</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/sagunto</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/puerto-de-sagunto</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/faura</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.70</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/gilet</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.70</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/estivella</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.70</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/canet-den-berenguer</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.70</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/benavites</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/quartell</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/quart-de-les-valls</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/algimia-de-alfara</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/petres</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/albalat-dels-tarongers</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/segart</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/torres-torres</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/algar-de-palancia</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/benifairo-de-les-valls</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/almenara</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.70</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/moncofar</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.70</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/vall-duixo</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.70</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/chilches</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/la-llosa</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/puzol</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.70</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/el-puig</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.70</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/rafelbunyol</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.70</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/pobla-de-farnals-pueblo</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/pobla-de-farnals-playa</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/massamagrell</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/museros</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/moncada</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.70</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/naquera</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.60</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pueblos/betera</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.70</priority></url>
 
 </urlset>
