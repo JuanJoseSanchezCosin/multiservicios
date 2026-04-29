@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gracias | Camp de Morvedre Servicios Integrales</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Gracias por contactar | Multiservicios Sagunto</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
@@ -18,32 +20,19 @@
             justify-content: center;
             font-family: 'Inter', sans-serif;
         }
-        .thanks-container {
-            text-align: center;
-            padding: 20px;
-        }
         .thanks-card {
             background: white;
             padding: 50px;
             border-radius: 30px;
             text-align: center;
             max-width: 500px;
-            margin: 0 auto;
+            margin: 20px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
-        .thanks-card i {
-            font-size: 4rem;
-            color: #2d6a4f;
-            margin-bottom: 20px;
-        }
-        .thanks-card h1 {
-            color: #1e3a5f;
-            margin-bottom: 15px;
-        }
-        .thanks-card p {
-            color: #5a6c7e;
-            margin-bottom: 30px;
-        }
+        .thanks-card i { font-size: 4rem; color: #2d6a4f; margin-bottom: 20px; display: block; }
+        .thanks-card h1 { color: #1e3a5f; margin-bottom: 15px; font-family: 'Poppins', sans-serif; }
+        .thanks-card p { color: #5a6c7e; margin-bottom: 15px; line-height: 1.6; }
+        .thanks-card .phone { font-size: 1.3rem; font-weight: 700; color: #1e3a5f; margin: 20px 0; display: block; text-decoration: none; }
         .btn-primary {
             background: #e67e22;
             color: white;
@@ -52,20 +41,31 @@
             text-decoration: none;
             font-weight: 600;
             display: inline-block;
+            margin-top: 10px;
         }
-        .btn-primary:hover {
-            background: #c0392b;
+        .btn-primary:hover { background: #c0392b; }
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin: 10px 5px 0;
         }
     </style>
 </head>
 <body>
-    <div class="thanks-container">
-        <div class="thanks-card">
-            <i class="fas fa-check-circle"></i>
-            <h1>¡Mensaje enviado!</h1>
-            <p>Gracias por contactar con Camp de Morvedre Servicios Integrales.</p>
-            <p>Te responderemos lo antes posible.</p>
-            <a href="index.html" class="btn-primary">Volver al inicio</a>
+    <div class="thanks-card">
+        <i class="fas fa-check-circle"></i>
+        <h1>¡Mensaje enviado!</h1>
+        <p>Gracias por contactar con <strong>Multiservicios Sagunto</strong>. Te responderemos lo antes posible.</p>
+        <p>Si necesitas atención urgente, llámanos ahora:</p>
+        <a href="tel:603018190" class="phone"><i class="fas fa-phone-alt"></i> 603 018 190</a>
+        <div>
+            <a href="/" class="btn-primary">Volver al inicio</a>
+            <a href="https://wa.me/34603018190" class="btn-whatsapp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         </div>
     </div>
 </body>
