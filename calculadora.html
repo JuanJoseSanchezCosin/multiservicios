@@ -3,159 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calcula tu presupuesto online | Reformas, fontanería, web | Multiservicios Sagunto</title>
-    <meta name="description" content="Calcula el precio estimado de tu reforma, pintura, fontanería, página web o chatbot de IA. Introduce los datos y obtén un presupuesto aproximado al instante.">
+    <title>Calcula tu presupuesto online | Multiservicios Sagunto</title>
+    <meta name="description" content="Calcula el precio estimado de tu reforma, pintura, fontanería, página web o chatbot de IA. Obtén un presupuesto aproximado al instante.">
     <meta name="robots" content="index, follow">
-    <meta name="keywords" content="calculadora presupuesto, presupuesto reforma, precio fontanero, precio electricista, presupuesto web">
     <meta name="author" content="Multiservicios Sagunto">
-    <link rel="canonical" href="https://multiserviciossagunto.es/calculadora.html">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Favicon -->
-<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-<link rel="manifest" href="img/site.webmanifest">
+    <link rel="canonical" href="https://multiserviciossagunto.es/calculadora">
 
-<!-- Open Graph -->
-<meta property="og:title" content="Calcula tu presupuesto | Multiservicios Sagunto">
-<meta property="og:description" content="Obtén un presupuesto rápido y sin compromiso para tu reparación o servicio. Responde unas preguntas y te contactamos.">
-<meta property="og:image" content="https://multiserviciossagunto.es/img/logo_multiservicios_sagunto.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://multiserviciossagunto.es/calculadora.html">
+    <!-- FAVICON -->
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="manifest" href="img/site.webmanifest">
+    <meta name="theme-color" content="#1e3a5f">
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:title" content="Calcula tu presupuesto | Multiservicios Sagunto">
+    <meta property="og:description" content="Obtén un presupuesto rápido y sin compromiso para tu reparación o servicio.">
+    <meta property="og:image" content="https://multiserviciossagunto.es/img/logo_multiservicios_sagunto.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://multiserviciossagunto.es/calculadora">
+    <meta property="og:locale" content="es_ES">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
         .calculator-section {
             background: var(--gray-light);
             padding: 60px 0;
+            min-height: 70vh;
         }
         .calculator-container {
-            max-width: 800px;
+            max-width: 820px;
             margin: 0 auto;
             background: white;
             border-radius: 24px;
-            box-shadow: var(--shadow);
+            box-shadow: 0 8px 40px rgba(30,58,95,0.12);
             overflow: hidden;
         }
         .calculator-header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--primary) 0%, #2d5a8e 100%);
             color: white;
-            padding: 30px;
+            padding: 35px 30px;
             text-align: center;
         }
         .calculator-header h1 {
             margin-bottom: 10px;
-            font-size: 1.8rem;
+            font-size: 1.7rem;
+            font-weight: 700;
+        }
+        .calculator-header p {
+            opacity: 0.9;
+            font-size: 1rem;
         }
         .calculator-body {
-            padding: 30px;
+            padding: 35px 30px;
         }
         .form-group-calc {
-            margin-bottom: 25px;
+            margin-bottom: 22px;
         }
         .form-group-calc label {
             display: block;
             font-weight: 600;
             margin-bottom: 8px;
             color: var(--primary);
+            font-size: 0.95rem;
         }
         .form-group-calc select,
-        .form-group-calc input {
+        .form-group-calc input[type="number"],
+        .form-group-calc input[type="text"],
+        .form-group-calc input[type="tel"],
+        .form-group-calc input[type="email"] {
             width: 100%;
             padding: 12px 16px;
-            border: 1px solid var(--gray);
+            border: 2px solid #e0e8f0;
             border-radius: 12px;
             font-family: inherit;
             font-size: 1rem;
+            color: var(--text-dark);
+            transition: border-color 0.2s;
+            background: #fafcff;
+            box-sizing: border-box;
         }
+        .form-group-calc select:focus,
+        .form-group-calc input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 10px;
+            margin-top: 5px;
+        }
+        .option-btn {
+            padding: 10px 14px;
+            border: 2px solid #e0e8f0;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            font-size: 0.88rem;
+            font-family: inherit;
+            color: var(--text-dark);
+            transition: all 0.2s;
+            text-align: center;
+        }
+        .option-btn:hover { border-color: var(--primary); color: var(--primary); }
+        .option-btn.selected { background: var(--primary); color: white; border-color: var(--primary); }
         .price-display {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, #2d5a8e 100%);
             color: white;
-            padding: 20px;
+            padding: 25px 20px;
             border-radius: 16px;
             text-align: center;
-            margin: 20px 0;
+            margin: 25px 0 20px;
         }
+        .price-display .price-label { font-size: 0.9rem; opacity: 0.85; margin-bottom: 6px; }
         .price-display .price {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin: 10px 0 0;
+            font-size: 2.4rem;
+            font-weight: 800;
+            margin: 0;
+            line-height: 1.1;
         }
-        .price-display .price small {
-            font-size: 0.9rem;
-            font-weight: 400;
-        }
-        .price-display .note {
-            font-size: 0.8rem;
+        .price-display .price small { font-size: 1rem; font-weight: 400; }
+        .price-display .price-note {
+            font-size: 0.78rem;
             margin-top: 10px;
-            opacity: 0.8;
+            opacity: 0.75;
         }
+        .price-display.has-price { background: linear-gradient(135deg, #1a7a4a 0%, #2ecc71 100%); }
         .lead-form {
-            background: var(--gray-light);
-            padding: 20px;
+            background: #f0f5ff;
+            padding: 22px;
             border-radius: 16px;
             margin-top: 20px;
+            border: 1px solid #dce8ff;
         }
         .lead-form h4 {
             margin-bottom: 15px;
             color: var(--primary);
+            font-size: 1rem;
         }
         .lead-form input {
-            width: 100%;
-            padding: 10px 14px;
             margin-bottom: 10px;
-            border: 1px solid var(--gray);
-            border-radius: 8px;
         }
         .btn-calc {
             background: var(--accent);
             color: white;
-            padding: 12px 24px;
+            padding: 14px 24px;
             border: none;
             border-radius: 40px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             width: 100%;
             font-size: 1rem;
+            font-family: inherit;
+            transition: background 0.2s, transform 0.1s;
         }
+        .btn-calc:hover { background: #d35400; transform: translateY(-1px); }
+        .btn-calc:disabled { background: #ccc; cursor: not-allowed; transform: none; }
         .info-text {
             font-size: 0.8rem;
             color: var(--gray-dark);
             text-align: center;
-            margin-top: 20px;
+            margin-top: 18px;
+        }
+        .success-msg {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+        .divider {
+            border: none;
+            border-top: 1px solid #e8eef5;
+            margin: 25px 0;
         }
         @media (max-width: 768px) {
             .calculator-body { padding: 20px; }
             .price-display .price { font-size: 1.8rem; }
+            .calculator-header h1 { font-size: 1.3rem; }
+            .options-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
 <body>
 
+    <!-- TOP BAR -->
     <div class="top-bar">
         <div class="container">
             <div class="top-bar-content">
-    <div class="contact-info">
-        <a href="tel:603018190"><i class="fas fa-phone-alt"></i> 603 018 190</a>
-        <a href="mailto:info@multiserviciossagunto.es"><i class="fas fa-envelope"></i> info@multiserviciossagunto.es</a>
-    </div>
-    <div class="social-links">
-    <a href="https://www.facebook.com/multiservisagunto/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com/multiserviciosagunto/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.tiktok.com/@multiserviciossagunto" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
-    <a href="https://x.com/multisersagunto" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-    <a href="https://www.linkedin.com/in/multiserviciossagunto/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-    
-</div>
-    <div class="hours-info">
-        <i class="fas fa-clock"></i> L-V: 8:00-21:00 | Urgencias 24/7
-    </div>
-</div>
+                <div class="contact-info">
+                    <a href="tel:603018190"><i class="fas fa-phone-alt"></i> 603 018 190</a>
+                    <a href="mailto:info@multiserviciossagunto.es"><i class="fas fa-envelope"></i> info@multiserviciossagunto.es</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/multiservisagunto/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/multiserviciosagunto/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@multiserviciossagunto" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://x.com/multisersagunto" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/multiserviciossagunto/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div class="hours-info">
+                    <i class="fas fa-clock"></i> L-V: 8:00-21:00 | Urgencias 24/7
+                </div>
+            </div>
         </div>
     </div>
 
+    <!-- HEADER -->
     <header class="header">
         <div class="container">
             <div class="header-content">
@@ -170,268 +233,141 @@
                 </button>
                 <nav class="nav-menu" id="navMenu">
                     <ul>
-                        <li><a href="index.html" class="active">Inicio</a></li>
-                        <li><a href="servicios.html">Servicios</a></li>
-                        <li><a href="pueblos.html">Pueblos</a></li>
-                        <li><a href="empresas.html">Empresas</a></li>
-                        <li><a href="nosotros.html">Nosotros</a></li>
-                        <li><a href="calculadora.html">💰 Presupuestos</a></li>
-                        <li><a href="contacto.html">Contacto</a></li>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/servicios">Servicios</a></li>
+                        <li><a href="/pueblos">Pueblos</a></li>
+                        <li><a href="/empresas">Empresas</a></li>
+                        <li><a href="/nosotros">Nosotros</a></li>
+                        <li><a href="/calculadora" class="active">💰 Presupuestos</a></li>
+                        <li><a href="/contacto">Contacto</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
 
+    <!-- CALCULADORA -->
     <section class="calculator-section">
         <div class="container">
             <div class="calculator-container">
                 <div class="calculator-header">
-                    <h1>💰 Calcula tu presupuesto estimado online sin compromiso</h1>
+                    <h1>💰 Calcula tu presupuesto estimado</h1>
                     <p>Selecciona el servicio y los detalles. Obtén un precio orientativo al instante.</p>
                 </div>
                 <div class="calculator-body">
+
+                    <!-- TIPO DE SERVICIO -->
                     <div class="form-group-calc">
-                        <label><i class="fas fa-tools"></i> Tipo de servicio</label>
-                        <select id="servicio">
+                        <label><i class="fas fa-tools"></i> ¿Qué servicio necesitas?</label>
+                        <select id="servicio" onchange="actualizarCampos()">
                             <option value="pintura">🎨 Pintura de paredes</option>
                             <option value="fontaneria">🚰 Fontanería / avería</option>
                             <option value="electricidad">⚡ Electricidad / instalación</option>
                             <option value="limpieza">🧹 Limpieza profesional</option>
                             <option value="jardineria">🌿 Jardinería / poda</option>
-                            <option value="reforma">🏗️ Pequeña reforma / obra</option>
-                            <option value="web">💻 Creación de página web</option>
-                            <option value="ia">🤖 Automatización con IA / Chatbot</option>
+                            <option value="reforma">🏗️ Reforma baño o cocina</option>
+                            <option value="cerrajeria">🔑 Cerrajería</option>
+                            <option value="web">💻 Página web</option>
+                            <option value="ia">🤖 Chatbot / Automatización IA</option>
                         </select>
                     </div>
 
+                    <!-- CAMPOS DINÁMICOS -->
                     <div id="camposDinamicos"></div>
 
-                    <div class="price-display">
-                        <strong>💰 Presupuesto estimado</strong>
-                        <div class="price" id="precioEstimado">--- €</div>
-                        <div class="note">*Precio orientativo + IVA. Incluye materiales y mano de obra básica.</div>
+                    <!-- PRECIO ESTIMADO -->
+                    <div class="price-display" id="precioDisplay">
+                        <div class="price-label">💰 Presupuesto estimado</div>
+                        <div class="price" id="precioEstimado">Selecciona opciones →</div>
+                        <div class="price-note">*Precio orientativo + IVA. El presupuesto final puede variar según el estado real.</div>
                     </div>
 
-                    <div class="lead-form" id="leadForm" style="display: none;">
-                        <h4>📋 ¿Te interesa? Déjanos tus datos</h4>
-                        <input type="text" id="leadNombre" placeholder="Tu nombre">
-                        <input type="tel" id="leadTelefono" placeholder="Tu teléfono">
-                        <input type="email" id="leadEmail" placeholder="Tu email">
-                        <button class="btn-calc" id="enviarLead">Enviar solicitud</button>
+                    <hr class="divider">
+
+                    <!-- FORMULARIO LEAD -->
+                    <div class="lead-form">
+                        <h4>📋 ¿Te interesa? Déjanos tus datos y te contactamos hoy mismo</h4>
+                        <div class="form-group-calc">
+                            <input type="text" id="leadNombre" placeholder="Tu nombre completo" required>
+                        </div>
+                        <div class="form-group-calc">
+                            <input type="tel" id="leadTelefono" placeholder="Tu teléfono" required>
+                        </div>
+                        <div class="form-group-calc">
+                            <input type="email" id="leadEmail" placeholder="Tu email (opcional)">
+                        </div>
+                        <button class="btn-calc" id="btnEnviar" onclick="enviarSolicitud()">
+                            <i class="fas fa-paper-plane"></i> Solicitar presupuesto sin compromiso
+                        </button>
+                        <div class="success-msg" id="successMsg">
+                            ✅ ¡Solicitud enviada! Te contactaremos en breve. También puedes llamarnos al <a href="tel:603018190" style="color: #155724;">603 018 190</a>.
+                        </div>
                     </div>
 
                     <div class="info-text">
-                        <i class="fas fa-info-circle"></i> Este es un cálculo automático. El presupuesto final puede variar según el estado real. Te llamaremos para concretar.
+                        <i class="fas fa-info-circle"></i> Cálculo automático orientativo. Te llamamos para concretar el presupuesto final sin compromiso.
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="footer">
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-column">
-                <div class="footer-logo">
-                    <h3>Multiservicios<br><span>Sagunto</span></h3>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo"><h3>Multiservicios<br><span>Sagunto</span></h3></div>
+                    <p>Tu multiservicios de confianza en Sagunto y comarca.</p>
                 </div>
-                <p>Tu multiservicios de confianza en Sagunto y comarca.</p>
+                <div class="footer-column">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="/servicios/fontanero">Fontanería</a></li>
+                        <li><a href="/servicios/electricista">Electricidad</a></li>
+                        <li><a href="/servicios/cerrajero">Cerrajería</a></li>
+                        <li><a href="/servicios/albanil">Albañilería</a></li>
+                        <li><a href="/servicios/pintor">Pintura</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Cobertura</h4>
+                    <ul>
+                        <li>Sagunto y Puerto de Sagunto</li>
+                        <li>Canet d'en Berenguer</li>
+                        <li>Faura, Gilet, Estivella</li>
+                        <li>Puçol, El Puig, Rafelbunyol</li>
+                        <li>Bétera, Nàquera, Moncada</li>
+                    </ul>
+                    <a href="/pueblos" style="background: var(--accent); color: white; padding: 8px 15px; border-radius: 30px; text-decoration: none; display: inline-block; font-size: 13px; margin-top: 15px;">📍 Ver todos los pueblos →</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="tel:603018190"><i class="fas fa-phone-alt"></i> 603 018 190</a></li>
+                        <li><a href="mailto:info@multiserviciossagunto.es"><i class="fas fa-envelope"></i> info@multiserviciossagunto.es</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Calle Rubau 2, 46512 Faura</li>
+                        <li><i class="fas fa-clock"></i> L-V: 8:00-21:00 | Urgencias 24/7</li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-column">
-                <h4>Servicios</h4>
-                <ul>
-                    <li><a href="servicios/fontanero.html">Fontanería</a></li>
-                    <li><a href="servicios/electricista.html">Electricidad</a></li>
-                    <li><a href="servicios/cerrajero.html">Cerrajería</a></li>
-                    <li><a href="servicios/albanil.html">Albañilería</a></li>
-                    <li><a href="servicios/pintor.html">Pintura</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Cobertura</h4>
-                <ul>
-                    <li>Sagunto</li>
-                    <li>Puerto de Sagunto</li>
-                    <li>Canet d'en Berenguer</li>
-                    <li>Faura</li>
-                    <li>Gilet</li>
-                    <li>Estivella</li>
-                </ul>
-                <p style="margin-top: 15px;">
-                    <a href="pueblos.html" style="background: #e67e22; color: white; padding: 8px 15px; border-radius: 30px; text-decoration: none; display: inline-block; font-size: 13px;">
-                        📍 Ver todos los pueblos →
-                    </a>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Multiservicios Sagunto. Todos los derechos reservados.</p>
+                <p class="legal-links">
+                    <a href="/aviso-legal">Aviso Legal</a> |
+                    <a href="/privacidad">Política de Privacidad</a> |
+                    <a href="/cookies">Política de Cookies</a>
                 </p>
             </div>
-            <div class="footer-column">
-                <h4>Contacto</h4>
-                <ul>
-                    <li><a href="tel:603018190"><i class="fas fa-phone-alt"></i> 603 018 190</a></li>
-                    <li><i class="fas fa-envelope"></i> info@multiserviciossagunto.es</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Calle Rubau 2, 46512 Faura</li>
-                </ul>
-            </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Multiservicios Sagunto. Todos los derechos reservados.</p>
-            <p class="legal-links">
-                <a href="aviso-legal.html">Aviso Legal</a> | 
-                <a href="privacidad.html">Política de Privacidad</a> | 
-                <a href="cookies.html">Política de Cookies</a>
-            </p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
-    <a href="https://wa.me/34603018190" class="whatsapp-float" target="_blank">
+    <!-- WHATSAPP FLOTANTE -->
+    <a href="https://wa.me/34603018190" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script src="js/main.js"></script>
-    <script>
-        const servicioSelect = document.getElementById('servicio');
-        const camposDinamicos = document.getElementById('camposDinamicos');
-        const precioElemento = document.getElementById('precioEstimado');
-        const leadForm = document.getElementById('leadForm');
-        
-        function renderizarCampos() {
-            const servicio = servicioSelect.value;
-            
-            if (servicio === 'pintura') {
-                camposDinamicos.innerHTML = `
-                    <div class="form-group-calc"><label>📏 Metros cuadrados</label><input type="number" id="metros" value="80" min="10" max="500"></div>
-                    <div class="form-group-calc"><label>🎨 Tipo de pared</label><select id="tipoPared"><option value="liso">Liso</option><option value="textura">Con textura</option><option value="reparar">Requiere reparación</option></select></div>
-                    <div class="form-group-calc"><label>🖌️ Cambio de color</label><select id="cambioColor"><option value="mismo">Mismo color</option><option value="claro">Claro sobre oscuro</option><option value="oscuro">Oscuro sobre claro</option></select></div>
-                `;
-            } else if (servicio === 'fontaneria') {
-                camposDinamicos.innerHTML = `
-                    <div class="form-group-calc"><label>🚰 Tipo de avería</label><select id="tipoFontaneria"><option value="pequena">Pequeña (fuga, grifo)</option><option value="media">Media (cisterna, tubería)</option><option value="grande">Grande (tubería empotrada)</option></select></div>
-                    <div class="form-group-calc"><label>⏱️ Urgencia</label><select id="urgencia"><option value="normal">Normal (48-72h)</option><option value="urgente">Urgente (24h)</option><option value="inmediato">Inmediato (2-4h)</option></select></div>
-                `;
-            } else if (servicio === 'electricidad') {
-                camposDinamicos.innerHTML = `<div class="form-group-calc"><label>⚡ Tipo de trabajo</label><select id="tipoElectricidad"><option value="pequeno">Pequeño (enchufe, luz)</option><option value="medio">Medio (instalar punto de luz)</option><option value="grande">Grande (instalación completa)</option></select></div>`;
-            } else if (servicio === 'limpieza') {
-                camposDinamicos.innerHTML = `
-                    <div class="form-group-calc"><label>🏢 Tipo de espacio</label><select id="tipoLimpieza"><option value="piso">Piso / casa</option><option value="oficina">Oficina / local</option><option value="comunidad">Comunidad (zonas comunes)</option></select></div>
-                    <div class="form-group-calc"><label>📅 Frecuencia</label><select id="frecuencia"><option value="puntual">Puntual</option><option value="semanal">Semanal</option><option value="quincenal">Quincenal</option></select></div>
-                `;
-            } else if (servicio === 'jardineria') {
-                camposDinamicos.innerHTML = `
-                    <div class="form-group-calc"><label>🌿 Tipo de trabajo</label><select id="tipoJardin"><option value="corte">Corte de césped / seto</option><option value="poda">Poda de árboles</option><option value="limpieza">Limpieza de parcela</option></select></div>
-                    <div class="form-group-calc"><label>📏 Metros cuadrados</label><input type="number" id="metrosJardin" value="50"></div>
-                `;
-            } else if (servicio === 'reforma') {
-                camposDinamicos.innerHTML = `
-                    <div class="form-group-calc"><label>🏗️ Tipo de reforma</label><select id="tipoReforma"><option value="pequena">Pequeña (cambiar suelo)</option><option value="media">Media (baño, cocina)</option><option value="integral">Integral (vivienda)</option></select></div>
-                    <div class="form-group-calc"><label>📏 Metros cuadrados</label><input type="number" id="metrosReforma" value="80"></div>
-                `;
-            } else if (servicio === 'web') {
-                camposDinamicos.innerHTML = `
-                    <div class="form-group-calc"><label>💻 Tipo de web</label><select id="tipoWeb"><option value="landing">Landing page (1 página)</option><option value="corporativa">Web corporativa (5-10 páginas)</option><option value="tienda">Tienda online (e-commerce)</option><option value="personalizada">Web a medida + panel gestión</option></select></div>
-                    <div class="form-group-calc"><label>🎨 Diseño</label><select id="disenoWeb"><option value="plantilla">Plantilla profesional</option><option value="personalizado">Diseño personalizado (+300€)</option></select></div>
-                    <div class="form-group-calc"><label>🚀 Extras</label><select id="extrasWeb"><option value="ninguno">Solo web</option><option value="seo">Optimización SEO (+200€)</option><option value="blog">Blog integrado (+150€)</option><option value="todo">SEO + Blog (+400€)</option></select></div>
-                `;
-            } else if (servicio === 'ia') {
-                camposDinamicos.innerHTML = `
-                    <div class="form-group-calc"><label>🤖 Tipo de automatización</label><select id="tipoIA"><option value="chatbot">Chatbot básico (preguntas frecuentes)</option><option value="chatbot_avanzado">Chatbot avanzado (captura leads)</option><option value="asistente">Asistente virtual personalizado</option><option value="proceso">Automatización de procesos internos</option></select></div>
-                    <div class="form-group-calc"><label>🔌 Integraciones</label><select id="integracionesIA"><option value="web">Web / WhatsApp</option><option value="web_crm">Web + CRM / email (+200€)</option><option value="completa">Solución completa + entrenamiento IA (+500€)</option></select></div>
-                    <div class="form-group-calc"><label>📈 Mantenimiento mensual</label><select id="mantenimientoIA"><option value="ninguno">Sin mantenimiento</option><option value="basico">Básico (actualizaciones) +50€/mes</option><option value="completo">Completo + mejoras +100€/mes</option></select></div>
-                `;
-            }
-            
-            document.querySelectorAll('#camposDinamicos input, #camposDinamicos select').forEach(el => {
-                el.addEventListener('change', calcularPrecio);
-                el.addEventListener('input', calcularPrecio);
-            });
-            calcularPrecio();
-        }
-        
-        function calcularPrecio() {
-            const servicio = servicioSelect.value;
-            let precio = 0;
-            
-            if (servicio === 'pintura') {
-                const metros = parseInt(document.getElementById('metros')?.value) || 80;
-                const tipoPared = document.getElementById('tipoPared')?.value || 'liso';
-                const cambioColor = document.getElementById('cambioColor')?.value || 'mismo';
-                let precioPorM2 = 8;
-                if (tipoPared === 'textura') precioPorM2 = 12;
-                if (tipoPared === 'reparar') precioPorM2 = 15;
-                if (cambioColor === 'claro') precioPorM2 += 3;
-                if (cambioColor === 'oscuro') precioPorM2 += 5;
-                precio = metros * precioPorM2;
-            } else if (servicio === 'fontaneria') {
-                const tipo = document.getElementById('tipoFontaneria')?.value || 'pequena';
-                const urgencia = document.getElementById('urgencia')?.value || 'normal';
-                const precios = { pequena: 80, media: 150, grande: 300 };
-                precio = precios[tipo];
-                if (urgencia === 'urgente') precio += 50;
-                if (urgencia === 'inmediato') precio += 100;
-            } else if (servicio === 'electricidad') {
-                const tipo = document.getElementById('tipoElectricidad')?.value || 'pequeno';
-                const precios = { pequeno: 70, medio: 180, grande: 400 };
-                precio = precios[tipo];
-            } else if (servicio === 'limpieza') {
-                const tipo = document.getElementById('tipoLimpieza')?.value || 'piso';
-                const frecuencia = document.getElementById('frecuencia')?.value || 'puntual';
-                const precios = { piso: 120, oficina: 100, comunidad: 200 };
-                precio = precios[tipo];
-                if (frecuencia === 'semanal') precio = Math.round(precio * 0.7);
-                if (frecuencia === 'quincenal') precio = Math.round(precio * 0.85);
-            } else if (servicio === 'jardineria') {
-                const tipo = document.getElementById('tipoJardin')?.value || 'corte';
-                const metros = parseInt(document.getElementById('metrosJardin')?.value) || 50;
-                const precios = { corte: 1.5, poda: 3, limpieza: 2 };
-                precio = metros * precios[tipo];
-            } else if (servicio === 'reforma') {
-                const tipo = document.getElementById('tipoReforma')?.value || 'pequena';
-                const metros = parseInt(document.getElementById('metrosReforma')?.value) || 80;
-                const precios = { pequena: 60, media: 120, integral: 250 };
-                precio = metros * precios[tipo];
-            } else if (servicio === 'web') {
-                const tipoWeb = document.getElementById('tipoWeb')?.value || 'landing';
-                const disenoWeb = document.getElementById('disenoWeb')?.value || 'plantilla';
-                const extrasWeb = document.getElementById('extrasWeb')?.value || 'ninguno';
-                const preciosWeb = { landing: 500, corporativa: 1200, tienda: 1800, personalizada: 3000 };
-                precio = preciosWeb[tipoWeb];
-                if (disenoWeb === 'personalizado') precio += 300;
-                const extrasPrecio = { ninguno: 0, seo: 200, blog: 150, todo: 400 };
-                precio += extrasPrecio[extrasWeb];
-            } else if (servicio === 'ia') {
-                const tipoIA = document.getElementById('tipoIA')?.value || 'chatbot';
-                const integracionesIA = document.getElementById('integracionesIA')?.value || 'web';
-                const mantenimientoIA = document.getElementById('mantenimientoIA')?.value || 'ninguno';
-                const preciosIA = { chatbot: 400, chatbot_avanzado: 800, asistente: 1500, proceso: 2500 };
-                precio = preciosIA[tipoIA];
-                const integracionPrecio = { web: 0, web_crm: 200, completa: 500 };
-                precio += integracionPrecio[integracionesIA];
-                if (mantenimientoIA === 'basico') precio += 50;
-                if (mantenimientoIA === 'completo') precio += 100;
-            }
-            
-            precioElemento.innerHTML = `${Math.round(precio)} € <small>+ IVA</small>`;
-            leadForm.style.display = precio > 50 ? 'block' : 'none';
-        }
-        
-        document.getElementById('enviarLead')?.addEventListener('click', () => {
-            const nombre = document.getElementById('leadNombre')?.value;
-            const telefono = document.getElementById('leadTelefono')?.value;
-            if (!nombre || !telefono) return alert('Completa nombre y teléfono.');
-            const leads = JSON.parse(localStorage.getItem('presupuestos_leads') || '[]');
-            leads.push({ nombre, telefono, email: document.getElementById('leadEmail')?.value, servicio: servicioSelect.options[servicioSelect.selectedIndex]?.text, precio: precioElemento.innerText, fecha: new Date().toISOString() });
-            localStorage.setItem('presupuestos_leads', JSON.stringify(leads));
-            alert(`✅ Gracias ${nombre}. Te llamaremos en breve.`);
-            document.getElementById('leadNombre').value = '';
-            document.getElementById('leadTelefono').value = '';
-            document.getElementById('leadEmail').value = '';
-            leadForm.style.display = 'none';
-        });
-        
-        servicioSelect.addEventListener('change', renderizarCampos);
-        renderizarCampos();
-    </script>
-      <!-- Chatbot flotante -->
+    <!-- CHATBOT -->
     <div class="chatbot-button" id="chatbotButton">
         <i class="fas fa-comment-dots"></i>
     </div>
@@ -447,570 +383,252 @@
         </div>
     </div>
 
-    <a href="https://wa.me/34603018190" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-
+    <!-- SCRIPTS -->
+    <script src="js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script>
-    
-    // ============================================
-    // CHATBOT CON TODOS LOS SERVICIOS (100+)
-    // ============================================
 
-    // BASE DE DATOS DE SERVICIOS
-        emailjs.init('gcidZqK4tE_i-PfBW');
+    <script>
+    // ============================================================
+    // CALCULADORA DE PRESUPUESTOS - Multiservicios Sagunto
+    // ============================================================
 
-    // ============================================
-    // CHATBOT COMPLETO CON 100+ SERVICIOS Y PREGUNTAS
-    // ============================================
+    emailjs.init('gcidZqK4tE_i-PfBW');
 
-    // BASE DE DATOS COMPLETA DE SERVICIOS CON PREGUNTAS
-    const serviciosDB = {
-        fontaneria: [
-            { nombre: "Reparar grifo que gotea", precio: "50-80€", preguntas: [
-                { texto: "¿Pierde mucha agua?", botones: ["Sí", "No"] },
-                { texto: "¿Crees que habría que cambiar el grifo?", botones: ["Sí", "No"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Cambiar grifo completo", precio: "60-100€", preguntas: [
-                { texto: "¿Alguna marca o calidad en especial?", botones: ["Baja", "Media", "Alta"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Cambiar cartucho de grifo monomando", precio: "50-70€", preguntas: [
-                { texto: "¿Sabes la marca del grifo?", botones: ["Sí", "No"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Desatasco de tuberías", precio: "60-120€", preguntas: [
-                { texto: "¿De qué parte de la casa?", botones: ["Cocina", "Baño", "Fregadero", "Inodoro"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Reparar cisterna que no para de correr", precio: "60-100€", preguntas: [
-                { texto: "¿La cisterna no para de correr o hace ruido?", botones: ["No para de correr", "Hace ruido"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Cambiar cisterna completa", precio: "150-250€", preguntas: [
-                { texto: "¿Alguna marca o calidad en especial?", botones: ["Baja", "Media", "Alta"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Reparar fuga de agua localizada", precio: "80-150€", preguntas: [
-                { texto: "¿Dónde está la fuga?", botones: ["Baño", "Cocina", "Terraza", "Patio"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Cambiar latiguillos", precio: "50-80€", preguntas: [
-                { texto: "¿De qué electrodoméstico?", botones: ["Lavadora", "Lavavajillas", "Inodoro"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Cambiar válvula de paso", precio: "70-120€", preguntas: [
-                { texto: "¿Dónde está la válvula?", botones: ["General de la casa", "Baño", "Cocina"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Instalar lavavajillas o lavadora", precio: "80-150€", preguntas: [
-                { texto: "¿Qué electrodoméstico?", botones: ["Lavadora", "Lavavajillas"] },
-                { texto: "¿Tienes ya el electrodoméstico?", botones: ["Sí", "No"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Reparar caldera (avería básica)", precio: "100-250€", preguntas: [
-                { texto: "¿Qué problema tiene la caldera?", botones: ["No enciende", "Pierde presión", "Hace ruido"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Reparar termo eléctrico", precio: "80-180€", preguntas: [
-                { texto: "¿Qué problema tiene el termo?", botones: ["No calienta", "Pierde agua", "Hace ruido"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Avería compleja (rotura tubería empotrada)", precio: "250-600€", preguntas: [
-                { texto: "¿Dónde está la rotura?", botones: ["Baño", "Cocina", "Pasillo"] },
-                { texto: "¿Se ve humedad en la pared?", botones: ["Sí", "No"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Instalación fontanería baño completo", precio: "400-800€", preguntas: [
-                { texto: "¿Medidas del baño? (escribe los metros cuadrados)", botones: null },
-                { texto: "¿Es obra nueva o reforma?", botones: ["Obra nueva", "Reforma"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Instalación fontanería cocina completa", precio: "300-600€", preguntas: [
-                { texto: "¿Medidas de la cocina? (escribe los metros cuadrados)", botones: null },
-                { texto: "¿Es obra nueva o reforma?", botones: ["Obra nueva", "Reforma"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]}
-        ],
-        electricidad: [
-            { nombre: "Cambiar enchufe o interruptor", precio: "40-70€", preguntas: [
-                { texto: "¿Alguna marca o tipo especial?", botones: ["Normal", "Domótico"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Cambiar bombilla o plafón", precio: "30-60€", preguntas: [
-                { texto: "¿Qué tipo de bombilla?", botones: ["LED", "Normal", "Fluorescente"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Reparar avería en cuadro eléctrico", precio: "60-120€", preguntas: [
-                { texto: "¿Qué avería?", botones: ["Salta el diferencial", "Salta un plomo", "No salta nada"] },
-                { texto: "¿Puedes rearmarlo?", botones: ["Sí", "No"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Instalar punto de luz nuevo", precio: "80-150€", preguntas: [
-                { texto: "¿Cuántos puntos de luz?", botones: ["1", "2", "3", "Más"] },
-                { texto: "¿Los techos son de pladur?", botones: ["Sí", "No"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Cambiar mecanismos completos", precio: "40-80€", preguntas: [
-                { texto: "¿Cuántos mecanismos?", botones: ["1", "2", "3", "Más"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Reparar avería general (saltan plomos)", precio: "60-180€", preguntas: [
-                { texto: "¿Saltan al encender algo en concreto?", botones: ["Sí", "No"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Instalar toma de tierra", precio: "150-300€", preguntas: [
-                { texto: "¿Es vivienda antigua?", botones: ["Sí", "No"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Instalación eléctrica baño completo", precio: "200-400€", preguntas: [
-                { texto: "¿Medidas del baño?", botones: null },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Instalación eléctrica cocina completa", precio: "250-500€", preguntas: [
-                { texto: "¿Medidas de la cocina?", botones: null },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Cuadro eléctrico nuevo (vivienda 80-100m²)", precio: "600-1000€", preguntas: [
-                { texto: "¿Metros de la vivienda?", botones: null },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Instalar punto recarga coche eléctrico", precio: "300-700€", preguntas: [
-                { texto: "¿Tienes el cuadro eléctrico cerca?", botones: ["Sí", "No"] },
-                { texto: "¿Cuántos metros aproximadamente?", botones: null },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Revisión y boletín eléctrico", precio: "120-200€", preguntas: [
-                { texto: "¿Para qué necesitas el boletín?", botones: ["Venta de vivienda", "Alquiler", "Reforma"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Cambio de cableado (por metro)", precio: "15-30€/m", preguntas: [
-                { texto: "¿Cuántos metros?", botones: null },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]}
-        ],
-        pintura: [
-            { nombre: "Pintar paredes lisas (por m²)", precio: "12-18€/m²", preguntas: [
-                { texto: "¿Cuántos metros cuadrados?", botones: null },
-                { texto: "¿Hay que reparar grietas?", botones: ["Sí", "No"] },
-                { texto: "¿Calidad de pintura?", botones: ["Estándar", "Media", "Alta"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Pintar techo (por m²)", precio: "15-22€/m²", preguntas: [
-                { texto: "¿Cuántos metros cuadrados?", botones: null },
-                { texto: "¿Hay humedades?", botones: ["Sí", "No"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Pintar piso completo 80m²", precio: "1200-1800€", preguntas: [
-                { texto: "¿Hay que reparar paredes?", botones: ["Sí", "No"] },
-                { texto: "¿Calidad de pintura?", botones: ["Estándar", "Media", "Alta"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Pintar piso completo 100m²", precio: "1500-2200€", preguntas: [
-                { texto: "¿Hay que reparar paredes?", botones: ["Sí", "No"] },
-                { texto: "¿Calidad de pintura?", botones: ["Estándar", "Media", "Alta"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Alisar paredes (eliminar gotelé)", precio: "20-30€/m²", preguntas: [
-                { texto: "¿Cuántos metros cuadrados?", botones: null },
-                { texto: "¿El gotelé es muy grueso?", botones: ["Sí", "No"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Reparar grietas y masillado", precio: "+200-500€", preguntas: [
-                { texto: "¿Cuántos metros cuadrados?", botones: null },
-                { texto: "¿Las grietas son profundas?", botones: ["Sí", "No"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Pintar una habitación (20m²)", precio: "250-400€", preguntas: [
-                { texto: "¿Hay que reparar paredes?", botones: ["Sí", "No"] },
-                { texto: "¿Calidad de pintura?", botones: ["Estándar", "Media", "Alta"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Pintar fachada o exterior", precio: "18-30€/m²", preguntas: [
-                { texto: "¿Cuántos metros cuadrados?", botones: null },
-                { texto: "¿Hay andamios necesarios?", botones: ["Sí", "No"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]}
-        ],
-        limpieza: [
-            { nombre: "Limpieza de hogar (3-4 horas)", precio: "60-120€", preguntas: [
-                { texto: "¿Cuántas habitaciones?", botones: ["1-2", "3-4", "5+"] },
-                { texto: "¿Cuántos baños?", botones: ["1", "2", "3+"] },
-                { texto: "¿Es puntual o periódica?", botones: ["Puntual", "Semanal", "Quincenal"] }
-            ]},
-            { nombre: "Limpieza de oficina (50m²)", precio: "80-150€", preguntas: [
-                { texto: "¿Cuántos metros cuadrados?", botones: null },
-                { texto: "¿Número de puestos?", botones: ["1-5", "6-10", "11+"] },
-                { texto: "¿Con qué frecuencia?", botones: ["Diaria", "Semanal", "Quincenal"] }
-            ]},
-            { nombre: "Limpieza de comunidades (mensual)", precio: "100-300€/mes", preguntas: [
-                { texto: "¿Cuántos portales?", botones: ["1", "2", "3+"] },
-                { texto: "¿Cuántos vecinos?", botones: ["Menos de 20", "20-50", "Más de 50"] }
-            ]},
-            { nombre: "Limpieza de cristales", precio: "50-120€", preguntas: [
-                { texto: "¿Cuántas ventanas?", botones: ["1-5", "6-10", "11+"] },
-                { texto: "¿Altura?", botones: ["Baja", "Media", "Alta (necesita andamios)"] }
-            ]}
-        ],
-        jardineria: [
-            { nombre: "Cortar césped (50-100m²)", precio: "30-60€", preguntas: [
-                { texto: "¿Cuántos metros cuadrados?", botones: null },
-                { texto: "¿Con qué frecuencia?", botones: ["Puntual", "Semanal", "Quincenal"] }
-            ]},
-            { nombre: "Cortar césped (100-300m²)", precio: "60-120€", preguntas: [
-                { texto: "¿Cuántos metros cuadrados?", botones: null },
-                { texto: "¿Con qué frecuencia?", botones: ["Puntual", "Semanal", "Quincenal"] }
-            ]},
-            { nombre: "Poda de arbustos y setos", precio: "25-50€/hora", preguntas: [
-                { texto: "¿Cuántos metros lineales?", botones: null },
-                { texto: "¿Altura?", botones: ["Baja", "Media", "Alta"] }
-            ]},
-            { nombre: "Poda de árboles pequeños (hasta 5m)", precio: "50-150€", preguntas: [
-                { texto: "¿Cuántos árboles?", botones: ["1", "2", "3+"] },
-                { texto: "¿Urgente por peligro?", botones: ["Sí", "No"] }
-            ]},
-            { nombre: "Poda de árboles grandes (más de 5m)", precio: "150-400€", preguntas: [
-                { texto: "¿Cuántos árboles?", botones: ["1", "2", "3+"] },
-                { texto: "¿Urgente por peligro?", botones: ["Sí", "No"] }
-            ]},
-            { nombre: "Mantenimiento de jardín (mensual)", precio: "60-150€/mes", preguntas: [
-                { texto: "¿Cuántos metros cuadrados?", botones: null },
-                { texto: "¿Qué servicios incluye?", botones: ["Corte césped", "Poda", "Limpieza", "Todo"] }
-            ]}
-        ],
-        reformas: [
-            { nombre: "Baño básico", precio: "2000-4000€", preguntas: [
-                { texto: "¿Medidas del baño?", botones: null },
-                { texto: "¿Hay que demoler?", botones: ["Sí", "No"] }
-            ]},
-            { nombre: "Baño completo gama media", precio: "4000-8000€", preguntas: [
-                { texto: "¿Medidas del baño?", botones: null },
-                { texto: "¿Hay que demoler?", botones: ["Sí", "No"] }
-            ]},
-            { nombre: "Baño completo gama alta", precio: "8000-15000€", preguntas: [
-                { texto: "¿Medidas del baño?", botones: null },
-                { texto: "¿Hay que demoler?", botones: ["Sí", "No"] }
-            ]},
-            { nombre: "Cambio de bañera por plato de ducha", precio: "700-1300€", preguntas: [
-                { texto: "¿Medidas de la bañera?", botones: null }
-            ]},
-            { nombre: "Cocina básica", precio: "4000-8000€", preguntas: [
-                { texto: "¿Medidas de la cocina?", botones: null },
-                { texto: "¿Hay que demoler?", botones: ["Sí", "No"] }
-            ]},
-            { nombre: "Cocina completa gama media", precio: "8000-15000€", preguntas: [
-                { texto: "¿Medidas de la cocina?", botones: null },
-                { texto: "¿Hay que demoler?", botones: ["Sí", "No"] }
-            ]},
-            { nombre: "Cocina premium", precio: "15000-25000€", preguntas: [
-                { texto: "¿Medidas de la cocina?", botones: null },
-                { texto: "¿Hay que demoler?", botones: ["Sí", "No"] }
-            ]},
-            { nombre: "Reforma integral piso 80-100m² (estándar)", precio: "25000-40000€", preguntas: [
-                { texto: "¿Medidas del piso?", botones: null },
-                { texto: "¿Calidad estándar o alta?", botones: ["Estándar", "Alta"] }
-            ]},
-            { nombre: "Reforma integral piso 80-100m² (calidad alta)", precio: "40000-60000€", preguntas: [
-                { texto: "¿Medidas del piso?", botones: null },
-                { texto: "¿Calidad estándar o alta?", botones: ["Estándar", "Alta"] }
-            ]}
-        ],
-        web: [
-            { nombre: "Web corporativa (5 páginas, responsive)", precio: "500-1200€", preguntas: [
-                { texto: "¿Tienes logo y contenido?", botones: ["Sí", "No"] }
-            ]},
-            { nombre: "Tienda online (hasta 50 productos)", precio: "800-2000€", preguntas: [
-                { texto: "¿Cuántos productos?", botones: ["1-20", "21-50", "Más de 50"] }
-            ]},
-            { nombre: "Landing page o One page", precio: "300-600€", preguntas: [
-                { texto: "¿Para qué producto o servicio?", botones: null }
-            ]},
-            { nombre: "App móvil básica", precio: "2000-5000€", preguntas: [
-                { texto: "¿iOS, Android o ambos?", botones: ["iOS", "Android", "Ambos"] }
-            ]},
-            { nombre: "App móvil avanzada", precio: "5000-12000€", preguntas: [
-                { texto: "¿iOS, Android o ambos?", botones: ["iOS", "Android", "Ambos"] },
-                { texto: "¿Qué funcionalidades necesita?", botones: null }
-            ]},
-            { nombre: "Mantenimiento web mensual", precio: "30-80€/mes", preguntas: [] },
-            { nombre: "SEO básico", precio: "200-500€", preguntas: [] },
-            { nombre: "Posicionamiento SEO avanzado", precio: "500-1500€/mes", preguntas: [] }
-        ],
-        ia: [
-            { nombre: "Chatbot básico (web o WhatsApp)", precio: "300-600€", preguntas: [
-                { texto: "¿Para web o WhatsApp?", botones: ["Web", "WhatsApp", "Ambos"] }
-            ]},
-            { nombre: "Chatbot avanzado con IA", precio: "600-1500€", preguntas: [
-                { texto: "¿Qué información debe gestionar?", botones: null }
-            ]},
-            { nombre: "Asistente virtual", precio: "500-2000€", preguntas: [
-                { texto: "¿Para qué procesos?", botones: null }
-            ]},
-            { nombre: "Automatización de marketing", precio: "300-800€", preguntas: [
-                { texto: "¿Email, WhatsApp o ambos?", botones: ["Email", "WhatsApp", "Ambos"] }
-            ]},
-            { nombre: "Automatización de procesos empresariales", precio: "1000-3000€", preguntas: [
-                { texto: "¿Qué procesos?", botones: null }
-            ]},
-            { nombre: "Consultoría en IA", precio: "80-150€/hora", preguntas: [] }
-        ],
-        comunidades: [
-            { nombre: "Mantenimiento integral comunidad (mensual)", precio: "200-600€/mes", preguntas: [
-                { texto: "¿Cuántos vecinos?", botones: ["Menos de 20", "20-50", "Más de 50"] }
-            ]},
-            { nombre: "Limpieza portal y zonas comunes (mensual)", precio: "150-400€/mes", preguntas: [
-                { texto: "¿Cuántos portales?", botones: ["1", "2", "3+"] }
-            ]},
-            { nombre: "Jardinería zonas comunes (mensual)", precio: "100-300€/mes", preguntas: [
-                { texto: "¿Cuántos metros cuadrados?", botones: null }
-            ]},
-            { nombre: "Mantenimiento piscina comunitaria", precio: "150-400€/mes", preguntas: [
-                { texto: "¿Tamaño de la piscina?", botones: ["Pequeña", "Mediana", "Grande"] }
-            ]},
-            { nombre: "Pintura de fachada", precio: "18-30€/m²", preguntas: [
-                { texto: "¿Cuántos metros cuadrados?", botones: null },
-                { texto: "¿Hay andamios necesarios?", botones: ["Sí", "No"] }
-            ]}
-        ],
-        empresas: [
-            { nombre: "Mantenimiento integral local comercial (mensual)", precio: "150-500€/mes", preguntas: [
-                { texto: "¿Metros del local?", botones: null }
-            ]},
-            { nombre: "Reparaciones urgentes", precio: "60-150€ + materiales", preguntas: [
-                { texto: "¿Qué tipo de reparación?", botones: null },
-                { texto: "¿Es urgente?", botones: ["Sí", "No"] }
-            ]},
-            { nombre: "Mantenimiento de climatización", precio: "80-150€", preguntas: [] },
-            { nombre: "Certificado de instalaciones", precio: "120-250€", preguntas: [] }
-        ]
+    // Configuración de cada servicio: campos y función de cálculo
+    const servicios = {
+        pintura: {
+            campos: [
+                { id: 'metros', label: '📐 Metros cuadrados a pintar', tipo: 'number', placeholder: 'Ej: 80' },
+                { id: 'calidad', label: '🎨 Calidad de pintura', tipo: 'opciones', opciones: ['Estándar', 'Media', 'Alta'] },
+                { id: 'gotele', label: '🔨 ¿Hay gotelé que eliminar?', tipo: 'opciones', opciones: ['No', 'Sí'] }
+            ],
+            calcular: (v) => {
+                const m = parseFloat(v.metros) || 0;
+                if (m === 0) return null;
+                let base = m * (v.calidad === 'Alta' ? 18 : v.calidad === 'Media' ? 15 : 12);
+                if (v.gotele === 'Sí') base += m * 10;
+                return [base * 0.9, base * 1.2];
+            }
+        },
+        fontaneria: {
+            campos: [
+                { id: 'tipo', label: '🔧 Tipo de avería', tipo: 'opciones', opciones: ['Grifo / cisterna', 'Desatasco', 'Fuga de agua', 'Caldera / termo', 'Tubería empotrada'] },
+                { id: 'urgencia', label: '⏰ ¿Es urgente?', tipo: 'opciones', opciones: ['No, puede esperar', 'Sí, urgente'] }
+            ],
+            calcular: (v) => {
+                const precios = { 'Grifo / cisterna': [50, 100], 'Desatasco': [60, 120], 'Fuga de agua': [80, 200], 'Caldera / termo': [100, 300], 'Tubería empotrada': [250, 600] };
+                const p = precios[v.tipo] || [60, 150];
+                const extra = v.urgencia === 'Sí, urgente' ? 1.2 : 1;
+                return [p[0] * extra, p[1] * extra];
+            }
+        },
+        electricidad: {
+            campos: [
+                { id: 'tipo', label: '⚡ Tipo de trabajo', tipo: 'opciones', opciones: ['Avería / cuadro', 'Enchufes / interruptores', 'Instalación completa', 'Punto de recarga eléctrico', 'Boletín eléctrico'] },
+                { id: 'metros', label: '📐 Metros de vivienda (si aplica)', tipo: 'number', placeholder: 'Ej: 90' }
+            ],
+            calcular: (v) => {
+                const precios = { 'Avería / cuadro': [60, 180], 'Enchufes / interruptores': [40, 100], 'Instalación completa': [600, 1200], 'Punto de recarga eléctrico': [300, 700], 'Boletín eléctrico': [120, 200] };
+                return precios[v.tipo] || [60, 200];
+            }
+        },
+        limpieza: {
+            campos: [
+                { id: 'tipo', label: '🧹 Tipo de limpieza', tipo: 'opciones', opciones: ['Hogar puntual', 'Limpieza periódica', 'Oficina', 'Comunidad / portal', 'Cristales'] },
+                { id: 'metros', label: '📐 Metros cuadrados aproximados', tipo: 'number', placeholder: 'Ej: 80' }
+            ],
+            calcular: (v) => {
+                const m = parseFloat(v.metros) || 50;
+                const tarifas = { 'Hogar puntual': 1.5, 'Limpieza periódica': 1.2, 'Oficina': 1.8, 'Comunidad / portal': 1.0, 'Cristales': 0.8 };
+                const tarifa = tarifas[v.tipo] || 1.5;
+                return [Math.max(60, m * tarifa * 0.8), Math.max(90, m * tarifa * 1.2)];
+            }
+        },
+        jardineria: {
+            campos: [
+                { id: 'tipo', label: '🌿 Tipo de trabajo', tipo: 'opciones', opciones: ['Corte de césped', 'Poda de arbustos', 'Poda de árboles', 'Mantenimiento mensual'] },
+                { id: 'metros', label: '📐 Metros cuadrados / número de árboles', tipo: 'number', placeholder: 'Ej: 100' }
+            ],
+            calcular: (v) => {
+                const m = parseFloat(v.metros) || 1;
+                if (v.tipo === 'Corte de césped') return [Math.max(30, m * 0.4), Math.max(60, m * 0.7)];
+                if (v.tipo === 'Poda de arbustos') return [25 * m * 0.8, 50 * m];
+                if (v.tipo === 'Poda de árboles') return [50 * m, 200 * m];
+                return [60, 150]; // mensual
+            }
+        },
+        reforma: {
+            campos: [
+                { id: 'tipo', label: '🏗️ Tipo de reforma', tipo: 'opciones', opciones: ['Baño básico', 'Baño completo', 'Cocina básica', 'Cocina completa', 'Cambio bañera por ducha', 'Reforma integral piso'] },
+                { id: 'calidad', label: '✨ Calidad de materiales', tipo: 'opciones', opciones: ['Estándar', 'Media', 'Alta'] }
+            ],
+            calcular: (v) => {
+                const precios = {
+                    'Baño básico': { 'Estándar': [2000, 4000], 'Media': [3000, 5000], 'Alta': [5000, 8000] },
+                    'Baño completo': { 'Estándar': [4000, 7000], 'Media': [6000, 10000], 'Alta': [10000, 16000] },
+                    'Cocina básica': { 'Estándar': [4000, 7000], 'Media': [6000, 10000], 'Alta': [10000, 18000] },
+                    'Cocina completa': { 'Estándar': [8000, 13000], 'Media': [12000, 18000], 'Alta': [18000, 28000] },
+                    'Cambio bañera por ducha': { 'Estándar': [700, 1000], 'Media': [900, 1300], 'Alta': [1200, 1800] },
+                    'Reforma integral piso': { 'Estándar': [25000, 40000], 'Media': [35000, 55000], 'Alta': [50000, 80000] }
+                };
+                return (precios[v.tipo] && precios[v.tipo][v.calidad]) || [2000, 5000];
+            }
+        },
+        cerrajeria: {
+            campos: [
+                { id: 'tipo', label: '🔑 Tipo de servicio', tipo: 'opciones', opciones: ['Apertura de puerta', 'Cambio de cerradura', 'Cambio de bombín', 'Cerradura de seguridad'] },
+                { id: 'urgencia', label: '⏰ ¿Es urgente?', tipo: 'opciones', opciones: ['No, puede esperar', 'Sí, urgente'] }
+            ],
+            calcular: (v) => {
+                const precios = { 'Apertura de puerta': [80, 150], 'Cambio de cerradura': [100, 200], 'Cambio de bombín': [60, 120], 'Cerradura de seguridad': [150, 350] };
+                const p = precios[v.tipo] || [80, 150];
+                const extra = v.urgencia === 'Sí, urgente' ? 1.3 : 1;
+                return [p[0] * extra, p[1] * extra];
+            }
+        },
+        web: {
+            campos: [
+                { id: 'tipo', label: '💻 Tipo de web', tipo: 'opciones', opciones: ['Web corporativa', 'Landing page', 'Tienda online', 'Web con reservas', 'App móvil'] },
+                { id: 'extras', label: '➕ ¿Con SEO incluido?', tipo: 'opciones', opciones: ['No', 'Sí'] }
+            ],
+            calcular: (v) => {
+                const precios = { 'Web corporativa': [500, 1200], 'Landing page': [300, 600], 'Tienda online': [800, 2500], 'Web con reservas': [900, 2000], 'App móvil': [2000, 8000] };
+                const p = precios[v.tipo] || [500, 1500];
+                const extra = v.extras === 'Sí' ? 300 : 0;
+                return [p[0] + extra, p[1] + extra];
+            }
+        },
+        ia: {
+            campos: [
+                { id: 'tipo', label: '🤖 Tipo de automatización', tipo: 'opciones', opciones: ['Chatbot web básico', 'Chatbot avanzado con IA', 'Chatbot WhatsApp', 'Asistente virtual', 'Automatización de procesos'] },
+            ],
+            calcular: (v) => {
+                const precios = { 'Chatbot web básico': [300, 600], 'Chatbot avanzado con IA': [600, 1500], 'Chatbot WhatsApp': [400, 900], 'Asistente virtual': [500, 2000], 'Automatización de procesos': [1000, 3000] };
+                return precios[v.tipo] || [300, 1000];
+            }
+        }
     };
 
-    // Estado del chat
-    let paso = 'inicio';
-    let categoriaSeleccionada = '';
-    let servicioActual = null;
-    let respuestas = {};
-    let datosCliente = { nombre: '', poblacion: '', telefono: '', email: '', servicio: '', precio: '' };
+    // Estado actual
+    let valoresActuales = {};
 
-    // Elementos DOM
-    const chatbotBtn = document.getElementById('chatbotButton');
-    const chatbotWin = document.getElementById('chatbotWindow');
-    const chatbotCerrar = document.getElementById('chatbotClose');
-    const chatMessages = document.getElementById('chatbotMessages');
-    const chatInput = document.getElementById('chatbotInput');
-    const chatSend = document.getElementById('chatbotSend');
+    function actualizarCampos() {
+        const servicio = document.getElementById('servicio').value;
+        const contenedor = document.getElementById('camposDinamicos');
+        valoresActuales = {};
+        contenedor.innerHTML = '';
 
-    function agregarMensaje(texto, esUsuario = false, botones = null) {
-        const div = document.createElement('div');
-        div.className = `message ${esUsuario ? 'user' : 'bot'}`;
-        const burbuja = document.createElement('div');
-        burbuja.className = 'message-bubble';
-        burbuja.innerHTML = texto.replace(/\n/g, '<br>');
-        div.appendChild(burbuja);
-        
-        if (botones && !esUsuario && botones.length > 0) {
-            const contenedorBotones = document.createElement('div');
-            contenedorBotones.style.cssText = 'display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px;';
-            botones.forEach(btn => {
-                const boton = document.createElement('button');
-                boton.textContent = btn;
-                boton.style.cssText = 'background: #1e3a5f; color: white; border: none; padding: 10px 18px; border-radius: 30px; cursor: pointer; font-size: 13px;';
-                boton.onmouseover = () => boton.style.background = '#e67e22';
-                boton.onmouseout = () => boton.style.background = '#1e3a5f';
-                boton.onclick = () => {
-                    contenedorBotones.remove();
-                    procesarMensaje(btn);
-                };
-                contenedorBotones.appendChild(boton);
-            });
-            div.appendChild(contenedorBotones);
-        }
-        chatMessages.appendChild(div);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
+        const config = servicios[servicio];
+        if (!config) return;
+
+        config.campos.forEach(campo => {
+            const div = document.createElement('div');
+            div.className = 'form-group-calc';
+
+            const label = document.createElement('label');
+            label.textContent = campo.label;
+            div.appendChild(label);
+
+            if (campo.tipo === 'number') {
+                const input = document.createElement('input');
+                input.type = 'number';
+                input.id = campo.id;
+                input.placeholder = campo.placeholder || '';
+                input.min = 1;
+                input.addEventListener('input', () => {
+                    valoresActuales[campo.id] = input.value;
+                    recalcular();
+                });
+                div.appendChild(input);
+            } else if (campo.tipo === 'opciones') {
+                const grid = document.createElement('div');
+                grid.className = 'options-grid';
+                campo.opciones.forEach((op, i) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'option-btn' + (i === 0 ? ' selected' : '');
+                    btn.textContent = op;
+                    if (i === 0) valoresActuales[campo.id] = op;
+                    btn.onclick = () => {
+                        grid.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+                        btn.classList.add('selected');
+                        valoresActuales[campo.id] = op;
+                        recalcular();
+                    };
+                    grid.appendChild(btn);
+                });
+                div.appendChild(grid);
+            }
+
+            contenedor.appendChild(div);
+        });
+
+        recalcular();
     }
 
-    function construirDetalles() {
-        let detalles = `Servicio: ${datosCliente.servicio}\n`;
-        for (let key in respuestas) {
-            detalles += `${key}: ${respuestas[key]}\n`;
+    function recalcular() {
+        const servicio = document.getElementById('servicio').value;
+        const config = servicios[servicio];
+        const display = document.getElementById('precioDisplay');
+        const precio = document.getElementById('precioEstimado');
+
+        if (!config) return;
+
+        const resultado = config.calcular(valoresActuales);
+
+        if (!resultado) {
+            precio.textContent = 'Introduce los datos →';
+            display.classList.remove('has-price');
+            return;
         }
-        return detalles;
+
+        const min = Math.round(resultado[0] / 10) * 10;
+        const max = Math.round(resultado[1] / 10) * 10;
+        precio.innerHTML = `${min.toLocaleString('es-ES')} – ${max.toLocaleString('es-ES')} €`;
+        display.classList.add('has-price');
     }
 
-    function enviarEmails() {
-        const detalles = construirDetalles();
-        
-        emailjs.send('presupuestos_ms', 'template_f6k59wp', {
-            nombre: datosCliente.nombre,
-            email: datosCliente.email,
-            servicio: datosCliente.servicio,
-            detalles: detalles,
-            presupuesto: datosCliente.precio,
-            fecha: new Date().toLocaleString()
-        }).catch(e => console.error('Error email cliente:', e));
-        
+    function enviarSolicitud() {
+        const nombre = document.getElementById('leadNombre').value.trim();
+        const telefono = document.getElementById('leadTelefono').value.trim();
+        const email = document.getElementById('leadEmail').value.trim();
+        const servicio = document.getElementById('servicio').options[document.getElementById('servicio').selectedIndex].text;
+        const precio = document.getElementById('precioEstimado').textContent;
+
+        if (!nombre || !telefono) {
+            alert('Por favor, introduce tu nombre y teléfono.');
+            return;
+        }
+
+        const btn = document.getElementById('btnEnviar');
+        btn.disabled = true;
+        btn.textContent = 'Enviando...';
+
+        const detalles = Object.entries(valoresActuales).map(([k, v]) => `${k}: ${v}`).join('\n');
+
         emailjs.send('presupuestos_ms', 'template_o1jeusq', {
-            nombre: datosCliente.nombre,
-            email: datosCliente.email,
-            telefono: datosCliente.telefono,
-            poblacion: datosCliente.poblacion,
-            servicio: datosCliente.servicio,
-            detalles: detalles,
-            presupuesto: datosCliente.precio,
-            fecha: new Date().toLocaleString()
-        }).catch(e => console.error('Error email admin:', e));
-        
-        console.log("Emails enviados");
+            nombre,
+            email: email || 'No indicado',
+            telefono,
+            poblacion: 'Calculadora online',
+            servicio,
+            detalles,
+            presupuesto: precio,
+            fecha: new Date().toLocaleString('es-ES')
+        }).then(() => {
+            document.getElementById('successMsg').style.display = 'block';
+            btn.style.display = 'none';
+        }).catch(() => {
+            btn.disabled = false;
+            btn.textContent = 'Solicitar presupuesto sin compromiso';
+            alert('Error al enviar. Llámanos al 603 018 190.');
+        });
     }
 
-    async function procesarMensaje(mensaje) {
-        if (!mensaje.trim()) return;
-        agregarMensaje(mensaje, true);
-        chatInput.value = '';
+    // Inicializar al cargar
+    actualizarCampos();
+    </script>
 
-        if (paso === 'inicio') {
-            agregarMensaje("👋 ¡Hola! Soy Cousine, asistente de Multiservicios Sagunto.\n\n🔧 ¿Qué categoría de servicio necesitas?", false, [
-                "🚰 Fontanería", "⚡ Electricidad", "🎨 Pintura", "🧹 Limpieza", "🌿 Jardinería", "🏗️ Reformas", "💻 Web y apps", "🤖 Automatización IA", "🏢 Comunidades", "🏢 Empresas", "📞 Hablar con asesor"
-            ]);
-            paso = 'seleccion_categoria';
-            return;
-        }
+    <script src="js/chatbot.js"></script>
 
-        if (paso === 'seleccion_categoria') {
-            if (mensaje === '📞 Hablar con asesor') {
-                agregarMensaje("📞 Puedes llamarnos al 603 018 190 o escribirnos por WhatsApp. Estaremos encantados de atenderte.", false);
-                paso = 'fin';
-                return;
-            }
-            
-            const categoriaMap = {
-                "🚰 Fontanería": "fontaneria",
-                "⚡ Electricidad": "electricidad",
-                "🎨 Pintura": "pintura",
-                "🧹 Limpieza": "limpieza",
-                "🌿 Jardinería": "jardineria",
-                "🏗️ Reformas": "reformas",
-                "💻 Web y apps": "web",
-                "🤖 Automatización IA": "ia",
-                "🏢 Comunidades": "comunidades",
-                "🏢 Empresas": "empresas"
-            };
-            categoriaSeleccionada = categoriaMap[mensaje];
-            const servicios = serviciosDB[categoriaSeleccionada];
-            if (servicios && servicios.length > 0) {
-                const botonesServicios = servicios.map(s => s.nombre);
-                agregarMensaje(`✅ He encontrado estos servicios de ${mensaje}. ¿Cuál te interesa?`, false, botonesServicios);
-                paso = 'seleccion_servicio';
-            }
-            return;
-        }
-
-        if (paso === 'seleccion_servicio') {
-            const servicios = serviciosDB[categoriaSeleccionada];
-            servicioActual = servicios.find(s => s.nombre === mensaje);
-            if (servicioActual) {
-                datosCliente.servicio = servicioActual.nombre;
-                datosCliente.precio = servicioActual.precio;
-                respuestas = {};
-                
-                if (servicioActual.preguntas && servicioActual.preguntas.length > 0) {
-                    paso = 'pregunta_0';
-                    const primeraPregunta = servicioActual.preguntas[0];
-                    agregarMensaje(primeraPregunta.texto, false, primeraPregunta.botones);
-                } else {
-                    agregarMensaje(`📋 *${servicioActual.nombre}*\n💰 Presupuesto orientativo: ${servicioActual.precio}\n✅ +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📧 ¿Quieres que te envíe este presupuesto por email?`, false, ["✅ Sí, enviar", "❌ No, gracias"]);
-                    paso = 'preguntar_email';
-                }
-            }
-            return;
-        }
-
-        if (paso.startsWith('pregunta_')) {
-            const idx = parseInt(paso.split('_')[1]);
-            const preguntaKey = `respuesta_${idx}`;
-            respuestas[preguntaKey] = mensaje;
-            
-            if (idx + 1 < servicioActual.preguntas.length) {
-                paso = `pregunta_${idx + 1}`;
-                const siguientePregunta = servicioActual.preguntas[idx + 1];
-                agregarMensaje(siguientePregunta.texto, false, siguientePregunta.botones);
-            } else {
-                let resumen = `📋 *Resumen de tu solicitud*\n\n🔧 Servicio: ${servicioActual.nombre}\n💰 Presupuesto orientativo: ${servicioActual.precio}\n`;
-                for (let i = 0; i < servicioActual.preguntas.length; i++) {
-                    resumen += `${servicioActual.preguntas[i].texto} ${respuestas[`respuesta_${i}`]}\n`;
-                }
-                resumen += `✅ +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📧 ¿Quieres que te envíe este presupuesto por email?`;
-                agregarMensaje(resumen, false, ["✅ Sí, enviar", "❌ No, gracias"]);
-                paso = 'preguntar_email';
-            }
-            return;
-        }
-
-        if (paso === 'preguntar_email') {
-            if (mensaje === '❌ No, gracias') {
-                agregarMensaje("✅ Gracias. Si cambias de opinión, aquí estamos. ¡Hasta pronto! 💙", false);
-                paso = 'fin';
-                return;
-            }
-            agregarMensaje("📝 Dime tu *nombre completo*:", false);
-            paso = 'pedir_nombre';
-            return;
-        }
-
-        if (paso === 'pedir_nombre') {
-            datosCliente.nombre = mensaje;
-            agregarMensaje("📍 ¿En qué *población* vives?", false);
-            paso = 'pedir_poblacion';
-            return;
-        }
-
-        if (paso === 'pedir_poblacion') {
-            datosCliente.poblacion = mensaje;
-            agregarMensaje("📱 ¿Cuál es tu *número de teléfono*?", false);
-            paso = 'pedir_telefono';
-            return;
-        }
-
-        if (paso === 'pedir_telefono') {
-            datosCliente.telefono = mensaje;
-            agregarMensaje("📧 ¿Y tu *correo electrónico*?", false);
-            paso = 'pedir_email';
-            return;
-        }
-
-        if (paso === 'pedir_email') {
-            datosCliente.email = mensaje;
-            agregarMensaje("📧 Enviando presupuesto...", false);
-            enviarEmails();
-            agregarMensaje("✅ *¡Presupuesto enviado!* Te hemos enviado los detalles a tu email.\n\nEn breve nos pondremos en contacto contigo por WhatsApp.\n\n¡Gracias por confiar en nosotros! 💙", false);
-            paso = 'fin';
-            return;
-        }
-    }
-
-    // EVENTOS
-    if (chatbotBtn) {
-        chatbotBtn.onclick = () => {
-            chatbotWin.classList.toggle('active');
-            if (paso === 'inicio') {
-                setTimeout(() => {
-                    agregarMensaje("👋 ¡Hola! Soy Cousine, asistente de Multiservicios Sagunto.\n\n🔧 ¿Qué categoría de servicio necesitas?", false, [
-                        "🚰 Fontanería", "⚡ Electricidad", "🎨 Pintura", "🧹 Limpieza", "🌿 Jardinería", "🏗️ Reformas", "💻 Web y apps", "🤖 Automatización IA", "🏢 Comunidades", "🏢 Empresas", "📞 Hablar con asesor"
-                    ]);
-                }, 300);
-            }
-        };
-    }
-    if (chatbotCerrar) {
-        chatbotCerrar.onclick = () => chatbotWin.classList.remove('active');
-    }
-    if (chatSend) {
-        chatSend.onclick = () => procesarMensaje(chatInput.value);
-    }
-    if (chatInput) {
-        chatInput.onkeypress = (e) => { if (e.key === 'Enter') procesarMensaje(chatInput.value); };
-    }
-</script>
+</body>
+</html>
