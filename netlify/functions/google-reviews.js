@@ -1,6 +1,6 @@
 exports.handler = async function(event, context) {
     const PLACE_ID = 'ChIJvaPHDykVYA0R1KwIPElDb14';
-    const API_KEY  = 'AIzaSyDRjI7pcF30kHpLOVvu0vPbrOTchZQPYQQ';
+    const API_KEY = process.env.GOOGLE_PLACES_API_KEY;
 
     try {
         const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${PLACE_ID}&fields=name,rating,reviews,user_ratings_total&key=${API_KEY}&language=es&reviews_sort=newest`;
