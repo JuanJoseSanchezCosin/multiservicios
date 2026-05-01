@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Consejos y precios de servicios en Sagunto | Multiservicios Sagunto</title>
+    <meta name="description" content="Blog de Multiservicios Sagunto. Consejos, precios y guías sobre fontanería, electricidad, cerrajería, pintura y reformas en Sagunto y comarca.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Multiservicios Sagunto">
+    <link rel="canonical" href="https://multiserviciossagunto.es/blog">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="manifest" href="img/site.webmanifest">
+    <meta name="theme-color" content="#1e3a5f">
+    <meta property="og:title" content="Blog | Multiservicios Sagunto">
+    <meta property="og:description" content="Consejos, precios y guías sobre servicios del hogar en Sagunto y comarca.">
+    <meta property="og:image" content="https://multiserviciossagunto.es/img/logo_multiservicios_sagunto.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://multiserviciossagunto.es/blog">
+    <meta property="og:locale" content="es_ES">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .blog-index-section{padding:60px 0;background:#f8fafc}
+        .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px;margin-top:40px}
+        .blog-card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.07);transition:transform .2s,box-shadow .2s;text-decoration:none;color:inherit;display:flex;flex-direction:column}
+        .blog-card:hover{transform:translateY(-5px);box-shadow:0 12px 35px rgba(0,0,0,.12)}
+        .blog-card-header{padding:28px 26px 20px;flex:1}
+        .blog-card-cat{display:inline-flex;align-items:center;gap:6px;background:#f0f4f8;color:var(--primary);font-size:.78rem;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px}
+        .blog-card h2{font-size:1.15rem;color:var(--primary);margin:0 0 12px;line-height:1.4;font-weight:700}
+        .blog-card p{font-size:.88rem;color:#6b7a90;line-height:1.6;margin:0}
+        .blog-card-footer{padding:16px 26px;border-top:1px solid #f0f4f8;display:flex;justify-content:space-between;align-items:center}
+        .blog-card-meta{font-size:.78rem;color:#9ca3af;display:flex;align-items:center;gap:5px}
+        .blog-card-link{font-size:.82rem;font-weight:700;color:var(--accent);display:flex;align-items:center;gap:5px}
+        .blog-card-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:white;margin-bottom:16px}
+        @media(max-width:768px){.blog-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+
+<div class="top-bar"><div class="container"><div class="top-bar-content">
+    <div class="contact-info">
+        <a href="tel:603018190"><i class="fas fa-phone-alt"></i> 603 018 190</a>
+        <a href="mailto:info@multiserviciossagunto.es"><i class="fas fa-envelope"></i> info@multiserviciossagunto.es</a>
+    </div>
+    <div class="social-links">
+        <a href="https://www.facebook.com/multiservisagunto/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/multiserviciosagunto/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@multiserviciossagunto" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+        <a href="https://x.com/multisersagunto" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/multiserviciossagunto/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+    <div class="hours-info"><i class="fas fa-clock"></i> L-V: 8:00-21:00 | Urgencias 24/7</div>
+</div></div></div>
+
+<header class="header"><div class="container"><div class="header-content">
+    <div class="logo">
+        <img src="img/logo_multiservicios_sagunto.png" alt="Multiservicios Sagunto" class="logo-avatar">
+        <div class="logo-text"><div class="logo-title">Multiservicios<br><span>Sagunto</span></div></div>
+    </div>
+    <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+    <nav class="nav-menu" id="navMenu"><ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/servicios">Servicios</a></li>
+        <li><a href="/pueblos">Pueblos</a></li>
+        <li><a href="/empresas">Empresas</a></li>
+        <li><a href="/nosotros">Nosotros</a></li>
+        <li><a href="/blog" class="active">Blog</a></li>
+        <li><a href="/calculadora">💰 Presupuestos</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+    </ul></nav>
+</div></div></header>
+
+<section class="page-hero"><div class="container">
+    <h1>Blog — Consejos y precios de <span class="highlight">servicios en Sagunto</span></h1>
+    <p>Guías prácticas, precios actualizados y consejos de nuestros profesionales para tu hogar y negocio.</p>
+</div></section>
+
+<section class="blog-index-section"><div class="container">
+    <div class="blog-grid">
+
+        <a href="/blog/cuanto-cuesta-cerrajero-sagunto" class="blog-card">
+            <div class="blog-card-header">
+                <div class="blog-card-icon" style="background:linear-gradient(135deg,#e74c3c,#c0392b)"><i class="fas fa-key"></i></div>
+                <div class="blog-card-cat"><i class="fas fa-tag"></i> Cerrajería</div>
+                <h2>Cuánto cuesta un cerrajero urgente en Sagunto en 2026</h2>
+                <p>Precios reales de apertura de puertas, cambio de cerraduras y bombines. Sin sorpresas ni letra pequeña.</p>
+            </div>
+            <div class="blog-card-footer">
+                <span class="blog-card-meta"><i class="fas fa-clock"></i> 5 min · 1 mayo 2026</span>
+                <span class="blog-card-link">Leer más <i class="fas fa-arrow-right"></i></span>
+            </div>
+        </a>
+
+        <a href="/blog/que-hacer-fuga-agua-casa" class="blog-card">
+            <div class="blog-card-header">
+                <div class="blog-card-icon" style="background:linear-gradient(135deg,#2980b9,#1a5276)"><i class="fas fa-tint"></i></div>
+                <div class="blog-card-cat"><i class="fas fa-tag"></i> Fontanería</div>
+                <h2>Qué hacer si tienes una fuga de agua en casa — Guía de emergencia</h2>
+                <p>Actuar rápido en los primeros minutos puede ahorrarte miles de euros. Sigue estos pasos.</p>
+            </div>
+            <div class="blog-card-footer">
+                <span class="blog-card-meta"><i class="fas fa-clock"></i> 6 min · 1 mayo 2026</span>
+                <span class="blog-card-link">Leer más <i class="fas fa-arrow-right"></i></span>
+            </div>
+        </a>
+
+        <a href="/blog/averia-electrica-en-casa-que-hacer" class="blog-card">
+            <div class="blog-card-header">
+                <div class="blog-card-icon" style="background:linear-gradient(135deg,#f39c12,#d35400)"><i class="fas fa-bolt"></i></div>
+                <div class="blog-card-cat"><i class="fas fa-tag"></i> Electricidad</div>
+                <h2>Avería eléctrica en casa: qué hacer cuando salta el diferencial</h2>
+                <p>Guía paso a paso para actuar ante una avería eléctrica. Cómo rearmarlo y cuándo llamar al electricista.</p>
+            </div>
+            <div class="blog-card-footer">
+                <span class="blog-card-meta"><i class="fas fa-clock"></i> 5 min · 1 mayo 2026</span>
+                <span class="blog-card-link">Leer más <i class="fas fa-arrow-right"></i></span>
+            </div>
+        </a>
+
+        <a href="/blog/cuanto-cuesta-pintar-piso-sagunto" class="blog-card">
+            <div class="blog-card-header">
+                <div class="blog-card-icon" style="background:linear-gradient(135deg,#8e44ad,#6c3483)"><i class="fas fa-paint-roller"></i></div>
+                <div class="blog-card-cat"><i class="fas fa-tag"></i> Pintura</div>
+                <h2>Cuánto cuesta pintar un piso en Sagunto en 2026 — Precios reales</h2>
+                <p>Tabla de precios por metro cuadrado, piso completo, gotelé y fachadas. Todo incluido sin sorpresas.</p>
+            </div>
+            <div class="blog-card-footer">
+                <span class="blog-card-meta"><i class="fas fa-clock"></i> 5 min · 1 mayo 2026</span>
+                <span class="blog-card-link">Leer más <i class="fas fa-arrow-right"></i></span>
+            </div>
+        </a>
+
+        <a href="/blog/cuanto-cuesta-reformar-bano-sagunto" class="blog-card">
+            <div class="blog-card-header">
+                <div class="blog-card-icon" style="background:linear-gradient(135deg,#27ae60,#1e8449)"><i class="fas fa-bath"></i></div>
+                <div class="blog-card-cat"><i class="fas fa-tag"></i> Reformas</div>
+                <h2>Cuánto cuesta reformar un baño en Sagunto en 2026 — Precios reales</h2>
+                <p>Reforma básica, completa y cambio de bañera por ducha. Precios con materiales incluidos.</p>
+            </div>
+            <div class="blog-card-footer">
+                <span class="blog-card-meta"><i class="fas fa-clock"></i> 6 min · 1 mayo 2026</span>
+                <span class="blog-card-link">Leer más <i class="fas fa-arrow-right"></i></span>
+            </div>
+        </a>
+
+        <a href="/blog/mantenimiento-jardin-sagunto" class="blog-card">
+            <div class="blog-card-header">
+                <div class="blog-card-icon" style="background:linear-gradient(135deg,#16a085,#0e6655)"><i class="fas fa-leaf"></i></div>
+                <div class="blog-card-cat"><i class="fas fa-tag"></i> Jardinería</div>
+                <h2>Mantenimiento de jardín en Sagunto: cuánto cuesta y qué incluye en 2026</h2>
+                <p>Precios de corte de césped, poda de árboles, setos y contratos de mantenimiento mensual.</p>
+            </div>
+            <div class="blog-card-footer">
+                <span class="blog-card-meta"><i class="fas fa-clock"></i> 4 min · 1 mayo 2026</span>
+                <span class="blog-card-link">Leer más <i class="fas fa-arrow-right"></i></span>
+            </div>
+        </a>
+
+    </div>
+</div></section>
+
+<section class="cta-final"><div class="container"><div class="cta-final-content">
+    <h2>¿Necesitas un servicio urgente en Sagunto?</h2>
+    <p>Llámanos ahora y te atendemos hoy mismo. Presupuesto sin compromiso.</p>
+    <div class="cta-buttons">
+        <a href="tel:603018190" class="btn-primary"><i class="fas fa-phone-alt"></i> 603 018 190</a>
+        <a href="https://wa.me/34603018190" class="btn-whatsapp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+</div></div></section>
+
+<footer class="footer"><div class="container">
+    <div class="footer-content">
+        <div class="footer-column"><div class="footer-logo"><h3>Multiservicios<br><span>Sagunto</span></h3></div><p>Tu multiservicios de confianza en Sagunto y comarca.</p></div>
+        <div class="footer-column"><h4>Servicios urgentes</h4><ul>
+            <li><a href="/cerrajero-sagunto">Cerrajero en Sagunto</a></li>
+            <li><a href="/fontanero-sagunto">Fontanero en Sagunto</a></li>
+            <li><a href="/electricista-sagunto">Electricista en Sagunto</a></li>
+            <li><a href="/pintor-sagunto">Pintor en Sagunto</a></li>
+            <li><a href="/albanil-sagunto">Albañil en Sagunto</a></li>
+        </ul></div>
+        <div class="footer-column"><h4>Cobertura</h4><ul>
+            <li>Sagunto y Puerto de Sagunto</li>
+            <li>Canet d'en Berenguer</li>
+            <li>Faura, Gilet, Estivella</li>
+            <li>Puçol, El Puig, Almenara</li>
+            <li>Bétera, Nàquera, Moncada</li>
+        </ul><a href="/pueblos" style="background:var(--accent);color:white;padding:8px 15px;border-radius:30px;text-decoration:none;display:inline-block;font-size:13px;margin-top:15px;">📍 Ver todos los pueblos →</a></div>
+        <div class="footer-column"><h4>Contacto</h4><ul>
+            <li><a href="tel:603018190"><i class="fas fa-phone-alt"></i> 603 018 190</a></li>
+            <li><a href="mailto:info@multiserviciossagunto.es"><i class="fas fa-envelope"></i> info@multiserviciossagunto.es</a></li>
+            <li><i class="fas fa-map-marker-alt"></i> Calle Rubau 2, 46512 Faura</li>
+            <li><i class="fas fa-clock"></i> L-V: 8:00-21:00 | Urgencias 24/7</li>
+        </ul></div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Multiservicios Sagunto. Todos los derechos reservados.</p>
+        <p class="legal-links"><a href="/aviso-legal">Aviso Legal</a> | <a href="/privacidad">Política de Privacidad</a> | <a href="/cookies">Política de Cookies</a></p>
+    </div>
+</div></footer>
+
+<a href="https://wa.me/34603018190" class="whatsapp-float" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+<div class="chatbot-button" id="chatbotButton"><i class="fas fa-comment-dots"></i></div>
+<div class="chatbot-window" id="chatbotWindow">
+    <div class="chatbot-header"><h3>🤖 Asistente Multiservicios Sagunto</h3><button class="chatbot-close" id="chatbotClose">✕</button></div>
+    <div class="chatbot-messages" id="chatbotMessages"></div>
+    <div class="chatbot-input"><input type="text" id="chatbotInput" placeholder="Escribe tu mensaje aquí..."><button id="chatbotSend">➤</button></div>
+</div>
+<script src="js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="js/chatbot.js"></script>
+</body>
+</html>
