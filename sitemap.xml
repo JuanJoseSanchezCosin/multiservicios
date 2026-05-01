@@ -10,6 +10,14 @@
     <url><loc>https://multiserviciossagunto.es/calculadora</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
     <url><loc>https://multiserviciossagunto.es/contacto</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
 
+    <!-- BLOG -->
+    <url><loc>https://multiserviciossagunto.es/blog/cuanto-cuesta-cerrajero-sagunto</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+    <url><loc>https://multiserviciossagunto.es/blog/que-hacer-fuga-agua-casa</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+    <url><loc>https://multiserviciossagunto.es/blog/cuanto-cuesta-pintar-piso-sagunto</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+    <url><loc>https://multiserviciossagunto.es/blog/averia-electrica-en-casa-que-hacer</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+    <url><loc>https://multiserviciossagunto.es/blog/cuanto-cuesta-reformar-bano-sagunto</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+    <url><loc>https://multiserviciossagunto.es/blog/mantenimiento-jardin-sagunto</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+
     <!-- PÁGINAS DE SERVICIO -->
     <url><loc>https://multiserviciossagunto.es/servicios/fontanero</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
     <url><loc>https://multiserviciossagunto.es/servicios/electricista</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
@@ -24,35 +32,27 @@
     <url><loc>https://multiserviciossagunto.es/servicios/ia</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.70</priority></url>
     <url><loc>https://multiserviciossagunto.es/servicios/web</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.70</priority></url>
 
-    <!-- PÁGINAS SERVICIO + PUEBLO — CERRAJERO -->
+    <!-- SERVICIO + PUEBLO -->
     <url><loc>https://multiserviciossagunto.es/cerrajero-sagunto</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
     <url><loc>https://multiserviciossagunto.es/cerrajero-puerto-de-sagunto</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
     <url><loc>https://multiserviciossagunto.es/cerrajero-almenara</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
     <url><loc>https://multiserviciossagunto.es/cerrajero-pucol</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
     <url><loc>https://multiserviciossagunto.es/cerrajero-canet</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-
-    <!-- PÁGINAS SERVICIO + PUEBLO — FONTANERO -->
     <url><loc>https://multiserviciossagunto.es/fontanero-sagunto</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
     <url><loc>https://multiserviciossagunto.es/fontanero-puerto-de-sagunto</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
     <url><loc>https://multiserviciossagunto.es/fontanero-almenara</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
     <url><loc>https://multiserviciossagunto.es/fontanero-pucol</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
     <url><loc>https://multiserviciossagunto.es/fontanero-canet</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-
-    <!-- PÁGINAS SERVICIO + PUEBLO — ELECTRICISTA -->
     <url><loc>https://multiserviciossagunto.es/electricista-sagunto</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
     <url><loc>https://multiserviciossagunto.es/electricista-puerto-de-sagunto</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
     <url><loc>https://multiserviciossagunto.es/electricista-almenara</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
     <url><loc>https://multiserviciossagunto.es/electricista-pucol</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
     <url><loc>https://multiserviciossagunto.es/electricista-canet</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-
-    <!-- PÁGINAS SERVICIO + PUEBLO — PINTOR -->
     <url><loc>https://multiserviciossagunto.es/pintor-sagunto</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
     <url><loc>https://multiserviciossagunto.es/pintor-puerto-de-sagunto</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
     <url><loc>https://multiserviciossagunto.es/pintor-almenara</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
     <url><loc>https://multiserviciossagunto.es/pintor-pucol</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
     <url><loc>https://multiserviciossagunto.es/pintor-canet</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
-
-    <!-- PÁGINAS SERVICIO + PUEBLO — ALBANIL -->
     <url><loc>https://multiserviciossagunto.es/albanil-sagunto</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
     <url><loc>https://multiserviciossagunto.es/albanil-puerto-de-sagunto</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
     <url><loc>https://multiserviciossagunto.es/albanil-almenara</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
