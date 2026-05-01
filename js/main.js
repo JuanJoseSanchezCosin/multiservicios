@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function () {
         mobileMenuBtn.addEventListener('click', function (e) {
             e.stopPropagation();
             navMenu.classList.toggle('active');
-            // Cambiar icono hamburguesa / X
             const icon = mobileMenuBtn.querySelector('i');
             if (icon) {
                 icon.classList.toggle('fa-bars');

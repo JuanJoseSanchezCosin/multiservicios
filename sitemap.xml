@@ -9,6 +9,7 @@
     <url><loc>https://multiserviciossagunto.es/nosotros</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
     <url><loc>https://multiserviciossagunto.es/calculadora</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
     <url><loc>https://multiserviciossagunto.es/contacto</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+    <url><loc>https://multiserviciossagunto.es/blog</loc><lastmod>2026-05-01</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
 
     <!-- BLOG -->
     <url><loc>https://multiserviciossagunto.es/blog/cuanto-cuesta-cerrajero-sagunto</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
@@ -29,10 +30,8 @@
     <url><loc>https://multiserviciossagunto.es/servicios/reformas</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
     <url><loc>https://multiserviciossagunto.es/servicios/comunidades</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
     <url><loc>https://multiserviciossagunto.es/servicios/mantenimiento</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
-    <url><loc>https://multiserviciossagunto.es/servicios/ia</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.70</priority></url>
-    <url><loc>https://multiserviciossagunto.es/servicios/web</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.70</priority></url>
 
-    <!-- SERVICIO + PUEBLO -->
+    <!-- SERVICIO + PUEBLO — BATCH 1 (Sagunto, Puerto, Canet, Puçol, Almenara) -->
     <url><loc>https://multiserviciossagunto.es/cerrajero-sagunto</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
     <url><loc>https://multiserviciossagunto.es/cerrajero-puerto-de-sagunto</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
     <url><loc>https://multiserviciossagunto.es/cerrajero-almenara</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
@@ -58,6 +57,33 @@
     <url><loc>https://multiserviciossagunto.es/albanil-almenara</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
     <url><loc>https://multiserviciossagunto.es/albanil-pucol</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
     <url><loc>https://multiserviciossagunto.es/albanil-canet</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+
+    <!-- SERVICIO + PUEBLO — BATCH 2 (Faura, Gilet, Bétera, El Puig, Rafelbunyol) -->
+    <url><loc>https://multiserviciossagunto.es/cerrajero-faura</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
+    <url><loc>https://multiserviciossagunto.es/fontanero-faura</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
+    <url><loc>https://multiserviciossagunto.es/electricista-faura</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pintor-faura</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://multiserviciossagunto.es/albanil-faura</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://multiserviciossagunto.es/cerrajero-gilet</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+    <url><loc>https://multiserviciossagunto.es/fontanero-gilet</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+    <url><loc>https://multiserviciossagunto.es/electricista-gilet</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pintor-gilet</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+    <url><loc>https://multiserviciossagunto.es/albanil-gilet</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+    <url><loc>https://multiserviciossagunto.es/cerrajero-betera</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://multiserviciossagunto.es/fontanero-betera</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://multiserviciossagunto.es/electricista-betera</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pintor-betera</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+    <url><loc>https://multiserviciossagunto.es/albanil-betera</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+    <url><loc>https://multiserviciossagunto.es/cerrajero-el-puig</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://multiserviciossagunto.es/fontanero-el-puig</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://multiserviciossagunto.es/electricista-el-puig</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pintor-el-puig</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+    <url><loc>https://multiserviciossagunto.es/albanil-el-puig</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+    <url><loc>https://multiserviciossagunto.es/cerrajero-rafelbunyol</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://multiserviciossagunto.es/fontanero-rafelbunyol</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://multiserviciossagunto.es/electricista-rafelbunyol</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://multiserviciossagunto.es/pintor-rafelbunyol</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+    <url><loc>https://multiserviciossagunto.es/albanil-rafelbunyol</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
 
     <!-- PÁGINAS DE PUEBLO -->
     <url><loc>https://multiserviciossagunto.es/pueblos/sagunto</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>

@@ -434,7 +434,7 @@
     };
 
     function mensajeBienvenida() {
-        agregarMensaje("👋 ¡Hola! Soy Cousine, asistente de Multiservicios Sagunto.\n\n🔧 ¿Qué categoría de servicio necesitas?", false, categorias);
+        agregarMensaje("👋 ¡Hola! Soy el asistente de Multiservicios Sagunto.\n\n🔧 ¿Qué categoría de servicio necesitas?", false, categorias);
         paso = 'seleccion_categoria';
     }
 
