@@ -19,7 +19,7 @@
     <meta property="og:url" content="https://multiserviciossagunto.es/servicios">
     <meta property="og:locale" content="es_ES">
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Multiservicios Sagunto","url":"https://multiserviciossagunto.es","telephone":"+34603018190","areaServed":["Sagunto","Puerto de Sagunto","Canet d'en Berenguer","Faura","Almenara","Pucol"]}
+    {"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Multiservicios Sagunto","url":"https://multiserviciossagunto.es","telephone":"+34603018190","areaServed":["Sagunto","Puerto de Sagunto","Canet d'en Berenguer","Faura","Gilet","Almenara","Puçol","Bétera","El Puig","Rafelbunyol"]}
     </script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -47,7 +47,7 @@
         .badge-urgente{background:#fef3f2;color:#e74c3c;font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:20px}
         .section-divider{border:none;border-top:2px solid #f0f4f8;margin:35px 0}
         .pueblo-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
-        .pueblo-btn{background:#f0f4f8;border:2px solid transparent;color:var(--primary);font-family:'Poppins',sans-serif;font-weight:600;font-size:.85rem;padding:8px 18px;border-radius:30px;cursor:pointer;transition:all .2s}
+        .pueblo-btn{background:#f0f4f8;border:2px solid transparent;color:var(--primary);font-family:'Poppins',sans-serif;font-weight:600;font-size:.82rem;padding:7px 15px;border-radius:30px;cursor:pointer;transition:all .2s}
         .pueblo-btn:hover{background:#e0e8f4}
         .pueblo-btn.active{background:var(--primary);color:white;border-color:var(--primary)}
         .pueblo-panel{display:none}
@@ -60,7 +60,7 @@
         .sp-info span{font-size:.73rem;color:#e74c3c;font-weight:600}
         .sp-info .verde{color:#27ae60}
         .urgencia-box{background:#fef3f2;border:2px solid #e74c3c;border-radius:16px;padding:28px 30px;margin-top:30px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-        @media(max-width:768px){.tab-btn{padding:12px 14px;font-size:.82rem}.srv-grid{grid-template-columns:repeat(2,1fr);gap:12px}.sp-grid{grid-template-columns:1fr 1fr}}
+        @media(max-width:768px){.tab-btn{padding:12px 14px;font-size:.82rem}.srv-grid{grid-template-columns:repeat(2,1fr);gap:12px}.sp-grid{grid-template-columns:1fr 1fr}.pueblo-btn{font-size:.75rem;padding:6px 12px}}
         @media(max-width:480px){.srv-grid{grid-template-columns:1fr}.sp-grid{grid-template-columns:1fr}}
     </style>
 </head>
@@ -94,7 +94,7 @@
         <li><a href="/empresas">Empresas</a></li>
         <li><a href="/nosotros">Nosotros</a></li>
         <li><a href="/blog">Blog</a></li>
-<li><a href="/calculadora">💰 Presupuestos</a></li>
+        <li><a href="/calculadora">💰 Presupuestos</a></li>
         <li><a href="/contacto">Contacto</a></li>
     </ul></nav>
 </div></div></header>
@@ -156,8 +156,14 @@
             <button class="pueblo-btn" onclick="showPueblo(this,'canet')">🏖️ Canet d'en Berenguer</button>
             <button class="pueblo-btn" onclick="showPueblo(this,'pucol')">🌊 Puçol</button>
             <button class="pueblo-btn" onclick="showPueblo(this,'almenara')">🏰 Almenara</button>
+            <button class="pueblo-btn" onclick="showPueblo(this,'faura')">📍 Faura</button>
+            <button class="pueblo-btn" onclick="showPueblo(this,'gilet')">⛰️ Gilet</button>
+            <button class="pueblo-btn" onclick="showPueblo(this,'betera')">🌲 Bétera</button>
+            <button class="pueblo-btn" onclick="showPueblo(this,'elpuig')">🏰 El Puig</button>
+            <button class="pueblo-btn" onclick="showPueblo(this,'rafelbunyol')">🚇 Rafelbunyol</button>
         </div>
 
+        <!-- SAGUNTO -->
         <div class="pueblo-panel active" id="pueblo-sagunto"><div class="sp-grid">
             <a href="/cerrajero-sagunto" class="sp-card"><div class="sp-icon" style="background:#e74c3c"><i class="fas fa-key"></i></div><div class="sp-info"><h4>Cerrajero en Sagunto</h4><span>🚨 Urgente 24h</span></div></a>
             <a href="/fontanero-sagunto" class="sp-card"><div class="sp-icon" style="background:#2980b9"><i class="fas fa-tint"></i></div><div class="sp-info"><h4>Fontanero en Sagunto</h4><span>🚨 Urgente 24h</span></div></a>
@@ -167,6 +173,7 @@
             <a href="/pueblos/sagunto" class="sp-card"><div class="sp-icon" style="background:#1e3a5f"><i class="fas fa-map-marker-alt"></i></div><div class="sp-info"><h4>Todos los servicios en Sagunto</h4><span class="verde">Ver más →</span></div></a>
         </div></div>
 
+        <!-- PUERTO -->
         <div class="pueblo-panel" id="pueblo-puerto"><div class="sp-grid">
             <a href="/cerrajero-puerto-de-sagunto" class="sp-card"><div class="sp-icon" style="background:#e74c3c"><i class="fas fa-key"></i></div><div class="sp-info"><h4>Cerrajero en Puerto de Sagunto</h4><span>🚨 Urgente 24h</span></div></a>
             <a href="/fontanero-puerto-de-sagunto" class="sp-card"><div class="sp-icon" style="background:#2980b9"><i class="fas fa-tint"></i></div><div class="sp-info"><h4>Fontanero en Puerto de Sagunto</h4><span>🚨 Urgente 24h</span></div></a>
@@ -176,6 +183,7 @@
             <a href="/pueblos/puerto-de-sagunto" class="sp-card"><div class="sp-icon" style="background:#1e3a5f"><i class="fas fa-map-marker-alt"></i></div><div class="sp-info"><h4>Todos los servicios en Puerto de Sagunto</h4><span class="verde">Ver más →</span></div></a>
         </div></div>
 
+        <!-- CANET -->
         <div class="pueblo-panel" id="pueblo-canet"><div class="sp-grid">
             <a href="/cerrajero-canet" class="sp-card"><div class="sp-icon" style="background:#e74c3c"><i class="fas fa-key"></i></div><div class="sp-info"><h4>Cerrajero en Canet d'en Berenguer</h4><span>🚨 Urgente 24h</span></div></a>
             <a href="/fontanero-canet" class="sp-card"><div class="sp-icon" style="background:#2980b9"><i class="fas fa-tint"></i></div><div class="sp-info"><h4>Fontanero en Canet d'en Berenguer</h4><span>🚨 Urgente 24h</span></div></a>
@@ -185,6 +193,7 @@
             <a href="/pueblos/canet-den-berenguer" class="sp-card"><div class="sp-icon" style="background:#1e3a5f"><i class="fas fa-map-marker-alt"></i></div><div class="sp-info"><h4>Todos los servicios en Canet</h4><span class="verde">Ver más →</span></div></a>
         </div></div>
 
+        <!-- PUCOL -->
         <div class="pueblo-panel" id="pueblo-pucol"><div class="sp-grid">
             <a href="/cerrajero-pucol" class="sp-card"><div class="sp-icon" style="background:#e74c3c"><i class="fas fa-key"></i></div><div class="sp-info"><h4>Cerrajero en Puçol</h4><span>🚨 Urgente 24h</span></div></a>
             <a href="/fontanero-pucol" class="sp-card"><div class="sp-icon" style="background:#2980b9"><i class="fas fa-tint"></i></div><div class="sp-info"><h4>Fontanero en Puçol</h4><span>🚨 Urgente 24h</span></div></a>
@@ -194,6 +203,7 @@
             <a href="/pueblos/pucol" class="sp-card"><div class="sp-icon" style="background:#1e3a5f"><i class="fas fa-map-marker-alt"></i></div><div class="sp-info"><h4>Todos los servicios en Puçol</h4><span class="verde">Ver más →</span></div></a>
         </div></div>
 
+        <!-- ALMENARA -->
         <div class="pueblo-panel" id="pueblo-almenara"><div class="sp-grid">
             <a href="/cerrajero-almenara" class="sp-card"><div class="sp-icon" style="background:#e74c3c"><i class="fas fa-key"></i></div><div class="sp-info"><h4>Cerrajero en Almenara</h4><span>🚨 Urgente 24h</span></div></a>
             <a href="/fontanero-almenara" class="sp-card"><div class="sp-icon" style="background:#2980b9"><i class="fas fa-tint"></i></div><div class="sp-info"><h4>Fontanero en Almenara</h4><span>🚨 Urgente 24h</span></div></a>
@@ -202,11 +212,62 @@
             <a href="/albanil-almenara" class="sp-card"><div class="sp-icon" style="background:#27ae60"><i class="fas fa-hard-hat"></i></div><div class="sp-info"><h4>Albañil en Almenara</h4><span class="verde">Presupuesto gratis</span></div></a>
             <a href="/pueblos/almenara" class="sp-card"><div class="sp-icon" style="background:#1e3a5f"><i class="fas fa-map-marker-alt"></i></div><div class="sp-info"><h4>Todos los servicios en Almenara</h4><span class="verde">Ver más →</span></div></a>
         </div></div>
+
+        <!-- FAURA -->
+        <div class="pueblo-panel" id="pueblo-faura"><div class="sp-grid">
+            <a href="/cerrajero-faura" class="sp-card"><div class="sp-icon" style="background:#e74c3c"><i class="fas fa-key"></i></div><div class="sp-info"><h4>Cerrajero en Faura</h4><span>🚨 Urgente 24h</span></div></a>
+            <a href="/fontanero-faura" class="sp-card"><div class="sp-icon" style="background:#2980b9"><i class="fas fa-tint"></i></div><div class="sp-info"><h4>Fontanero en Faura</h4><span>🚨 Urgente 24h</span></div></a>
+            <a href="/electricista-faura" class="sp-card"><div class="sp-icon" style="background:#f39c12"><i class="fas fa-bolt"></i></div><div class="sp-info"><h4>Electricista en Faura</h4><span>🚨 Urgente 24h</span></div></a>
+            <a href="/pintor-faura" class="sp-card"><div class="sp-icon" style="background:#8e44ad"><i class="fas fa-paint-roller"></i></div><div class="sp-info"><h4>Pintor en Faura</h4><span class="verde">Presupuesto gratis</span></div></a>
+            <a href="/albanil-faura" class="sp-card"><div class="sp-icon" style="background:#27ae60"><i class="fas fa-hard-hat"></i></div><div class="sp-info"><h4>Albañil en Faura</h4><span class="verde">Presupuesto gratis</span></div></a>
+            <a href="/pueblos/faura" class="sp-card"><div class="sp-icon" style="background:#1e3a5f"><i class="fas fa-map-marker-alt"></i></div><div class="sp-info"><h4>Todos los servicios en Faura</h4><span class="verde">Ver más →</span></div></a>
+        </div></div>
+
+        <!-- GILET -->
+        <div class="pueblo-panel" id="pueblo-gilet"><div class="sp-grid">
+            <a href="/cerrajero-gilet" class="sp-card"><div class="sp-icon" style="background:#e74c3c"><i class="fas fa-key"></i></div><div class="sp-info"><h4>Cerrajero en Gilet</h4><span>🚨 Urgente 24h</span></div></a>
+            <a href="/fontanero-gilet" class="sp-card"><div class="sp-icon" style="background:#2980b9"><i class="fas fa-tint"></i></div><div class="sp-info"><h4>Fontanero en Gilet</h4><span>🚨 Urgente 24h</span></div></a>
+            <a href="/electricista-gilet" class="sp-card"><div class="sp-icon" style="background:#f39c12"><i class="fas fa-bolt"></i></div><div class="sp-info"><h4>Electricista en Gilet</h4><span>🚨 Urgente 24h</span></div></a>
+            <a href="/pintor-gilet" class="sp-card"><div class="sp-icon" style="background:#8e44ad"><i class="fas fa-paint-roller"></i></div><div class="sp-info"><h4>Pintor en Gilet</h4><span class="verde">Presupuesto gratis</span></div></a>
+            <a href="/albanil-gilet" class="sp-card"><div class="sp-icon" style="background:#27ae60"><i class="fas fa-hard-hat"></i></div><div class="sp-info"><h4>Albañil en Gilet</h4><span class="verde">Presupuesto gratis</span></div></a>
+            <a href="/pueblos/gilet" class="sp-card"><div class="sp-icon" style="background:#1e3a5f"><i class="fas fa-map-marker-alt"></i></div><div class="sp-info"><h4>Todos los servicios en Gilet</h4><span class="verde">Ver más →</span></div></a>
+        </div></div>
+
+        <!-- BETERA -->
+        <div class="pueblo-panel" id="pueblo-betera"><div class="sp-grid">
+            <a href="/cerrajero-betera" class="sp-card"><div class="sp-icon" style="background:#e74c3c"><i class="fas fa-key"></i></div><div class="sp-info"><h4>Cerrajero en Bétera</h4><span>🚨 Urgente 24h</span></div></a>
+            <a href="/fontanero-betera" class="sp-card"><div class="sp-icon" style="background:#2980b9"><i class="fas fa-tint"></i></div><div class="sp-info"><h4>Fontanero en Bétera</h4><span>🚨 Urgente 24h</span></div></a>
+            <a href="/electricista-betera" class="sp-card"><div class="sp-icon" style="background:#f39c12"><i class="fas fa-bolt"></i></div><div class="sp-info"><h4>Electricista en Bétera</h4><span>🚨 Urgente 24h</span></div></a>
+            <a href="/pintor-betera" class="sp-card"><div class="sp-icon" style="background:#8e44ad"><i class="fas fa-paint-roller"></i></div><div class="sp-info"><h4>Pintor en Bétera</h4><span class="verde">Presupuesto gratis</span></div></a>
+            <a href="/albanil-betera" class="sp-card"><div class="sp-icon" style="background:#27ae60"><i class="fas fa-hard-hat"></i></div><div class="sp-info"><h4>Albañil en Bétera</h4><span class="verde">Presupuesto gratis</span></div></a>
+            <a href="/pueblos/betera" class="sp-card"><div class="sp-icon" style="background:#1e3a5f"><i class="fas fa-map-marker-alt"></i></div><div class="sp-info"><h4>Todos los servicios en Bétera</h4><span class="verde">Ver más →</span></div></a>
+        </div></div>
+
+        <!-- EL PUIG -->
+        <div class="pueblo-panel" id="pueblo-elpuig"><div class="sp-grid">
+            <a href="/cerrajero-el-puig" class="sp-card"><div class="sp-icon" style="background:#e74c3c"><i class="fas fa-key"></i></div><div class="sp-info"><h4>Cerrajero en El Puig</h4><span>🚨 Urgente 24h</span></div></a>
+            <a href="/fontanero-el-puig" class="sp-card"><div class="sp-icon" style="background:#2980b9"><i class="fas fa-tint"></i></div><div class="sp-info"><h4>Fontanero en El Puig</h4><span>🚨 Urgente 24h</span></div></a>
+            <a href="/electricista-el-puig" class="sp-card"><div class="sp-icon" style="background:#f39c12"><i class="fas fa-bolt"></i></div><div class="sp-info"><h4>Electricista en El Puig</h4><span>🚨 Urgente 24h</span></div></a>
+            <a href="/pintor-el-puig" class="sp-card"><div class="sp-icon" style="background:#8e44ad"><i class="fas fa-paint-roller"></i></div><div class="sp-info"><h4>Pintor en El Puig</h4><span class="verde">Presupuesto gratis</span></div></a>
+            <a href="/albanil-el-puig" class="sp-card"><div class="sp-icon" style="background:#27ae60"><i class="fas fa-hard-hat"></i></div><div class="sp-info"><h4>Albañil en El Puig</h4><span class="verde">Presupuesto gratis</span></div></a>
+            <a href="/pueblos/el-puig" class="sp-card"><div class="sp-icon" style="background:#1e3a5f"><i class="fas fa-map-marker-alt"></i></div><div class="sp-info"><h4>Todos los servicios en El Puig</h4><span class="verde">Ver más →</span></div></a>
+        </div></div>
+
+        <!-- RAFELBUNYOL -->
+        <div class="pueblo-panel" id="pueblo-rafelbunyol"><div class="sp-grid">
+            <a href="/cerrajero-rafelbunyol" class="sp-card"><div class="sp-icon" style="background:#e74c3c"><i class="fas fa-key"></i></div><div class="sp-info"><h4>Cerrajero en Rafelbunyol</h4><span>🚨 Urgente 24h</span></div></a>
+            <a href="/fontanero-rafelbunyol" class="sp-card"><div class="sp-icon" style="background:#2980b9"><i class="fas fa-tint"></i></div><div class="sp-info"><h4>Fontanero en Rafelbunyol</h4><span>🚨 Urgente 24h</span></div></a>
+            <a href="/electricista-rafelbunyol" class="sp-card"><div class="sp-icon" style="background:#f39c12"><i class="fas fa-bolt"></i></div><div class="sp-info"><h4>Electricista en Rafelbunyol</h4><span>🚨 Urgente 24h</span></div></a>
+            <a href="/pintor-rafelbunyol" class="sp-card"><div class="sp-icon" style="background:#8e44ad"><i class="fas fa-paint-roller"></i></div><div class="sp-info"><h4>Pintor en Rafelbunyol</h4><span class="verde">Presupuesto gratis</span></div></a>
+            <a href="/albanil-rafelbunyol" class="sp-card"><div class="sp-icon" style="background:#27ae60"><i class="fas fa-hard-hat"></i></div><div class="sp-info"><h4>Albañil en Rafelbunyol</h4><span class="verde">Presupuesto gratis</span></div></a>
+            <a href="/pueblos/rafelbunyol" class="sp-card"><div class="sp-icon" style="background:#1e3a5f"><i class="fas fa-map-marker-alt"></i></div><div class="sp-info"><h4>Todos los servicios en Rafelbunyol</h4><span class="verde">Ver más →</span></div></a>
+        </div></div>
+
     </div>
 
     <!-- TAB URGENCIAS -->
     <div class="tab-panel" id="tab-urgencias">
-        <p class="tab-intro">Disponibles las 24 horas, los 365 días del año. Llegamos en menos de 60 minutos a Sagunto, Puerto de Sagunto, Canet, Puçol, Almenara y toda la comarca.</p>
+        <p class="tab-intro">Disponibles las 24 horas, los 365 días del año. Llegamos en menos de 60 minutos a toda la comarca.</p>
         <div class="srv-grid">
             <a href="/cerrajero-sagunto" class="srv-card-main"><div class="icon-wrap" style="background:linear-gradient(135deg,#e74c3c,#c0392b)"><i class="fas fa-key"></i></div><h3>Cerrajero urgente</h3><p>Apertura de puertas sin daños en menos de 60 min</p><span class="badge-urgente">🚨 24h · 365 días</span></a>
             <a href="/fontanero-sagunto" class="srv-card-main"><div class="icon-wrap" style="background:linear-gradient(135deg,#2980b9,#1a5276)"><i class="fas fa-tint"></i></div><h3>Fontanero urgente</h3><p>Fugas de agua, desatascos y averías de caldera</p><span class="badge-urgente">🚨 24h · 365 días</span></a>
@@ -254,15 +315,15 @@
             <li><a href="/fontanero-sagunto">Fontanero en Sagunto</a></li>
             <li><a href="/electricista-sagunto">Electricista en Sagunto</a></li>
             <li><a href="/cerrajero-puerto-de-sagunto">Cerrajero Puerto de Sagunto</a></li>
-            <li><a href="/fontanero-puerto-de-sagunto">Fontanero Puerto de Sagunto</a></li>
-            <li><a href="/electricista-canet">Electricista en Canet</a></li>
+            <li><a href="/cerrajero-faura">Cerrajero en Faura</a></li>
+            <li><a href="/electricista-betera">Electricista en Bétera</a></li>
         </ul></div>
         <div class="footer-column"><h4>Cobertura</h4><ul>
             <li>Sagunto y Puerto de Sagunto</li>
-            <li>Canet d'en Berenguer</li>
-            <li>Faura, Gilet, Estivella</li>
-            <li>Puçol, El Puig, Almenara</li>
-            <li>Bétera, Nàquera, Moncada</li>
+            <li>Canet d'en Berenguer · Faura · Gilet</li>
+            <li>Puçol · El Puig · Almenara</li>
+            <li>Bétera · Rafelbunyol · Nàquera</li>
+            <li>Moncada · Bétera · Estivella</li>
         </ul><a href="/pueblos" style="background:var(--accent);color:white;padding:8px 15px;border-radius:30px;text-decoration:none;display:inline-block;font-size:13px;margin-top:15px;">📍 Ver todos los pueblos →</a></div>
         <div class="footer-column"><h4>Contacto</h4><ul>
             <li><a href="tel:603018190"><i class="fas fa-phone-alt"></i> 603 018 190</a></li>
@@ -284,7 +345,6 @@
     <div class="chatbot-messages" id="chatbotMessages"></div>
     <div class="chatbot-input"><input type="text" id="chatbotInput" placeholder="Escribe tu mensaje aquí..."><button id="chatbotSend">➤</button></div>
 </div>
-
 <script src="js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="js/chatbot.js"></script>
