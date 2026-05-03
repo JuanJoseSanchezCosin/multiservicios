@@ -36,304 +36,379 @@
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "HomeAndConstructionBusiness",
-      "name": "Multiservicios Sagunto",
-      "description": "Más de 30 servicios profesionales en Sagunto y comarca: limpieza, fontanería, electricidad, pintura, jardinería, obras, reformas, creación de webs y apps con IA.",
-      "url": "https://multiserviciossagunto.es",
-      "image": "https://multiserviciossagunto.es/img/logo_multiservicios_sagunto.png",
-      "logo": "https://multiserviciossagunto.es/img/logo_multiservicios_sagunto.png",
-      "telephone": "+34603018190",
-      "email": "info@multiserviciossagunto.es",
-      "priceRange": "€€",
-      "currenciesAccepted": "EUR",
-      "paymentAccepted": "Cash, Credit Card, Bank Transfer",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Calle Rubau 2",
-        "addressLocality": "Faura",
-        "addressRegion": "Valencia",
-        "postalCode": "46512",
-        "addressCountry": "ES"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 39.7263,
-        "longitude": -0.2614
-      },
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-          "opens": "08:00",
-          "closes": "21:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Saturday","Sunday"],
-          "opens": "00:00",
-          "closes": "23:59",
-          "description": "Urgencias 24/7"
-        }
-      ],
-      "areaServed": [
-        "Sagunto","Puerto de Sagunto","Canet d'en Berenguer","Faura","Gilet",
-        "Estivella","Albalat dels Tarongers","Segart","Algimia de Alfara",
-        "Torres Torres","Quartell","Benavites","Petrés","Benifairó de les Valls",
-        "Moncófar","Almenara","Vall d'Uixó","Puçol","El Puig","Rafelbunyol",
-        "Massamagrell","Moncada","Nàquera","Bétera"
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Servicios Multiservicios Sagunto",
-        "itemListElement": [
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Fontanería en Sagunto"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Electricidad en Sagunto"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Limpieza profesional en Sagunto"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Pintura en Sagunto"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Jardinería en Sagunto"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Reformas en Sagunto"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cerrajería en Sagunto"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Albañilería en Sagunto"}}
-        ]
-      },
-      "sameAs": [
-        "https://www.facebook.com/multiservisagunto/",
-        "https://www.instagram.com/multiserviciosagunto/",
-        "https://www.tiktok.com/@multiserviciossagunto",
-        "https://x.com/multisersagunto",
-        "https://www.linkedin.com/in/multiserviciossagunto/"
-      ]
-    }
+    {"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Multiservicios Sagunto","description":"Más de 30 servicios profesionales en Sagunto y comarca.","url":"https://multiserviciossagunto.es","image":"https://multiserviciossagunto.es/img/logo_multiservicios_sagunto.png","logo":"https://multiserviciossagunto.es/img/logo_multiservicios_sagunto.png","telephone":"+34603018190","email":"info@multiserviciossagunto.es","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Calle Rubau 2","addressLocality":"Faura","addressRegion":"Valencia","postalCode":"46512","addressCountry":"ES"},"geo":{"@type":"GeoCoordinates","latitude":39.7263,"longitude":-0.2614},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"21:00"}],"areaServed":["Sagunto","Puerto de Sagunto","Canet d'en Berenguer","Faura","Gilet","Estivella","Almenara","Puçol","El Puig","Rafelbunyol","Massamagrell","Moncada","Nàquera","Bétera"],"sameAs":["https://www.facebook.com/multiservisagunto/","https://www.instagram.com/multiserviciosagunto/","https://www.tiktok.com/@multiserviciossagunto","https://x.com/multisersagunto","https://www.linkedin.com/in/multiserviciossagunto/"]}
     </script>
+    <style>
+        /* SECCIÓN BLOG */
+        .blog-home-section{padding:60px 0;background:#f8fafc}
+        .blog-home-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;margin-top:35px}
+        .blog-home-card{background:white;border-radius:18px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.07);text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+        .blog-home-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(0,0,0,.11)}
+        .blog-home-card-body{padding:24px 22px 18px;flex:1}
+        .blog-home-cat{display:inline-flex;align-items:center;gap:5px;background:#f0f4f8;color:var(--primary);font-size:.75rem;font-weight:700;padding:3px 11px;border-radius:20px;margin-bottom:12px;text-transform:uppercase;letter-spacing:.4px}
+        .blog-home-card h3{font-size:1rem;color:var(--primary);margin:0 0 10px;line-height:1.4;font-weight:700}
+        .blog-home-card p{font-size:.85rem;color:#6b7a90;line-height:1.6;margin:0}
+        .blog-home-card-footer{padding:14px 22px;border-top:1px solid #f0f4f8;display:flex;justify-content:space-between;align-items:center}
+        .blog-home-meta{font-size:.75rem;color:#9ca3af;display:flex;align-items:center;gap:4px}
+        .blog-home-link{font-size:.8rem;font-weight:700;color:var(--accent);display:flex;align-items:center;gap:4px}
+        .blog-home-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:white;margin-bottom:14px;flex-shrink:0}
+        .blog-home-footer{text-align:center;margin-top:30px}
+        /* FOOTER MEJORADO */
+        .footer-servicios-rapidos{margin-top:8px}
+        .footer-servicios-rapidos li a{font-size:.85rem}
+    </style>
 </head>
 <body>
 
-    <div class="top-bar">
-        <div class="container">
-            <div class="top-bar-content">
-                <div class="contact-info">
-                    <a href="tel:603018190"><i class="fas fa-phone-alt"></i> 603 018 190</a>
-                    <a href="mailto:info@multiserviciossagunto.es"><i class="fas fa-envelope"></i> info@multiserviciossagunto.es</a>
-                </div>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/multiservisagunto/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/multiserviciosagunto/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@multiserviciossagunto" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://x.com/multisersagunto" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.linkedin.com/in/multiserviciossagunto/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <div class="hours-info">
-                    <i class="fas fa-clock"></i> L-V: 8:00-21:00 | Urgencias 24/7
-                </div>
-            </div>
-        </div>
+<div class="top-bar"><div class="container"><div class="top-bar-content">
+    <div class="contact-info">
+        <a href="tel:603018190"><i class="fas fa-phone-alt"></i> 603 018 190</a>
+        <a href="mailto:info@multiserviciossagunto.es"><i class="fas fa-envelope"></i> info@multiserviciossagunto.es</a>
     </div>
+    <div class="social-links">
+        <a href="https://www.facebook.com/multiservisagunto/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/multiserviciosagunto/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@multiserviciossagunto" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+        <a href="https://x.com/multisersagunto" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/multiserviciossagunto/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+    <div class="hours-info"><i class="fas fa-clock"></i> L-V: 8:00-21:00 | Urgencias 24/7</div>
+</div></div></div>
 
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <img src="img/logo_multiservicios_sagunto.png" alt="Multiservicios Sagunto" class="logo-avatar">
-                    <div class="logo-text">
-                        <div class="logo-title">Multiservicios<br><span>Sagunto</span></div>
-                    </div>
-                </div>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <nav class="nav-menu" id="navMenu">
-                    <ul>
-                        <li><a href="/" class="active">Inicio</a></li>
-                        <li><a href="/servicios">Servicios</a></li>
-                        <li><a href="/pueblos">Pueblos</a></li>
-                        <li><a href="/empresas">Empresas</a></li>
-                        <li><a href="/nosotros">Nosotros</a></li>
-                        <li><a href="/blog">Blog</a></li>
-<li><a href="/calculadora">💰 Presupuestos</a></li>
-                        <li><a href="/contacto">Contacto</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+<header class="header"><div class="container"><div class="header-content">
+    <div class="logo">
+        <img src="img/logo_multiservicios_sagunto.png" alt="Multiservicios Sagunto" class="logo-avatar">
+        <div class="logo-text"><div class="logo-title">Multiservicios<br><span>Sagunto</span></div></div>
+    </div>
+    <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+    <nav class="nav-menu" id="navMenu"><ul>
+        <li><a href="/" class="active">Inicio</a></li>
+        <li><a href="/servicios">Servicios</a></li>
+        <li><a href="/pueblos">Pueblos</a></li>
+        <li><a href="/empresas">Empresas</a></li>
+        <li><a href="/nosotros">Nosotros</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/calculadora">💰 Presupuestos</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+    </ul></nav>
+</div></div></header>
 
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <span class="hero-badge">Más de 30 servicios profesionales</span>
-                    <h1>Reparaciones y servicios en menos de <span class="highlight">24 horas</span></h1>
-                    <p>En Sagunto y toda la comarca. Fontanería, electricidad, limpieza y más. Presupuesto rápido y sin compromiso.</p>
-                    <div class="hero-buttons">
-                        <a href="/contacto" class="btn-primary">Solicitar presupuesto <i class="fas fa-arrow-right"></i></a>
-                        <a href="https://wa.me/34603018190" class="btn-whatsapp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                    </div>
-                    <div class="hero-stats">
-                        <div class="stat-item"><span class="stat-number">+30</span><span class="stat-label">Servicios</span></div>
-                        <div class="stat-item"><span class="stat-number">24/7</span><span class="stat-label">Disponibles</span></div>
-                        <div class="stat-item"><span class="stat-number">100%</span><span class="stat-label">Confianza</span></div>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <img src="img/logo_multiservicios_sagunto.png" alt="Servicios de fontanería, electricidad y reformas en Sagunto" class="hero-img" width="400" height="400">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="services-highlight">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Qué hacemos</span>
-                <h2>Servicios <span class="highlight">destacados</span></h2>
-                <p>Soluciones integrales para particulares, comunidades y empresas</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card"><div class="service-icon"><i class="fas fa-broom"></i></div><h3>Limpieza profesional</h3><p>Hogares, oficinas, comunidades, colegios y centros deportivos.</p></div>
-                <div class="service-card"><div class="service-icon"><i class="fas fa-wrench"></i></div><h3>Mantenimiento integral</h3><p>Comunidades de vecinos, locales comerciales y naves industriales.</p></div>
-                <div class="service-card"><div class="service-icon"><i class="fas fa-tint"></i></div><h3>Fontanería</h3><p>Averías, instalaciones, desatascos y calderas.</p></div>
-                <div class="service-card"><div class="service-icon"><i class="fas fa-bolt"></i></div><h3>Electricidad</h3><p>Instalaciones, reparaciones, cuadros eléctricos y averías.</p></div>
-                <div class="service-card"><div class="service-icon"><i class="fas fa-paint-roller"></i></div><h3>Pintura</h3><p>Interior, exterior, comunidades y naves industriales.</p></div>
-                <div class="service-card"><div class="service-icon"><i class="fas fa-leaf"></i></div><h3>Jardinería y poda</h3><p>Parques, zonas verdes, comunidades y particulares.</p></div>
-                <div class="service-card"><div class="service-icon"><i class="fas fa-code"></i></div><h3>Creación web y apps</h3><p>Páginas web, tiendas online y aplicaciones móviles.</p></div>
-                <div class="service-card"><div class="service-icon"><i class="fas fa-robot"></i></div><h3>Automatización con IA</h3><p>Chatbots, procesos automáticos y asistentes virtuales.</p></div>
-            </div>
-            <div class="services-footer">
-                <a href="/servicios" class="btn-outline">Ver todos los servicios <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <section class="about-us">
-        <div class="container">
-            <div class="about-us-content">
-                <div class="about-us-text">
-                    <span class="section-tag">Quiénes somos</span>
-                    <h2>Tu vecino de confianza, con la <span class="highlight">garantía de un profesional</span></h2>
-                    <p>En <strong>Multiservicios Sagunto</strong> no somos una gran empresa anónima. Somos un equipo de profesionales de la comarca que entendemos las necesidades reales de nuestros vecinos, comunidades y empresas.</p>
-                    <div class="about-features">
-                        <div class="about-feature"><i class="fas fa-check-circle"></i><div><h4>Más de 10 años de experiencia</h4><p>Hemos trabajado en mantenimiento de edificios públicos, comunidades de vecinos y empresas de la zona.</p></div></div>
-                        <div class="about-feature"><i class="fas fa-check-circle"></i><div><h4>Respuesta en menos de 2 horas</h4><p>Sabemos que una avería no espera. Por eso tenemos un sistema de respuesta rápida para urgencias.</p></div></div>
-                        <div class="about-feature"><i class="fas fa-check-circle"></i><div><h4>Presupuesto cerrado, sin sorpresas</h4><p>Te damos el precio antes de empezar. Si aparece algún imprevisto, te lo comunicamos y tú decides.</p></div></div>
-                        <div class="about-feature"><i class="fas fa-check-circle"></i><div><h4>Conocemos la comarca</h4><p>Vivimos y trabajamos en Sagunto. Nos importa nuestra reputación y cuidamos cada detalle.</p></div></div>
-                    </div>
-                    <div class="about-us-badge">
-                        <i class="fas fa-award"></i>
-                        <div>
-                            <strong>Compromiso con la calidad</strong>
-                            <span>Todos nuestros trabajos tienen garantía y están respaldados por un seguro de responsabilidad civil.</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-us-image"><div class="about-image-placeholder"><i class="fas fa-hard-hat"></i><p>Tu satisfacción es nuestra mejor tarjeta de presentación</p></div></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="coverage">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Dónde estamos</span>
-                <h2>Tu empresa <span class="highlight">de confianza</span> en toda la comarca</h2>
-                <p>Trabajamos en Sagunto y área metropolitana norte de Valencia</p>
-            </div>
-            <div class="coverage-content">
-                <div class="coverage-list">
-                    <div class="coverage-column"><h3><i class="fas fa-check-circle"></i> Camp de Morvedre norte</h3><ul><li>Moncófar</li><li>Almenara</li><li>Vall d'Uixó</li><li>Sagunto</li><li>Puerto de Sagunto</li><li>Canet d'en Berenguer</li><li>Faura</li><li>Benavites</li><li>Quartell</li><li>Algimia de Alfara</li><li>Petrés</li><li>Gilet</li><li>Estivella</li></ul></div>
-                    <div class="coverage-column"><h3><i class="fas fa-check-circle"></i> Huerta Norte y área metropolitana</h3><ul><li>Albalat dels Tarongers</li><li>Segart</li><li>Puçol</li><li>El Puig</li><li>Rafelbunyol</li><li>Moncada</li><li>Nàquera</li><li>Bétera</li><li>Torres Torres</li></ul></div>
-                    <div class="coverage-column"><h3><i class="fas fa-city"></i> Bajo demanda</h3><ul><li>Valencia y alrededores <span class="badge">consultar disponibilidad</span></li></ul></div>
-                </div>
-                <div class="coverage-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3068.593487466108!2d-0.2613692250494109!3d39.72631757155897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd60147cdb9164f7%3A0xec10f50dcdb0ce1b!2sCarrer%20Rubau%2C%202%2C%2046512%20Faura%2C%20Val%C3%A8ncia!5e0!3m2!1ses!2ses!4v1776512822756!5m2!1ses!2ses" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="why-us">
-        <div class="container">
-            <div class="why-us-content">
-                <div class="why-us-text">
-                    <span class="section-tag">Por qué elegirnos</span>
-                    <h2>Más de <span class="highlight">30 servicios</span> en un solo proveedor</h2>
-                    <p>Una sola llamada, una sola factura. Sin perder el tiempo con decenas de profesionales diferentes.</p>
-                    <div class="features-grid">
-                        <div class="feature"><i class="fas fa-clock"></i><div><h4>Respuesta rápida</h4><p>Estamos en tu zona. Llegamos en menos de 2 horas para urgencias.</p></div></div>
-                        <div class="feature"><i class="fas fa-id-card"></i><div><h4>Profesionales cualificados</h4><p>Todos nuestros técnicos están formados y certificados.</p></div></div>
-                        <div class="feature"><i class="fas fa-euro-sign"></i><div><h4>Presupuesto sin compromiso</h4><p>Te damos el precio antes de empezar. Sin sorpresas.</p></div></div>
-                        <div class="feature"><i class="fas fa-handshake"></i><div><h4>Compromiso y confianza</h4><p>Decimos lo que hacemos y hacemos lo que decimos.</p></div></div>
-                    </div>
-                </div>
-                <div class="why-us-cta">
-                    <div class="cta-card">
-                        <h3>¿Necesitas un servicio urgente?</h3>
-                        <p>Llámanos ahora y te atenderemos de inmediato</p>
-                        <a href="tel:603018190" class="btn-phone"><i class="fas fa-phone-alt"></i> 603 018 190</a>
-                        <a href="https://wa.me/34603018190" class="btn-whatsapp-large" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Escríbenos por WhatsApp</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-final">
-        <div class="container">
-            <div class="cta-final-content">
-                <h2>Solicita tu presupuesto en menos de 2 minutos</h2>
-                <p>Solicita tu presupuesto sin compromiso y descubre por qué somos la empresa de confianza en Sagunto</p>
-                <div class="cta-buttons">
-                    <a href="/contacto" class="btn-primary">Solicitar presupuesto</a>
-                    <a href="/servicios" class="btn-outline-light">Ver todos los servicios</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ============================================================
-     WIDGET RESEÑAS GOOGLE — Multiservicios Sagunto
-     Pegar JUSTO ANTES de <footer class="footer">
+<!-- ============================================================
+     HERO CON SLIDER — reemplaza la sección <section class="hero">
+     completa en index.html, servicios.html, nosotros.html, etc.
      ============================================================ -->
-<section class="google-reviews-section">
-    <div class="container">
-        <div class="reviews-header">
-            <div class="reviews-title-block">
-                <span class="section-tag">Opiniones reales</span>
-                <h2>Lo que dicen nuestros <span class="highlight">clientes</span></h2>
-            </div>
-            <div class="reviews-overall">
-                <div class="overall-score" id="overallScore">5.0</div>
-                <div class="overall-info">
-                    <div class="overall-stars" id="overallStars">
-                        <i class="fas fa-star" style="color:#fbbc04"></i>
-                        <i class="fas fa-star" style="color:#fbbc04"></i>
-                        <i class="fas fa-star" style="color:#fbbc04"></i>
-                        <i class="fas fa-star" style="color:#fbbc04"></i>
-                        <i class="fas fa-star" style="color:#fbbc04"></i>
-                    </div>
-                    <div class="overall-count" id="overallCount">Cargando reseñas...</div>
-                    <a href="https://g.page/r/CRTKjElJb0yIEAE/review" target="_blank" rel="noopener noreferrer" class="btn-write-review">
-                        <i class="fas fa-star"></i> Deja tu reseña
-                    </a>
+
+<style>
+.hero-slider-wrap{position:relative;min-height:580px;display:flex;align-items:center;overflow:hidden}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;opacity:0;transition:opacity 1.2s ease-in-out;z-index:0}
+.hero-slide.active{opacity:1;z-index:1}
+.hero-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(10,20,40,0.70),rgba(10,20,40,0.70))}
+.hero-slider-content{position:relative;z-index:10;width:100%;padding:80px 0}
+.hero-slider-content .container{display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.hero-slider-text{max-width:620px;color:white}
+.hero-slider-text .hero-badge{display:inline-block;background:rgba(255,255,255,.15);color:white;padding:6px 18px;border-radius:30px;font-size:.85rem;font-weight:600;margin-bottom:20px;backdrop-filter:blur(4px)}
+.hero-slider-text h1{font-size:2.8rem;font-weight:800;line-height:1.2;color:white;margin-bottom:18px}
+.hero-slider-text h1 .highlight{color:#f39c12}
+.hero-slider-text p{font-size:1.1rem;opacity:.92;margin-bottom:28px;line-height:1.7;color:white}
+.hero-slider-text .hero-buttons{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px}
+.hero-slider-text .hero-stats{display:flex;gap:30px;flex-wrap:wrap}
+.hero-slider-text .stat-item{text-align:center}
+.hero-slider-text .stat-number{display:block;font-size:1.8rem;font-weight:800;color:white}
+.hero-slider-text .stat-label{font-size:.8rem;opacity:.8;color:white}
+.hero-slider-image{flex-shrink:0}
+.hero-slider-image .hero-img{width:300px;height:300px;object-fit:contain;filter:drop-shadow(0 10px 30px rgba(0,0,0,.3))}
+/* Dots del slider */
+.hero-slider-dots{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:20}
+.hero-slider-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);border:none;cursor:pointer;transition:all .3s;padding:0}
+.hero-slider-dot.active{background:white;width:24px;border-radius:4px}
+/* Flechas */
+.hero-slider-prev,.hero-slider-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.3);color:white;width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;z-index:20;transition:all .2s;backdrop-filter:blur(4px)}
+.hero-slider-prev:hover,.hero-slider-next:hover{background:var(--accent);border-color:var(--accent)}
+.hero-slider-prev{left:20px}
+.hero-slider-next{right:20px}
+@media(max-width:768px){
+    .hero-slider-wrap{min-height:480px}
+    .hero-slider-text h1{font-size:1.9rem}
+    .hero-slider-image{display:none}
+    .hero-slider-content{padding:60px 0}
+}
+</style>
+
+<section class="hero-slider-wrap">
+    <!-- SLIDES — una por cada imagen hero -->
+    <div class="hero-slide active" style="background-image:url('img/hero-cerrajero.jpeg')"></div>
+    <div class="hero-slide" style="background-image:url('img/hero-fontanero.jpeg')"></div>
+    <div class="hero-slide" style="background-image:url('img/hero-electricista.jpeg')"></div>
+    <div class="hero-slide" style="background-image:url('img/hero-pintor.jpeg')"></div>
+    <div class="hero-slide" style="background-image:url('img/hero-albanil.jpeg')"></div>
+
+    <!-- CONTENIDO ENCIMA DEL SLIDER -->
+    <div class="hero-slider-content">
+        <div class="container">
+            <div class="hero-slider-text">
+                <span class="hero-badge">Más de 30 servicios profesionales</span>
+                <h1>Reparaciones y servicios en menos de <span class="highlight">24 horas</span></h1>
+                <p>En Sagunto y toda la comarca. Fontanería, electricidad, cerrajería, pintura y más. Presupuesto rápido y sin compromiso.</p>
+                <div class="hero-buttons">
+                    <a href="/contacto" class="btn-primary">Solicitar presupuesto <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://wa.me/34603018190" class="btn-whatsapp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item"><span class="stat-number">+30</span><span class="stat-label">Servicios</span></div>
+                    <div class="stat-item"><span class="stat-number">24/7</span><span class="stat-label">Disponibles</span></div>
+                    <div class="stat-item"><span class="stat-number">100%</span><span class="stat-label">Confianza</span></div>
                 </div>
             </div>
-        </div>
-
-        <div class="reviews-slider-wrapper">
-            <div class="reviews-track" id="reviewsTrack">
-                <div class="reviews-loading"><i class="fas fa-spinner fa-spin"></i> Cargando reseñas...</div>
+            <div class="hero-slider-image">
+                <img src="img/logo_multiservicios_sagunto.png" alt="Multiservicios Sagunto" class="hero-img">
             </div>
-            <button class="reviews-arrow prev" id="reviewsPrev"><i class="fas fa-chevron-left"></i></button>
-            <button class="reviews-arrow next" id="reviewsNext"><i class="fas fa-chevron-right"></i></button>
-        </div>
-        <div class="reviews-dots" id="reviewsDots"></div>
-
-        <div class="reviews-powered">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" style="height:18px;vertical-align:middle;margin-right:6px;">
-            <span>Reseñas verificadas de Google</span>
         </div>
     </div>
+
+    <!-- DOTS Y FLECHAS -->
+    <div class="hero-slider-dots">
+        <button class="hero-slider-dot active" onclick="goSlide(0)"></button>
+        <button class="hero-slider-dot" onclick="goSlide(1)"></button>
+        <button class="hero-slider-dot" onclick="goSlide(2)"></button>
+        <button class="hero-slider-dot" onclick="goSlide(3)"></button>
+        <button class="hero-slider-dot" onclick="goSlide(4)"></button>
+    </div>
+    <button class="hero-slider-prev" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+    <button class="hero-slider-next" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
 </section>
+
+<script>
+(function(){
+    var slides = document.querySelectorAll('.hero-slide');
+    var dots   = document.querySelectorAll('.hero-slider-dot');
+    var cur    = 0;
+    var timer;
+
+    window.goSlide = function(idx) {
+        slides[cur].classList.remove('active');
+        dots[cur].classList.remove('active');
+        cur = (idx + slides.length) % slides.length;
+        slides[cur].classList.add('active');
+        dots[cur].classList.add('active');
+    };
+    window.nextSlide = function(){ goSlide(cur + 1); resetTimer(); };
+    window.prevSlide = function(){ goSlide(cur - 1); resetTimer(); };
+
+    function resetTimer(){
+        clearInterval(timer);
+        timer = setInterval(function(){ goSlide(cur + 1); }, 5000);
+    }
+    resetTimer();
+})();
+</script>
+
+
+<section class="services-highlight"><div class="container">
+    <div class="section-header">
+        <span class="section-tag">Qué hacemos</span>
+        <h2>Servicios <span class="highlight">destacados</span></h2>
+        <p>Soluciones integrales para particulares, comunidades y empresas</p>
+    </div>
+    <div class="services-grid">
+        <div class="service-card"><div class="service-icon"><i class="fas fa-broom"></i></div><h3>Limpieza profesional</h3><p>Hogares, oficinas, comunidades, colegios y centros deportivos.</p></div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-wrench"></i></div><h3>Mantenimiento integral</h3><p>Comunidades de vecinos, locales comerciales y naves industriales.</p></div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-tint"></i></div><h3>Fontanería</h3><p>Averías, instalaciones, desatascos y calderas.</p></div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-bolt"></i></div><h3>Electricidad</h3><p>Instalaciones, reparaciones, cuadros eléctricos y averías.</p></div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-paint-roller"></i></div><h3>Pintura</h3><p>Interior, exterior, comunidades y naves industriales.</p></div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-leaf"></i></div><h3>Jardinería y poda</h3><p>Parques, zonas verdes, comunidades y particulares.</p></div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-code"></i></div><h3>Creación web y apps</h3><p>Páginas web, tiendas online y aplicaciones móviles.</p></div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-robot"></i></div><h3>Automatización con IA</h3><p>Chatbots, procesos automáticos y asistentes virtuales.</p></div>
+    </div>
+    <div class="services-footer">
+        <a href="/servicios" class="btn-outline">Ver todos los servicios <i class="fas fa-arrow-right"></i></a>
+    </div>
+</div></section>
+
+<section class="about-us"><div class="container"><div class="about-us-content">
+    <div class="about-us-text">
+        <span class="section-tag">Quiénes somos</span>
+        <h2>Tu vecino de confianza, con la <span class="highlight">garantía de un profesional</span></h2>
+        <p>En <strong>Multiservicios Sagunto</strong> no somos una gran empresa anónima. Somos un equipo de profesionales de la comarca que entendemos las necesidades reales de nuestros vecinos, comunidades y empresas.</p>
+        <div class="about-features">
+            <div class="about-feature"><i class="fas fa-check-circle"></i><div><h4>Más de 10 años de experiencia</h4><p>Hemos trabajado en mantenimiento de edificios públicos, comunidades de vecinos y empresas de la zona.</p></div></div>
+            <div class="about-feature"><i class="fas fa-check-circle"></i><div><h4>Respuesta en menos de 2 horas</h4><p>Sabemos que una avería no espera. Por eso tenemos un sistema de respuesta rápida para urgencias.</p></div></div>
+            <div class="about-feature"><i class="fas fa-check-circle"></i><div><h4>Presupuesto cerrado, sin sorpresas</h4><p>Te damos el precio antes de empezar. Si aparece algún imprevisto, te lo comunicamos y tú decides.</p></div></div>
+            <div class="about-feature"><i class="fas fa-check-circle"></i><div><h4>Conocemos la comarca</h4><p>Vivimos y trabajamos en Sagunto. Nos importa nuestra reputación y cuidamos cada detalle.</p></div></div>
+        </div>
+        <div class="about-us-badge"><i class="fas fa-award"></i><div><strong>Compromiso con la calidad</strong><span>Todos nuestros trabajos tienen garantía y están respaldados por un seguro de responsabilidad civil.</span></div></div>
+    </div>
+    <div class="about-us-image"><div class="about-image-placeholder"><i class="fas fa-hard-hat"></i><p>Tu satisfacción es nuestra mejor tarjeta de presentación</p></div></div>
+</div></div></section>
+
+<section class="coverage"><div class="container">
+    <div class="section-header">
+        <span class="section-tag">Dónde estamos</span>
+        <h2>Tu empresa <span class="highlight">de confianza</span> en toda la comarca</h2>
+        <p>Trabajamos en Sagunto y área metropolitana norte de Valencia</p>
+    </div>
+    <div class="coverage-content">
+        <div class="coverage-list">
+            <div class="coverage-column"><h3><i class="fas fa-check-circle"></i> Camp de Morvedre</h3><ul><li>Moncófar · Almenara · Vall d'Uixó</li><li>Sagunto · Puerto de Sagunto</li><li>Canet d'en Berenguer · Faura</li><li>Benavites · Quartell · Gilet</li><li>Estivella · Algimia de Alfara · Petrés</li></ul></div>
+            <div class="coverage-column"><h3><i class="fas fa-check-circle"></i> L'Horta Nord</h3><ul><li>Puçol · El Puig · Rafelbunyol</li><li>Massamagrell · Museros</li><li>Moncada · Nàquera · Bétera</li><li>La Pobla de Farnals</li></ul></div>
+            <div class="coverage-column"><h3><i class="fas fa-city"></i> Bajo demanda</h3><ul><li>Valencia y alrededores <span class="badge">consultar disponibilidad</span></li></ul></div>
+        </div>
+        <div class="coverage-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3068.593487466108!2d-0.2613692250494109!3d39.72631757155897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd60147cdb9164f7%3A0xec10f50dcdb0ce1b!2sCarrer%20Rubau%2C%202%2C%2046512%20Faura%2C%20Val%C3%A8ncia!5e0!3m2!1ses!2ses!4v1776512822756!5m2!1ses!2ses" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</div></section>
+
+<section class="why-us"><div class="container"><div class="why-us-content">
+    <div class="why-us-text">
+        <span class="section-tag">Por qué elegirnos</span>
+        <h2>Más de <span class="highlight">30 servicios</span> en un solo proveedor</h2>
+        <p>Una sola llamada, una sola factura. Sin perder el tiempo con decenas de profesionales diferentes.</p>
+        <div class="features-grid">
+            <div class="feature"><i class="fas fa-clock"></i><div><h4>Respuesta rápida</h4><p>Estamos en tu zona. Llegamos en menos de 2 horas para urgencias.</p></div></div>
+            <div class="feature"><i class="fas fa-id-card"></i><div><h4>Profesionales cualificados</h4><p>Todos nuestros técnicos están formados y certificados.</p></div></div>
+            <div class="feature"><i class="fas fa-euro-sign"></i><div><h4>Presupuesto sin compromiso</h4><p>Te damos el precio antes de empezar. Sin sorpresas.</p></div></div>
+            <div class="feature"><i class="fas fa-handshake"></i><div><h4>Compromiso y confianza</h4><p>Decimos lo que hacemos y hacemos lo que decimos.</p></div></div>
+        </div>
+    </div>
+    <div class="why-us-cta"><div class="cta-card">
+        <h3>¿Necesitas un servicio urgente?</h3>
+        <p>Llámanos ahora y te atenderemos de inmediato</p>
+        <a href="tel:603018190" class="btn-phone"><i class="fas fa-phone-alt"></i> 603 018 190</a>
+        <a href="https://wa.me/34603018190" class="btn-whatsapp-large" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Escríbenos por WhatsApp</a>
+    </div></div>
+</div></div></section>
+
+<section class="cta-final"><div class="container"><div class="cta-final-content">
+    <h2>Solicita tu presupuesto en menos de 2 minutos</h2>
+    <p>Solicita tu presupuesto sin compromiso y descubre por qué somos la empresa de confianza en Sagunto</p>
+    <div class="cta-buttons">
+        <a href="/contacto" class="btn-primary">Solicitar presupuesto</a>
+        <a href="/servicios" class="btn-outline-light">Ver todos los servicios</a>
+    </div>
+</div></div></section>
+
+<!-- ===== SECCIÓN BLOG ===== -->
+<section class="blog-home-section"><div class="container">
+    <div class="section-header">
+        <span class="section-tag">Blog y consejos</span>
+        <h2>Guías y precios de <span class="highlight">servicios en Sagunto</span></h2>
+        <p>Consejos prácticos y precios reales para que sepas qué esperar antes de llamar</p>
+    </div>
+    <div class="blog-home-grid">
+
+        <a href="/blog/cuanto-cuesta-cerrajero-sagunto" class="blog-home-card">
+            <div class="blog-home-card-body">
+                <div class="blog-home-icon" style="background:linear-gradient(135deg,#e74c3c,#c0392b)"><i class="fas fa-key"></i></div>
+                <div class="blog-home-cat"><i class="fas fa-tag"></i> Cerrajería</div>
+                <h3>Cuánto cuesta un cerrajero urgente en Sagunto en 2026</h3>
+                <p>Precios reales de apertura de puertas, cambio de cerraduras y bombines. Sin sorpresas.</p>
+            </div>
+            <div class="blog-home-card-footer">
+                <span class="blog-home-meta"><i class="fas fa-clock"></i> 5 min</span>
+                <span class="blog-home-link">Leer más <i class="fas fa-arrow-right"></i></span>
+            </div>
+        </a>
+
+        <a href="/blog/que-hacer-fuga-agua-casa" class="blog-home-card">
+            <div class="blog-home-card-body">
+                <div class="blog-home-icon" style="background:linear-gradient(135deg,#2980b9,#1a5276)"><i class="fas fa-tint"></i></div>
+                <div class="blog-home-cat"><i class="fas fa-tag"></i> Fontanería</div>
+                <h3>Qué hacer si tienes una fuga de agua en casa</h3>
+                <p>Guía de emergencia paso a paso. Actuar rápido puede ahorrarte miles de euros en daños.</p>
+            </div>
+            <div class="blog-home-card-footer">
+                <span class="blog-home-meta"><i class="fas fa-clock"></i> 6 min</span>
+                <span class="blog-home-link">Leer más <i class="fas fa-arrow-right"></i></span>
+            </div>
+        </a>
+
+        <a href="/blog/averia-electrica-en-casa-que-hacer" class="blog-home-card">
+            <div class="blog-home-card-body">
+                <div class="blog-home-icon" style="background:linear-gradient(135deg,#f39c12,#d35400)"><i class="fas fa-bolt"></i></div>
+                <div class="blog-home-cat"><i class="fas fa-tag"></i> Electricidad</div>
+                <h3>Avería eléctrica: qué hacer cuando salta el diferencial</h3>
+                <p>Guía práctica para actuar ante una avería eléctrica y cuándo llamar al electricista.</p>
+            </div>
+            <div class="blog-home-card-footer">
+                <span class="blog-home-meta"><i class="fas fa-clock"></i> 5 min</span>
+                <span class="blog-home-link">Leer más <i class="fas fa-arrow-right"></i></span>
+            </div>
+        </a>
+
+        <a href="/blog/cuanto-cuesta-pintar-piso-sagunto" class="blog-home-card">
+            <div class="blog-home-card-body">
+                <div class="blog-home-icon" style="background:linear-gradient(135deg,#8e44ad,#6c3483)"><i class="fas fa-paint-roller"></i></div>
+                <div class="blog-home-cat"><i class="fas fa-tag"></i> Pintura</div>
+                <h3>Cuánto cuesta pintar un piso en Sagunto en 2026</h3>
+                <p>Precios por metro cuadrado, piso completo y eliminación de gotelé. Todo incluido.</p>
+            </div>
+            <div class="blog-home-card-footer">
+                <span class="blog-home-meta"><i class="fas fa-clock"></i> 5 min</span>
+                <span class="blog-home-link">Leer más <i class="fas fa-arrow-right"></i></span>
+            </div>
+        </a>
+
+        <a href="/blog/cuanto-cuesta-reformar-bano-sagunto" class="blog-home-card">
+            <div class="blog-home-card-body">
+                <div class="blog-home-icon" style="background:linear-gradient(135deg,#27ae60,#1e8449)"><i class="fas fa-bath"></i></div>
+                <div class="blog-home-cat"><i class="fas fa-tag"></i> Reformas</div>
+                <h3>Cuánto cuesta reformar un baño en Sagunto en 2026</h3>
+                <p>Reforma básica, completa y cambio de bañera por ducha. Precios reales sin letra pequeña.</p>
+            </div>
+            <div class="blog-home-card-footer">
+                <span class="blog-home-meta"><i class="fas fa-clock"></i> 6 min</span>
+                <span class="blog-home-link">Leer más <i class="fas fa-arrow-right"></i></span>
+            </div>
+        </a>
+
+        <a href="/blog/mantenimiento-jardin-sagunto" class="blog-home-card">
+            <div class="blog-home-card-body">
+                <div class="blog-home-icon" style="background:linear-gradient(135deg,#16a085,#0e6655)"><i class="fas fa-leaf"></i></div>
+                <div class="blog-home-cat"><i class="fas fa-tag"></i> Jardinería</div>
+                <h3>Mantenimiento de jardín en Sagunto: precios y épocas de poda</h3>
+                <p>Precios de corte de césped, poda de árboles y contratos de mantenimiento mensual.</p>
+            </div>
+            <div class="blog-home-card-footer">
+                <span class="blog-home-meta"><i class="fas fa-clock"></i> 4 min</span>
+                <span class="blog-home-link">Leer más <i class="fas fa-arrow-right"></i></span>
+            </div>
+        </a>
+
+    </div>
+    <div class="blog-home-footer">
+        <a href="/blog" class="btn-outline">Ver todos los artículos <i class="fas fa-arrow-right"></i></a>
+    </div>
+</div></section>
+
+<!-- WIDGET RESEÑAS -->
+<section class="google-reviews-section"><div class="container">
+    <div class="reviews-header">
+        <div class="reviews-title-block">
+            <span class="section-tag">Opiniones reales</span>
+            <h2>Lo que dicen nuestros <span class="highlight">clientes</span></h2>
+        </div>
+        <div class="reviews-overall">
+            <div class="overall-score" id="overallScore">5.0</div>
+            <div class="overall-info">
+                <div class="overall-stars" id="overallStars">
+                    <i class="fas fa-star" style="color:#fbbc04"></i><i class="fas fa-star" style="color:#fbbc04"></i><i class="fas fa-star" style="color:#fbbc04"></i><i class="fas fa-star" style="color:#fbbc04"></i><i class="fas fa-star" style="color:#fbbc04"></i>
+                </div>
+                <div class="overall-count" id="overallCount">Cargando reseñas...</div>
+                <a href="https://g.page/r/CRTKjElJb0yIEAE/review" target="_blank" rel="noopener noreferrer" class="btn-write-review"><i class="fas fa-star"></i> Deja tu reseña</a>
+            </div>
+        </div>
+    </div>
+    <div class="reviews-slider-wrapper">
+        <div class="reviews-track" id="reviewsTrack"><div class="reviews-loading"><i class="fas fa-spinner fa-spin"></i> Cargando reseñas...</div></div>
+        <button class="reviews-arrow prev" id="reviewsPrev"><i class="fas fa-chevron-left"></i></button>
+        <button class="reviews-arrow next" id="reviewsNext"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <div class="reviews-dots" id="reviewsDots"></div>
+    <div class="reviews-powered">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" style="height:18px;vertical-align:middle;margin-right:6px;">
+        <span>Reseñas verificadas de Google</span>
+    </div>
+</div></section>
 
 <style>
 .google-reviews-section{padding:60px 0;background:linear-gradient(135deg,#f8fafc 0%,#f0f4f8 100%);border-top:1px solid #e8eef5}
@@ -370,187 +445,101 @@
 .reviews-dot.active{background:#e67e22;width:28px;border-radius:4px}
 .reviews-powered{text-align:center;margin-top:18px;font-size:.8rem;color:#9ca3af;display:flex;align-items:center;justify-content:center;gap:6px}
 .reviews-loading{text-align:center;padding:60px;color:#6b7a90;font-size:.95rem;width:100%}
-@media(max-width:768px){
-    .reviews-header{flex-direction:column}
-    .review-card{padding:22px 18px}
-    .reviews-arrow{width:36px;height:36px;font-size:.8rem}
-    .reviews-title-block h2{font-size:1.5rem}
-}
+@media(max-width:768px){.reviews-header{flex-direction:column}.review-card{padding:22px 18px}.reviews-arrow{width:36px;height:36px;font-size:.8rem}.reviews-title-block h2{font-size:1.5rem}}
 </style>
 
 <script>
 (function(){
-    var track   = document.getElementById('reviewsTrack');
-    var dotsEl  = document.getElementById('reviewsDots');
-    var prevBtn = document.getElementById('reviewsPrev');
-    var nextBtn = document.getElementById('reviewsNext');
-    var current = 0;
-    var total   = 0;
-    var timer;
-
-    function stars(n) {
-        var s = '';
-        for (var i = 1; i <= 5; i++)
-            s += '<i class="' + (i <= n ? 'fas' : 'far') + ' fa-star"></i>';
-        return s;
-    }
-
-    function goTo(idx) {
-        current = ((idx % total) + total) % total;
-        track.style.transform = 'translateX(-' + (current * 100) + '%)';
-        document.querySelectorAll('.reviews-dot').forEach(function(d, i) {
-            d.classList.toggle('active', i === current);
-        });
-    }
-
-    function startAuto() {
-        stopAuto();
-        timer = setInterval(function(){ goTo(current + 1); }, 6000);
-    }
-
-    function stopAuto() { clearInterval(timer); }
-
-    function render(reviews, rating, totalCount) {
-        document.getElementById('overallScore').textContent = parseFloat(rating).toFixed(1);
-        document.getElementById('overallStars').innerHTML = stars(Math.round(rating));
-        document.getElementById('overallCount').textContent = totalCount + ' reseñas en Google';
-
-        total = reviews.length;
-        track.innerHTML = '';
-        dotsEl.innerHTML = '';
-
-        reviews.forEach(function(r, i) {
-            var initials = r.author.split(' ').map(function(w){ return w[0]; }).join('').slice(0,2).toUpperCase();
-            var card = document.createElement('div');
-            card.className = 'review-card';
-            card.innerHTML =
-                '<div class="review-card-inner">' +
-                    '<div class="reviewer-info">' +
-                        '<div class="reviewer-avatar">' +
-                            (r.photo
-                                ? '<img src="' + r.photo + '" alt="' + r.author + '" onerror="this.parentElement.textContent=\'' + initials + '\'">'
-                                : initials) +
-                        '</div>' +
-                        '<div>' +
-                            '<div class="reviewer-name">' + r.author + '</div>' +
-                            '<div class="reviewer-date">' + (r.relative || '') + '</div>' +
-                        '</div>' +
-                    '</div>' +
-                    '<div class="review-stars">' + stars(r.rating) + '</div>' +
-                    '<div class="review-text">' + r.text.replace(/\n/g, '<br>') + '</div>' +
-                    '<div class="google-badge">' +
-                        '<img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">' +
-                        '<span>Reseña verificada</span>' +
-                    '</div>' +
-                '</div>';
+    var track=document.getElementById('reviewsTrack'),dotsEl=document.getElementById('reviewsDots'),prevBtn=document.getElementById('reviewsPrev'),nextBtn=document.getElementById('reviewsNext'),current=0,total=0,timer;
+    function stars(n){var s='';for(var i=1;i<=5;i++)s+='<i class="'+(i<=n?'fas':'far')+' fa-star"></i>';return s;}
+    function goTo(idx){current=((idx%total)+total)%total;track.style.transform='translateX(-'+(current*100)+'%)';document.querySelectorAll('.reviews-dot').forEach(function(d,i){d.classList.toggle('active',i===current);});}
+    function startAuto(){stopAuto();timer=setInterval(function(){goTo(current+1);},6000);}
+    function stopAuto(){clearInterval(timer);}
+    function render(reviews,rating,totalCount){
+        document.getElementById('overallScore').textContent=parseFloat(rating).toFixed(1);
+        document.getElementById('overallStars').innerHTML=stars(Math.round(rating));
+        document.getElementById('overallCount').textContent=totalCount+' reseñas en Google';
+        total=reviews.length;track.innerHTML='';dotsEl.innerHTML='';
+        reviews.forEach(function(r,i){
+            var initials=r.author.split(' ').map(function(w){return w[0];}).join('').slice(0,2).toUpperCase();
+            var card=document.createElement('div');card.className='review-card';
+            card.innerHTML='<div class="review-card-inner"><div class="reviewer-info"><div class="reviewer-avatar">'+(r.photo?'<img src="'+r.photo+'" alt="'+r.author+'" onerror="this.parentElement.textContent=\''+initials+'\'">':initials)+'</div><div><div class="reviewer-name">'+r.author+'</div><div class="reviewer-date">'+(r.relative||'')+'</div></div></div><div class="review-stars">'+stars(r.rating)+'</div><div class="review-text">'+r.text.replace(/\n/g,'<br>')+'</div><div class="google-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google"><span>Reseña verificada</span></div></div>';
             track.appendChild(card);
-
-            var dot = document.createElement('button');
-            dot.className = 'reviews-dot' + (i === 0 ? ' active' : '');
-            dot.setAttribute('aria-label', 'Reseña ' + (i + 1));
-            (function(idx){ dot.onclick = function(){ goTo(idx); stopAuto(); startAuto(); }; })(i);
+            var dot=document.createElement('button');dot.className='reviews-dot'+(i===0?' active':'');dot.setAttribute('aria-label','Reseña '+(i+1));
+            (function(idx){dot.onclick=function(){goTo(idx);stopAuto();startAuto();};})(i);
             dotsEl.appendChild(dot);
         });
-
-        prevBtn.onclick = function(){ goTo(current - 1); stopAuto(); startAuto(); };
-        nextBtn.onclick = function(){ goTo(current + 1); stopAuto(); startAuto(); };
-        track.parentElement.onmouseenter = stopAuto;
-        track.parentElement.onmouseleave = startAuto;
-
-        goTo(0);
-        startAuto();
+        prevBtn.onclick=function(){goTo(current-1);stopAuto();startAuto();};
+        nextBtn.onclick=function(){goTo(current+1);stopAuto();startAuto();};
+        track.parentElement.onmouseenter=stopAuto;track.parentElement.onmouseleave=startAuto;
+        goTo(0);startAuto();
     }
-
-    fetch('/.netlify/functions/google-reviews')
-        .then(function(r){ return r.json(); })
-        .then(function(data){
-            if (data.reviews && data.reviews.length) {
-                render(data.reviews, data.rating || 5, data.total || data.reviews.length);
-            } else {
-                track.innerHTML = '<div class="reviews-loading">No hay reseñas disponibles en este momento.</div>';
-            }
-        })
-        .catch(function(){
-            track.innerHTML = '<div class="reviews-loading">No se pudieron cargar las reseñas.</div>';
-        });
+    fetch('/.netlify/functions/google-reviews').then(function(r){return r.json();}).then(function(data){if(data.reviews&&data.reviews.length){render(data.reviews,data.rating||5,data.total||data.reviews.length);}else{track.innerHTML='<div class="reviews-loading">No hay reseñas disponibles.</div>';}}).catch(function(){track.innerHTML='<div class="reviews-loading">No se pudieron cargar las reseñas.</div>';});
 })();
 </script>
 
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <div class="footer-logo"><h3>Multiservicios<br><span>Sagunto</span></h3></div>
-                    <p>Tu multiservicios de confianza en Sagunto y área metropolitana de Valencia.</p>
-                </div>
-                <div class="footer-column">
-                    <h4>Servicios principales</h4>
-                    <ul>
-                        <li><a href="/servicios/limpieza">Limpieza profesional</a></li>
-                        <li><a href="/servicios/fontanero">Fontanería</a></li>
-                        <li><a href="/servicios/electricista">Electricidad</a></li>
-                        <li><a href="/servicios/pintor">Pintura y albañilería</a></li>
-                        <li><a href="/servicios/jardinero">Jardinería y poda</a></li>
-                        <li><a href="/empresas">Webs, apps e IA</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Zona de cobertura</h4>
-                    <ul>
-                        <li>Sagunto y Puerto de Sagunto</li>
-                        <li>Puçol, El Puig, Rafelbunyol</li>
-                        <li>Bétera, Nàquera, Moncada</li>
-                        <li>Moncófar, Almenara, Vall d'Uixó</li>
-                        <li>Canet, Faura, Gilet, Estivella</li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Contacto</h4>
-                    <ul>
-                        <li><a href="tel:603018190"><i class="fas fa-phone-alt"></i> 603 018 190</a></li>
-                        <li><a href="mailto:info@multiserviciossagunto.es"><i class="fas fa-envelope"></i> info@multiserviciossagunto.es</a></li>
-                        <li><i class="fas fa-map-marker-alt"></i> Calle Rubau 2, 46512 Faura (Valencia)</li>
-                        <li><i class="fas fa-clock"></i> L-V: 8:00-21:00 | Urgencias 24/7</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Multiservicios Sagunto. Todos los derechos reservados.</p>
-                <p class="legal-links">
-                    <a href="/aviso-legal">Aviso Legal</a> |
-                    <a href="/privacidad">Política de Privacidad</a> |
-                    <a href="/cookies">Política de Cookies</a>
-                </p>
-            </div>
+<footer class="footer"><div class="container">
+    <div class="footer-content">
+        <div class="footer-column">
+            <div class="footer-logo"><h3>Multiservicios<br><span>Sagunto</span></h3></div>
+            <p>Tu multiservicios de confianza en Sagunto y área metropolitana de Valencia.</p>
+            <ul style="margin-top:12px">
+                <li><a href="/blog">📝 Blog y consejos</a></li>
+                <li><a href="/calculadora">💰 Calculadora de precios</a></li>
+                <li><a href="/nosotros">👤 Quiénes somos</a></li>
+            </ul>
         </div>
-    </footer>
-
-    <!-- WHATSAPP FLOTANTE -->
-    <a href="https://wa.me/34603018190" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- CHATBOT -->
-    <div class="chatbot-button" id="chatbotButton">
-        <i class="fas fa-comment-dots"></i>
-    </div>
-    <div class="chatbot-window" id="chatbotWindow">
-        <div class="chatbot-header">
-            <h3>🤖 Asistente Multiservicios Sagunto</h3>
-            <button class="chatbot-close" id="chatbotClose">✕</button>
+        <div class="footer-column">
+            <h4>Urgencias 24h</h4>
+            <ul class="footer-servicios-rapidos">
+                <li><a href="/cerrajero-sagunto">Cerrajero en Sagunto</a></li>
+                <li><a href="/fontanero-sagunto">Fontanero en Sagunto</a></li>
+                <li><a href="/electricista-sagunto">Electricista en Sagunto</a></li>
+                <li><a href="/cerrajero-puerto-de-sagunto">Cerrajero Puerto de Sagunto</a></li>
+                <li><a href="/fontanero-puerto-de-sagunto">Fontanero Puerto de Sagunto</a></li>
+                <li><a href="/electricista-puerto-de-sagunto">Electricista Puerto de Sagunto</a></li>
+                <li><a href="/cerrajero-faura">Cerrajero en Faura</a></li>
+                <li><a href="/cerrajero-betera">Cerrajero en Bétera</a></li>
+                <li><a href="/electricista-el-puig">Electricista en El Puig</a></li>
+                <li><a href="/fontanero-rafelbunyol">Fontanero en Rafelbunyol</a></li>
+            </ul>
         </div>
-        <div class="chatbot-messages" id="chatbotMessages"></div>
-        <div class="chatbot-input">
-            <input type="text" id="chatbotInput" placeholder="Escribe tu mensaje aquí...">
-            <button id="chatbotSend">➤</button>
+        <div class="footer-column">
+            <h4>Zona de cobertura</h4>
+            <ul>
+                <li>Sagunto · Puerto de Sagunto</li>
+                <li>Canet d'en Berenguer · Faura · Gilet</li>
+                <li>Puçol · El Puig · Almenara</li>
+                <li>Bétera · Rafelbunyol · Nàquera</li>
+                <li>Moncada · Moncófar · Vall d'Uixó</li>
+            </ul>
+            <a href="/pueblos" style="background:var(--accent);color:white;padding:8px 15px;border-radius:30px;text-decoration:none;display:inline-block;font-size:13px;margin-top:15px;">📍 Ver todos los pueblos →</a>
+        </div>
+        <div class="footer-column">
+            <h4>Contacto</h4>
+            <ul>
+                <li><a href="tel:603018190"><i class="fas fa-phone-alt"></i> 603 018 190</a></li>
+                <li><a href="mailto:info@multiserviciossagunto.es"><i class="fas fa-envelope"></i> info@multiserviciossagunto.es</a></li>
+                <li><i class="fas fa-map-marker-alt"></i> Calle Rubau 2, 46512 Faura (Valencia)</li>
+                <li><i class="fas fa-clock"></i> L-V: 8:00-21:00 | Urgencias 24/7</li>
+            </ul>
         </div>
     </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Multiservicios Sagunto. Todos los derechos reservados.</p>
+        <p class="legal-links"><a href="/aviso-legal">Aviso Legal</a> | <a href="/privacidad">Política de Privacidad</a> | <a href="/cookies">Política de Cookies</a></p>
+    </div>
+</div></footer>
 
-    <!-- SCRIPTS -->
-    <script src="js/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="js/chatbot.js"></script>
-
+<a href="https://wa.me/34603018190" class="whatsapp-float" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+<div class="chatbot-button" id="chatbotButton"><i class="fas fa-comment-dots"></i></div>
+<div class="chatbot-window" id="chatbotWindow">
+    <div class="chatbot-header"><h3>🤖 Asistente Multiservicios Sagunto</h3><button class="chatbot-close" id="chatbotClose">✕</button></div>
+    <div class="chatbot-messages" id="chatbotMessages"></div>
+    <div class="chatbot-input"><input type="text" id="chatbotInput" placeholder="Escribe tu mensaje aquí..."><button id="chatbotSend">➤</button></div>
+</div>
+<script src="js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="js/chatbot.js"></script>
 </body>
 </html>

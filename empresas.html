@@ -65,10 +65,87 @@
         </ul></nav>
     </div></div></header>
 
-    <section class="page-hero"><div class="container">
-        <h1>Servicios tecnológicos para empresas en Sagunto</h1>
-        <p>Lleva tu negocio al siguiente nivel con tecnología e inteligencia artificial</p>
-    </div></section>
+    <style>
+.page-hero-slider{position:relative;min-height:380px;display:flex;align-items:center;overflow:hidden}
+.phs-slide{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;opacity:0;transition:opacity 1.2s ease-in-out;z-index:0}
+.phs-slide.active{opacity:1;z-index:1}
+.phs-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(10,20,40,0.72),rgba(10,20,40,0.72))}
+.phs-content{position:relative;z-index:10;width:100%;padding:70px 0;text-align:center;color:white}
+.phs-content h1{font-size:2.4rem;font-weight:800;color:white;margin-bottom:14px;line-height:1.25}
+.phs-content p{font-size:1.05rem;opacity:.9;color:white;max-width:620px;margin:0 auto 24px}
+.phs-content .btn-primary{display:inline-flex;align-items:center;gap:8px}
+.phs-dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:20}
+.phs-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.35);border:none;cursor:pointer;transition:all .3s;padding:0}
+.phs-dot.active{background:white;width:22px;border-radius:4px}
+.phs-prev,.phs-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.25);color:white;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;z-index:20;transition:all .2s;backdrop-filter:blur(4px)}
+.phs-prev:hover,.phs-next:hover{background:var(--accent);border-color:var(--accent)}
+.phs-prev{left:16px}
+.phs-next{right:16px}
+@media(max-width:768px){
+    .page-hero-slider{min-height:300px}
+    .phs-content h1{font-size:1.7rem}
+    .phs-content{padding:50px 0}
+    .phs-prev,.phs-next{display:none}
+}
+</style>
+<section class="page-hero-slider" id="phs-empresas">
+     <div class="phs-slide active" style="background-image:url('img/hero-automatizacion.jpeg')"></div>
+    <div class="phs-slide" style="background-image:url('img/hero-apps.jpeg')"></div>
+    <div class="phs-slide" style="background-image:url('img/hero-web.jpeg')"></div>
+    <div class="phs-slide" style="background-image:url('img/hero-chatbot.jpeg')"></div>
+    <div class="phs-slide" style="background-image:url('img/hero-datos.jpeg')"></div>
+    <div class="phs-content"><div class="container">
+        <h1>Servicios para empresas y comunidades en Sagunto</h1>
+        <p>Webs, apps, IA y mantenimiento integral para tu negocio</p>
+        <a href="/contacto" class="btn-primary">Solicitar información <i class="fas fa-arrow-right"></i></a>
+    </div></div>
+    <div class="phs-dots">
+        <button class="phs-dot active" onclick="phsGo('empresas',0)"></button>
+        <button class="phs-dot" onclick="phsGo('empresas',1)"></button>
+        <button class="phs-dot" onclick="phsGo('empresas',2)"></button>
+        <button class="phs-dot" onclick="phsGo('empresas',3)"></button>
+        <button class="phs-dot" onclick="phsGo('empresas',4)"></button>
+    </div>
+    <button class="phs-prev" onclick="phsPrev('empresas')"><i class="fas fa-chevron-left"></i></button>
+    <button class="phs-next" onclick="phsNext('empresas')"><i class="fas fa-chevron-right"></i></button>
+</section>
+<script>
+(function(){
+    var sliders = {};
+
+    function initSlider(id) {
+        var wrap = document.getElementById('phs-' + id);
+        if (!wrap) return;
+        var slides = wrap.querySelectorAll('.phs-slide');
+        var dots   = wrap.querySelectorAll('.phs-dot');
+        var cur    = 0;
+        var timer;
+
+        function go(idx) {
+            slides[cur].classList.remove('active');
+            dots[cur].classList.remove('active');
+            cur = ((idx % slides.length) + slides.length) % slides.length;
+            slides[cur].classList.add('active');
+            dots[cur].classList.add('active');
+        }
+        function reset() {
+            clearInterval(timer);
+            timer = setInterval(function(){ go(cur + 1); }, 5000);
+        }
+        sliders[id] = { go: go, reset: reset, getCur: function(){ return cur; } };
+        reset();
+    }
+
+    window.phsGo   = function(id, idx){ sliders[id].go(idx); sliders[id].reset(); };
+    window.phsNext = function(id){ sliders[id].go(sliders[id].getCur() + 1); sliders[id].reset(); };
+    window.phsPrev = function(id){ sliders[id].go(sliders[id].getCur() - 1); sliders[id].reset(); };
+
+    // Inicializar todos los sliders presentes en la página
+    ['servicios','nosotros','contacto','empresas','pueblos'].forEach(function(id){
+        initSlider(id);
+    });
+})();
+</script>
 
     <section style="padding:60px 0;background:var(--gray-light)"><div class="container">
         <div class="tech-grid">
@@ -76,6 +153,10 @@
             <div class="tech-card"><i class="fas fa-mobile-alt"></i><h3>Desarrollo de apps móviles</h3><p>Aplicaciones nativas para iOS y Android, o multiplataforma con panel de control.</p><ul><li><i class="fas fa-check"></i> Apps para iOS y Android</li><li><i class="fas fa-check"></i> Panel de administración</li><li><i class="fas fa-check"></i> Notificaciones push</li></ul></div>
             <div class="tech-card"><i class="fas fa-robot"></i><h3>Automatizaciones con IA</h3><p>Integra inteligencia artificial en tu negocio y ahorra tiempo en procesos repetitivos.</p><ul><li><i class="fas fa-check"></i> Chatbots 24/7</li><li><i class="fas fa-check"></i> Automatización de procesos</li><li><i class="fas fa-check"></i> Asistentes virtuales</li></ul></div>
             <div class="tech-card"><i class="fas fa-chart-line"></i><h3>Software a medida</h3><p>Desarrollamos el software que tu negocio necesita, adaptado a tus procesos.</p><ul><li><i class="fas fa-check"></i> Sistemas de gestión (ERP)</li><li><i class="fas fa-check"></i> Gestión de clientes (CRM)</li><li><i class="fas fa-check"></i> Software de reservas</li></ul></div>
+            <div class="tech-card"><i class="fas fa-bullhorn"></i><h3>Publicidad y marketing digital</h3><p>Impulsa tu negocio con campañas efectivas en Google y redes sociales.</p><ul><li><i class="fas fa-check"></i> Anuncios en Google Ads</li><li><i class="fas fa-check"></i> Campañas en redes sociales</li><li><i class="fas fa-check"></i> Estrategias de captación de clientes</li></ul></div>
+            <div class="tech-card"><i class="fas fa-hashtag"></i><h3>Gestión de redes sociales</h3><p>Nos encargamos de tus redes para que tú te centres en tu negocio.</p><ul><li><i class="fas fa-check"></i> Community Manager</li><li><i class="fas fa-check"></i> Creación de contenido</li><li><i class="fas fa-check"></i> Diseño de publicaciones</li></ul></div>
+            <div class="tech-card"><i class="fas fa-print"></i><h3>Diseño gráfico e impresión</h3><p>Refuerza tu imagen de marca con materiales profesionales.</p><ul><li><i class="fas fa-check"></i> Flyers y folletos</li><li><i class="fas fa-check"></i> Tarjetas de visita</li><li><i class="fas fa-check"></i> Cartelería y vinilos</li></ul></div>
+            <div class="tech-card"><i class="fas fa-box-open"></i><h3>Merchandising corporativo</h3><p>Personaliza productos con tu marca para destacar frente a la competencia.</p><ul><li><i class="fas fa-check"></i> Ropa laboral personalizada</li><li><i class="fas fa-check"></i> Regalos promocionales</li><li><i class="fas fa-check"></i> Material corporativo</li></ul></div>
         </div>
     </div></section>
 

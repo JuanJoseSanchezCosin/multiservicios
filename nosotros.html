@@ -102,13 +102,51 @@
         </div>
     </header>
 
-    <!-- HERO -->
-    <section class="page-header">
-        <div class="container">
-            <h1>Sobre <span class="highlight">nosotros</span></h1>
-            <p>Conoce al equipo que cuida de tu hogar, comunidad o negocio</p>
-        </div>
-    </section>
+    <style>
+.page-hero-slider{position:relative;min-height:380px;display:flex;align-items:center;overflow:hidden}
+.phs-slide{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;opacity:0;transition:opacity 1.2s ease-in-out;z-index:0}
+.phs-slide.active{opacity:1;z-index:1}
+.phs-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(10,20,40,0.72),rgba(10,20,40,0.72))}
+.phs-content{position:relative;z-index:10;width:100%;padding:70px 0;text-align:center;color:white}
+.phs-content h1{font-size:2.4rem;font-weight:800;color:white;margin-bottom:14px;line-height:1.25}
+.phs-content p{font-size:1.05rem;opacity:.9;color:white;max-width:620px;margin:0 auto 24px}
+.phs-content .btn-primary{display:inline-flex;align-items:center;gap:8px}
+.phs-dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:20}
+.phs-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.35);border:none;cursor:pointer;transition:all .3s;padding:0}
+.phs-dot.active{background:white;width:22px;border-radius:4px}
+.phs-prev,.phs-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.25);color:white;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;z-index:20;transition:all .2s;backdrop-filter:blur(4px)}
+.phs-prev:hover,.phs-next:hover{background:var(--accent);border-color:var(--accent)}
+.phs-prev{left:16px}
+.phs-next{right:16px}
+@media(max-width:768px){
+    .page-hero-slider{min-height:300px}
+    .phs-content h1{font-size:1.7rem}
+    .phs-content{padding:50px 0}
+    .phs-prev,.phs-next{display:none}
+}
+</style>
+
+    <!-- ===== NOSOTROS.HTML ===== -->
+
+<section class="page-hero-slider" id="phs-servicios">
+    <div class="phs-slide active" style="background-image:url('img/hero-cerrajero.jpeg')"></div>
+    <div class="phs-slide" style="background-image:url('img/hero-fontanero.jpeg')"></div>
+    <div class="phs-slide" style="background-image:url('img/hero-electricista.jpeg')"></div>
+    <div class="phs-slide" style="background-image:url('img/hero-pintor.jpeg')"></div>
+    <div class="phs-slide" style="background-image:url('img/hero-albanil.jpeg')"></div>
+    <div class="phs-content"><div class="container">
+        <h1>Quiénes somos — Multiservicios Sagunto</h1>
+        <p>Profesionales de la comarca con más de 10 años de experiencia a tu servicio</p>
+        <a href="/contacto" class="btn-primary">Contactar <i class="fas fa-arrow-right"></i></a>
+    </div></div>
+    <div class="phs-dots">
+        <button class="phs-dot active" onclick="phsGo('nosotros',0)"></button>
+        <button class="phs-dot" onclick="phsGo('nosotros',1)"></button>
+        <button class="phs-dot" onclick="phsGo('nosotros',2)"></button>
+    </div>
+    <button class="phs-prev" onclick="phsPrev('nosotros')"><i class="fas fa-chevron-left"></i></button>
+    <button class="phs-next" onclick="phsNext('nosotros')"><i class="fas fa-chevron-right"></i></button>
+</section>
 
     <!-- SOBRE NOSOTROS -->
     <section class="about-main">
