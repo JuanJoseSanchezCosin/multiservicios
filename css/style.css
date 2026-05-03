@@ -1753,4 +1753,13 @@ section { padding: 60px 0; }
     font-size: 0.85rem;
     text-align: center;
 }
+/* Eliminar puntos negros en todas las listas de todas las páginas */
+ul, .footer ul {
+    list-style: none !important;
+    padding-left: 0 !important;
+}
+
+li, .footer li {
+    list-style: none !important;
+}
 }
