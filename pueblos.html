@@ -226,42 +226,35 @@
 
     </div>
 </section>
-    <!-- ============================================================
-     WIDGET RESEÑAS GOOGLE — Multiservicios Sagunto
-     Incluir este bloque ANTES del footer en todas las páginas
-     ============================================================ -->
-<section class="google-reviews-section">
-    <div class="container">
-        <div class="reviews-header">
-            <div class="reviews-title-block">
-                <span class="section-tag">Opiniones reales</span>
-                <h2>Lo que dicen nuestros <span class="highlight">clientes</span></h2>
-            </div>
-            <div class="reviews-overall">
-                <div class="overall-score" id="overallScore">—</div>
-                <div class="overall-info">
-                    <div class="overall-stars" id="overallStars"></div>
-                    <div class="overall-count" id="overallCount">Cargando reseñas...</div>
-                    <a href="https://g.page/r/ChIJvaPHDykVYA0R1KwIPElDb14/review" target="_blank" rel="noopener noreferrer" class="btn-write-review">
-                        <i class="fas fa-star"></i> Deja tu reseña
-                    </a>
+    <!-- WIDGET RESEÑAS -->
+<section class="google-reviews-section"><div class="container">
+    <div class="reviews-header">
+        <div class="reviews-title-block">
+            <span class="section-tag">Opiniones reales</span>
+            <h2>Lo que dicen nuestros <span class="highlight">clientes</span></h2>
+        </div>
+        <div class="reviews-overall">
+            <div class="overall-score" id="overallScore">5.0</div>
+            <div class="overall-info">
+                <div class="overall-stars" id="overallStars">
+                    <i class="fas fa-star" style="color:#fbbc04"></i><i class="fas fa-star" style="color:#fbbc04"></i><i class="fas fa-star" style="color:#fbbc04"></i><i class="fas fa-star" style="color:#fbbc04"></i><i class="fas fa-star" style="color:#fbbc04"></i>
                 </div>
+                <div class="overall-count" id="overallCount">Cargando reseñas...</div>
+                <a href="https://g.page/r/CRTKjElJb0yIEAE/review" target="_blank" rel="noopener noreferrer" class="btn-write-review"><i class="fas fa-star"></i> Deja tu reseña</a>
             </div>
-        </div>
-
-        <div class="reviews-slider-wrapper">
-            <div class="reviews-track" id="reviewsTrack"></div>
-            <button class="reviews-arrow prev" id="reviewsPrev"><i class="fas fa-chevron-left"></i></button>
-            <button class="reviews-arrow next" id="reviewsNext"><i class="fas fa-chevron-right"></i></button>
-        </div>
-        <div class="reviews-dots" id="reviewsDots"></div>
-
-        <div class="reviews-powered">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" style="height:18px;vertical-align:middle;margin-right:6px;">
-            <span>Reseñas verificadas de Google</span>
         </div>
     </div>
-</section>
+    <div class="reviews-slider-wrapper">
+        <div class="reviews-track" id="reviewsTrack"><div class="reviews-loading"><i class="fas fa-spinner fa-spin"></i> Cargando reseñas...</div></div>
+        <button class="reviews-arrow prev" id="reviewsPrev"><i class="fas fa-chevron-left"></i></button>
+        <button class="reviews-arrow next" id="reviewsNext"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <div class="reviews-dots" id="reviewsDots"></div>
+    <div class="reviews-powered">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" style="height:18px;vertical-align:middle;margin-right:6px;">
+        <span>Reseñas verificadas de Google</span>
+    </div>
+</div></section>
 
 <style>
 .google-reviews-section{padding:60px 0;background:linear-gradient(135deg,#f8fafc 0%,#f0f4f8 100%);border-top:1px solid #e8eef5}
@@ -298,157 +291,93 @@
 .reviews-dot.active{background:#e67e22;width:28px;border-radius:4px}
 .reviews-powered{text-align:center;margin-top:18px;font-size:.8rem;color:#9ca3af;display:flex;align-items:center;justify-content:center;gap:6px}
 .reviews-loading{text-align:center;padding:60px;color:#6b7a90;font-size:.95rem;width:100%}
-@media(max-width:768px){
-    .reviews-header{flex-direction:column}
-    .review-card{padding:22px 18px}
-    .reviews-arrow{width:36px;height:36px;font-size:.8rem}
-    .reviews-title-block h2{font-size:1.5rem}
-}
+@media(max-width:768px){.reviews-header{flex-direction:column}.review-card{padding:22px 18px}.reviews-arrow{width:36px;height:36px;font-size:.8rem}.reviews-title-block h2{font-size:1.5rem}}
 </style>
 
 <script>
 (function(){
-    var track   = document.getElementById('reviewsTrack');
-    var dotsEl  = document.getElementById('reviewsDots');
-    var prevBtn = document.getElementById('reviewsPrev');
-    var nextBtn = document.getElementById('reviewsNext');
-    var current = 0;
-    var total   = 0;
-    var timer;
-
-    function stars(n) {
-        var s = '';
-        for (var i = 1; i <= 5; i++)
-            s += '<i class="' + (i <= n ? 'fas' : 'far') + ' fa-star"></i>';
-        return s;
-    }
-
-    function goTo(idx) {
-        current = ((idx % total) + total) % total;
-        track.style.transform = 'translateX(-' + (current * 100) + '%)';
-        document.querySelectorAll('.reviews-dot').forEach(function(d, i) {
-            d.classList.toggle('active', i === current);
-        });
-    }
-
-    function startAuto() {
-        stopAuto();
-        timer = setInterval(function(){ goTo(current + 1); }, 6000);
-    }
-
-    function stopAuto() { clearInterval(timer); }
-
-    function render(reviews, rating, totalCount) {
-        document.getElementById('overallScore').textContent = parseFloat(rating).toFixed(1);
-        document.getElementById('overallStars').innerHTML = stars(Math.round(rating));
-        document.getElementById('overallCount').textContent = totalCount + ' reseñas en Google';
-
-        total = reviews.length;
-        track.innerHTML = '';
-        dotsEl.innerHTML = '';
-
-        reviews.forEach(function(r, i) {
-            var initials = r.author.split(' ').map(function(w){ return w[0]; }).join('').slice(0,2).toUpperCase();
-            var card = document.createElement('div');
-            card.className = 'review-card';
-            card.innerHTML =
-                '<div class="review-card-inner">' +
-                    '<div class="reviewer-info">' +
-                        '<div class="reviewer-avatar">' +
-                            (r.photo
-                                ? '<img src="' + r.photo + '" alt="' + r.author + '" onerror="this.parentElement.textContent=\'' + initials + '\'">'
-                                : initials) +
-                        '</div>' +
-                        '<div>' +
-                            '<div class="reviewer-name">' + r.author + '</div>' +
-                            '<div class="reviewer-date">' + (r.relative || '') + '</div>' +
-                        '</div>' +
-                    '</div>' +
-                    '<div class="review-stars">' + stars(r.rating) + '</div>' +
-                    '<div class="review-text">' + r.text.replace(/\n/g, '<br>') + '</div>' +
-                    '<div class="google-badge">' +
-                        '<img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">' +
-                        '<span>Reseña verificada</span>' +
-                    '</div>' +
-                '</div>';
+    var track=document.getElementById('reviewsTrack'),dotsEl=document.getElementById('reviewsDots'),prevBtn=document.getElementById('reviewsPrev'),nextBtn=document.getElementById('reviewsNext'),current=0,total=0,timer;
+    function stars(n){var s='';for(var i=1;i<=5;i++)s+='<i class="'+(i<=n?'fas':'far')+' fa-star"></i>';return s;}
+    function goTo(idx){current=((idx%total)+total)%total;track.style.transform='translateX(-'+(current*100)+'%)';document.querySelectorAll('.reviews-dot').forEach(function(d,i){d.classList.toggle('active',i===current);});}
+    function startAuto(){stopAuto();timer=setInterval(function(){goTo(current+1);},6000);}
+    function stopAuto(){clearInterval(timer);}
+    function render(reviews,rating,totalCount){
+        document.getElementById('overallScore').textContent=parseFloat(rating).toFixed(1);
+        document.getElementById('overallStars').innerHTML=stars(Math.round(rating));
+        document.getElementById('overallCount').textContent=totalCount+' reseñas en Google';
+        total=reviews.length;track.innerHTML='';dotsEl.innerHTML='';
+        reviews.forEach(function(r,i){
+            var initials=r.author.split(' ').map(function(w){return w[0];}).join('').slice(0,2).toUpperCase();
+            var card=document.createElement('div');card.className='review-card';
+            card.innerHTML='<div class="review-card-inner"><div class="reviewer-info"><div class="reviewer-avatar">'+(r.photo?'<img src="'+r.photo+'" alt="'+r.author+'" onerror="this.parentElement.textContent=\''+initials+'\'">':initials)+'</div><div><div class="reviewer-name">'+r.author+'</div><div class="reviewer-date">'+(r.relative||'')+'</div></div></div><div class="review-stars">'+stars(r.rating)+'</div><div class="review-text">'+r.text.replace(/\n/g,'<br>')+'</div><div class="google-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google"><span>Reseña verificada</span></div></div>';
             track.appendChild(card);
-
-            var dot = document.createElement('button');
-            dot.className = 'reviews-dot' + (i === 0 ? ' active' : '');
-            dot.setAttribute('aria-label', 'Reseña ' + (i + 1));
-            (function(idx){ dot.onclick = function(){ goTo(idx); stopAuto(); startAuto(); }; })(i);
+            var dot=document.createElement('button');dot.className='reviews-dot'+(i===0?' active':'');dot.setAttribute('aria-label','Reseña '+(i+1));
+            (function(idx){dot.onclick=function(){goTo(idx);stopAuto();startAuto();};})(i);
             dotsEl.appendChild(dot);
         });
-
-        prevBtn.onclick = function(){ goTo(current - 1); stopAuto(); startAuto(); };
-        nextBtn.onclick = function(){ goTo(current + 1); stopAuto(); startAuto(); };
-        track.parentElement.onmouseenter = stopAuto;
-        track.parentElement.onmouseleave = startAuto;
-
-        goTo(0);
-        startAuto();
+        prevBtn.onclick=function(){goTo(current-1);stopAuto();startAuto();};
+        nextBtn.onclick=function(){goTo(current+1);stopAuto();startAuto();};
+        track.parentElement.onmouseenter=stopAuto;track.parentElement.onmouseleave=startAuto;
+        goTo(0);startAuto();
     }
-
-    fetch('/.netlify/functions/google-reviews')
-        .then(function(r){ return r.json(); })
-        .then(function(data){
-            if (data.reviews && data.reviews.length) {
-                render(data.reviews, data.rating || 5, data.total || data.reviews.length);
-            } else {
-                track.innerHTML = '<div class="reviews-loading">No hay reseñas disponibles en este momento.</div>';
-            }
-        })
-        .catch(function(){
-            track.innerHTML = '<div class="reviews-loading">No se pudieron cargar las reseñas.</div>';
-        });
+    fetch('/.netlify/functions/google-reviews').then(function(r){return r.json();}).then(function(data){if(data.reviews&&data.reviews.length){render(data.reviews,data.rating||5,data.total||data.reviews.length);}else{track.innerHTML='<div class="reviews-loading">No hay reseñas disponibles.</div>';}}).catch(function(){track.innerHTML='<div class="reviews-loading">No se pudieron cargar las reseñas.</div>';});
 })();
 </script>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <div class="footer-logo"><h3>Multiservicios<br><span>Sagunto</span></h3></div>
-                    <p>Tu multiservicios de confianza en Sagunto y comarca.</p>
-                </div>
-                <div class="footer-column">
-                    <h4>Servicios</h4>
-                    <ul>
-                        <li><a href="servicios/fontanero.html">Fontanería</a></li>
-                        <li><a href="servicios/electricista.html">Electricidad</a></li>
-                        <li><a href="servicios/cerrajero.html">Cerrajería</a></li>
-                        <li><a href="servicios/albanil.html">Albañilería</a></li>
-                        <li><a href="servicios/pintor.html">Pintura</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Cobertura</h4>
-                    <ul>
-                        <li>Sagunto</li>
-                        <li>Puerto de Sagunto</li>
-                        <li>Canet d'en Berenguer</li>
-                        <li>Faura</li>
-                        <li>Gilet</li>
-                        <li>Estivella</li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Contacto</h4>
-                    <ul>
-                        <li><a href="tel:603018190"><i class="fas fa-phone-alt"></i> 603 018 190</a></li>
-                        <li><i class="fas fa-envelope"></i> info@multiserviciossagunto.es</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Calle Rubau 2, 46512 Faura</li>
-                        
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Multiservicios Sagunto. Todos los derechos reservados.</p>
-                <p class="legal-links"><a href="aviso-legal.html">Aviso Legal</a> | <a href="privacidad.html">Política de Privacidad</a> | <a href="cookies.html">Política de Cookies</a></p>
-            </div>
+<footer class="footer"><div class="container">
+    <div class="footer-content">
+        <div class="footer-column">
+            <div class="footer-logo"><h3>Multiservicios<br><span>Sagunto</span></h3></div>
+            <p>Tu multiservicios de confianza en Sagunto y área metropolitana de Valencia.</p>
+            <ul style="margin-top:12px">
+                <li><a href="/blog">📝 Blog y consejos</a></li>
+                <li><a href="/calculadora">💰 Calculadora de precios</a></li>
+                <li><a href="/nosotros">👤 Quiénes somos</a></li>
+            </ul>
         </div>
-    </footer>
+        <div class="footer-column">
+            <h4>Urgencias 24h</h4>
+            <ul class="footer-servicios-rapidos">
+                <li><a href="/cerrajero-sagunto">Cerrajero en Sagunto</a></li>
+                <li><a href="/fontanero-sagunto">Fontanero en Sagunto</a></li>
+                <li><a href="/electricista-sagunto">Electricista en Sagunto</a></li>
+                <li><a href="/cerrajero-puerto-de-sagunto">Cerrajero Puerto de Sagunto</a></li>
+                <li><a href="/fontanero-puerto-de-sagunto">Fontanero Puerto de Sagunto</a></li>
+                <li><a href="/electricista-puerto-de-sagunto">Electricista Puerto de Sagunto</a></li>
+                <li><a href="/cerrajero-faura">Cerrajero en Faura</a></li>
+                <li><a href="/cerrajero-betera">Cerrajero en Bétera</a></li>
+                <li><a href="/electricista-el-puig">Electricista en El Puig</a></li>
+                <li><a href="/fontanero-rafelbunyol">Fontanero en Rafelbunyol</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Zona de cobertura</h4>
+            <ul>
+                <li>Sagunto · Puerto de Sagunto</li>
+                <li>Canet d'en Berenguer · Faura · Gilet</li>
+                <li>Puçol · El Puig · Almenara</li>
+                <li>Bétera · Rafelbunyol · Nàquera</li>
+                <li>Moncada · Moncófar · Vall d'Uixó</li>
+            </ul>
+            <a href="/pueblos" style="background:var(--accent);color:white;padding:8px 15px;border-radius:30px;text-decoration:none;display:inline-block;font-size:13px;margin-top:15px;">📍 Ver todos los pueblos →</a>
+        </div>
+        <div class="footer-column">
+            <h4>Contacto</h4>
+            <ul>
+                <li><a href="tel:603018190"><i class="fas fa-phone-alt"></i> 603 018 190</a></li>
+                <li><a href="mailto:info@multiserviciossagunto.es"><i class="fas fa-envelope"></i> info@multiserviciossagunto.es</a></li>
+                <li><i class="fas fa-map-marker-alt"></i> Calle Rubau 2, 46512 Faura (Valencia)</li>
+                <li><i class="fas fa-clock"></i> L-V: 8:00-21:00 | Urgencias 24/7</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Multiservicios Sagunto. Todos los derechos reservados.</p>
+        <p class="legal-links"><a href="/aviso-legal">Aviso Legal</a> | <a href="/privacidad">Política de Privacidad</a> | <a href="/cookies">Política de Cookies</a></p>
+    </div>
+</div></footer>
 
-    <a href="https://wa.me/34603018190" class="whatsapp-float" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+<a href="https://wa.me/34603018190" class="whatsapp-float" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
 <div class="chatbot-button" id="chatbotButton"><i class="fas fa-comment-dots"></i></div>
 <div class="chatbot-window" id="chatbotWindow">
     <div class="chatbot-header"><h3>🤖 Asistente Multiservicios Sagunto</h3><button class="chatbot-close" id="chatbotClose">✕</button></div>
