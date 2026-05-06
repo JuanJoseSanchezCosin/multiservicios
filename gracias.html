@@ -3,70 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gracias por contactar | Multiservicios Sagunto</title>
+    <title>¡Mensaje enviado! | Multiservicios Sagunto</title>
     <meta name="robots" content="noindex, nofollow">
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <meta name="theme-color" content="#1e3a5f">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #1e3a5f 0%, #2d6a4f 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Inter', sans-serif;
-        }
-        .thanks-card {
-            background: white;
-            padding: 50px;
-            border-radius: 30px;
-            text-align: center;
-            max-width: 500px;
-            margin: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
-        .thanks-card i { font-size: 4rem; color: #2d6a4f; margin-bottom: 20px; display: block; }
-        .thanks-card h1 { color: #1e3a5f; margin-bottom: 15px; font-family: 'Poppins', sans-serif; }
-        .thanks-card p { color: #5a6c7e; margin-bottom: 15px; line-height: 1.6; }
-        .thanks-card .phone { font-size: 1.3rem; font-weight: 700; color: #1e3a5f; margin: 20px 0; display: block; text-decoration: none; }
-        .btn-primary {
-            background: #e67e22;
-            color: white;
-            padding: 12px 28px;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-            margin-top: 10px;
-        }
-        .btn-primary:hover { background: #c0392b; }
-        .btn-whatsapp {
-            background: #25D366;
-            color: white;
-            padding: 12px 28px;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-            margin: 10px 5px 0;
-        }
+        .gracias-section{min-height:60vh;display:flex;align-items:center;justify-content:center;padding:80px 20px;background:#f8fafc}
+        .gracias-card{background:white;border-radius:24px;padding:60px 50px;text-align:center;max-width:600px;width:100%;box-shadow:0 8px 40px rgba(0,0,0,.08)}
+        .gracias-icon{width:80px;height:80px;background:linear-gradient(135deg,#27ae60,#1e8449);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:2.2rem;color:white}
+        .gracias-card h1{font-size:2rem;color:var(--primary);margin-bottom:14px}
+        .gracias-card p{color:#6b7a90;line-height:1.7;font-size:1.05rem;margin-bottom:30px}
+        .gracias-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+        @media(max-width:480px){.gracias-card{padding:40px 24px}}
     </style>
 </head>
 <body>
-    <div class="thanks-card">
-        <i class="fas fa-check-circle"></i>
-        <h1>¡Mensaje enviado!</h1>
-        <p>Gracias por contactar con <strong>Multiservicios Sagunto</strong>. Te responderemos lo antes posible.</p>
-        <p>Si necesitas atención urgente, llámanos ahora:</p>
-        <a href="tel:603018190" class="phone"><i class="fas fa-phone-alt"></i> 603 018 190</a>
-        <div>
-            <a href="/" class="btn-primary">Volver al inicio</a>
-            <a href="https://wa.me/34603018190" class="btn-whatsapp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-        </div>
+
+<div class="top-bar"><div class="container"><div class="top-bar-content">
+    <div class="contact-info">
+        <a href="tel:603018190"><i class="fas fa-phone-alt"></i> 603 018 190</a>
+        <a href="mailto:info@multiserviciossagunto.es"><i class="fas fa-envelope"></i> info@multiserviciossagunto.es</a>
     </div>
+    <div class="social-links">
+        <a href="https://www.facebook.com/multiservisagunto/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/multiserviciosagunto/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@multiserviciossagunto" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+        <a href="https://x.com/multisersagunto" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/multiserviciossagunto/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+    <div class="hours-info"><i class="fas fa-clock"></i> L-V: 8:00-21:00 | Urgencias 24/7</div>
+</div></div></div>
+
+<header class="header"><div class="container"><div class="header-content">
+    <div class="logo">
+        <img src="img/logo_multiservicios_sagunto.png" alt="Multiservicios Sagunto" class="logo-avatar">
+        <div class="logo-text"><div class="logo-title">Multiservicios<br><span>Sagunto</span></div></div>
+    </div>
+    <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+    <nav class="nav-menu" id="navMenu"><ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/servicios">Servicios</a></li>
+        <li><a href="/pueblos">Pueblos</a></li>
+        <li><a href="/empresas">Empresas</a></li>
+        <li><a href="/nosotros">Nosotros</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/calculadora">💰 Presupuestos</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+    </ul></nav>
+</div></div></header>
+
+<section class="gracias-section"><div class="gracias-card">
+    <div class="gracias-icon"><i class="fas fa-check"></i></div>
+    <h1>¡Mensaje enviado!</h1>
+    <p>Gracias por contactar con <strong>Multiservicios Sagunto</strong>. Hemos recibido tu solicitud y nos pondremos en contacto contigo en menos de 2 horas en horario laboral.</p>
+    <p>Si necesitas atención urgente llámanos directamente al <strong>603 018 190</strong> — disponibles 24h.</p>
+    <div class="gracias-btns">
+        <a href="/" class="btn-primary"><i class="fas fa-home"></i> Volver al inicio</a>
+        <a href="https://wa.me/34603018190" class="btn-whatsapp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+</div></section>
+
+<footer class="footer"><div class="container">
+    <div class="footer-content">
+        <div class="footer-column"><div class="footer-logo"><h3>Multiservicios<br><span>Sagunto</span></h3></div><p>Tu multiservicios de confianza en Sagunto y comarca.</p></div>
+        <div class="footer-column"><h4>Urgencias 24h</h4><ul>
+            <li><a href="/cerrajero-sagunto">Cerrajero en Sagunto</a></li>
+            <li><a href="/fontanero-sagunto">Fontanero en Sagunto</a></li>
+            <li><a href="/electricista-sagunto">Electricista en Sagunto</a></li>
+        </ul></div>
+        <div class="footer-column"><h4>Cobertura</h4><ul>
+            <li>Sagunto · Puerto de Sagunto</li>
+            <li>Canet · Faura · Gilet</li>
+            <li>Puçol · El Puig · Almenara</li>
+        </ul></div>
+        <div class="footer-column"><h4>Contacto</h4><ul>
+            <li><a href="tel:603018190"><i class="fas fa-phone-alt"></i> 603 018 190</a></li>
+            <li><a href="mailto:info@multiserviciossagunto.es"><i class="fas fa-envelope"></i> info@multiserviciossagunto.es</a></li>
+            <li><i class="fas fa-map-marker-alt"></i> Calle Rubau 2, 46512 Faura</li>
+        </ul></div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Multiservicios Sagunto. Todos los derechos reservados.</p>
+        <p class="legal-links"><a href="/aviso-legal">Aviso Legal</a> | <a href="/privacidad">Política de Privacidad</a> | <a href="/cookies">Política de Cookies</a></p>
+    </div>
+</div></footer>
+
+<a href="https://wa.me/34603018190" class="whatsapp-float" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+<script src="js/main.js"></script>
 </body>
 </html>
+
+
