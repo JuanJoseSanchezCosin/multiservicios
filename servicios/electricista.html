@@ -41,6 +41,27 @@
         .faq-section{padding:50px 0;background:var(--gray-light)}
         .faq-section h2{text-align:center;margin-bottom:30px;color:var(--primary)}
     </style>
+    <style>
+.srv-hero{position:relative;min-height:480px;display:flex;align-items:center;overflow:hidden}
+.srv-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;background-attachment:fixed}
+.srv-hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(10,20,40,0.72),rgba(10,20,40,0.72))}
+.srv-hero-content{position:relative;z-index:10;width:100%;padding:80px 0}
+.srv-hero-content .hero-badge{display:inline-block;background:rgba(255,255,255,.15);color:white;padding:6px 18px;border-radius:30px;font-size:.85rem;font-weight:600;margin-bottom:20px;backdrop-filter:blur(4px)}
+.srv-hero-content h1{font-size:2.6rem;font-weight:800;color:white;margin-bottom:18px;line-height:1.25;max-width:700px}
+.srv-hero-content h1 .highlight{color:#f39c12}
+.srv-hero-content p{font-size:1.05rem;color:rgba(255,255,255,.9);margin-bottom:28px;max-width:600px;line-height:1.7}
+.srv-hero-content .hero-buttons{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px}
+.srv-hero-content .hero-stats{display:flex;gap:30px;flex-wrap:wrap}
+.srv-hero-content .stat-item{text-align:center}
+.srv-hero-content .stat-number{display:block;font-size:1.8rem;font-weight:800;color:white}
+.srv-hero-content .stat-label{font-size:.8rem;color:rgba(255,255,255,.75)}
+@media(max-width:768px){
+    .srv-hero{min-height:380px;background-attachment:scroll}
+    .srv-hero-bg{background-attachment:scroll}
+    .srv-hero-content h1{font-size:1.8rem}
+    .srv-hero-content{padding:60px 0}
+}
+</style>
 </head>
 <body>
 
@@ -77,23 +98,23 @@
         </ul></nav>
     </div></div></header>
 
-    <section class="hero"><div class="container"><div class="hero-content">
-        <div class="hero-text">
-            <span class="hero-badge">⚡ Servicio profesional en Sagunto y comarca</span>
-            <h1><span class="highlight">Electricista en Sagunto</span> — Averías eléctricas, instalaciones y boletines 24h</h1>
-            <p>Electricista urgente en Sagunto y comarca. Averías eléctricas, cuadros, instalaciones y boletines. Disponible 24 horas. Presupuesto sin compromiso.</p>
-            <div class="hero-buttons">
-                <a href="tel:603018190" class="btn-primary"><i class="fas fa-phone-alt"></i> Llamar ahora</a>
-                <a href="https://wa.me/34603018190" class="btn-whatsapp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp urgente</a>
-            </div>
-            <div class="hero-stats">
-                <div class="stat-item"><span class="stat-number">24/7</span><span class="stat-label">Urgencias</span></div>
-                <div class="stat-item"><span class="stat-number">+30</span><span class="stat-label">Servicios</span></div>
-                <div class="stat-item"><span class="stat-number">30€</span><span class="stat-label">Visita desc.</span></div>
-            </div>
+    <section class="srv-hero">
+    <div class="srv-hero-bg" style="background-image:url('../img/hero-electricista.jpeg')"></div>
+    <div class="srv-hero-content"><div class="container">
+        <span class="hero-badge">⚡ Servicio urgente 24h en Sagunto y comarca</span>
+        <h1><span class="highlight">Electricista en Sagunto</span> — Averías, instalaciones y boletines</h1>
+        <p>Electricista profesional en Sagunto y comarca. Averías eléctricas, cuadros, instalaciones y boletines. Urgencias 24h. Llegamos en menos de 60 minutos.</p>
+        <div class="hero-buttons">
+            <a href="tel:603018190" class="btn-primary"><i class="fas fa-phone-alt"></i> Llamar ahora</a>
+            <a href="https://wa.me/34603018190" class="btn-whatsapp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp urgente</a>
         </div>
-        <div class="hero-image"><img src="../img/logo_multiservicios_sagunto.png" alt="Electricista en Sagunto en Sagunto" class="hero-img" loading="eager"></div>
-    </div></div></section>
+        <div class="hero-stats">
+            <div class="stat-item"><span class="stat-number">24/7</span><span class="stat-label">Urgencias</span></div>
+            <div class="stat-item"><span class="stat-number">60min</span><span class="stat-label">Llegada</span></div>
+            <div class="stat-item"><span class="stat-number">30€</span><span class="stat-label">Visita desc.</span></div>
+        </div>
+    </div></div>
+</section>
 
     <section class="why-us"><div class="container"><div class="why-us-content">
         <div class="why-us-text">
@@ -142,6 +163,28 @@
             <div class="faq-item"><div class="faq-question"><i class="fas fa-question-circle"></i><h3>¿Trabajáis en toda la comarca?</h3></div><p>Sí. Cubrimos Sagunto, Puerto de Sagunto, toda la comarca del Camp de Morvedre y municipios del área metropolitana norte de Valencia.</p></div>
         </div>
     </div></section>
+
+    <section style="padding:55px 0;background:#f8fafc">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Servicio por municipio</span>
+            <h2>Electricista urgente en <span class="highlight">tu pueblo</span></h2>
+            <p>Selecciona tu municipio — llegamos en menos de 60 minutos</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-top:30px">
+            <a href="/electricista-sagunto" style="background:white;border:2px solid #e8eef5;border-radius:14px;padding:18px 16px;text-decoration:none;display:flex;align-items:center;gap:12px;transition:all .2s" onmouseover="this.style.borderColor='#e67e22';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#e8eef5';this.style.transform='none'"><div style="width:40px;height:40px;background:linear-gradient(135deg,#f39c12,#d35400);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:1.1rem;flex-shrink:0"><i class="fas fa-bolt"></i></div><div><div style="font-size:.88rem;font-weight:700;color:#1e3a5f">Electricista en Sagunto</div><div style="font-size:.72rem;color:#e74c3c;font-weight:600">🚨 Urgente 24h</div></div></a>
+            <a href="/electricista-puerto-de-sagunto" style="background:white;border:2px solid #e8eef5;border-radius:14px;padding:18px 16px;text-decoration:none;display:flex;align-items:center;gap:12px;transition:all .2s" onmouseover="this.style.borderColor='#e67e22';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#e8eef5';this.style.transform='none'"><div style="width:40px;height:40px;background:linear-gradient(135deg,#f39c12,#d35400);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:1.1rem;flex-shrink:0"><i class="fas fa-bolt"></i></div><div><div style="font-size:.88rem;font-weight:700;color:#1e3a5f">Electricista en Puerto de Sagunto</div><div style="font-size:.72rem;color:#e74c3c;font-weight:600">🚨 Urgente 24h</div></div></a>
+            <a href="/electricista-canet" style="background:white;border:2px solid #e8eef5;border-radius:14px;padding:18px 16px;text-decoration:none;display:flex;align-items:center;gap:12px;transition:all .2s" onmouseover="this.style.borderColor='#e67e22';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#e8eef5';this.style.transform='none'"><div style="width:40px;height:40px;background:linear-gradient(135deg,#f39c12,#d35400);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:1.1rem;flex-shrink:0"><i class="fas fa-bolt"></i></div><div><div style="font-size:.88rem;font-weight:700;color:#1e3a5f">Electricista en Canet d'en Berenguer</div><div style="font-size:.72rem;color:#e74c3c;font-weight:600">🚨 Urgente 24h</div></div></a>
+            <a href="/electricista-pucol" style="background:white;border:2px solid #e8eef5;border-radius:14px;padding:18px 16px;text-decoration:none;display:flex;align-items:center;gap:12px;transition:all .2s" onmouseover="this.style.borderColor='#e67e22';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#e8eef5';this.style.transform='none'"><div style="width:40px;height:40px;background:linear-gradient(135deg,#f39c12,#d35400);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:1.1rem;flex-shrink:0"><i class="fas fa-bolt"></i></div><div><div style="font-size:.88rem;font-weight:700;color:#1e3a5f">Electricista en Puçol</div><div style="font-size:.72rem;color:#e74c3c;font-weight:600">🚨 Urgente 24h</div></div></a>
+            <a href="/electricista-almenara" style="background:white;border:2px solid #e8eef5;border-radius:14px;padding:18px 16px;text-decoration:none;display:flex;align-items:center;gap:12px;transition:all .2s" onmouseover="this.style.borderColor='#e67e22';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#e8eef5';this.style.transform='none'"><div style="width:40px;height:40px;background:linear-gradient(135deg,#f39c12,#d35400);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:1.1rem;flex-shrink:0"><i class="fas fa-bolt"></i></div><div><div style="font-size:.88rem;font-weight:700;color:#1e3a5f">Electricista en Almenara</div><div style="font-size:.72rem;color:#e74c3c;font-weight:600">🚨 Urgente 24h</div></div></a>
+            <a href="/electricista-faura" style="background:white;border:2px solid #e8eef5;border-radius:14px;padding:18px 16px;text-decoration:none;display:flex;align-items:center;gap:12px;transition:all .2s" onmouseover="this.style.borderColor='#e67e22';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#e8eef5';this.style.transform='none'"><div style="width:40px;height:40px;background:linear-gradient(135deg,#f39c12,#d35400);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:1.1rem;flex-shrink:0"><i class="fas fa-bolt"></i></div><div><div style="font-size:.88rem;font-weight:700;color:#1e3a5f">Electricista en Faura</div><div style="font-size:.72rem;color:#e74c3c;font-weight:600">🚨 Urgente 24h</div></div></a>
+            <a href="/electricista-gilet" style="background:white;border:2px solid #e8eef5;border-radius:14px;padding:18px 16px;text-decoration:none;display:flex;align-items:center;gap:12px;transition:all .2s" onmouseover="this.style.borderColor='#e67e22';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#e8eef5';this.style.transform='none'"><div style="width:40px;height:40px;background:linear-gradient(135deg,#f39c12,#d35400);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:1.1rem;flex-shrink:0"><i class="fas fa-bolt"></i></div><div><div style="font-size:.88rem;font-weight:700;color:#1e3a5f">Electricista en Gilet</div><div style="font-size:.72rem;color:#e74c3c;font-weight:600">🚨 Urgente 24h</div></div></a>
+            <a href="/electricista-betera" style="background:white;border:2px solid #e8eef5;border-radius:14px;padding:18px 16px;text-decoration:none;display:flex;align-items:center;gap:12px;transition:all .2s" onmouseover="this.style.borderColor='#e67e22';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#e8eef5';this.style.transform='none'"><div style="width:40px;height:40px;background:linear-gradient(135deg,#f39c12,#d35400);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:1.1rem;flex-shrink:0"><i class="fas fa-bolt"></i></div><div><div style="font-size:.88rem;font-weight:700;color:#1e3a5f">Electricista en Bétera</div><div style="font-size:.72rem;color:#e74c3c;font-weight:600">🚨 Urgente 24h</div></div></a>
+            <a href="/electricista-el-puig" style="background:white;border:2px solid #e8eef5;border-radius:14px;padding:18px 16px;text-decoration:none;display:flex;align-items:center;gap:12px;transition:all .2s" onmouseover="this.style.borderColor='#e67e22';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#e8eef5';this.style.transform='none'"><div style="width:40px;height:40px;background:linear-gradient(135deg,#f39c12,#d35400);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:1.1rem;flex-shrink:0"><i class="fas fa-bolt"></i></div><div><div style="font-size:.88rem;font-weight:700;color:#1e3a5f">Electricista en El Puig</div><div style="font-size:.72rem;color:#e74c3c;font-weight:600">🚨 Urgente 24h</div></div></a>
+            <a href="/electricista-rafelbunyol" style="background:white;border:2px solid #e8eef5;border-radius:14px;padding:18px 16px;text-decoration:none;display:flex;align-items:center;gap:12px;transition:all .2s" onmouseover="this.style.borderColor='#e67e22';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#e8eef5';this.style.transform='none'"><div style="width:40px;height:40px;background:linear-gradient(135deg,#f39c12,#d35400);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:1.1rem;flex-shrink:0"><i class="fas fa-bolt"></i></div><div><div style="font-size:.88rem;font-weight:700;color:#1e3a5f">Electricista en Rafelbunyol</div><div style="font-size:.72rem;color:#e74c3c;font-weight:600">🚨 Urgente 24h</div></div></a>
+        </div>
+    </div>
+</section>
 
     <section class="cta-final"><div class="container"><div class="cta-final-content">
         <h2>¿Necesitas <span class="highlight">Electricista en Sagunto</span> en Sagunto?</h2>

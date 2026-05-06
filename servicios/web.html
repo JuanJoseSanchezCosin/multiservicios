@@ -15,6 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
+        
 /* TABLA DE PRECIOS - DISEÑO BONITO */
 .price-table {
     width: 100%;
@@ -63,6 +64,27 @@
     font-size: 0.9rem;
     text-align: center;
     border-left: 4px solid #2d6a4f;
+}
+</style>
+<style>
+.srv-hero{position:relative;min-height:480px;display:flex;align-items:center;overflow:hidden}
+.srv-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;background-attachment:fixed}
+.srv-hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(10,20,40,0.72),rgba(10,20,40,0.72))}
+.srv-hero-content{position:relative;z-index:10;width:100%;padding:80px 0}
+.srv-hero-content .hero-badge{display:inline-block;background:rgba(255,255,255,.15);color:white;padding:6px 18px;border-radius:30px;font-size:.85rem;font-weight:600;margin-bottom:20px;backdrop-filter:blur(4px)}
+.srv-hero-content h1{font-size:2.6rem;font-weight:800;color:white;margin-bottom:18px;line-height:1.25;max-width:700px}
+.srv-hero-content h1 .highlight{color:#f39c12}
+.srv-hero-content p{font-size:1.05rem;color:rgba(255,255,255,.9);margin-bottom:28px;max-width:600px;line-height:1.7}
+.srv-hero-content .hero-buttons{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px}
+.srv-hero-content .hero-stats{display:flex;gap:30px;flex-wrap:wrap}
+.srv-hero-content .stat-item{text-align:center}
+.srv-hero-content .stat-number{display:block;font-size:1.8rem;font-weight:800;color:white}
+.srv-hero-content .stat-label{font-size:.8rem;color:rgba(255,255,255,.75)}
+@media(max-width:768px){
+    .srv-hero{min-height:380px;background-attachment:scroll}
+    .srv-hero-bg{background-attachment:scroll}
+    .srv-hero-content h1{font-size:1.8rem}
+    .srv-hero-content{padding:60px 0}
 }
 </style>
 </head>
@@ -116,29 +138,23 @@
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <span class="hero-badge">Creación web y apps en Sagunto y comarca</span>
-                    <h1><span class="highlight">Páginas web, tiendas online y apps</span> para tu negocio</h1>
-                    <p>💻 Web corporativa • 🛒 Tienda online • 📱 App móvil • 📈 SEO y posicionamiento</p>
-                    <div class="hero-buttons">
-                        <a href="../contacto.html" class="btn-primary">📞 Llamar ahora <i class="fas fa-arrow-right"></i></a>
-                        <a href="https://wa.me/34603018190" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp urgente</a>
-                    </div>
-                    <div class="hero-stats">
-                        <div class="stat-item"><span class="stat-number">+50</span><span class="stat-label">Proyectos</span></div>
-                        <div class="stat-item"><span class="stat-number">100%</span><span class="stat-label">Satisfacción</span></div>
-                        <div class="stat-item"><span class="stat-number">24/7</span><span class="stat-label">Soporte</span></div>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <img src="../img/logo_multiservicios_sagunto.png" alt="Creación web en Sagunto" class="hero-img" loading="lazy">
-                </div>
-            </div>
+    <section class="srv-hero">
+    <div class="srv-hero-bg" style="background-image:url('../img/hero-automatizacion.jpeg')"></div>
+    <div class="srv-hero-content"><div class="container">
+        <span class="hero-badge">💻 Desarrollo web profesional para empresas</span>
+        <h1><span class="highlight">Páginas web y apps</span> para empresas en Sagunto</h1>
+        <p>Diseño y desarrollo de páginas web, tiendas online y aplicaciones móviles para empresas en Sagunto y comarca. SEO incluido. Presupuesto sin compromiso.</p>
+        <div class="hero-buttons">
+            <a href="tel:603018190" class="btn-primary"><i class="fas fa-phone-alt"></i> Llamar ahora</a>
+            <a href="https://wa.me/34603018190" class="btn-whatsapp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         </div>
-    </section>
+        <div class="hero-stats">
+            <div class="stat-item"><span class="stat-number">SEO</span><span class="stat-label">Incluido</span></div>
+            <div class="stat-item"><span class="stat-number">100%</span><span class="stat-label">A medida</span></div>
+            <div class="stat-item"><span class="stat-number">+10</span><span class="stat-label">Años exp.</span></div>
+        </div>
+    </div></div>
+</section>
 
     <section class="services-list">
         <div class="container">
