@@ -1,16 +1,3 @@
-# REDIRECCIONES PARA EVITAR CONTENIDO DUPLICADO (versión .html → versión limpia)
-/empresas.html      /empresas       301
-/servicios.html     /servicios      301
-/pueblos.html       /pueblos        301
-/nosotros.html      /nosotros       301
-/contacto.html      /contacto       301
-/calculadora.html   /calculadora    301
-/blog.html          /blog           301
-/aviso-legal.html   /aviso-legal    301
-/privacidad.html    /privacidad     301
-/cookies.html       /cookies        301
-/gracias.html       /gracias        301
-
 # PÁGINAS PRINCIPALES
 /nosotros       /nosotros.html      200
 /servicios      /servicios.html     200
