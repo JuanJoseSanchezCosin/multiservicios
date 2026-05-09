@@ -419,7 +419,7 @@
         }).catch(e => console.error('Error email admin:', e));
     }
 
-    const categorias = ["🚰 Fontanería","⚡ Electricidad","🎨 Pintura","🧹 Limpieza","🌿 Jardinería","🏗️ Reformas","💻 Web y apps","🤖 Automatización IA","🏢 Comunidades","🏢 Empresas","📞 Hablar con asesor"];
+    const categorias = ["🚰 Fontanería","⚡ Electricidad","🎨 Pintura","🧹 Limpieza","🌿 Jardinería","🏗️ Reformas",,"🏢 Comunidades","🏢 Empresas","📞 Hablar con asesor"];
     const categoriaMap = {
         "🚰 Fontanería": "fontaneria",
         "⚡ Electricidad": "electricidad",

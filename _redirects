@@ -2,7 +2,6 @@
 /nosotros       /nosotros.html      200
 /servicios      /servicios.html     200
 /pueblos        /pueblos.html       200
-/empresas       /empresas.html      200
 /calculadora    /calculadora.html   200
 /contacto       /contacto.html      200
 /gracias        /gracias.html       200
@@ -22,8 +21,6 @@
 /servicios/mantenimiento    /servicios/mantenimiento.html   200
 /servicios/pintor           /servicios/pintor.html          200
 /servicios/reformas         /servicios/reformas.html        200
-/servicios/ia               /servicios/ia.html              200
-/servicios/web              /servicios/web.html             200
 
 # PUEBLOS
 /pueblos/albalat-dels-tarongers     /pueblos/albalat-dels-tarongers.html    200
@@ -59,7 +56,7 @@
 /pueblos/torres-torres              /pueblos/torres-torres.html             200
 /pueblos/vall-duixo                 /pueblos/vall-duixo.html                200
 
-# BLOG — BATCH 1 (originales)
+# BLOG — BATCH 1
 /blog/cuanto-cuesta-cerrajero-sagunto      /blog/cuanto-cuesta-cerrajero-sagunto.html      200
 /blog/que-hacer-fuga-agua-casa             /blog/que-hacer-fuga-agua-casa.html             200
 /blog/cuanto-cuesta-pintar-piso-sagunto    /blog/cuanto-cuesta-pintar-piso-sagunto.html    200
@@ -67,7 +64,7 @@
 /blog/cuanto-cuesta-reformar-bano-sagunto  /blog/cuanto-cuesta-reformar-bano-sagunto.html  200
 /blog/mantenimiento-jardin-sagunto         /blog/mantenimiento-jardin-sagunto.html         200
 
-# BLOG — BATCH 2 (nuevos)
+# BLOG — BATCH 2
 /blog/cuanto-cuesta-albanil-sagunto        /blog/cuanto-cuesta-albanil-sagunto.html        200
 /blog/limpieza-profesional-sagunto         /blog/limpieza-profesional-sagunto.html         200
 /blog/mantenimiento-comunidades-sagunto    /blog/mantenimiento-comunidades-sagunto.html    200
@@ -111,28 +108,80 @@
 /albanil-canet                  /albanil-canet.html                 200
 
 # SERVICIO + PUEBLO — BATCH 2
-/cerrajero-faura            /cerrajero-faura.html           200
-/fontanero-faura            /fontanero-faura.html           200
-/electricista-faura         /electricista-faura.html        200
-/pintor-faura               /pintor-faura.html              200
-/albanil-faura              /albanil-faura.html             200
-/cerrajero-gilet            /cerrajero-gilet.html           200
-/fontanero-gilet            /fontanero-gilet.html           200
-/electricista-gilet         /electricista-gilet.html        200
-/pintor-gilet               /pintor-gilet.html              200
-/albanil-gilet              /albanil-gilet.html             200
-/cerrajero-betera           /cerrajero-betera.html          200
-/fontanero-betera           /fontanero-betera.html          200
-/electricista-betera        /electricista-betera.html       200
-/pintor-betera              /pintor-betera.html             200
-/albanil-betera             /albanil-betera.html            200
-/cerrajero-el-puig          /cerrajero-el-puig.html         200
-/fontanero-el-puig          /fontanero-el-puig.html         200
-/electricista-el-puig       /electricista-el-puig.html      200
-/pintor-el-puig             /pintor-el-puig.html            200
-/albanil-el-puig            /albanil-el-puig.html           200
-/cerrajero-rafelbunyol      /cerrajero-rafelbunyol.html     200
-/fontanero-rafelbunyol      /fontanero-rafelbunyol.html     200
-/electricista-rafelbunyol   /electricista-rafelbunyol.html  200
-/pintor-rafelbunyol         /pintor-rafelbunyol.html        200
-/albanil-rafelbunyol        /albanil-rafelbunyol.html       200
+/cerrajero-faura                /cerrajero-faura.html               200
+/fontanero-faura                /fontanero-faura.html               200
+/electricista-faura             /electricista-faura.html            200
+/pintor-faura                   /pintor-faura.html                  200
+/albanil-faura                  /albanil-faura.html                 200
+/cerrajero-gilet                /cerrajero-gilet.html               200
+/fontanero-gilet                /fontanero-gilet.html               200
+/electricista-gilet             /electricista-gilet.html            200
+/pintor-gilet                   /pintor-gilet.html                  200
+/albanil-gilet                  /albanil-gilet.html                 200
+/cerrajero-betera               /cerrajero-betera.html              200
+/fontanero-betera               /fontanero-betera.html              200
+/electricista-betera            /electricista-betera.html           200
+/pintor-betera                  /pintor-betera.html                 200
+/albanil-betera                 /albanil-betera.html                200
+/cerrajero-el-puig              /cerrajero-el-puig.html             200
+/fontanero-el-puig              /fontanero-el-puig.html             200
+/electricista-el-puig           /electricista-el-puig.html          200
+/pintor-el-puig                 /pintor-el-puig.html                200
+/albanil-el-puig                /albanil-el-puig.html               200
+/cerrajero-rafelbunyol          /cerrajero-rafelbunyol.html         200
+/fontanero-rafelbunyol          /fontanero-rafelbunyol.html         200
+/electricista-rafelbunyol       /electricista-rafelbunyol.html      200
+/pintor-rafelbunyol             /pintor-rafelbunyol.html            200
+/albanil-rafelbunyol            /albanil-rafelbunyol.html           200
+
+# SERVICIO + PUEBLO — BATCH 3
+/cerrajero-estivella                 /cerrajero-estivella.html                200
+/fontanero-estivella                 /fontanero-estivella.html                200
+/electricista-estivella              /electricista-estivella.html             200
+/pintor-estivella                    /pintor-estivella.html                   200
+/albanil-estivella                   /albanil-estivella.html                  200
+/cerrajero-quart-de-les-valls        /cerrajero-quart-de-les-valls.html       200
+/fontanero-quart-de-les-valls        /fontanero-quart-de-les-valls.html       200
+/electricista-quart-de-les-valls     /electricista-quart-de-les-valls.html    200
+/pintor-quart-de-les-valls           /pintor-quart-de-les-valls.html          200
+/albanil-quart-de-les-valls          /albanil-quart-de-les-valls.html         200
+/cerrajero-massamagrell              /cerrajero-massamagrell.html             200
+/fontanero-massamagrell              /fontanero-massamagrell.html             200
+/electricista-massamagrell           /electricista-massamagrell.html          200
+/pintor-massamagrell                 /pintor-massamagrell.html                200
+/albanil-massamagrell                /albanil-massamagrell.html               200
+/cerrajero-quartell                  /cerrajero-quartell.html                 200
+/fontanero-quartell                  /fontanero-quartell.html                 200
+/electricista-quartell               /electricista-quartell.html              200
+/pintor-quartell                     /pintor-quartell.html                    200
+/albanil-quartell                    /albanil-quartell.html                   200
+/cerrajero-moncada                   /cerrajero-moncada.html                  200
+/fontanero-moncada                   /fontanero-moncada.html                  200
+/electricista-moncada                /electricista-moncada.html               200
+/pintor-moncada                      /pintor-moncada.html                     200
+/albanil-moncada                     /albanil-moncada.html                    200
+/cerrajero-naquera                   /cerrajero-naquera.html                  200
+/fontanero-naquera                   /fontanero-naquera.html                  200
+/electricista-naquera                /electricista-naquera.html               200
+/pintor-naquera                      /pintor-naquera.html                     200
+/albanil-naquera                     /albanil-naquera.html                    200
+/cerrajero-museros                   /cerrajero-museros.html                  200
+/fontanero-museros                   /fontanero-museros.html                  200
+/electricista-museros                /electricista-museros.html               200
+/pintor-museros                      /pintor-museros.html                     200
+/albanil-museros                     /albanil-museros.html                    200
+/cerrajero-benifairo-de-les-valls    /cerrajero-benifairo-de-les-valls.html   200
+/fontanero-benifairo-de-les-valls    /fontanero-benifairo-de-les-valls.html   200
+/electricista-benifairo-de-les-valls /electricista-benifairo-de-les-valls.html 200
+/pintor-benifairo-de-les-valls       /pintor-benifairo-de-les-valls.html      200
+/albanil-benifairo-de-les-valls      /albanil-benifairo-de-les-valls.html     200
+/cerrajero-benavites                 /cerrajero-benavites.html                200
+/fontanero-benavites                 /fontanero-benavites.html                200
+/electricista-benavites              /electricista-benavites.html             200
+/pintor-benavites                    /pintor-benavites.html                   200
+/albanil-benavites                   /albanil-benavites.html                  200
+/cerrajero-albalat-dels-tarongers    /cerrajero-albalat-dels-tarongers.html   200
+/fontanero-albalat-dels-tarongers    /fontanero-albalat-dels-tarongers.html   200
+/electricista-albalat-dels-tarongers /electricista-albalat-dels-tarongers.html 200
+/pintor-albalat-dels-tarongers       /pintor-albalat-dels-tarongers.html      200
+/albanil-albalat-dels-tarongers      /albanil-albalat-dels-tarongers.html     200

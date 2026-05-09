@@ -1,0 +1,24 @@
+# Query: VACACIONES
+# ContextLines: 1
+
+11 resultados - Archivos de 3
+
+.vscode\Multiservicios\contacto.html:
+   30  
+
+   94          <h1>Contacta con nosotros</h1>
+   95:         <p>Estamos de vacaciones — volvemos pronto. Puedes dejarnos un mensaje y te contactaremos a la vuelta.</p>
+   96      </div></div>
+
+  112              <div class="contact-form-container">
+  113:                 
+
+.vscode\Multiservicios\index.html:
+  552          <p>&copy; 2026 Multiservicios Sagunto. Todos los derechos reservados.</p>
+  553:         <p class="legal-links"><a href="/aviso-legal">Aviso Legal</a> · <a href="https://ideark.es" target="_blank" rel="noopener">ideark.es</a> · <a href="https://vacacionessagunto.es" target="_blank" rel="noopener">vacacionessagunto.es</a> | <a href="/privacidad">Política de Privacidad</a> | <a href="/cookies">Política de Cookies</a></p>    </div>
+  554  </div></footer>
+
+C:\Users\juanj\Downloads\index_17.html:
+  453          <p>&copy; 2026 Multiservicios Sagunto. Todos los derechos reservados.</p>
+  454:         <p class="legal-links"><a href="/aviso-legal">Aviso Legal</a> · <a href="https://ideark.es" target="_blank" rel="noopener">ideark.es</a> · <a href="https://vacacionessagunto.es" target="_blank" rel="noopener">vacacionessagunto.es</a> | <a href="/privacidad">Política de Privacidad</a> | <a href="/cookies">Política de Cookies</a></p>
+  455      </div>
