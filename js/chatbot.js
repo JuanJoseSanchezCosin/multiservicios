@@ -1,5 +1,5 @@
 // ============================================
-// CHATBOT COUSINE - MULTISERVICIOS SAGUNTO
+// CHATBOT - MULTISERVICIOS SAGUNTO
 // ============================================
 
 (function() {
@@ -12,326 +12,186 @@
     });
 
     // ============================================
-    // BASE DE DATOS DE SERVICIOS
+    // BASE DE DATOS DE SERVICIOS (6 servicios reales)
     // ============================================
     const serviciosDB = {
         fontaneria: [
-            { nombre: "Reparar grifo que gotea", precio: "50-80€", preguntas: [
+            { nombre: "Reparar grifo que gotea", precio: "45-75€", preguntas: [
                 { texto: "¿Pierde mucha agua?", botones: ["Sí", "No"] },
                 { texto: "¿Crees que habría que cambiar el grifo?", botones: ["Sí", "No"] },
                 { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "Cambiar grifo completo", precio: "60-100€", preguntas: [
-                { texto: "¿Alguna marca o calidad en especial?", botones: ["Baja", "Media", "Alta"] },
+            { nombre: "Cambiar grifo completo", precio: "55-95€", preguntas: [
+                { texto: "¿Alguna marca o calidad en especial?", botones: ["Básica", "Media", "Alta"] },
                 { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "Cambiar cartucho de grifo monomando", precio: "50-70€", preguntas: [
+            { nombre: "Cambiar cartucho de grifo monomando", precio: "45-65€", preguntas: [
                 { texto: "¿Sabes la marca del grifo?", botones: ["Sí", "No"] },
                 { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "Desatasco de tuberías", precio: "60-120€", preguntas: [
+            { nombre: "Desatasco de tuberías", precio: "55-110€", preguntas: [
                 { texto: "¿De qué parte de la casa?", botones: ["Cocina", "Baño", "Fregadero", "Inodoro"] },
                 { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "Reparar cisterna que no para de correr", precio: "60-100€", preguntas: [
+            { nombre: "Reparar cisterna que no para de correr", precio: "55-95€", preguntas: [
                 { texto: "¿La cisterna no para de correr o hace ruido?", botones: ["No para de correr", "Hace ruido"] },
                 { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "Cambiar cisterna completa", precio: "150-250€", preguntas: [
-                { texto: "¿Alguna marca o calidad en especial?", botones: ["Baja", "Media", "Alta"] },
+            { nombre: "Cambiar cisterna completa", precio: "140-240€", preguntas: [
+                { texto: "¿Alguna calidad en especial?", botones: ["Básica", "Media", "Alta"] },
                 { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "Reparar fuga de agua localizada", precio: "80-150€", preguntas: [
+            { nombre: "Reparar fuga de agua localizada", precio: "75-140€", preguntas: [
                 { texto: "¿Dónde está la fuga?", botones: ["Baño", "Cocina", "Terraza", "Patio"] },
                 { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "Cambiar latiguillos", precio: "50-80€", preguntas: [
+            { nombre: "Cambiar latiguillos", precio: "45-75€", preguntas: [
                 { texto: "¿De qué electrodoméstico?", botones: ["Lavadora", "Lavavajillas", "Inodoro"] },
                 { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "Cambiar válvula de paso", precio: "70-120€", preguntas: [
+            { nombre: "Cambiar válvula de paso", precio: "65-110€", preguntas: [
                 { texto: "¿Dónde está la válvula?", botones: ["General de la casa", "Baño", "Cocina"] },
                 { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "Instalar lavavajillas o lavadora", precio: "80-150€", preguntas: [
+            { nombre: "Instalar lavavajillas o lavadora", precio: "75-140€", preguntas: [
                 { texto: "¿Qué electrodoméstico?", botones: ["Lavadora", "Lavavajillas"] },
                 { texto: "¿Tienes ya el electrodoméstico?", botones: ["Sí", "No"] },
                 { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "Reparar caldera (avería básica)", precio: "100-250€", preguntas: [
-                { texto: "¿Qué problema tiene la caldera?", botones: ["No enciende", "Pierde presión", "Hace ruido"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Reparar termo eléctrico", precio: "80-180€", preguntas: [
-                { texto: "¿Qué problema tiene el termo?", botones: ["No calienta", "Pierde agua", "Hace ruido"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Avería compleja (rotura tubería empotrada)", precio: "250-600€", preguntas: [
+            { nombre: "Avería compleja (rotura tubería empotrada)", precio: "200-500€", preguntas: [
                 { texto: "¿Dónde está la rotura?", botones: ["Baño", "Cocina", "Pasillo"] },
                 { texto: "¿Se ve humedad en la pared?", botones: ["Sí", "No"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Instalación fontanería baño completo", precio: "400-800€", preguntas: [
-                { texto: "¿Medidas del baño? (metros cuadrados)", botones: null },
-                { texto: "¿Es obra nueva o reforma?", botones: ["Obra nueva", "Reforma"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Instalación fontanería cocina completa", precio: "300-600€", preguntas: [
-                { texto: "¿Medidas de la cocina? (metros cuadrados)", botones: null },
-                { texto: "¿Es obra nueva o reforma?", botones: ["Obra nueva", "Reforma"] },
                 { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]}
         ],
         electricidad: [
-            { nombre: "Cambiar enchufe o interruptor", precio: "40-70€", preguntas: [
+            { nombre: "Cambiar enchufe o interruptor", precio: "35-65€", preguntas: [
                 { texto: "¿Alguna marca o tipo especial?", botones: ["Normal", "Domótico"] },
                 { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "Cambiar bombilla o plafón", precio: "30-60€", preguntas: [
-                { texto: "¿Qué tipo de bombilla?", botones: ["LED", "Normal", "Fluorescente"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Reparar avería en cuadro eléctrico", precio: "60-120€", preguntas: [
+            { nombre: "Reparar avería en cuadro eléctrico", precio: "50-110€", preguntas: [
                 { texto: "¿Qué avería?", botones: ["Salta el diferencial", "Salta un plomo", "No salta nada"] },
                 { texto: "¿Puedes rearmarlo?", botones: ["Sí", "No"] },
                 { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "Instalar punto de luz nuevo", precio: "80-150€", preguntas: [
+            { nombre: "Instalar punto de luz nuevo", precio: "70-140€", preguntas: [
                 { texto: "¿Cuántos puntos de luz?", botones: ["1", "2", "3", "Más"] },
                 { texto: "¿Los techos son de pladur?", botones: ["Sí", "No"] },
                 { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "Cambiar mecanismos completos", precio: "40-80€", preguntas: [
+            { nombre: "Cambiar mecanismos completos", precio: "35-75€", preguntas: [
                 { texto: "¿Cuántos mecanismos?", botones: ["1", "2", "3", "Más"] },
                 { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "Reparar avería general (saltan plomos)", precio: "60-180€", preguntas: [
+            { nombre: "Reparar avería general (saltan plomos)", precio: "50-160€", preguntas: [
                 { texto: "¿Saltan al encender algo en concreto?", botones: ["Sí", "No"] },
                 { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "Instalar toma de tierra", precio: "150-300€", preguntas: [
-                { texto: "¿Es vivienda antigua?", botones: ["Sí", "No"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Instalación eléctrica baño completo", precio: "200-400€", preguntas: [
-                { texto: "¿Medidas del baño?", botones: null },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Instalación eléctrica cocina completa", precio: "250-500€", preguntas: [
-                { texto: "¿Medidas de la cocina?", botones: null },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Cuadro eléctrico nuevo (vivienda 80-100m²)", precio: "600-1000€", preguntas: [
-                { texto: "¿Metros de la vivienda?", botones: null },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Instalar punto recarga coche eléctrico", precio: "300-700€", preguntas: [
-                { texto: "¿Tienes el cuadro eléctrico cerca?", botones: ["Sí", "No"] },
+            { nombre: "Cambio de cableado (por metro)", precio: "12-25€/m", preguntas: [
                 { texto: "¿Cuántos metros aproximadamente?", botones: null },
                 { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "Revisión y boletín eléctrico", precio: "120-200€", preguntas: [
-                { texto: "¿Para qué necesitas el boletín?", botones: ["Venta de vivienda", "Alquiler", "Reforma"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Cambio de cableado (por metro)", precio: "15-30€/m", preguntas: [
-                { texto: "¿Cuántos metros?", botones: null },
+            { nombre: "Instalar punto recarga coche eléctrico", precio: "280-650€", preguntas: [
+                { texto: "¿Tienes el cuadro eléctrico cerca?", botones: ["Sí", "No"] },
+                { texto: "¿Cuántos metros aproximadamente?", botones: null },
                 { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]}
         ],
         pintura: [
-            { nombre: "Pintar paredes lisas (por m²)", precio: "12-18€/m²", preguntas: [
+            { nombre: "Pintar paredes lisas (por m²)", precio: "10-16€/m²", preguntas: [
                 { texto: "¿Cuántos metros cuadrados?", botones: null },
                 { texto: "¿Hay que reparar grietas?", botones: ["Sí", "No"] },
                 { texto: "¿Calidad de pintura?", botones: ["Estándar", "Media", "Alta"] },
                 { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "Pintar techo (por m²)", precio: "15-22€/m²", preguntas: [
+            { nombre: "Pintar techo (por m²)", precio: "14-20€/m²", preguntas: [
                 { texto: "¿Cuántos metros cuadrados?", botones: null },
                 { texto: "¿Hay humedades?", botones: ["Sí", "No"] },
                 { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "Pintar piso completo 80m²", precio: "1200-1800€", preguntas: [
+            { nombre: "Pintar piso completo 80m²", precio: "1100-1700€", preguntas: [
                 { texto: "¿Hay que reparar paredes?", botones: ["Sí", "No"] },
                 { texto: "¿Calidad de pintura?", botones: ["Estándar", "Media", "Alta"] },
                 { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "Pintar piso completo 100m²", precio: "1500-2200€", preguntas: [
+            { nombre: "Pintar piso completo 100m²", precio: "1400-2100€", preguntas: [
                 { texto: "¿Hay que reparar paredes?", botones: ["Sí", "No"] },
                 { texto: "¿Calidad de pintura?", botones: ["Estándar", "Media", "Alta"] },
                 { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "Alisar paredes (eliminar gotelé)", precio: "20-30€/m²", preguntas: [
+            { nombre: "Alisar paredes (eliminar gotelé)", precio: "18-28€/m²", preguntas: [
                 { texto: "¿Cuántos metros cuadrados?", botones: null },
                 { texto: "¿El gotelé es muy grueso?", botones: ["Sí", "No"] },
                 { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "Reparar grietas y masillado", precio: "+200-500€", preguntas: [
-                { texto: "¿Cuántos metros cuadrados?", botones: null },
-                { texto: "¿Las grietas son profundas?", botones: ["Sí", "No"] },
-                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
-            ]},
-            { nombre: "Pintar una habitación (20m²)", precio: "250-400€", preguntas: [
+            { nombre: "Pintar una habitación (20m²)", precio: "220-380€", preguntas: [
                 { texto: "¿Hay que reparar paredes?", botones: ["Sí", "No"] },
                 { texto: "¿Calidad de pintura?", botones: ["Estándar", "Media", "Alta"] },
                 { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "Pintar fachada o exterior", precio: "18-30€/m²", preguntas: [
+            { nombre: "Pintar fachada o exterior", precio: "16-28€/m²", preguntas: [
                 { texto: "¿Cuántos metros cuadrados?", botones: null },
                 { texto: "¿Hay andamios necesarios?", botones: ["Sí", "No"] },
                 { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]}
         ],
         limpieza: [
-            { nombre: "Limpieza de hogar (3-4 horas)", precio: "60-120€", preguntas: [
+            { nombre: "Limpieza de hogar (3-4 horas)", precio: "55-110€", preguntas: [
                 { texto: "¿Cuántas habitaciones?", botones: ["1-2", "3-4", "5+"] },
                 { texto: "¿Cuántos baños?", botones: ["1", "2", "3+"] },
-                { texto: "¿Es puntual o periódica?", botones: ["Puntual", "Semanal", "Quincenal"] }
+                { texto: "¿Es puntual o recurrente?", botones: ["Puntual", "Semanal", "Quincenal"] }
             ]},
-            { nombre: "Limpieza de oficina (50m²)", precio: "80-150€", preguntas: [
+            { nombre: "Limpieza de oficina (50m²)", precio: "75-140€", preguntas: [
                 { texto: "¿Cuántos metros cuadrados?", botones: null },
                 { texto: "¿Número de puestos?", botones: ["1-5", "6-10", "11+"] },
                 { texto: "¿Con qué frecuencia?", botones: ["Diaria", "Semanal", "Quincenal"] }
             ]},
-            { nombre: "Limpieza de comunidades (mensual)", precio: "100-300€/mes", preguntas: [
-                { texto: "¿Cuántos portales?", botones: ["1", "2", "3+"] },
-                { texto: "¿Cuántos vecinos?", botones: ["Menos de 20", "20-50", "Más de 50"] }
+            { nombre: "Limpieza de final de obra", precio: "100-250€", preguntas: [
+                { texto: "¿Cuántos metros cuadrados?", botones: null },
+                { texto: "¿Hay mucho polvo o escombros?", botones: ["Mucho polvo", "Polvo y escombros"] }
             ]},
-            { nombre: "Limpieza de cristales", precio: "50-120€", preguntas: [
+            { nombre: "Limpieza de cristales", precio: "45-110€", preguntas: [
                 { texto: "¿Cuántas ventanas?", botones: ["1-5", "6-10", "11+"] },
-                { texto: "¿Altura?", botones: ["Baja", "Media", "Alta (necesita andamios)"] }
-            ]}
-        ],
-        jardineria: [
-            { nombre: "Cortar césped (50-100m²)", precio: "30-60€", preguntas: [
-                { texto: "¿Cuántos metros cuadrados?", botones: null },
-                { texto: "¿Con qué frecuencia?", botones: ["Puntual", "Semanal", "Quincenal"] }
-            ]},
-            { nombre: "Cortar césped (100-300m²)", precio: "60-120€", preguntas: [
-                { texto: "¿Cuántos metros cuadrados?", botones: null },
-                { texto: "¿Con qué frecuencia?", botones: ["Puntual", "Semanal", "Quincenal"] }
-            ]},
-            { nombre: "Poda de arbustos y setos", precio: "25-50€/hora", preguntas: [
-                { texto: "¿Cuántos metros lineales?", botones: null },
                 { texto: "¿Altura?", botones: ["Baja", "Media", "Alta"] }
-            ]},
-            { nombre: "Poda de árboles pequeños (hasta 5m)", precio: "50-150€", preguntas: [
-                { texto: "¿Cuántos árboles?", botones: ["1", "2", "3+"] },
-                { texto: "¿Urgente por peligro?", botones: ["Sí", "No"] }
-            ]},
-            { nombre: "Poda de árboles grandes (más de 5m)", precio: "150-400€", preguntas: [
-                { texto: "¿Cuántos árboles?", botones: ["1", "2", "3+"] },
-                { texto: "¿Urgente por peligro?", botones: ["Sí", "No"] }
-            ]},
-            { nombre: "Mantenimiento de jardín (mensual)", precio: "60-150€/mes", preguntas: [
-                { texto: "¿Cuántos metros cuadrados?", botones: null },
-                { texto: "¿Qué servicios incluye?", botones: ["Corte césped", "Poda", "Limpieza", "Todo"] }
             ]}
         ],
-        reformas: [
-            { nombre: "Baño básico", precio: "2000-4000€", preguntas: [
-                { texto: "¿Medidas del baño?", botones: null },
-                { texto: "¿Hay que demoler?", botones: ["Sí", "No"] }
+        cerrajeria: [
+            { nombre: "Apertura de puerta", precio: "70-140€", preguntas: [
+                { texto: "¿Es la puerta principal?", botones: ["Sí", "No"] },
+                { texto: "¿Tienes las llaves dentro?", botones: ["Sí, dentro", "Las he perdido"] },
+                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "Baño completo gama media", precio: "4000-8000€", preguntas: [
-                { texto: "¿Medidas del baño?", botones: null },
-                { texto: "¿Hay que demoler?", botones: ["Sí", "No"] }
+            { nombre: "Cambio de bombín", precio: "55-100€", preguntas: [
+                { texto: "¿Es puerta blindada?", botones: ["Sí", "No"] },
+                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "Baño completo gama alta", precio: "8000-15000€", preguntas: [
-                { texto: "¿Medidas del baño?", botones: null },
-                { texto: "¿Hay que demoler?", botones: ["Sí", "No"] }
+            { nombre: "Cambio de cerradura", precio: "90-170€", preguntas: [
+                { texto: "¿Es puerta blindada?", botones: ["Sí", "No"] },
+                { texto: "¿Alguna marca en especial?", botones: ["Básica", "De seguridad"] },
+                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "Cambio de bañera por plato de ducha", precio: "700-1300€", preguntas: [
-                { texto: "¿Medidas de la bañera?", botones: null }
-            ]},
-            { nombre: "Cocina básica", precio: "4000-8000€", preguntas: [
-                { texto: "¿Medidas de la cocina?", botones: null },
-                { texto: "¿Hay que demoler?", botones: ["Sí", "No"] }
-            ]},
-            { nombre: "Cocina completa gama media", precio: "8000-15000€", preguntas: [
-                { texto: "¿Medidas de la cocina?", botones: null },
-                { texto: "¿Hay que demoler?", botones: ["Sí", "No"] }
-            ]},
-            { nombre: "Cocina premium", precio: "15000-25000€", preguntas: [
-                { texto: "¿Medidas de la cocina?", botones: null },
-                { texto: "¿Hay que demoler?", botones: ["Sí", "No"] }
-            ]},
-            { nombre: "Reforma integral piso 80-100m² (estándar)", precio: "25000-40000€", preguntas: [
-                { texto: "¿Medidas del piso?", botones: null },
-                { texto: "¿Calidad estándar o alta?", botones: ["Estándar", "Alta"] }
-            ]},
-            { nombre: "Reforma integral piso 80-100m² (calidad alta)", precio: "40000-60000€", preguntas: [
-                { texto: "¿Medidas del piso?", botones: null },
-                { texto: "¿Calidad estándar o alta?", botones: ["Estándar", "Alta"] }
+            { nombre: "Cerradura de seguridad", precio: "140-300€", preguntas: [
+                { texto: "¿Es puerta blindada?", botones: ["Sí", "No"] },
+                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]}
         ],
-        web: [
-            { nombre: "Web corporativa (5 páginas, responsive)", precio: "500-1200€", preguntas: [
-                { texto: "¿Tienes logo y contenido?", botones: ["Sí", "No"] }
+        mantenimiento: [
+            { nombre: "Montaje de muebles", precio: "35-60€/hora", preguntas: [
+                { texto: "¿Cuántas horas estimas?", botones: ["1-2h", "2-4h", "4h+"] },
+                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "Tienda online (hasta 50 productos)", precio: "800-2000€", preguntas: [
-                { texto: "¿Cuántos productos?", botones: ["1-20", "21-50", "Más de 50"] }
+            { nombre: "Reparar persiana", precio: "45-90€", preguntas: [
+                { texto: "¿Es persiana enrollable?", botones: ["Sí", "No"] },
+                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "Landing page o One page", precio: "300-600€", preguntas: [
-                { texto: "¿Para qué producto o servicio?", botones: null }
+            { nombre: "Pequeña reparación de albañilería", precio: "50-120€", preguntas: [
+                { texto: "¿Qué tipo de reparación?", botones: ["Grieta", "Azulejo suelto", "Agujero en pared", "Otro"] },
+                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]},
-            { nombre: "App móvil básica", precio: "2000-5000€", preguntas: [
-                { texto: "¿iOS, Android o ambos?", botones: ["iOS", "Android", "Ambos"] }
-            ]},
-            { nombre: "App móvil avanzada", precio: "5000-12000€", preguntas: [
-                { texto: "¿iOS, Android o ambos?", botones: ["iOS", "Android", "Ambos"] },
-                { texto: "¿Qué funcionalidades necesita?", botones: null }
-            ]},
-            { nombre: "Mantenimiento web mensual", precio: "30-80€/mes", preguntas: [] },
-            { nombre: "SEO básico", precio: "200-500€", preguntas: [] },
-            { nombre: "Posicionamiento SEO avanzado", precio: "500-1500€/mes", preguntas: [] }
-        ],
-        ia: [
-            { nombre: "Chatbot básico (web o WhatsApp)", precio: "300-600€", preguntas: [
-                { texto: "¿Para web o WhatsApp?", botones: ["Web", "WhatsApp", "Ambos"] }
-            ]},
-            { nombre: "Chatbot avanzado con IA", precio: "600-1500€", preguntas: [
-                { texto: "¿Qué información debe gestionar?", botones: null }
-            ]},
-            { nombre: "Asistente virtual", precio: "500-2000€", preguntas: [
-                { texto: "¿Para qué procesos?", botones: null }
-            ]},
-            { nombre: "Automatización de marketing", precio: "300-800€", preguntas: [
-                { texto: "¿Email, WhatsApp o ambos?", botones: ["Email", "WhatsApp", "Ambos"] }
-            ]},
-            { nombre: "Automatización de procesos empresariales", precio: "1000-3000€", preguntas: [
-                { texto: "¿Qué procesos?", botones: null }
-            ]},
-            { nombre: "Consultoría en IA", precio: "80-150€/hora", preguntas: [] }
-        ],
-        comunidades: [
-            { nombre: "Mantenimiento integral comunidad (mensual)", precio: "200-600€/mes", preguntas: [
-                { texto: "¿Cuántos vecinos?", botones: ["Menos de 20", "20-50", "Más de 50"] }
-            ]},
-            { nombre: "Limpieza portal y zonas comunes (mensual)", precio: "150-400€/mes", preguntas: [
-                { texto: "¿Cuántos portales?", botones: ["1", "2", "3+"] }
-            ]},
-            { nombre: "Jardinería zonas comunes (mensual)", precio: "100-300€/mes", preguntas: [
-                { texto: "¿Cuántos metros cuadrados?", botones: null }
-            ]},
-            { nombre: "Mantenimiento piscina comunitaria", precio: "150-400€/mes", preguntas: [
-                { texto: "¿Tamaño de la piscina?", botones: ["Pequeña", "Mediana", "Grande"] }
-            ]},
-            { nombre: "Pintura de fachada", precio: "18-30€/m²", preguntas: [
-                { texto: "¿Cuántos metros cuadrados?", botones: null },
-                { texto: "¿Hay andamios necesarios?", botones: ["Sí", "No"] }
+            { nombre: "Manitas (varias tareas)", precio: "35-55€/hora", preguntas: [
+                { texto: "¿Cuántas horas necesitas?", botones: ["1-2h", "Media jornada (4h)", "Jornada (8h)"] },
+                { texto: "¿Es urgente?", botones: ["Sí, urgente", "No, puede esperar"] }
             ]}
-        ],
-        empresas: [
-            { nombre: "Mantenimiento integral local comercial (mensual)", precio: "150-500€/mes", preguntas: [
-                { texto: "¿Metros del local?", botones: null }
-            ]},
-            { nombre: "Reparaciones urgentes", precio: "60-150€ + materiales", preguntas: [
-                { texto: "¿Qué tipo de reparación?", botones: null },
-                { texto: "¿Es urgente?", botones: ["Sí", "No"] }
-            ]},
-            { nombre: "Mantenimiento de climatización", precio: "80-150€", preguntas: [] },
-            { nombre: "Certificado de instalaciones", precio: "120-250€", preguntas: [] }
         ]
     };
 
@@ -419,22 +279,28 @@
         }).catch(e => console.error('Error email admin:', e));
     }
 
-    const categorias = ["🚰 Fontanería","⚡ Electricidad","🎨 Pintura","🧹 Limpieza","🌿 Jardinería","🏗️ Reformas",,"🏢 Comunidades","🏢 Empresas","📞 Hablar con asesor"];
+    // Categorías del chatbot (solo 6 servicios reales + hablar conmigo)
+    const categorias = [
+        "🔧 Fontanería",
+        "⚡ Electricidad",
+        "🎨 Pintura",
+        "🧹 Limpieza",
+        "🔑 Cerrajería",
+        "🔨 Mantenimiento",
+        "📞 Hablar conmigo"
+    ];
+
     const categoriaMap = {
-        "🚰 Fontanería": "fontaneria",
+        "🔧 Fontanería": "fontaneria",
         "⚡ Electricidad": "electricidad",
         "🎨 Pintura": "pintura",
         "🧹 Limpieza": "limpieza",
-        "🌿 Jardinería": "jardineria",
-        "🏗️ Reformas": "reformas",
-        "💻 Web y apps": "web",
-        "🤖 Automatización IA": "ia",
-        "🏢 Comunidades": "comunidades",
-        "🏢 Empresas": "empresas"
+        "🔑 Cerrajería": "cerrajeria",
+        "🔨 Mantenimiento": "mantenimiento"
     };
 
     function mensajeBienvenida() {
-        agregarMensaje("👋 ¡Hola! Soy el asistente de Multiservicios Sagunto.\n\n🔧 ¿Qué categoría de servicio necesitas?", false, categorias);
+        agregarMensaje("👋 ¡Hola! Soy el asistente de Multiservicios Sagunto.\n\nTe ayudo a calcular el presupuesto de tu reparación. ¿Qué servicio necesitas?", false, categorias);
         paso = 'seleccion_categoria';
     }
 
@@ -449,15 +315,15 @@
         }
 
         if (paso === 'seleccion_categoria') {
-            if (mensaje === '📞 Hablar con asesor') {
-                agregarMensaje("📞 Puedes llamarnos al 603 018 190 o escribirnos por WhatsApp. Estaremos encantados de atenderte.", false);
+            if (mensaje === '📞 Hablar conmigo') {
+                agregarMensaje("📞 Puedes llamarme al 603 018 190 o escribirme por WhatsApp. Estaré encantado de atenderte.", false);
                 paso = 'fin';
                 return;
             }
             categoriaSeleccionada = categoriaMap[mensaje];
             const servicios = serviciosDB[categoriaSeleccionada];
             if (servicios && servicios.length > 0) {
-                agregarMensaje(`✅ He encontrado estos servicios de ${mensaje}. ¿Cuál te interesa?`, false, servicios.map(s => s.nombre));
+                agregarMensaje(`✅ He encontrado estos servicios de ${mensaje.toLowerCase()}. ¿Cuál te interesa?`, false, servicios.map(s => s.nombre));
                 paso = 'seleccion_servicio';
             }
             return;
@@ -474,7 +340,7 @@
                     paso = 'pregunta_0';
                     agregarMensaje(servicioActual.preguntas[0].texto, false, servicioActual.preguntas[0].botones);
                 } else {
-                    agregarMensaje(`📋 *${servicioActual.nombre}*\n💰 Presupuesto orientativo: ${servicioActual.precio}\n✅ +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📧 ¿Quieres que te envíe este presupuesto por email?`, false, ["✅ Sí, enviar", "❌ No, gracias"]);
+                    agregarMensaje(`📋 *${servicioActual.nombre}*\n💰 Presupuesto orientativo: ${servicioActual.precio}\n\n📧 ¿Quieres que te envíe este presupuesto por email?`, false, ["✅ Sí, enviar", "❌ No, gracias"]);
                     paso = 'preguntar_email';
                 }
             }
@@ -490,9 +356,9 @@
             } else {
                 let resumen = `📋 *Resumen de tu solicitud*\n\n🔧 Servicio: ${servicioActual.nombre}\n💰 Presupuesto orientativo: ${servicioActual.precio}\n`;
                 for (let i = 0; i < servicioActual.preguntas.length; i++) {
-                    resumen += `${servicioActual.preguntas[i].texto} ${respuestas[`respuesta_${i}`]}\n`;
+                    resumen += `${servicioActual.preguntas[i].texto}: ${respuestas[`respuesta_${i}`]}\n`;
                 }
-                resumen += `✅ +20% para imprevistos.\n🔧 Visita: 30€ (descontable).\n\n📧 ¿Quieres que te envíe este presupuesto por email?`;
+                resumen += `\n📧 ¿Quieres que te envíe este presupuesto por email?`;
                 agregarMensaje(resumen, false, ["✅ Sí, enviar", "❌ No, gracias"]);
                 paso = 'preguntar_email';
             }
@@ -501,7 +367,7 @@
 
         if (paso === 'preguntar_email') {
             if (mensaje === '❌ No, gracias') {
-                agregarMensaje("✅ Gracias. Si cambias de opinión, aquí estamos. ¡Hasta pronto! 💙", false);
+                agregarMensaje("✅ Gracias por tu consulta. Si cambias de opinión, aquí estoy. ¡Hasta pronto! 💙", false);
                 paso = 'fin';
                 return;
             }
@@ -512,7 +378,7 @@
 
         if (paso === 'pedir_nombre') {
             datosCliente.nombre = mensaje;
-            agregarMensaje("📍 ¿En qué *población* vives?", false);
+            agregarMensaje("📍 ¿En qué *población* vives? (Sagunto, Puerto, Canet, Faura...)", false);
             paso = 'pedir_poblacion';
             return;
         }
@@ -535,7 +401,7 @@
             datosCliente.email = mensaje;
             agregarMensaje("📧 Enviando presupuesto...", false);
             enviarEmails();
-            agregarMensaje("✅ *¡Presupuesto enviado!* Te hemos enviado los detalles a tu email.\n\nEn breve nos pondremos en contacto contigo por WhatsApp.\n\n¡Gracias por confiar en nosotros! 💙", false);
+            agregarMensaje("✅ *¡Presupuesto enviado!* Te he enviado los detalles a tu email.\n\nEn breve me pondré en contacto contigo por WhatsApp.\n\n¡Gracias por confiar en Multiservicios Sagunto! 💙", false);
             paso = 'fin';
             return;
         }

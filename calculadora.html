@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calcula tu presupuesto online | Multiservicios Sagunto</title>
-    <meta name="description" content="Calcula el precio estimado de tu reforma, pintura, fontanería, página web o chatbot de IA. Obtén un presupuesto aproximado al instante.">
+    <title>Calcula tu presupuesto online | Fontanería, electricidad, pintura, limpieza, cerrajería y mantenimiento | Multiservicios Sagunto</title>
+    <meta name="description" content="Calcula el precio estimado de tu reparación o servicio al instante. Fontanería, electricidad, pintura, limpieza, cerrajería y mantenimiento en Sagunto, Puerto, Canet y Faura. Sin compromiso.">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Multiservicios Sagunto">
     <link rel="canonical" href="https://multiserviciossagunto.es/calculadora">
@@ -19,7 +19,7 @@
 
     <!-- OPEN GRAPH -->
     <meta property="og:title" content="Calcula tu presupuesto | Multiservicios Sagunto">
-    <meta property="og:description" content="Obtén un presupuesto rápido y sin compromiso para tu reparación o servicio.">
+    <meta property="og:description" content="Obtén un presupuesto rápido y sin compromiso para tu reparación o servicio en Sagunto y comarca.">
     <meta property="og:image" content="https://multiserviciossagunto.es/img/logo_multiservicios_sagunto.png">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://multiserviciossagunto.es/calculadora">
@@ -186,6 +186,8 @@
             border-top: 1px solid #e8eef5;
             margin: 25px 0;
         }
+        .footer ul { list-style: none !important; padding-left: 0 !important; }
+        .footer li { list-style: none !important; }
         @media (max-width: 768px) {
             .calculator-body { padding: 20px; }
             .price-display .price { font-size: 1.8rem; }
@@ -233,12 +235,12 @@
                 </button>
                 <nav class="nav-menu" id="navMenu">
                     <ul>
-                        <li><a href="/" class="active">Inicio</a></li>
+                        <li><a href="/">Inicio</a></li>
                         <li><a href="/servicios">Servicios</a></li>
-                        <li><a href="/pueblos">Pueblos</a></li>
+                        <li><a href="/zonas">Zonas</a></li>
                         <li><a href="/nosotros">Nosotros</a></li>
                         <li><a href="/blog">Blog</a></li>
-                        <li><a href="/calculadora">💰 Presupuestos</a></li>
+                        <li><a href="/calculadora" class="active">💰 Presupuestos</a></li>
                         <li><a href="/contacto">Contacto</a></li>
                     </ul>
                 </nav>
@@ -252,7 +254,7 @@
             <div class="calculator-container">
                 <div class="calculator-header">
                     <h1>💰 Calcula tu presupuesto estimado</h1>
-                    <p>Selecciona el servicio y los detalles. Obtén un precio orientativo al instante.</p>
+                    <p>Elige el servicio y te doy un precio orientativo al instante. Sin compromiso.</p>
                 </div>
                 <div class="calculator-body">
 
@@ -260,13 +262,12 @@
                     <div class="form-group-calc">
                         <label><i class="fas fa-tools"></i> ¿Qué servicio necesitas?</label>
                         <select id="servicio" onchange="actualizarCampos()">
-                            <option value="pintura">🎨 Pintura de paredes</option>
-                            <option value="fontaneria">🚰 Fontanería / avería</option>
-                            <option value="electricidad">⚡ Electricidad / instalación</option>
-                            <option value="limpieza">🧹 Limpieza profesional</option>
-                            <option value="jardineria">🌿 Jardinería / poda</option>
-                            <option value="reforma">🏗️ Reforma baño o cocina</option>
+                            <option value="fontaneria">🔧 Fontanería</option>
+                            <option value="electricidad">⚡ Electricidad</option>
+                            <option value="pintura">🎨 Pintura</option>
+                            <option value="limpieza">🧹 Limpieza</option>
                             <option value="cerrajeria">🔑 Cerrajería</option>
+                            <option value="mantenimiento">🔨 Mantenimiento y pequeñas reparaciones</option>
                         </select>
                     </div>
 
@@ -277,16 +278,16 @@
                     <div class="price-display" id="precioDisplay">
                         <div class="price-label">💰 Presupuesto estimado</div>
                         <div class="price" id="precioEstimado">Selecciona opciones →</div>
-                        <div class="price-note">*Precio orientativo + IVA. El presupuesto final puede variar según el estado real.</div>
+                        <div class="price-note">*Precio orientativo. El presupuesto final cerrado te lo doy tras ver el trabajo.</div>
                     </div>
 
                     <hr class="divider">
 
                     <!-- FORMULARIO LEAD -->
                     <div class="lead-form">
-                        <h4>📋 ¿Te interesa? Déjanos tus datos y te contactamos hoy mismo</h4>
+                        <h4>📋 ¿Quieres que te llame para concretarlo?</h4>
                         <div class="form-group-calc">
-                            <input type="text" id="leadNombre" placeholder="Tu nombre completo" required>
+                            <input type="text" id="leadNombre" placeholder="Tu nombre" required>
                         </div>
                         <div class="form-group-calc">
                             <input type="tel" id="leadTelefono" placeholder="Tu teléfono" required>
@@ -298,28 +299,25 @@
                             <i class="fas fa-paper-plane"></i> Solicitar presupuesto sin compromiso
                         </button>
                         <div class="success-msg" id="successMsg">
-                            ✅ ¡Solicitud enviada! Te contactaremos en breve. También puedes llamarnos al <a href="tel:603018190" style="color: #155724;">603 018 190</a>.
+                            ✅ ¡Recibido! Te llamo en menos de 24 horas. Si es urgente, llámame al <a href="tel:603018190" style="color: #155724; font-weight:700;">603 018 190</a>.
                         </div>
                     </div>
 
                     <div class="info-text">
-                        <i class="fas fa-info-circle"></i> Cálculo automático orientativo. Te llamamos para concretar el presupuesto final sin compromiso.
+                        <i class="fas fa-info-circle"></i> Cálculo automático orientativo. Te llamo para darte el presupuesto cerrado sin compromiso.
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-   <!-- ============================================================
-     WIDGET RESEÑAS GOOGLE — Multiservicios Sagunto
-     Pegar JUSTO ANTES de <footer class="footer">
-     ============================================================ -->
+    <!-- WIDGET RESEÑAS GOOGLE -->
 <section class="google-reviews-section">
     <div class="container">
         <div class="reviews-header">
             <div class="reviews-title-block">
                 <span class="section-tag">Opiniones reales</span>
-                <h2>Lo que dicen nuestros <span class="highlight">clientes</span></h2>
+                <h2>Lo que dicen mis <span class="highlight">clientes</span></h2>
             </div>
             <div class="reviews-overall">
                 <div class="overall-score" id="overallScore">5.0</div>
@@ -338,7 +336,6 @@
                 </div>
             </div>
         </div>
-
         <div class="reviews-slider-wrapper">
             <div class="reviews-track" id="reviewsTrack">
                 <div class="reviews-loading"><i class="fas fa-spinner fa-spin"></i> Cargando reseñas...</div>
@@ -347,7 +344,6 @@
             <button class="reviews-arrow next" id="reviewsNext"><i class="fas fa-chevron-right"></i></button>
         </div>
         <div class="reviews-dots" id="reviewsDots"></div>
-
         <div class="reviews-powered">
             <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" style="height:18px;vertical-align:middle;margin-right:6px;">
             <span>Reseñas verificadas de Google</span>
@@ -423,22 +419,16 @@
         });
     }
 
-    function startAuto() {
-        stopAuto();
-        timer = setInterval(function(){ goTo(current + 1); }, 6000);
-    }
-
+    function startAuto() { stopAuto(); timer = setInterval(function(){ goTo(current + 1); }, 6000); }
     function stopAuto() { clearInterval(timer); }
 
     function render(reviews, rating, totalCount) {
         document.getElementById('overallScore').textContent = parseFloat(rating).toFixed(1);
         document.getElementById('overallStars').innerHTML = stars(Math.round(rating));
         document.getElementById('overallCount').textContent = totalCount + ' reseñas en Google';
-
         total = reviews.length;
         track.innerHTML = '';
         dotsEl.innerHTML = '';
-
         reviews.forEach(function(r, i) {
             var initials = r.author.split(' ').map(function(w){ return w[0]; }).join('').slice(0,2).toUpperCase();
             var card = document.createElement('div');
@@ -447,38 +437,26 @@
                 '<div class="review-card-inner">' +
                     '<div class="reviewer-info">' +
                         '<div class="reviewer-avatar">' +
-                            (r.photo
-                                ? '<img src="' + r.photo + '" alt="' + r.author + '" onerror="this.parentElement.textContent=\'' + initials + '\'">'
-                                : initials) +
+                            (r.photo ? '<img src="' + r.photo + '" alt="' + r.author + '" onerror="this.parentElement.textContent=\'' + initials + '\'">' : initials) +
                         '</div>' +
-                        '<div>' +
-                            '<div class="reviewer-name">' + r.author + '</div>' +
-                            '<div class="reviewer-date">' + (r.relative || '') + '</div>' +
-                        '</div>' +
+                        '<div><div class="reviewer-name">' + r.author + '</div><div class="reviewer-date">' + (r.relative || '') + '</div></div>' +
                     '</div>' +
                     '<div class="review-stars">' + stars(r.rating) + '</div>' +
                     '<div class="review-text">' + r.text.replace(/\n/g, '<br>') + '</div>' +
-                    '<div class="google-badge">' +
-                        '<img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">' +
-                        '<span>Reseña verificada</span>' +
-                    '</div>' +
+                    '<div class="google-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google"><span>Reseña verificada</span></div>' +
                 '</div>';
             track.appendChild(card);
-
             var dot = document.createElement('button');
             dot.className = 'reviews-dot' + (i === 0 ? ' active' : '');
             dot.setAttribute('aria-label', 'Reseña ' + (i + 1));
             (function(idx){ dot.onclick = function(){ goTo(idx); stopAuto(); startAuto(); }; })(i);
             dotsEl.appendChild(dot);
         });
-
         prevBtn.onclick = function(){ goTo(current - 1); stopAuto(); startAuto(); };
         nextBtn.onclick = function(){ goTo(current + 1); stopAuto(); startAuto(); };
         track.parentElement.onmouseenter = stopAuto;
         track.parentElement.onmouseleave = startAuto;
-
-        goTo(0);
-        startAuto();
+        goTo(0); startAuto();
     }
 
     fetch('/.netlify/functions/google-reviews')
@@ -502,56 +480,47 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <div class="footer-logo"><h3>Multiservicios<br><span>Sagunto</span></h3></div>
-                    <p>Tu multiservicios de confianza en Sagunto y comarca.</p>
+                    <p>Tu profesional de confianza en Sagunto, Puerto y Canet. Mantenimiento, reparaciones y urgencias 24h.</p>
                     <ul style="margin-top:12px">
-                    <li><a href="/blog">📝 Blog y consejos</a></li>
-                    <li><a href="/calculadora">💰 Calculadora de precios</a></li>
-                    <li><a href="/nosotros">👤 Quiénes somos</a></li>
-            </ul>
+                        <li><a href="/blog">📝 Blog y consejos</a></li>
+                        <li><a href="/calculadora">💰 Calculadora de precios</a></li>
+                        <li><a href="/nosotros">👤 Quiénes somos</a></li>
+                    </ul>
                 </div>
                 <div class="footer-column">
-                    <h4>Urgencias 24h</h4>
-            <ul class="footer-servicios-rapidos">
-                <li><a href="/cerrajero-sagunto">Cerrajero en Sagunto</a></li>
-                <li><a href="/fontanero-sagunto">Fontanero en Sagunto</a></li>
-                <li><a href="/electricista-sagunto">Electricista en Sagunto</a></li>
-                <li><a href="/cerrajero-puerto-de-sagunto">Cerrajero Puerto de Sagunto</a></li>
-                <li><a href="/fontanero-puerto-de-sagunto">Fontanero Puerto de Sagunto</a></li>
-                <li><a href="/electricista-puerto-de-sagunto">Electricista Puerto de Sagunto</a></li>
-                <li><a href="/cerrajero-faura">Cerrajero en Faura</a></li>
-                <li><a href="/cerrajero-betera">Cerrajero en Bétera</a></li>
-                <li><a href="/electricista-el-puig">Electricista en El Puig</a></li>
-                <li><a href="/fontanero-rafelbunyol">Fontanero en Rafelbunyol</a></li>
-            </ul>
-        </div>
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="/servicios/fontanero">Fontanería</a></li>
+                        <li><a href="/servicios/electricista">Electricidad</a></li>
+                        <li><a href="/servicios/pintor">Pintura</a></li>
+                        <li><a href="/servicios/limpieza">Limpieza</a></li>
+                        <li><a href="/servicios/mantenimiento">Mantenimiento</a></li>
+                        <li><a href="/servicios/cerrajero">Cerrajería</a></li>
+                    </ul>
+                </div>
                 <div class="footer-column">
-                    <h4>Zona de Cobertura</h4>
+                    <h4>Zona de cobertura</h4>
                     <ul>
                         <li>Sagunto · Puerto de Sagunto</li>
                         <li>Canet d'en Berenguer · Faura · Gilet</li>
-                        <li>Puçol · El Puig · Almenara</li>
-                        <li>Bétera · Rafelbunyol · Nàquera</li>
-                        <li>Moncada · Moncófar · Vall d'Uixó</li>
-                </ul>
-                    <a href="/pueblos" style="background: var(--accent); color: white; padding: 8px 15px; border-radius: 30px; text-decoration: none; display: inline-block; font-size: 13px; margin-top: 15px;">📍 Ver todos los pueblos →</a>
+                        <li>Almenara · Benavites · Quartell</li>
+                        <li>Quart de les Valls · Benifairó · Petrés</li>
+                    </ul>
+                    <a href="/zonas" style="background:var(--accent);color:white;padding:8px 15px;border-radius:30px;text-decoration:none;display:inline-block;font-size:13px;margin-top:15px;">📍 Ver todas las zonas →</a>
                 </div>
                 <div class="footer-column">
                     <h4>Contacto</h4>
                     <ul>
                         <li><a href="tel:603018190"><i class="fas fa-phone-alt"></i> 603 018 190</a></li>
                         <li><a href="mailto:info@multiserviciossagunto.es"><i class="fas fa-envelope"></i> info@multiserviciossagunto.es</a></li>
-                        <li><i class="fas fa-map-marker-alt"></i> Calle Rubau 2, 46512 Faura</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Calle Rubau 2, 46512 Faura (Valencia)</li>
                         <li><i class="fas fa-clock"></i>L-V: 8:00-21:00 | Urgencias 24/7</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Multiservicios Sagunto. Todos los derechos reservados.</p>
-                <p class="legal-links">
-                    <a href="/aviso-legal">Aviso Legal</a> |
-                    <a href="/privacidad">Política de Privacidad</a> |
-                    <a href="/cookies">Política de Cookies</a>
-                </p>
+                <p class="legal-links"><a href="/aviso-legal">Aviso Legal</a> · <a href="https://ideark.es" target="_blank" rel="noopener">ideark.es</a> · <a href="https://vacacionessagunto.es" target="_blank" rel="noopener">vacacionessagunto.es</a> | <a href="/privacidad">Política de Privacidad</a> | <a href="/cookies">Política de Cookies</a></p>
             </div>
         </div>
     </footer>
@@ -582,128 +551,82 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
     <script>
-    // ============================================================
-    // CALCULADORA DE PRESUPUESTOS - Multiservicios Sagunto
-    // ============================================================
-
     emailjs.init('gcidZqK4tE_i-PfBW');
 
-    // Configuración de cada servicio: campos y función de cálculo
     const servicios = {
-        pintura: {
-            campos: [
-                { id: 'metros', label: '📐 Metros cuadrados a pintar', tipo: 'number', placeholder: 'Ej: 80' },
-                { id: 'calidad', label: '🎨 Calidad de pintura', tipo: 'opciones', opciones: ['Estándar', 'Media', 'Alta'] },
-                { id: 'gotele', label: '🔨 ¿Hay gotelé que eliminar?', tipo: 'opciones', opciones: ['No', 'Sí'] }
-            ],
-            calcular: (v) => {
-                const m = parseFloat(v.metros) || 0;
-                if (m === 0) return null;
-                let base = m * (v.calidad === 'Alta' ? 18 : v.calidad === 'Media' ? 15 : 12);
-                if (v.gotele === 'Sí') base += m * 10;
-                return [base * 0.9, base * 1.2];
-            }
-        },
         fontaneria: {
             campos: [
-                { id: 'tipo', label: '🔧 Tipo de avería', tipo: 'opciones', opciones: ['Grifo / cisterna', 'Desatasco', 'Fuga de agua', 'Caldera / termo', 'Tubería empotrada'] },
+                { id: 'tipo', label: '🔧 Tipo de trabajo', tipo: 'opciones', opciones: ['Grifo / cisterna', 'Desatasco', 'Fuga de agua', 'Tubería vista'] },
                 { id: 'urgencia', label: '⏰ ¿Es urgente?', tipo: 'opciones', opciones: ['No, puede esperar', 'Sí, urgente'] }
             ],
             calcular: (v) => {
-                const precios = { 'Grifo / cisterna': [50, 100], 'Desatasco': [60, 120], 'Fuga de agua': [80, 200], 'Caldera / termo': [100, 300], 'Tubería empotrada': [250, 600] };
-                const p = precios[v.tipo] || [60, 150];
+                const precios = { 'Grifo / cisterna': [45, 90], 'Desatasco': [50, 110], 'Fuga de agua': [70, 180], 'Tubería vista': [80, 200] };
+                const p = precios[v.tipo] || [50, 150];
                 const extra = v.urgencia === 'Sí, urgente' ? 1.2 : 1;
                 return [p[0] * extra, p[1] * extra];
             }
         },
         electricidad: {
             campos: [
-                { id: 'tipo', label: '⚡ Tipo de trabajo', tipo: 'opciones', opciones: ['Avería / cuadro', 'Enchufes / interruptores', 'Instalación completa', 'Punto de recarga eléctrico', 'Boletín eléctrico'] },
-                { id: 'metros', label: '📐 Metros de vivienda (si aplica)', tipo: 'number', placeholder: 'Ej: 90' }
+                { id: 'tipo', label: '⚡ Tipo de trabajo', tipo: 'opciones', opciones: ['Avería / cuadro', 'Enchufes / interruptores', 'Cambio de lámpara', 'Instalación punto nuevo'] },
+                { id: 'urgencia', label: '⏰ ¿Es urgente?', tipo: 'opciones', opciones: ['No, puede esperar', 'Sí, urgente'] }
             ],
             calcular: (v) => {
-                const precios = { 'Avería / cuadro': [60, 180], 'Enchufes / interruptores': [40, 100], 'Instalación completa': [600, 1200], 'Punto de recarga eléctrico': [300, 700], 'Boletín eléctrico': [120, 200] };
-                return precios[v.tipo] || [60, 200];
+                const precios = { 'Avería / cuadro': [50, 160], 'Enchufes / interruptores': [35, 90], 'Cambio de lámpara': [25, 60], 'Instalación punto nuevo': [60, 150] };
+                const p = precios[v.tipo] || [40, 150];
+                const extra = v.urgencia === 'Sí, urgente' ? 1.2 : 1;
+                return [p[0] * extra, p[1] * extra];
+            }
+        },
+        pintura: {
+            campos: [
+                { id: 'metros', label: '📐 Metros cuadrados a pintar', tipo: 'number', placeholder: 'Ej: 40' },
+                { id: 'gotele', label: '🔨 ¿Hay gotelé que eliminar?', tipo: 'opciones', opciones: ['No', 'Sí'] }
+            ],
+            calcular: (v) => {
+                const m = parseFloat(v.metros) || 0;
+                if (m === 0) return null;
+                let base = m * 10;
+                if (v.gotele === 'Sí') base += m * 8;
+                return [base * 0.85, base * 1.15];
             }
         },
         limpieza: {
             campos: [
-                { id: 'tipo', label: '🧹 Tipo de limpieza', tipo: 'opciones', opciones: ['Hogar puntual', 'Limpieza periódica', 'Oficina', 'Comunidad / portal', 'Cristales'] },
+                { id: 'tipo', label: '🧹 Tipo de limpieza', tipo: 'opciones', opciones: ['Hogar puntual', 'Limpieza periódica', 'Oficina', 'Final de obra'] },
                 { id: 'metros', label: '📐 Metros cuadrados aproximados', tipo: 'number', placeholder: 'Ej: 80' }
             ],
             calcular: (v) => {
                 const m = parseFloat(v.metros) || 50;
-                const tarifas = { 'Hogar puntual': 1.5, 'Limpieza periódica': 1.2, 'Oficina': 1.8, 'Comunidad / portal': 1.0, 'Cristales': 0.8 };
-                const tarifa = tarifas[v.tipo] || 1.5;
-                return [Math.max(60, m * tarifa * 0.8), Math.max(90, m * tarifa * 1.2)];
-            }
-        },
-        jardineria: {
-            campos: [
-                { id: 'tipo', label: '🌿 Tipo de trabajo', tipo: 'opciones', opciones: ['Corte de césped', 'Poda de arbustos', 'Poda de árboles', 'Mantenimiento mensual'] },
-                { id: 'metros', label: '📐 Metros cuadrados / número de árboles', tipo: 'number', placeholder: 'Ej: 100' }
-            ],
-            calcular: (v) => {
-                const m = parseFloat(v.metros) || 1;
-                if (v.tipo === 'Corte de césped') return [Math.max(30, m * 0.4), Math.max(60, m * 0.7)];
-                if (v.tipo === 'Poda de arbustos') return [25 * m * 0.8, 50 * m];
-                if (v.tipo === 'Poda de árboles') return [50 * m, 200 * m];
-                return [60, 150]; // mensual
-            }
-        },
-        reforma: {
-            campos: [
-                { id: 'tipo', label: '🏗️ Tipo de reforma', tipo: 'opciones', opciones: ['Baño básico', 'Baño completo', 'Cocina básica', 'Cocina completa', 'Cambio bañera por ducha', 'Reforma integral piso'] },
-                { id: 'calidad', label: '✨ Calidad de materiales', tipo: 'opciones', opciones: ['Estándar', 'Media', 'Alta'] }
-            ],
-            calcular: (v) => {
-                const precios = {
-                    'Baño básico': { 'Estándar': [2000, 4000], 'Media': [3000, 5000], 'Alta': [5000, 8000] },
-                    'Baño completo': { 'Estándar': [4000, 7000], 'Media': [6000, 10000], 'Alta': [10000, 16000] },
-                    'Cocina básica': { 'Estándar': [4000, 7000], 'Media': [6000, 10000], 'Alta': [10000, 18000] },
-                    'Cocina completa': { 'Estándar': [8000, 13000], 'Media': [12000, 18000], 'Alta': [18000, 28000] },
-                    'Cambio bañera por ducha': { 'Estándar': [700, 1000], 'Media': [900, 1300], 'Alta': [1200, 1800] },
-                    'Reforma integral piso': { 'Estándar': [25000, 40000], 'Media': [35000, 55000], 'Alta': [50000, 80000] }
-                };
-                return (precios[v.tipo] && precios[v.tipo][v.calidad]) || [2000, 5000];
+                const tarifas = { 'Hogar puntual': 1.2, 'Limpieza periódica': 1.0, 'Oficina': 1.5, 'Final de obra': 1.8 };
+                const tarifa = tarifas[v.tipo] || 1.2;
+                return [Math.max(50, m * tarifa * 0.8), Math.max(80, m * tarifa * 1.2)];
             }
         },
         cerrajeria: {
             campos: [
-                { id: 'tipo', label: '🔑 Tipo de servicio', tipo: 'opciones', opciones: ['Apertura de puerta', 'Cambio de cerradura', 'Cambio de bombín', 'Cerradura de seguridad'] },
+                { id: 'tipo', label: '🔑 Tipo de servicio', tipo: 'opciones', opciones: ['Apertura de puerta', 'Cambio de bombín', 'Cambio de cerradura', 'Cerradura de seguridad'] },
                 { id: 'urgencia', label: '⏰ ¿Es urgente?', tipo: 'opciones', opciones: ['No, puede esperar', 'Sí, urgente'] }
             ],
             calcular: (v) => {
-                const precios = { 'Apertura de puerta': [80, 150], 'Cambio de cerradura': [100, 200], 'Cambio de bombín': [60, 120], 'Cerradura de seguridad': [150, 350] };
-                const p = precios[v.tipo] || [80, 150];
-                const extra = v.urgencia === 'Sí, urgente' ? 1.3 : 1;
+                const precios = { 'Apertura de puerta': [70, 140], 'Cambio de bombín': [55, 110], 'Cambio de cerradura': [90, 180], 'Cerradura de seguridad': [140, 300] };
+                const p = precios[v.tipo] || [70, 150];
+                const extra = v.urgencia === 'Sí, urgente' ? 1.25 : 1;
                 return [p[0] * extra, p[1] * extra];
             }
         },
-        web: {
+        mantenimiento: {
             campos: [
-                { id: 'tipo', label: '💻 Tipo de web', tipo: 'opciones', opciones: ['Web corporativa', 'Landing page', 'Tienda online', 'Web con reservas', 'App móvil'] },
-                { id: 'extras', label: '➕ ¿Con SEO incluido?', tipo: 'opciones', opciones: ['No', 'Sí'] }
+                { id: 'tipo', label: '🔨 Tipo de trabajo', tipo: 'opciones', opciones: ['Montaje de muebles', 'Reparar persiana', 'Pequeña albañilería', 'Varios (manitas)'] },
+                { id: 'horas', label: '⏱️ Horas estimadas', tipo: 'opciones', opciones: ['1 hora', '2-3 horas', 'Media jornada (4h)', 'Jornada completa (8h)'] }
             ],
             calcular: (v) => {
-                const precios = { 'Web corporativa': [500, 1200], 'Landing page': [300, 600], 'Tienda online': [800, 2500], 'Web con reservas': [900, 2000], 'App móvil': [2000, 8000] };
-                const p = precios[v.tipo] || [500, 1500];
-                const extra = v.extras === 'Sí' ? 300 : 0;
-                return [p[0] + extra, p[1] + extra];
-            }
-        },
-        ia: {
-            campos: [
-                { id: 'tipo', label: '🤖 Tipo de automatización', tipo: 'opciones', opciones: ['Chatbot web básico', 'Chatbot avanzado con IA', 'Chatbot WhatsApp', 'Asistente virtual', 'Automatización de procesos'] },
-            ],
-            calcular: (v) => {
-                const precios = { 'Chatbot web básico': [300, 600], 'Chatbot avanzado con IA': [600, 1500], 'Chatbot WhatsApp': [400, 900], 'Asistente virtual': [500, 2000], 'Automatización de procesos': [1000, 3000] };
-                return precios[v.tipo] || [300, 1000];
+                const tarifas = { '1 hora': [35, 50], '2-3 horas': [70, 130], 'Media jornada (4h)': [120, 180], 'Jornada completa (8h)': [200, 320] };
+                return tarifas[v.horas] || [40, 100];
             }
         }
     };
 
-    // Estado actual
     let valoresActuales = {};
 
     function actualizarCampos() {
@@ -718,7 +641,6 @@
         config.campos.forEach(campo => {
             const div = document.createElement('div');
             div.className = 'form-group-calc';
-
             const label = document.createElement('label');
             label.textContent = campo.label;
             div.appendChild(label);
@@ -752,10 +674,8 @@
                 });
                 div.appendChild(grid);
             }
-
             contenedor.appendChild(div);
         });
-
         recalcular();
     }
 
@@ -764,17 +684,13 @@
         const config = servicios[servicio];
         const display = document.getElementById('precioDisplay');
         const precio = document.getElementById('precioEstimado');
-
         if (!config) return;
-
         const resultado = config.calcular(valoresActuales);
-
         if (!resultado) {
             precio.textContent = 'Introduce los datos →';
             display.classList.remove('has-price');
             return;
         }
-
         const min = Math.round(resultado[0] / 10) * 10;
         const max = Math.round(resultado[1] / 10) * 10;
         precio.innerHTML = `${min.toLocaleString('es-ES')} – ${max.toLocaleString('es-ES')} €`;
@@ -814,11 +730,10 @@
         }).catch(() => {
             btn.disabled = false;
             btn.textContent = 'Solicitar presupuesto sin compromiso';
-            alert('Error al enviar. Llámanos al 603 018 190.');
+            alert('Error al enviar. Llámame al 603 018 190.');
         });
     }
 
-    // Inicializar al cargar
     actualizarCampos();
     </script>
 
