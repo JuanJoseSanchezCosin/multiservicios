@@ -114,6 +114,7 @@
     </style>
     
 </head>
+
 <body>
 
 <div class="top-bar"><div class="container"><div class="top-bar-content">
@@ -292,7 +293,6 @@
         </div>
         <div class="about-us-badge"><i class="fas fa-award"></i><div><strong>Compromiso con la calidad</strong><span>Todos mis trabajos tienen garantía y están respaldados por un seguro de responsabilidad civil.</span></div></div>
     </div>
-    <div class="about-us-image"><div class="about-image-placeholder"><i class="fas fa-hard-hat"></i><p>Tu satisfacción es mi mejor tarjeta de presentación</p></div></div>
 </div></div></section>
 
 <section class="coverage"><div class="container">
@@ -529,6 +529,7 @@
     fetch('/.netlify/functions/google-reviews').then(function(r){return r.json();}).then(function(data){if(data.reviews&&data.reviews.length){render(data.reviews,data.rating||5,data.total||data.reviews.length);}else{track.innerHTML='<div class="reviews-loading">No hay reseñas disponibles.</div>';}}).catch(function(){track.innerHTML='<div class="reviews-loading">No se pudieron cargar las reseñas.</div>';});
 })();
 </script>
+
 
 <footer class="footer"><div class="container">
     <div class="footer-content">

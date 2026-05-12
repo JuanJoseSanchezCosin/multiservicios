@@ -1,4 +1,73 @@
+# ============================================
+# ROBOTS.TXT - Multiservicios Sagunto
+# Optimizado para buscadores + IA (LLMs)
+# ============================================
+
+# --- RASTREADORES DE IA (permitir indexar todo) ---
+User-agent: GPTBot
+Allow: /
+Disallow: /gracias
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /gracias
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /gracias
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /gracias
+
+User-agent: Claude-User
+Allow: /
+Disallow: /gracias
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /gracias
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /gracias
+
+User-agent: Applebot
+Allow: /
+Disallow: /gracias
+
+User-agent: Amazonbot
+Allow: /
+Disallow: /gracias
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /gracias
+
+User-agent: CCBot
+Allow: /
+Disallow: /gracias
+
+User-agent: Meta-ExternalAgent
+Allow: /
+Disallow: /gracias
+
+# --- GOOGLEBOT (rastreador principal) ---
+User-agent: Googlebot
+Allow: /
+Disallow: /gracias
+
+Sitemap: https://multiserviciossagunto.es/sitemap.xml
+
+# --- TODOS LOS DEMÁS RASTREADORES ---
 User-agent: *
 Allow: /
+Disallow: /gracias
+Disallow: /netlify/
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.vscode/
+Disallow: /js/
+Disallow: /css/
 
 Sitemap: https://multiserviciossagunto.es/sitemap.xml

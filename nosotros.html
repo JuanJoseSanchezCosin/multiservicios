@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre nosotros | Equipo profesional en Sagunto | Multiservicios 24h</title>
-    <meta name="description" content="Conoce al equipo de Multiservicios Sagunto. Más de 10 años de experiencia en mantenimiento, reparaciones y servicios integrales en Sagunto y comarca.">
+    <title>Sobre mí | Profesional de confianza en Sagunto | Multiservicios Sagunto</title>
+    <meta name="description" content="Soy profesional de mantenimiento y reparaciones en Sagunto, Puerto y Canet. Más de 10 años de experiencia en fontanería, electricidad, pintura, limpieza, cerrajería y pequeñas reformas.">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Multiservicios Sagunto">
     <link rel="canonical" href="https://multiserviciossagunto.es/nosotros">
@@ -18,8 +18,8 @@
     <meta name="theme-color" content="#1e3a5f">
 
     <!-- OPEN GRAPH -->
-    <meta property="og:title" content="Sobre nosotros | Multiservicios Sagunto">
-    <meta property="og:description" content="Conoce al equipo de Multiservicios Sagunto. Más de 10 años de experiencia en mantenimiento, reparaciones y servicios integrales en Sagunto y comarca.">
+    <meta property="og:title" content="Sobre mí | Multiservicios Sagunto">
+    <meta property="og:description" content="Profesional de mantenimiento y reparaciones en Sagunto y comarca. Más de 10 años de experiencia. Presupuesto cerrado, sin sorpresas.">
     <meta property="og:image" content="https://multiserviciossagunto.es/img/logo_multiservicios_sagunto.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -32,13 +32,14 @@
     {
       "@context": "https://schema.org",
       "@type": "AboutPage",
-      "name": "Sobre nosotros — Multiservicios Sagunto",
-      "description": "Conoce al equipo de Multiservicios Sagunto. Más de 10 años de experiencia en Sagunto y comarca.",
+      "name": "Sobre mí — Multiservicios Sagunto",
+      "description": "Profesional de mantenimiento y reparaciones en Sagunto, Puerto de Sagunto, Canet d'en Berenguer y Faura. Más de 10 años de experiencia.",
       "provider": {
-        "@type": "LocalBusiness",
+        "@type": "HomeAndConstructionBusiness",
         "name": "Multiservicios Sagunto",
         "url": "https://multiserviciossagunto.es",
-        "telephone": "+34603018190"
+        "telephone": "+34603018190",
+        "areaServed": ["Sagunto","Puerto de Sagunto","Canet d'en Berenguer","Faura","Gilet","Almenara","Benavites","Quartell","Quart de les Valls","Benifairó de les Valls","Petrés"]
       }
     }
     </script>
@@ -48,6 +49,15 @@
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .footer ul {
+        list-style: none !important;
+        padding-left: 0 !important;
+        }
+        .footer li {
+        list-style: none !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -90,11 +100,10 @@
                     <ul>
                         <li><a href="/">Inicio</a></li>
                         <li><a href="/servicios">Servicios</a></li>
-                        <li><a href="/pueblos">Pueblos</a></li>
-                        
+                        <li><a href="/zonas">Zonas</a></li>
                         <li><a href="/nosotros" class="active">Nosotros</a></li>
                         <li><a href="/blog">Blog</a></li>
-<li><a href="/calculadora">💰 Presupuestos</a></li>
+                        <li><a href="/calculadora">💰 Presupuestos</a></li>
                         <li><a href="/contacto">Contacto</a></li>
                     </ul>
                 </nav>
@@ -128,86 +137,60 @@
 
     <!-- ===== NOSOTROS.HTML ===== -->
 
-<section class="page-hero-slider" id="phs-servicios">
+<section class="page-hero-slider" id="phs-nosotros">
     <div class="phs-slide active" style="background-image:url('img/hero-cerrajero.jpeg')"></div>
     <div class="phs-slide" style="background-image:url('img/hero-fontanero.jpeg')"></div>
     <div class="phs-slide" style="background-image:url('img/hero-electricista.jpeg')"></div>
     <div class="phs-slide" style="background-image:url('img/hero-pintor.jpeg')"></div>
     <div class="phs-slide" style="background-image:url('img/hero-albanil.jpeg')"></div>
     <div class="phs-content"><div class="container">
-        <h1>Quiénes somos — Multiservicios Sagunto</h1>
-        <p>Profesionales de la comarca con más de 10 años de experiencia a tu servicio</p>
-        <a href="/contacto" class="btn-primary">Contactar <i class="fas fa-arrow-right"></i></a>
+        <h1>Tu profesional de confianza en Sagunto y comarca</h1>
+        <p>Más de 10 años de experiencia en mantenimiento, reparaciones y servicios para hogares, comunidades y empresas</p>
+        <a href="/contacto" class="btn-primary">Solicitar presupuesto <i class="fas fa-arrow-right"></i></a>
     </div></div>
     <div class="phs-dots">
         <button class="phs-dot active" onclick="phsGo('nosotros',0)"></button>
         <button class="phs-dot" onclick="phsGo('nosotros',1)"></button>
         <button class="phs-dot" onclick="phsGo('nosotros',2)"></button>
+        <button class="phs-dot" onclick="phsGo('nosotros',3)"></button>
+        <button class="phs-dot" onclick="phsGo('nosotros',4)"></button>
     </div>
     <button class="phs-prev" onclick="phsPrev('nosotros')"><i class="fas fa-chevron-left"></i></button>
     <button class="phs-next" onclick="phsNext('nosotros')"><i class="fas fa-chevron-right"></i></button>
 </section>
 
-    <!-- SOBRE NOSOTROS -->
+    <!-- SOBRE MÍ -->
     <section class="about-main">
         <div class="container">
             <div class="about-main-content">
                 <div class="about-main-text">
-                    <span class="section-tag">Quiénes somos</span>
-                    <h2>Tu vecino de confianza, con la <span class="highlight">garantía de un profesional</span></h2>
-                    <p>En <strong>Multiservicios Sagunto</strong> no somos una gran empresa anónima. Somos un equipo de profesionales de la comarca que entendemos las necesidades reales de nuestros vecinos, comunidades y empresas.</p>
-                    <p>Llevamos más de una década trabajando en mantenimiento de edificios públicos, comunidades de vecinos y empresas de la zona. Conocemos cada calle, cada tipo de avería y, sobre todo, sabemos lo que significa la palabra <strong>"urgencia"</strong>.</p>
-                    <p>No te vamos a vender lo que no necesitas. Te damos un presupuesto cerrado, sin sorpresas, y si algo no sale como esperamos, lo repetimos sin coste.</p>
+                    <span class="section-tag">Quién soy</span>
+                    <h2>Tu vecino, con la <span class="highlight">garantía de un profesional</span></h2>
+                    <p>En <strong>Multiservicios Sagunto</strong> no soy una gran empresa anónima. Soy un profesional de la comarca que entiende las necesidades reales de sus vecinos, comunidades y pequeños negocios.</p>
+                    <p>Llevo más de una década trabajando en mantenimiento de edificios públicos, comunidades de vecinos y empresas de la zona. Conozco cada calle, cada tipo de avería y, sobre todo, sé lo que significa la palabra <strong>"urgencia"</strong>.</p>
+                    <p>No te voy a vender lo que no necesitas. Te doy un presupuesto cerrado, sin sorpresas, y si algo no sale como esperas, lo repito sin coste.</p>
                     <div class="about-stats">
                         <div class="stat"><span class="number">+10</span><span class="label">años de experiencia</span></div>
-                        <div class="stat"><span class="number">+30</span><span class="label">servicios profesionales</span></div>
-                        <div class="stat"><span class="number">24/7</span><span class="label">respuesta en urgencias</span></div>
+                        <div class="stat"><span class="number">6</span><span class="label">servicios especializados</span></div>
+                        <div class="stat"><span class="number">11</span><span class="label">pueblos de cobertura</span></div>
                     </div>
                 </div>
 
                 <!-- SLIDER DE TRABAJOS -->
                 <div style="position:relative;width:100%;max-width:1000px;margin:0 auto;overflow:hidden;border-radius:20px;">
                     <div style="display:flex;transition:transform 0.5s ease;" id="slides">
-                        <img src="img/trabajo0.jpeg" alt="Trabajos realizados" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo1.jpeg" alt="Piscina sin pintar" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo2.jpeg" alt="Piscina pintada" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo3.jpeg" alt="Pintura de piso" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo4.jpeg" alt="Pintura de piso" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo5.jpeg" alt="Pintura de piso" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo6.jpeg" alt="Pintura de piso" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo7.jpeg" alt="Pintura de piso" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo8.jpeg" alt="Pintura de piso" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo9.jpeg" alt="Cambio parquet" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo10.jpeg" alt="Cambio parquet" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo11.jpeg" alt="Cambio parquet" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo12.jpeg" alt="Piscina chapado viejo" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo13.jpeg" alt="Piscina poniendo gresite" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo14.jpeg" alt="Piscina gresite puesto" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo15.jpeg" alt="Piscina gresite terminada" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo16.jpeg" alt="Terraza antes" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo17.jpeg" alt="Terraza antes" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo18.jpeg" alt="Terraza a medias" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo19.jpeg" alt="Terraza a medias" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo20.jpeg" alt="Terraza terminada" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo21.jpeg" alt="Terraza terminada" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo22.jpeg" alt="Terraza terminada" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo23.jpeg" alt="Plato ducha antes" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo24.jpeg" alt="Plato ducha nuevo" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo25.jpeg" alt="Salón antes" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo26.jpeg" alt="Salón antes" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo27.jpeg" alt="Salón antes" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo28.jpeg" alt="Salón nuevo" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo29.jpeg" alt="Salón nuevo" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo30.jpeg" alt="Salón nuevo" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo31.jpeg" alt="Desbroce huerto" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo32.jpeg" alt="Desbroce huerto" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo33.jpeg" alt="Desbroce huerto" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo34.jpeg" alt="Desbroce huerto" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo35.jpeg" alt="Desbroce huerto" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo36.jpeg" alt="Aire acondicionado" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo37.jpeg" alt="Aire acondicionado" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo38.jpeg" alt="Osmosis" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
-                        <img src="img/trabajo39.jpeg" alt="Osmosis" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;">
+                        <img src="img/trabajo0.jpeg" alt="Trabajos realizados" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;" loading="lazy">
+                        <img src="img/trabajo1.jpeg" alt="Piscina sin pintar" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;" loading="lazy">
+                        <img src="img/trabajo2.jpeg" alt="Piscina pintada" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;" loading="lazy">
+                        <img src="img/trabajo3.jpeg" alt="Pintura de piso" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;" loading="lazy">
+                        <img src="img/trabajo4.jpeg" alt="Pintura de piso" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;" loading="lazy">
+                        <img src="img/trabajo5.jpeg" alt="Pintura de piso" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;" loading="lazy">
+                        <img src="img/trabajo6.jpeg" alt="Pintura de piso" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;" loading="lazy">
+                        <img src="img/trabajo7.jpeg" alt="Pintura de piso" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;" loading="lazy">
+                        <img src="img/trabajo8.jpeg" alt="Pintura de piso" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;" loading="lazy">
+                        <img src="img/trabajo9.jpeg" alt="Cambio parquet" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;" loading="lazy">
+                        <img src="img/trabajo10.jpeg" alt="Cambio parquet" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;" loading="lazy">
+                        <img src="img/trabajo11.jpeg" alt="Cambio parquet" style="width:100%;flex-shrink:0;height:500px;object-fit:cover;" loading="lazy">
                     </div>
                     <button style="position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.6);color:white;border:none;width:45px;height:45px;font-size:22px;cursor:pointer;border-radius:50%;left:15px;z-index:10;" id="prevBtn">❮</button>
                     <button style="position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.6);color:white;border:none;width:45px;height:45px;font-size:22px;cursor:pointer;border-radius:50%;right:15px;z-index:10;" id="nextBtn">❯</button>
@@ -220,15 +203,15 @@
     <section class="values">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Nuestros valores</span>
-                <h2>Por qué <span class="highlight">confiar</span> en nosotros</h2>
-                <p>No solo hacemos reparaciones. Construimos relaciones de confianza.</p>
+                <span class="section-tag">Mis valores</span>
+                <h2>Por qué <span class="highlight">confiar</span> en mí</h2>
+                <p>No solo hago reparaciones. Construyo relaciones de confianza con cada cliente.</p>
             </div>
             <div class="values-grid">
-                <div class="value-card"><i class="fas fa-clock"></i><h3>Respuesta rápida</h3><p>Llegamos en menos de 2 horas para urgencias.</p></div>
-                <div class="value-card"><i class="fas fa-hand-holding-usd"></i><h3>Presupuesto sin sorpresas</h3><p>Te damos el precio antes de empezar.</p></div>
-                <div class="value-card"><i class="fas fa-id-card"></i><h3>Profesionales cualificados</h3><p>Formados y certificados. Con seguro de responsabilidad civil.</p></div>
-                <div class="value-card"><i class="fas fa-handshake"></i><h3>Compromiso local</h3><p>Vivimos y trabajamos en Sagunto.</p></div>
+                <div class="value-card"><i class="fas fa-clock"></i><h3>Respuesta rápida</h3><p>Llego en menos de 2 horas para urgencias en Sagunto, Puerto y Canet.</p></div>
+                <div class="value-card"><i class="fas fa-hand-holding-usd"></i><h3>Presupuesto cerrado</h3><p>Te doy el precio antes de empezar. Sin sorpresas ni letra pequeña.</p></div>
+                <div class="value-card"><i class="fas fa-id-card"></i><h3>Profesional cualificado</h3><p>Formado y con más de 10 años de experiencia. Con seguro de responsabilidad civil.</p></div>
+                <div class="value-card"><i class="fas fa-handshake"></i><h3>Compromiso local</h3><p>Vivo y trabajo en la comarca. Mi reputación es lo más importante.</p></div>
             </div>
         </div>
     </section>
@@ -238,7 +221,7 @@
         <div class="container">
             <div class="commitment-card">
                 <i class="fas fa-quote-left"></i>
-                <p>No damos un servicio si no estamos seguros de que lo vamos a hacer bien. Tu confianza es lo único que no podemos permitirnos perder.</p>
+                <p>No hago un servicio si no estoy seguro de que lo voy a hacer bien. Tu confianza es lo único que no puedo permitirme perder.</p>
                 <span>— Multiservicios Sagunto</span>
             </div>
         </div>
@@ -263,7 +246,7 @@
     <div class="reviews-header">
         <div class="reviews-title-block">
             <span class="section-tag">Opiniones reales</span>
-            <h2>Lo que dicen nuestros <span class="highlight">clientes</span></h2>
+            <h2>Lo que dicen mis <span class="highlight">clientes</span></h2>
         </div>
         <div class="reviews-overall">
             <div class="overall-score" id="overallScore">5.0</div>
@@ -356,11 +339,61 @@
 })();
 </script>
 
+<script>
+(function(){
+    var slides = document.getElementById('slides');
+    var currentSlide = 0;
+    var totalSlides = slides.children.length;
+
+    document.getElementById('prevBtn').onclick = function(){
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        slides.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+    };
+    document.getElementById('nextBtn').onclick = function(){
+        currentSlide = (currentSlide + 1) % totalSlides;
+        slides.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+    };
+})();
+</script>
+
+<script>
+(function(){
+    var sliders = {};
+    function initSlider(id) {
+        var wrap = document.getElementById('phs-' + id);
+        if (!wrap) return;
+        var slides = wrap.querySelectorAll('.phs-slide');
+        var dots   = wrap.querySelectorAll('.phs-dot');
+        var cur    = 0;
+        var timer;
+        function go(idx) {
+            slides[cur].classList.remove('active');
+            dots[cur].classList.remove('active');
+            cur = ((idx % slides.length) + slides.length) % slides.length;
+            slides[cur].classList.add('active');
+            dots[cur].classList.add('active');
+        }
+        function reset() {
+            clearInterval(timer);
+            timer = setInterval(function(){ go(cur + 1); }, 5000);
+        }
+        sliders[id] = { go: go, reset: reset, getCur: function(){ return cur; } };
+        reset();
+    }
+    window.phsGo   = function(id, idx){ sliders[id].go(idx); sliders[id].reset(); };
+    window.phsNext = function(id){ sliders[id].go(sliders[id].getCur() + 1); sliders[id].reset(); };
+    window.phsPrev = function(id){ sliders[id].go(sliders[id].getCur() - 1); sliders[id].reset(); };
+    ['nosotros'].forEach(function(id){
+        initSlider(id);
+    });
+})();
+</script>
+
 <footer class="footer"><div class="container">
     <div class="footer-content">
         <div class="footer-column">
             <div class="footer-logo"><h3>Multiservicios<br><span>Sagunto</span></h3></div>
-            <p>Tu multiservicios de confianza en Sagunto y área metropolitana de Valencia.</p>
+            <p>Tu profesional de confianza en Sagunto, Puerto y Canet. Mantenimiento, reparaciones y urgencias 24h.</p>
             <ul style="margin-top:12px">
                 <li><a href="/blog">📝 Blog y consejos</a></li>
                 <li><a href="/calculadora">💰 Calculadora de precios</a></li>
@@ -368,18 +401,14 @@
             </ul>
         </div>
         <div class="footer-column">
-            <h4>Urgencias 24h</h4>
+            <h4>Servicios</h4>
             <ul class="footer-servicios-rapidos">
-                <li><a href="/cerrajero-sagunto">Cerrajero en Sagunto</a></li>
-                <li><a href="/fontanero-sagunto">Fontanero en Sagunto</a></li>
-                <li><a href="/electricista-sagunto">Electricista en Sagunto</a></li>
-                <li><a href="/cerrajero-puerto-de-sagunto">Cerrajero Puerto de Sagunto</a></li>
-                <li><a href="/fontanero-puerto-de-sagunto">Fontanero Puerto de Sagunto</a></li>
-                <li><a href="/electricista-puerto-de-sagunto">Electricista Puerto de Sagunto</a></li>
-                <li><a href="/cerrajero-faura">Cerrajero en Faura</a></li>
-                <li><a href="/cerrajero-betera">Cerrajero en Bétera</a></li>
-                <li><a href="/electricista-el-puig">Electricista en El Puig</a></li>
-                <li><a href="/fontanero-rafelbunyol">Fontanero en Rafelbunyol</a></li>
+                <li><a href="/servicios/fontanero">Fontanería</a></li>
+                <li><a href="/servicios/electricista">Electricidad</a></li>
+                <li><a href="/servicios/pintor">Pintura</a></li>
+                <li><a href="/servicios/limpieza">Limpieza</a></li>
+                <li><a href="/servicios/mantenimiento">Mantenimiento</a></li>
+                <li><a href="/servicios/cerrajero">Cerrajería</a></li>
             </ul>
         </div>
         <div class="footer-column">
@@ -387,11 +416,10 @@
             <ul>
                 <li>Sagunto · Puerto de Sagunto</li>
                 <li>Canet d'en Berenguer · Faura · Gilet</li>
-                <li>Puçol · El Puig · Almenara</li>
-                <li>Bétera · Rafelbunyol · Nàquera</li>
-                <li>Moncada · Moncófar · Vall d'Uixó</li>
+                <li>Almenara · Benavites · Quartell</li>
+                <li>Quart de les Valls · Benifairó · Petrés</li>
             </ul>
-            <a href="/pueblos" style="background:var(--accent);color:white;padding:8px 15px;border-radius:30px;text-decoration:none;display:inline-block;font-size:13px;margin-top:15px;">📍 Ver todos los pueblos →</a>
+            <a href="/zonas" style="background:var(--accent);color:white;padding:8px 15px;border-radius:30px;text-decoration:none;display:inline-block;font-size:13px;margin-top:15px;">📍 Ver todas las zonas →</a>
         </div>
         <div class="footer-column">
             <h4>Contacto</h4>
@@ -405,7 +433,7 @@
     </div>
     <div class="footer-bottom">
         <p>&copy; 2026 Multiservicios Sagunto. Todos los derechos reservados.</p>
-        <p class="legal-links"><a href="/aviso-legal">Aviso Legal</a> | <a href="/privacidad">Política de Privacidad</a> | <a href="/cookies">Política de Cookies</a></p>
+        <p class="legal-links"><a href="/aviso-legal">Aviso Legal</a> · <a href="https://ideark.es" target="_blank" rel="noopener">ideark.es</a> · <a href="https://vacacionessagunto.es" target="_blank" rel="noopener">vacacionessagunto.es</a> | <a href="/privacidad">Política de Privacidad</a> | <a href="/cookies">Política de Cookies</a></p>
     </div>
 </div></footer>
 
